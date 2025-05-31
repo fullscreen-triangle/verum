@@ -1,0 +1,138 @@
+[package]
+name = "verum-core"
+version = "0.1.0"
+edition = "2021"
+description = "Personal Intelligence-Driven Navigation - Core AI Engine"
+authors = ["Verum Team <team@verum.ai>"]
+license = "MIT"
+repository = "https://github.com/your-org/verum"
+homepage = "https://verum.ai"
+documentation = "https://docs.verum.ai"
+keywords = ["autonomous-driving", "ai", "biometrics", "personal-intelligence"]
+categories = ["science::robotics", "algorithms", "embedded"]
+readme = "README.md"
+
+[lib]
+name = "verum_core"
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "verum-core"
+path = "src/main.rs"
+
+[dependencies]
+# Async runtime and concurrency
+tokio = { version = "1.35", features = ["full"] }
+async-trait = "0.1"
+futures = "0.3"
+crossbeam = "0.8"
+
+# Serialization and data formats
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+toml = "0.8"
+
+# Networking and communication
+tonic = "0.10"
+prost = "0.12"
+reqwest = { version = "0.11", features = ["json", "stream"] }
+socket2 = "0.5"
+
+# Cryptography and security
+ring = "0.17"
+rustls = "0.21"
+webpki = "0.22"
+
+# AI and machine learning
+candle-core = "0.3"
+candle-nn = "0.3"
+candle-transformers = "0.3"
+ort = "1.16"  # ONNX Runtime
+ndarray = "0.15"
+smartcore = "0.3"
+
+# Signal processing and biometrics
+rustfft = "6.1"
+biquad = "0.4"
+spectrum-analyzer = "1.4"
+statistical = "1.0"
+
+# Hardware interfaces and sensors
+serialport = "4.2"
+hidapi = "2.4"
+btleplug = "0.11"
+linux-embedded-hal = "0.4"
+
+# Real-time systems
+real-time = "0.1"
+priority-queue = "1.3"
+spin = "0.9"
+
+# Configuration and environment
+config = "0.13"
+clap = { version = "4.4", features = ["derive"] }
+dotenv = "0.15"
+
+# Logging and observability
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+metrics = "0.22"
+metrics-exporter-prometheus = "0.13"
+
+# Error handling and utilities
+anyhow = "1.0"
+thiserror = "1.0"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Mathematical operations
+nalgebra = "0.32"
+num-traits = "0.2"
+rand = "0.8"
+rand_distr = "0.4"
+
+# Database and storage
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "sqlite", "chrono", "uuid"] }
+rocksdb = "0.21"
+
+# Testing utilities (dev-dependencies)
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.4"
+mockall = "0.12"
+tempfile = "3.8"
+
+[build-dependencies]
+tonic-build = "0.10"
+prost-build = "0.12"
+
+[features]
+default = ["full"]
+full = ["biometrics", "ai", "vehicle", "network"]
+biometrics = []
+ai = []
+vehicle = []
+network = []
+gpu = ["candle-core/cuda"]
+simulation = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 1
+debug = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+lto = true
+
+# Cargo metadata for integration
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"] 
