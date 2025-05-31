@@ -2,7 +2,7 @@
 <p align="center"><em>"Personal Intelligence for Autonomous Navigation"</em></p>
 
 <p align="center">
-  <img src="verum_logo.gif" alt="Verum Logo" width="300"/>
+  <img src="verum_logo.gif" alt="Verum Logo" width="500"/>
 </p>
 
 <div align="center">
