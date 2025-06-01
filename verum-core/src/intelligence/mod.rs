@@ -12,6 +12,7 @@ pub mod adaptation;
 pub mod specialized_agents;
 pub mod agent_orchestration;
 pub mod metacognitive_orchestrator;
+pub mod cross_domain_classification;
 
 use crate::data::{
     BehavioralDataPoint, PersonalIntelligence, LifeDomain, CrossDomainPattern,
@@ -1255,4 +1256,10 @@ impl BiometricValidator {
 pub struct AdaptationEngine;
 impl AdaptationEngine {
     pub fn new() -> Self { Self }
-} 
+}
+
+// Re-export key components
+pub use specialized_agents::*;
+pub use agent_orchestration::*;
+pub use metacognitive_orchestrator::*;
+pub use cross_domain_classification::*; 
