@@ -95,6 +95,9 @@ pub enum VerumError {
     #[error("TOML error: {0}")]
     Toml(#[from] toml::de::Error),
     
+    #[error("TOML serialization error: {0}")]
+    TomlSer(#[from] toml::ser::Error),
+    
     #[error("UUID error: {0}")]
     Uuid(#[from] uuid::Error),
     

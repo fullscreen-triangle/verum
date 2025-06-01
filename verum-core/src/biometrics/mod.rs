@@ -19,6 +19,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::VecDeque;
 use tokio::sync::RwLock;
 use uuid::Uuid;
+use std::sync::Arc;
 
 /// Current biometric state
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -343,9 +344,9 @@ impl BiometricProcessor {
         ProcessorHandle {
             sensors: self.sensors.clone(),
             validator: self.validator.clone(),
-            state_buffer: self.state_buffer.clone(),
-            baseline_state: self.baseline_state.clone(),
-            is_running: self.is_running.clone(),
+            state_buffer: Arc::new(RwLock::new(VecDeque::new())), // Create new buffer for processing
+            baseline_state: Arc::new(RwLock::new(None)),
+            is_running: Arc::new(RwLock::new(false)),
             config: self.config.clone(),
         }
     }
@@ -356,9 +357,9 @@ impl BiometricProcessor {
 struct ProcessorHandle {
     sensors: BiometricSensors,
     validator: BiometricValidator,
-    state_buffer: std::sync::Arc<RwLock<VecDeque<BiometricState>>>,
-    baseline_state: std::sync::Arc<RwLock<Option<BiometricState>>>,
-    is_running: std::sync::Arc<RwLock<bool>>,
+    state_buffer: Arc<RwLock<VecDeque<BiometricState>>>,
+    baseline_state: Arc<RwLock<Option<BiometricState>>>,
+    is_running: Arc<RwLock<bool>>,
     config: BiometricsConfig,
 }
 
