@@ -1,0 +1,93 @@
+// Ruzende Communication Script: Gusheshe ↔ Izinyoka
+// Defines the protocol for resolution requests and metacognitive feedback
+
+protocol gusheshe_izinyoka {
+    version: "1.0"
+    bidirectional: true
+    
+    // Message types from Gusheshe to Izinyoka
+    messages gusheshe -> izinyoka {
+        resolution_request {
+            point: Point,
+            context: ExecutionContext,
+            urgency: UrgencyLevel,
+            timestamp: NanoTimestamp
+        }
+        
+        resolution_outcome {
+            point_id: UUID,
+            action: Action,
+            confidence: Confidence,
+            reasoning: String,
+            processing_time: Duration,
+            evidence: EvidenceSet
+        }
+        
+        uncertainty_escalation {
+            point_id: UUID,
+            conflicting_evidence: Vec<Evidence>,
+            confidence_threshold: f64,
+            requires_metacognition: bool
+        }
+    }
+    
+    // Message types from Izinyoka to Gusheshe
+    messages izinyoka -> gusheshe {
+        context_enhancement {
+            point_id: UUID,
+            additional_context: ContextData,
+            suggested_strategy: ResolutionStrategy,
+            priority_adjustment: f64
+        }
+        
+        pattern_insight {
+            pattern_type: PatternType,
+            historical_outcomes: Vec<OutcomeData>,
+            confidence_adjustment: f64,
+            recommended_action: Option<Action>
+        }
+        
+        metacognitive_override {
+            point_id: UUID,
+            override_action: Action,
+            justification: String,
+            confidence: Confidence,
+            authority_level: AuthorityLevel
+        }
+    }
+    
+    // Coordination patterns
+    patterns {
+        // Standard resolution flow
+        standard_flow {
+            gusheshe.resolution_request -> izinyoka.context_enhancement?
+            -> gusheshe.resolution_outcome
+        }
+        
+        // Uncertainty escalation flow
+        uncertainty_flow {
+            gusheshe.uncertainty_escalation -> izinyoka.pattern_insight
+            -> gusheshe.resolution_outcome
+        }
+        
+        // Emergency override flow
+        emergency_flow {
+            izinyoka.metacognitive_override -> gusheshe.acknowledge
+            -> immediate_action_execution
+        }
+    }
+    
+    // Temporal constraints
+    timing {
+        standard_response: 50ms
+        emergency_response: 10ms
+        uncertainty_timeout: 200ms
+    }
+    
+    // Error handling
+    error_recovery {
+        timeout -> fallback_to_local_resolution
+        communication_failure -> emergency_mode
+        invalid_message -> log_and_continue
+    }
+} 

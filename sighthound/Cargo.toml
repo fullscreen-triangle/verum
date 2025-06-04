@@ -1,0 +1,93 @@
+[package]
+name = "sighthound"
+version = "0.1.0"
+edition = "2021"
+description = "Sighthound - Nanosecond-precision sensor fusion for autonomous driving"
+authors = ["Kundai Sachikonye"]
+license = "MIT"
+repository = "https://github.com/fullscreen-triangle/verum"
+keywords = ["sensor-fusion", "nanosecond-precision", "autonomous-driving", "real-time"]
+categories = ["embedded", "science", "hardware-support"]
+
+[lib]
+name = "sighthound"
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "sighthound-daemon"
+path = "src/bin/daemon.rs"
+
+[dependencies]
+# Async runtime with real-time features
+tokio = { version = "1.35", features = ["full", "rt", "time"] }
+tokio-util = "0.7"
+async-trait = "0.1"
+futures = "0.3"
+
+# High-precision timing
+chrono = { version = "0.4", features = ["serde"] }
+# For nanosecond precision timing
+libc = "0.2"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+
+# Mathematical operations for sensor fusion
+nalgebra = "0.32"
+ndarray = "0.15"
+
+# Signal processing
+rustfft = "6.1"
+apodize = "1.0"
+
+# Hardware interfaces
+serialport = "4.2"
+# For CAN bus communication
+socketcan = "3.1"
+
+# Real-time constraints
+priority-queue = "1.3"
+crossbeam = "0.8"
+parking_lot = "0.12"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Utilities
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# CLI for daemon
+clap = { version = "4.4", features = ["derive"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[features]
+default = ["full"]
+full = ["lidar", "camera", "radar", "imu", "gps"]
+lidar = []
+camera = []
+radar = []
+imu = []
+gps = []
+simulation = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+# Optimize for real-time performance
+opt-level = 3
+
+[[bench]]
+name = "fusion_performance"
+harness = false 

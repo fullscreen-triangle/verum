@@ -1,0 +1,141 @@
+// Ruzende Transformation Script: Combine Harvester AI Model Integration
+// Handles data format conversions between domain-expert LLMs
+
+transformation combine_harvester_integration {
+    version: "1.0"
+    
+    // Domain model mappings
+    domain_models {
+        biomechanics_expert {
+            input_format: BiomechanicsData
+            output_format: MovementPrediction
+            prompt_template: "biomechanics_analysis.prompt"
+        }
+        
+        weather_expert {
+            input_format: WeatherData
+            output_format: DrivingConditions
+            prompt_template: "weather_analysis.prompt"
+        }
+        
+        traffic_expert {
+            input_format: TrafficData
+            output_format: TrafficPrediction
+            prompt_template: "traffic_analysis.prompt"
+        }
+        
+        psychology_expert {
+            input_format: BehavioralData
+            output_format: DriverState
+            prompt_template: "psychology_analysis.prompt"
+        }
+        
+        materials_expert {
+            input_format: MaterialsData
+            output_format: WearPrediction
+            prompt_template: "materials_analysis.prompt"
+        }
+    }
+    
+    // Data transformation patterns
+    transformations {
+        // Sensor data to domain-specific formats
+        sensor_to_biomechanics {
+            input: SensorFusionFrame
+            output: BiomechanicsData
+            transform: {
+                extract_movement_patterns(input.imu, input.camera)
+                -> analyze_posture_dynamics()
+                -> BiomechanicsData {
+                    movement_vectors: movement_patterns,
+                    posture_analysis: posture_dynamics,
+                    fatigue_indicators: extract_fatigue_markers(),
+                    timestamp: input.timestamp
+                }
+            }
+        }
+        
+        sensor_to_weather {
+            input: SensorFusionFrame
+            output: WeatherData
+            transform: {
+                combine(input.camera.visibility, input.radar.precipitation, external_weather_api)
+                -> WeatherData {
+                    visibility: calculate_visibility(),
+                    precipitation: detect_precipitation(),
+                    road_conditions: assess_road_surface(),
+                    timestamp: input.timestamp
+                }
+            }
+        }
+        
+        sensor_to_traffic {
+            input: SensorFusionFrame
+            output: TrafficData
+            transform: {
+                detect_vehicles(input.lidar, input.camera, input.radar)
+                -> analyze_traffic_flow()
+                -> TrafficData {
+                    vehicle_positions: detected_vehicles,
+                    traffic_density: calculate_density(),
+                    flow_patterns: traffic_flow_analysis,
+                    timestamp: input.timestamp
+                }
+            }
+        }
+        
+        // LLM output aggregation
+        expert_consensus {
+            inputs: [MovementPrediction, DrivingConditions, TrafficPrediction, DriverState, WearPrediction]
+            output: ExpertConsensus
+            transform: {
+                weight_predictions_by_confidence()
+                -> resolve_conflicts_using_bayesian_fusion()
+                -> ExpertConsensus {
+                    primary_recommendation: highest_confidence_prediction,
+                    alternative_scenarios: alternative_predictions,
+                    confidence_distribution: confidence_weights,
+                    reasoning_chain: expert_reasoning_paths
+                }
+            }
+        }
+    }
+    
+    // Prompt engineering patterns
+    prompt_engineering {
+        context_injection {
+            pattern: "Given the current driving context: {context}, analyze {domain_data} and provide {expected_output}"
+            variables: {
+                context: "current_driving_situation",
+                domain_data: "domain_specific_input",
+                expected_output: "structured_prediction"
+            }
+        }
+        
+        chain_of_thought {
+            pattern: "Step 1: Analyze {input}. Step 2: Consider {constraints}. Step 3: Predict {outcome}. Step 4: Justify reasoning."
+            enforce_structure: true
+        }
+        
+        uncertainty_quantification {
+            pattern: "Provide confidence level (0-1) for each prediction and explain uncertainty sources."
+            require_confidence: true
+        }
+    }
+    
+    // Quality control
+    validation {
+        output_format_validation: mandatory
+        confidence_threshold: 0.7
+        consistency_check: cross_domain_validation
+        timeout: 500ms
+    }
+    
+    // Error handling
+    error_recovery {
+        llm_timeout -> fallback_to_cached_response
+        invalid_output_format -> retry_with_corrected_prompt
+        low_confidence -> request_additional_context
+        conflicting_predictions -> escalate_to_human_oversight
+    }
+} 
