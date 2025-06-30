@@ -35,6 +35,10 @@ pub mod intelligence;
 pub mod automotive;
 pub mod insurance;
 pub mod utils;
+pub mod oscillation;
+pub mod entropy;
+pub mod bmd;
+pub mod route_reconstruction;
 pub mod verum_system;
 
 // Re-export key types for convenient access
@@ -46,6 +50,8 @@ pub use intelligence::metacognitive_orchestrator::MetacognitiveOrchestrator;
 pub use intelligence::cross_domain_classification::CrossDomainClassificationSystem;
 pub use automotive::{AutomotiveIntelligenceSystem, VehicleHealthReport, ComprehensiveMechanicReport};
 pub use insurance::{InsuranceIntelligenceSystem, ComprehensiveClaimResult, PersonalizedInsuranceQuote};
+pub use oscillation::{OscillationEngine, OscillationSpectrum, OscillationProfile};
+pub use entropy::{EntropyController, EntropyConfig, OptimizedState, ComfortOptimization};
 pub use utils::{Result, VerumError};
 
 /// Current version of the Verum system
