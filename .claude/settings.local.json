@@ -4,7 +4,8 @@
       "Bash(find /c/Users/kunda/Documents/distributed/verum/verum-core/src -type f -name *.rs)",
       "Bash(find /c/Users/kunda/Documents/distributed/verum/verum-core/examples -type f -name *.rs)",
       "Bash(find /c/Users/kunda/Documents/distributed/verum/gusheshe/src -type f -name *.rs)",
-      "Bash(find /c/Users/kunda/Documents/distributed/verum/sighthound/src -type f -name *.rs)"
+      "Bash(find /c/Users/kunda/Documents/distributed/verum/sighthound/src -type f -name *.rs)",
+      "Bash(python -m verum_learn.membrane.validation)"
     ]
   }
 }
