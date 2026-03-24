@@ -1,0 +1,338 @@
+\begin{thebibliography}{56}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Thrun et~al.(2006)Thrun, Montemerlo, Dahlkamp, Stavens, Aron, Diebel,
+  Fong, Gale, Halpenny, Hoffmann, et~al.]{thrun2006stanley}
+Sebastian Thrun, Mike Montemerlo, Hendrik Dahlkamp, David Stavens, Andrei Aron,
+  James Diebel, Philip Fong, John Gale, Morgan Halpenny, Gabriel Hoffmann,
+  et~al.
+\newblock Stanley: The robot that won the {DARPA} grand challenge.
+\newblock \emph{Journal of Field Robotics}, 23\penalty0 (9):\penalty0 661--692,
+  2006.
+
+\bibitem[Schwarting et~al.(2018)Schwarting, Alonso-Mora, and
+  Rus]{schwarting2018planning}
+Wilko Schwarting, Javier Alonso-Mora, and Daniela Rus.
+\newblock Planning and decision-making for autonomous vehicles.
+\newblock \emph{Annual Review of Control, Robotics, and Autonomous Systems},
+  1:\penalty0 187--210, 2018.
+
+\bibitem[Kaplan and Hegarty(2017)]{kaplan2017understanding}
+Elliott~D. Kaplan and Christopher~J. Hegarty.
+\newblock \emph{Understanding {GPS/GNSS}: Principles and Applications}.
+\newblock Artech House, Boston, 3rd edition, 2017.
+
+\bibitem[Bojarski et~al.(2016)Bojarski, Del~Testa, Dworakowski, Firner, Flepp,
+  Goyal, Jackel, Monfort, Muller, Zhang, et~al.]{bojarski2016end}
+Mariusz Bojarski, Davide Del~Testa, Daniel Dworakowski, Bernhard Firner, Beat
+  Flepp, Prasoon Goyal, Lawrence~D. Jackel, Mathew Monfort, Urs Muller, Jiakai
+  Zhang, et~al.
+\newblock End to end learning for self-driving cars.
+\newblock \emph{arXiv preprint arXiv:1604.07316}, 2016.
+
+\bibitem[Urmson et~al.(2008)Urmson, Anhalt, Bagnell, Baker, Bittner, Clark,
+  Dolan, Duggins, Galatali, Geyer, et~al.]{urmson2008autonomous}
+Chris Urmson, Joshua Anhalt, Drew Bagnell, Christopher Baker, Robert Bittner,
+  M.~N. Clark, John Dolan, Dave Duggins, Tugrul Galatali, Chris Geyer, et~al.
+\newblock Autonomous driving in urban environments: {Boss} and the urban
+  challenge.
+\newblock In \emph{Journal of Field Robotics}, volume~25, pages 425--466, 2008.
+
+\bibitem[Lorenz(1963)]{lorenz1963deterministic}
+Edward~N. Lorenz.
+\newblock Deterministic nonperiodic flow.
+\newblock \emph{Journal of the Atmospheric Sciences}, 20\penalty0 (2):\penalty0
+  130--141, 1963.
+
+\bibitem[Helbing(2001)]{helbing2001traffic}
+Dirk Helbing.
+\newblock Traffic and related self-driven many-particle systems.
+\newblock \emph{Reviews of Modern Physics}, 73\penalty0 (4):\penalty0
+  1067--1141, 2001.
+
+\bibitem[Heywood(2018)]{heywood2018internal}
+John~B. Heywood.
+\newblock \emph{Internal Combustion Engine Fundamentals}.
+\newblock McGraw-Hill Education, New York, 2nd edition, 2018.
+
+\bibitem[Carslaw and Beevers(2005)]{carslaw2005characterisation}
+David~C. Carslaw and Sean~D. Beevers.
+\newblock Characterisation of vehicle emissions from ambient measurements.
+\newblock \emph{Atmospheric Environment}, 39\penalty0 (35):\penalty0
+  6496--6512, 2005.
+
+\bibitem[Murlis et~al.(1992)Murlis, Elkinton, and Card{\'e}]{murlis1992odor}
+John Murlis, Joseph~S. Elkinton, and Ring~T. Card{\'e}.
+\newblock Odor plumes and how insects use them.
+\newblock \emph{Annual Review of Entomology}, 37:\penalty0 505--532, 1992.
+
+\bibitem[Vergassola et~al.(2007)Vergassola, Villermaux, and
+  Shraiman]{vergassola2007infotaxis}
+Massimo Vergassola, Emmanuel Villermaux, and Boris~I. Shraiman.
+\newblock ``infotaxis'' as a strategy for searching without gradients.
+\newblock \emph{Nature}, 445:\penalty0 406--409, 2007.
+
+\bibitem[Sachikonye(2026{\natexlab{a}})]{sachikonye2026partition}
+Kundai~Farai Sachikonye.
+\newblock Partition coordinates and the algebra of bounded phase space.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{a}}.
+
+\bibitem[Sachikonye(2026{\natexlab{b}})]{sachikonye2026poincare}
+Kundai~Farai Sachikonye.
+\newblock Poincar{\'e} recurrence and partition structure in bounded dynamical
+  systems.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{b}}.
+
+\bibitem[Sachikonye(2026{\natexlab{c}})]{sachikonye2026single}
+Kundai~Farai Sachikonye.
+\newblock The single-partition theorem: Uniqueness of phase space
+  decomposition.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{c}}.
+
+\bibitem[Bekenstein(1973)]{bekenstein1973black}
+Jacob~D. Bekenstein.
+\newblock Black holes and entropy.
+\newblock \emph{Physical Review D}, 7\penalty0 (8):\penalty0 2333--2346, 1973.
+
+\bibitem[Heisenberg(1927)]{heisenberg1927anschaulichen}
+Werner Heisenberg.
+\newblock {\"U}ber den anschaulichen inhalt der quantentheoretischen kinematik
+  und mechanik.
+\newblock \emph{Zeitschrift f{\"u}r Physik}, 43\penalty0 (3--4):\penalty0
+  172--198, 1927.
+
+\bibitem[Boltzmann(1896)]{boltzmann1896vorlesungen}
+Ludwig Boltzmann.
+\newblock \emph{Vorlesungen {\"u}ber Gastheorie}.
+\newblock J.A. Barth, Leipzig, 1896.
+
+\bibitem[Landau and Lifshitz(1980)]{landau1980statistical}
+Lev~D. Landau and Evgeny~M. Lifshitz.
+\newblock \emph{Statistical Physics, Part 1}, volume~5 of \emph{Course of
+  Theoretical Physics}.
+\newblock Butterworth-Heinemann, Oxford, 3rd edition, 1980.
+
+\bibitem[Poincar{\'e}(1890)]{poincare1890probleme}
+Henri Poincar{\'e}.
+\newblock Sur le probl{\`e}me des trois corps et les {\'e}quations de la
+  dynamique.
+\newblock \emph{Acta Mathematica}, 13:\penalty0 1--270, 1890.
+
+\bibitem[Arnold(1978)]{arnold1978mathematical}
+Vladimir~I. Arnold.
+\newblock \emph{Mathematical Methods of Classical Mechanics}.
+\newblock Springer, New York, 1978.
+
+\bibitem[Katok and Hasselblatt(1995)]{katok1995introduction}
+Anatole Katok and Boris Hasselblatt.
+\newblock \emph{Introduction to the Modern Theory of Dynamical Systems}.
+\newblock Cambridge University Press, Cambridge, 1995.
+
+\bibitem[Sachikonye(2026{\natexlab{d}})]{sachikonye2026counting}
+Kundai~Farai Sachikonye.
+\newblock Counting in bounded phase space: The origin of partition numbers.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{d}}.
+
+\bibitem[Li and Vit{\'a}nyi(2008)]{li2008kolmogorov}
+Ming Li and Paul Vit{\'a}nyi.
+\newblock \emph{An Introduction to {K}olmogorov Complexity and Its
+  Applications}.
+\newblock Springer, New York, 3rd edition, 2008.
+
+\bibitem[Cover and Thomas(2006)]{cover2006elements}
+Thomas~M. Cover and Joy~A. Thomas.
+\newblock \emph{Elements of Information Theory}.
+\newblock John Wiley \& Sons, Hoboken, NJ, 2nd edition, 2006.
+
+\bibitem[Landauer(1961)]{landauer1961irreversibility}
+Rolf Landauer.
+\newblock Irreversibility and heat generation in the computing process.
+\newblock \emph{IBM Journal of Research and Development}, 5\penalty0
+  (3):\penalty0 183--191, 1961.
+
+\bibitem[Bennett(1973)]{bennett1973logical}
+Charles~H. Bennett.
+\newblock Logical reversibility of computation.
+\newblock \emph{IBM Journal of Research and Development}, 17\penalty0
+  (6):\penalty0 525--532, 1973.
+
+\bibitem[Sachikonye(2026{\natexlab{e}})]{sachikonye2026atmospheric}
+Kundai~Farai Sachikonye.
+\newblock Atmospheric s-entropy: Position determination from molecular
+  thermodynamic state.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{e}}.
+
+\bibitem[Sachikonye(2026{\natexlab{f}})]{sachikonye2026gas}
+Kundai~Farai Sachikonye.
+\newblock Gas-phase categorical sensing via phase-locked molecular ensembles.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{f}}.
+
+\bibitem[Sachikonye(2026{\natexlab{g}})]{sachikonye2026equations}
+Kundai~Farai Sachikonye.
+\newblock Equations of state for vehicular trajectory completion in bounded
+  phase space.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{g}}.
+
+\bibitem[Sachikonye(2026{\natexlab{h}})]{sachikonye2026instrument}
+Kundai~Farai Sachikonye.
+\newblock The instrument problem: Categorical observation without physical
+  backaction.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{h}}.
+
+\bibitem[Landau and Lifshitz(1987)]{landau1987fluid}
+Lev~D. Landau and Evgeny~M. Lifshitz.
+\newblock \emph{Fluid Mechanics}, volume~6 of \emph{Course of Theoretical
+  Physics}.
+\newblock Butterworth-Heinemann, Oxford, 2nd edition, 1987.
+
+\bibitem[Batchelor(2000)]{batchelor2000introduction}
+George~Keith Batchelor.
+\newblock \emph{An Introduction to Fluid Dynamics}.
+\newblock Cambridge University Press, Cambridge, cambridge mathematical library
+  edition, 2000.
+
+\bibitem[Chandler(1987)]{chandler1987introduction}
+David Chandler.
+\newblock \emph{Introduction to Modern Statistical Mechanics}.
+\newblock Oxford University Press, New York, 1987.
+
+\bibitem[Sachikonye(2026{\natexlab{i}})]{sachikonye2026transplanckian}
+Kundai~Farai Sachikonye.
+\newblock Trans-{P}lanckian timing resolution via harmonic network
+  phase-locking.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{i}}.
+
+\bibitem[Stokes(1851)]{stokes1851effect}
+George~Gabriel Stokes.
+\newblock On the effect of the internal friction of fluids on the motion of
+  pendulums.
+\newblock \emph{Transactions of the Cambridge Philosophical Society},
+  9:\penalty0 8--106, 1851.
+
+\bibitem[Einstein(1905)]{einstein1905bewegung}
+Albert Einstein.
+\newblock {\"U}ber die von der molekularkinetischen {T}heorie der {W}{\"a}rme
+  geforderte {B}ewegung von in ruhenden {F}l{\"u}ssigkeiten suspendierten
+  {T}eilchen.
+\newblock \emph{Annalen der Physik}, 322\penalty0 (8):\penalty0 549--560, 1905.
+
+\bibitem[Fick(1855)]{fick1855diffusion}
+Adolf Fick.
+\newblock {\"U}ber {D}iffusion.
+\newblock \emph{Annalen der Physik}, 170\penalty0 (1):\penalty0 59--86, 1855.
+
+\bibitem[Taylor(1921)]{taylor1921diffusion}
+Geoffrey~Ingram Taylor.
+\newblock Diffusion by continuous movements.
+\newblock \emph{Proceedings of the London Mathematical Society}, s2-20\penalty0
+  (1):\penalty0 196--212, 1921.
+
+\bibitem[Prandtl(1904)]{prandtl1904grenzschicht}
+Ludwig Prandtl.
+\newblock {\"U}ber {F}l{\"u}ssigkeitsbewegung bei sehr kleiner {R}eibung.
+\newblock \emph{Verhandlungen des III. Internationalen
+  Mathematiker-Kongresses}, pages 484--491, 1904.
+\newblock Heidelberg.
+
+\bibitem[Schlichting and Gersten(2017)]{schlichting2017boundary}
+Hermann Schlichting and Klaus Gersten.
+\newblock \emph{Boundary-Layer Theory}.
+\newblock Springer, Berlin, 9th edition, 2017.
+
+\bibitem[Stull(1988)]{stull1988introduction}
+Roland~B. Stull.
+\newblock \emph{An Introduction to Boundary Layer Meteorology}.
+\newblock Kluwer Academic Publishers, Dordrecht, 1988.
+
+\bibitem[Sachikonye(2026{\natexlab{j}})]{sachikonye2026architecture}
+Kundai~Farai Sachikonye.
+\newblock Architecture of the categorical processing unit.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{j}}.
+
+\bibitem[Walters(1982)]{walters1982introduction}
+Peter Walters.
+\newblock \emph{An Introduction to Ergodic Theory}.
+\newblock Springer, New York, 1982.
+
+\bibitem[Pasquill and Smith(1983)]{pasquill1983atmospheric}
+Frank Pasquill and F.~B. Smith.
+\newblock \emph{Atmospheric Diffusion}.
+\newblock Ellis Horwood, Chichester, 3rd edition, 1983.
+
+\bibitem[Seinfeld and Pandis(2016)]{seinfeld2016atmospheric}
+John~H. Seinfeld and Spyros~N. Pandis.
+\newblock \emph{Atmospheric Chemistry and Physics: From Air Pollution to
+  Climate Change}.
+\newblock John Wiley \& Sons, Hoboken, NJ, 3rd edition, 2016.
+
+\bibitem[Sachikonye(2026{\natexlab{k}})]{sachikonye2026membrane}
+Kundai~Farai Sachikonye.
+\newblock Automobile membrane computing: A biological semiconductor surface
+  architecture for autonomous navigation.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{k}}.
+
+\bibitem[Carpentieri and Kumar(2012)]{carpentieri2012wind}
+M.~Carpentieri and P.~Kumar.
+\newblock Ground-level concentrations of vehicular emissions in street canyons.
+\newblock \emph{Atmospheric Environment}, 56:\penalty0 257--270, 2012.
+
+\bibitem[Gelfand and Fomin(2000)]{gelfand2000calculus}
+Israel~M. Gelfand and Sergei~V. Fomin.
+\newblock \emph{Calculus of Variations}.
+\newblock Dover, Mineola, NY, 2000.
+
+\bibitem[Pontryagin et~al.(1962)Pontryagin, Boltyanskii, Gamkrelidze, and
+  Mishchenko]{pontryagin1962mathematical}
+Lev~S. Pontryagin, Vladimir~G. Boltyanskii, Revaz~V. Gamkrelidze, and Evgeni~F.
+  Mishchenko.
+\newblock \emph{The Mathematical Theory of Optimal Processes}.
+\newblock Interscience Publishers, New York, 1962.
+
+\bibitem[Turner(1994)]{turner1994workbook}
+D.~Bruce Turner.
+\newblock \emph{Workbook of Atmospheric Dispersion Estimates}.
+\newblock Lewis Publishers, Boca Raton, 1994.
+
+\bibitem[Alam et~al.(2015)Alam, Besselink, Turri, M{\aa}rtensson, and
+  Johansson]{alam2015heavy}
+Assad Alam, Bart Besselink, Valerio Turri, Jonas M{\aa}rtensson, and
+  Karl~Henrik Johansson.
+\newblock Heavy-duty vehicle platooning for sustainable freight transportation.
+\newblock \emph{IEEE Intelligent Transportation Systems Magazine}, 7\penalty0
+  (4):\penalty0 68--80, 2015.
+
+\bibitem[Tsugawa et~al.(2016)Tsugawa, Jeschke, and
+  Shladover]{tsugawa2016review}
+Sadayuki Tsugawa, Sabina Jeschke, and Steven~E. Shladover.
+\newblock A review of truck platooning projects for energy savings.
+\newblock \emph{IEEE Transactions on Intelligent Vehicles}, 1\penalty0
+  (1):\penalty0 68--77, 2016.
+
+\bibitem[Bergenhem et~al.(2012)Bergenhem, Shladover, Coelingh, Englund, and
+  Tsugawa]{bergenhem2012overview}
+Carl Bergenhem, Steven Shladover, Erik Coelingh, Christofer Englund, and
+  Sadayuki Tsugawa.
+\newblock Overview of platooning systems.
+\newblock \emph{Proceedings of the 19th ITS World Congress}, 2012.
+\newblock Vienna, Austria.
+
+\bibitem[Sachikonye(2026{\natexlab{l}})]{sachikonye2026trajectory}
+Kundai~Farai Sachikonye.
+\newblock Categorical trajectory completion in bounded phase space.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{l}}.
+
+\bibitem[Sachikonye(2026{\natexlab{m}})]{sachikonye2026backward}
+Kundai~Farai Sachikonye.
+\newblock Backward trajectory completion via partition hierarchy navigation.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{m}}.
+
+\bibitem[Sachikonye(2026{\natexlab{n}})]{sachikonye2026depth}
+Kundai~Farai Sachikonye.
+\newblock Depth perception via categorical distance in s-entropy space.
+\newblock \emph{Technical University of Munich, Preprint}, 2026{\natexlab{n}}.
+
+\end{thebibliography}

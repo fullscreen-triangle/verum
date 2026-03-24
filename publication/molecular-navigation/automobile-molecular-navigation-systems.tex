@@ -7,8 +7,9 @@
 %% Author: Kundai Farai Sachikonye
 %% Technical University of Munich / AIMe Registry for AI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[12pt]{article}
+\documentclass[11pt,twocolumn,a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
@@ -31,6 +32,25 @@
 \usepackage{tabularx}
 \usepackage{caption}
 \usepackage{subcaption}
+
+
+
+% Professional caption formatting
+\captionsetup{
+  font=small,                    % Small font
+  labelfont={bf,small},          % Bold label
+  textfont=it,                   % Italic text (optional)
+  justification=justified,       % Justified text
+  singlelinecheck=true,          % Center if single line
+  margin=10pt,                   % Side margins
+  skip=10pt                      % Space between figure and caption
+}
+
+% Subfigure captions even smaller
+\captionsetup[subfigure]{
+  font=footnotesize,
+  labelfont=bf
+}
 
 %%% Algorithms
 \usepackage{algorithm}
@@ -110,16 +130,12 @@
 %%% Title
 %%% ===================================================================
 
-\title{\textbf{Molecular Navigation Systems for Autonomous Vehicles:\\[0.5em]
-Photon-Independent Perception, Predictive Hazard Detection,\\
-and Collective Intelligence Extraction from\\
-Atmospheric Partition Dynamics}}
+\title{\textbf{On the Thermodynamic Consequences of Membrane Surfaces in Autonomous Vehicles Systems: Molecular Navigation Systems through Atmospheric Partition Dynamics}}
 
 \author{
 Kundai Farai Sachikonye\\[0.3em]
-Technical University of Munich\\
 AIMe Registry for Artificial Intelligence\\[0.3em]
-\texttt{kundai.sachikonye@wzw.tum.de}
+\texttt{kundai.sachikonye@bitspark.com}
 }
 
 \date{March 2026}
@@ -138,8 +154,7 @@ AIMe Registry for Artificial Intelligence\\[0.3em]
 \noindent\textbf{Keywords:} bounded phase space, partition coordinates, $S$-entropy, molecular navigation, photon-independent sensing, exhaust trail, atmospheric computation, predictive hazard detection, convoy formation, V2A2V communication
 \end{abstract}
 
-\tableofcontents
-\newpage
+
 
 %%% ===================================================================
 %%% ===================================================================
@@ -167,7 +182,7 @@ We propose a fundamentally different approach. Rather than asking \emph{what pho
 
 \subsection{The Atmosphere as Information Medium}
 
-Every vehicle modifies the atmosphere through which it moves. Exhaust gases---\ce{CO_2}, \ce{NO_x}, \ce{H_2O}, unburned hydrocarbons---form a chemical trail that persists for hours \cite{heywood2018internal, carslaw2005characterisation}. Thermal wakes propagate via diffusion. Pressure waves travel at the speed of sound. The atmosphere is not empty space through which photons travel; it is a dense, information-rich medium that has already computed the answers to most questions an autonomous vehicle needs to ask.
+Every vehicle modifies the atmosphere through which it moves. Exhaust gases---$CO_2$, $NO_x$, $H_2O$, unburned hydrocarbons---form a chemical trail that persists for hours \cite{heywood2018internal, carslaw2005characterisation}. Thermal wakes propagate via diffusion. Pressure waves travel at the speed of sound. The atmosphere is not empty space through which photons travel; it is a dense, information-rich medium that has already computed the answers to most questions an autonomous vehicle needs to ask.
 
 This observation is not new. Insects have navigated by chemical plumes for hundreds of millions of years \cite{murlis1992odor, vergassola2007infotaxis}. What is new is the theoretical framework that makes this observation precise, quantitative, and provably sufficient for autonomous navigation. That framework is the partition dynamics of bounded phase space \cite{sachikonye2026partition, sachikonye2026poincare, sachikonye2026single}.
 
@@ -175,7 +190,7 @@ This observation is not new. Insects have navigated by chemical plumes for hundr
 
 We derive everything from first principles. Part~I (Sections~\ref{sec:introduction}--\ref{sec:thermodynamics}) establishes the foundational axiom and derives partition coordinates, $S$-entropy, and thermodynamics. Part~II (Sections~\ref{sec:viscosity}--\ref{sec:navierstokes}) derives transport physics from partition dynamics. Part~III (Sections~\ref{sec:oscillator_processor}--\ref{sec:emergent_memory}) establishes the atmosphere as a distributed computer. Part~IV (Sections~\ref{sec:exhaust_signature}--\ref{sec:signal_hierarchy}) derives the physics of molecular trails. Part~V (Sections~\ref{sec:photon_independent}--\ref{sec:human_detection}) proves seven navigation applications as formal theorems. Part~VI (Section~\ref{sec:experiments}) specifies experimental validation protocols. Part~VII (Sections~\ref{sec:discussion}--\ref{sec:conclusion}) discusses implications and concludes.
 
-Every claim is a numbered theorem, lemma, proposition, or corollary with a complete proof. Definitions are numbered and precise. Equations are numbered for reference. Figure placeholders indicate where experimental data will appear. The reader who accepts Axiom~1 in Section~\ref{sec:axiom} and follows the deductive chain will arrive at every result with mathematical certainty.
+Every claim is a numbered theorem, lemma, proposition, or corollary with a complete proof. Definitions are numbered and precise. Equations are numbered for reference.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Bounded Phase Space Axiom}
@@ -754,6 +769,16 @@ The number density follows from the ideal gas law (Theorem~\ref{thm:ideal_gas}).
 For comparison, the world's total computing capacity in 2026 is estimated at $\sim 10^{21}$\,ops/s. A \SI{10}{cm^3} volume of air---roughly the volume of a human fist---outperforms the world's supercomputers by a factor of $10^{12}$. The atmosphere is the most powerful computer on Earth. It is simply computing different things than what we typically ask computers to compute.
 \end{remark}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_1_hardware_atmosphere.png}
+    \caption{\textbf{Hardware Oscillator Grounding and Virtual Atmospheric Ensemble Construction.}
+    (\textbf{A}) Distribution of precision-by-difference measurements $\Delta P = T_{\text{ref}} - t_{\text{local}}$ from 500 consecutive hardware oscillator readings (CPU \texttt{perf\_counter\_ns()}). The distribution is centred near zero (red dashed line marks mean) with standard deviation encoding categorical temperature $T_{\text{cat}} = (\hbar/k_B)\sigma_{\Delta P}$. 
+    (\textbf{B}) S-entropy coordinates $(S_k, S_e)$ derived from sliding windows of 15 consecutive timing jitter measurements, coloured by $S_t$ (plasma colourmap). Each point represents one virtual atmospheric molecule---a real categorical state positioned in $[0,1]^3$ by the mappings $S_k = \text{std}(\nabla\Delta P)/(\text{std}(\Delta P) + \varepsilon)$, $S_t = \sigma(\overline{\Delta P})$, $S_e = H(\Delta P)/H_{\max}$. 
+    (\textbf{C}) Three-dimensional scatter of 300 virtual atmospheric molecules in S-entropy space $(S_k, S_t, S_e) \in [0,1]^3$, colour-coded by molecular species: O$_2$ (teal, 21\%), N$_2$ (blue, 78\%), CO$_2$ (red, 0.4\%), H$_2$O (cyan, 0.6\%). Each molecule derives its S-entropy coordinates from independent hardware oscillator measurements. 
+    (\textbf{D}) Precision-by-difference time series showing 200 consecutive $\Delta P$ measurements. The oscillatory structure with both positive and negative deviations confirms the ternary branching mechanism: $\Delta P > 0$ maps to Branch~0 (temporal lag), $\Delta P \approx 0$ to Branch~1 (synchronised), $\Delta P < 0$ to Branch~2 (temporal advance). }
+    \label{fig:hardware_atmosphere}
+\end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Emergent Memory and Visited States}
@@ -798,15 +823,6 @@ where $N_{\mathrm{total}} \approx 10^{44}$ is the total number of atmospheric mo
 Each molecule's visited state set can encode up to $\log_2 \Nmax$ bits (a binary string indicating which of the $\Nmax$ states have been visited). The total memory is the sum over all molecules. The molecular interactions that modify visited state sets are precisely the collisions and reactions that encode environmental information---including the passage of vehicles.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~1: Atmospheric Computation Architecture}\\[0.5em]
-Schematic showing: (a)~Individual molecule as oscillator-processor with partition depth $\Depth$ and processing rate $\Rcompute = \omega/(2\pi)$. (b)~Mesoscopic volume ($\sim$\SI{10}{cm^3}) showing $\sim 10^{20}$ molecular processors with total rate $\sim 10^{33}$\,ops/s. (c)~Atmospheric boundary layer ($\hBL \sim 0.5$--2\,m) showing partition depth gradient from ground to free atmosphere. (d)~Comparison with electronic computing: atmospheric computation exceeds global digital computing by factor $\sim 10^{12}$.
-\vspace{3cm}}}
-\caption{The atmospheric computation architecture. Each molecule is simultaneously an oscillator and a processor by Theorem~\ref{thm:oscillator_processor}. The atmosphere as a whole executes $\sim 10^{33}$\,ops/s per \SI{10}{cm^3} (Theorem~\ref{thm:atmos_compute}), with persistent memory via visited state accumulation (Theorem~\ref{thm:memory}).}
-\label{fig:atmospheric_computation}
-\end{figure}
 
 
 %%% ===================================================================
@@ -899,17 +915,16 @@ With $C_0 / C_{\mathrm{thresh}} \sim 100$ (exhaust CO$_2$ is $\sim 14\%$ vs.\ ba
 
 \emph{Under calm conditions} ($\Dturb \sim \SI{0.1}{m^2/s}$, stable nocturnal boundary layer \cite{stull1988introduction}), the trail persistence extends to $\sim 30$\,min. The trail-to-background ratio for CO$_2$ remains above 10\% for this duration.
 \end{proof}
-
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~2: Exhaust Trail Evolution}\\[0.5em]
-Time series showing: (a)~$t = 0$: Vehicle passes, depositing exhaust in concentrated ribbon ($\sigma_0 \sim \SI{1}{m}$, $C_0/C_{\mathrm{bg}} \sim 350$). (b)~$t = \SI{10}{s}$: Lateral diffusion begins ($\sigma \sim \SI{4.6}{m}$, $C/C_{\mathrm{bg}} \sim 75$). (c)~$t = \SI{60}{s}$: Broader ribbon ($\sigma \sim \SI{11}{m}$, $C/C_{\mathrm{bg}} \sim 30$). (d)~$t = \SI{300}{s}$: Wide trail still well above background ($\sigma \sim \SI{25}{m}$, $C/C_{\mathrm{bg}} \sim 7$). Cross-sections show Gaussian profiles with partition fingerprint preserved at all times.
-\vspace{3cm}}}
-\caption{Evolution of an exhaust trail concentration profile at four time steps. The partition fingerprint (relative species concentrations) is preserved even as the absolute concentration decreases, because all species diffuse at similar rates in the turbulent atmospheric boundary layer (Theorem~\ref{thm:trail_persistence}).}
-\label{fig:trail_evolution}
-\end{figure}
-
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_sweet_spot.png}
+    \caption{\textbf{Molecular Memory: Optimal Path Extraction from Cumulative Exhaust Trail Distribution After $N = 500$ Virtual Drivers.}
+    (\textbf{A}) Cumulative exhaust trail concentration heatmap $C(x,y)$ on a 100~m road segment after 500 virtual drivers, each following the true optimal path with Gaussian noise ($\sigma = 0.5$~m). The hot colourmap shows concentration peaking sharply along the sinusoidal optimal path. The cyan dashed line marks the true optimal; the green solid line marks the extracted path $P_{\text{opt}}(s) = \arg\max_y C(x(s), y)$. 
+    (\textbf{B}) Path extraction accuracy: extracted optimal path (orange dashed) versus true optimal (blue solid) with the $\pm 1\sigma$ band (light blue shaded). The extracted path tracks the true optimal within the $1\sigma$ envelope everywhere, with RMS error $\approx 0.15$~m against $\sigma_{\text{driver}} = 0.5$~m---the extraction is $3.3\times$ more precise than any individual driver. 
+    (\textbf{C}) Three-dimensional trail concentration surface $C(x,y)$ showing the ridge structure along the optimal path. The sinusoidal modulation of the ridge confirms that the trail faithfully encodes the road's geometric structure. 
+    (\textbf{D}) Hazard gap detection: lateral concentration profile $C(y)$ at a normal road section (teal) versus a section containing a simulated pothole (red). The normal profile shows a smooth Gaussian peak centred on the optimal path. }
+    \label{fig:sweet_spot}
+\end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Information Content of Molecular Trails}
@@ -1000,15 +1015,6 @@ The hierarchy $v_{\mathrm{exhaust}} \ll v_{\mathrm{sound}} \ll c$ follows from $
 The three signal channels have complementary properties. The exhaust channel is slow but persistent (hours) and chemically specific (fingerprint). The acoustic channel is fast but transient (decays as $1/r^2$) and spectrally broad. The electromagnetic channel is fastest but requires photon-based sensors that fail in the conditions where molecular navigation excels. A molecular navigation system uses all three channels, weighted by their reliability in the current environmental conditions.
 \end{remark}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~3: Signal Propagation Hierarchy}\\[0.5em]
-Space-time diagram showing the three signal cones from a vehicle event (e.g., braking): (a)~Electromagnetic cone (slope $c = \SI{3e8}{m/s}$)---reaches 100\,m in \SI{0.3}{\micro s}, blocked by opaque obstacles. (b)~Acoustic cone (slope $v_{\mathrm{sound}} = \SI{343}{m/s}$)---reaches 100\,m in 0.3\,s, diffracts around corners. (c)~Molecular cone (slope $v_{\mathrm{exhaust}} \sim \SI{3}{m/s}$)---reaches 100\,m in $\sim$30\,s, flows around all obstacles, persists for hours. Shaded regions indicate detectable signal above noise threshold.
-\vspace{3cm}}}
-\caption{Signal propagation hierarchy (Theorem~\ref{thm:signal_hierarchy}). The electromagnetic, acoustic, and molecular channels have complementary characteristics: the fastest channel (light) is the most easily blocked; the slowest channel (molecular) is the most persistent and obstacle-penetrating.}
-\label{fig:signal_hierarchy}
-\end{figure}
 
 
 %%% ===================================================================
@@ -1128,6 +1134,17 @@ depending on ambient humidity.
 The sensitivity is highest in dry conditions (low ambient humidity) and lowest in saturated conditions. H$_2$O modifies the dielectric constant of air, the refractive index, and the partition state of neighboring molecules via hydrogen bonding. The detection mechanism parallels Proposition~\ref{prop:molecular_detection}, with the H$_2$O concentration anomaly providing the signal. At $R = \SI{50}{m}$ in dry air (30\% RH), the exhaust plume adds $\sim 2\%$ absolute humidity above background, detectable via the shift in O$_2$ ensemble coherence parameters.
 \end{proof}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_night_navigation.png}
+    \caption{\textbf{Photon-Independent Navigation: Vehicle and Human Detection in Zero-Light Conditions via Atmospheric S-Entropy Perturbation.}
+    (\textbf{A}) Categorical distance $d_{\text{cat}}$ from baseline at the observer position for vehicles injected at distances 10--100~m in a virtual atmosphere with zero photon availability. Green bars indicate successful detection ($d_{\text{cat}}$ exceeding the threshold of 0.015, grey dashed line); all distances up to 100~m produce detectable perturbations.
+    (\textbf{B}) Time evolution of S-entropy coordinates $(S_k, S_t, S_e)$ measured at the observer position as the vehicle's thermal and molecular perturbation diffuses through the virtual atmosphere. $S_k$ (blue, knowledge entropy) shows the strongest response due to exhaust composition changes; $S_t$ (orange, temporal entropy) responds to flow perturbation; $S_e$ (green, evolution entropy) reflects energy redistribution from engine heat. 
+    (\textbf{C}) Three-dimensional scatter of virtual atmospheric molecules in physical space $(x, y)$ with temperature $T$ as the vertical axis, showing the thermal plume from a vehicle at $(60, 20)$~m. The hot colourmap reveals the characteristic conical plume structure: elevated temperature near the vehicle decaying with distance. 
+    (\textbf{D}) Human detection: categorical distance $d_{\text{cat}}$ versus pedestrian distance from observer (2--20~m). The signal derives from three human signatures: exhaled CO$_2$ at 40{,}000~ppm (100$\times$ atmospheric), body heat at +37$\degree$C, and expired water vapour. }
+    \label{fig:night_navigation}
+\end{figure*}
+
 \begin{theorem}[Composite Detection Range]
 \label{thm:detection_range}
 Combining all four channels (thermal, acoustic, molecular, humidity), the composite detection range in zero-light conditions is
@@ -1142,15 +1159,7 @@ This range is comparable to LiDAR in adverse weather (fog reduces LiDAR range to
 Follows from Propositions~\ref{prop:thermal}--\ref{prop:humidity}. The composite range is the maximum of the individual ranges because detection via \emph{any} channel suffices. In practice, the channels provide complementary information: thermal gives range and direction, acoustic gives speed and type, molecular gives identity and history, humidity gives presence confirmation. Multi-channel fusion improves detection probability beyond any single channel.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~4: Photon-Independent Detection Channels}\\[0.5em]
-Four panels showing the detection range and mechanism for each channel: (a)~Thermal: steady-state temperature anomaly field around a vehicle, with isotherms at $\Delta T = 0.01, 0.1, 1$\,K. (b)~Acoustic: pressure field from tire-road interaction, with isobars at 30, 40, 50\,dB SPL. (c)~Molecular: CO$_2$ concentration field from exhaust plume, with isopleths at 100, 500, 1000\,ppm above background. (d)~Humidity: H$_2$O anomaly field. All panels overlay the same urban canyon geometry to show how each channel propagates differently around buildings.
-\vspace{3cm}}}
-\caption{The four photon-independent detection channels (Propositions~\ref{prop:thermal}--\ref{prop:humidity}). Each channel propagates differently through the urban environment: thermal diffuses isotropically, acoustic diffracts around corners, molecular follows wind patterns, humidity tracks moisture transport. Together they provide 50--100\,m range in conditions where photon-based sensors fail (Theorem~\ref{thm:detection_range}).}
-\label{fig:detection_channels}
-\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1214,15 +1223,16 @@ Consider a vehicle at distance $L = \SI{20}{m}$ behind a building corner. Its ex
 \emph{Comparison with visual contact:} The hidden vehicle becomes visually detectable only when it rounds the corner, which occurs at $t_{\mathrm{visual}} > t_{\mathrm{arrival}}$ by definition (the plume arrives before the vehicle). The molecular detection advantage is $t_{\mathrm{visual}} - t_{\mathrm{arrival}} \sim 10$--$20$\,s.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~5: Around-Corner Detection via Exhaust Plume Diffusion}\\[0.5em]
-Plan view of a T-intersection showing: (a)~Hidden vehicle on cross-street emitting exhaust plume. (b)~Plume diffuses around building corner, channeled by street canyon geometry. (c)~Detecting vehicle on main street with membrane sensor. Concentration isopleths at $t = 5, 10, 15, 20$\,s show plume front arrival. CO$_2$ gradient vectors (arrows) indicate source direction. Inset: concentration time series at detector showing species-specific rise above background.
-\vspace{3cm}}}
-\caption{Around-corner detection (Theorem~\ref{thm:around_corner}). The exhaust plume from a hidden vehicle diffuses around obstacles and arrives at the detector 10--20\,s before visual contact. The plume carries the full exhaust fingerprint, enabling vehicle type identification before line-of-sight.}
-\label{fig:around_corner}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_hazard_detection.png}
+    \caption{\textbf{Predictive Hazard Detection: Brake Anticipation and Around-Corner Vehicle Detection via Molecular Signal Propagation.}
+    (\textbf{A}) Brake anticipation timeline showing categorical distance $d_{\text{cat}}$ at the observer (50~m behind lead vehicle) versus time. The orange dashed line marks the throttle-lift event ($t = 300$~ms); the red dashed line marks brake light illumination ($t = 550$~ms). The membrane detects the exhaust composition shift within $\sim$10~ms of throttle lift---240~ms before the brake lights activate. This 240~ms advance warning corresponds to 7.2~m at highway speed (30~m/s), providing the following vehicle with critical additional stopping distance.
+    (\textbf{B}) Exhaust composition shift: S-entropy knowledge coordinate $S_k$ versus time after throttle lift for normal driving (blue, constant) and braking (red, increasing). The divergence between curves represents the molecular signature of deceleration intent. The shaded region quantifies the detectable signal---$\Delta S_k \approx 0.15$ at 250~ms, well above the membrane's detection threshold. 
+    (\textbf{C}) Three-dimensional surface of exhaust plume concentration $C(x,y)$ showing diffusion around a corner obstacle. The source vehicle is at $(65, 40)$~m (behind the wall); the observer is near $(40, 20)$~m. The plume propagates via turbulent diffusion ($D_{\text{turb}} \sim 1.5$~m$^2$/s) aided by wind ($v_{\text{wind}} \sim 1$~m/s), creating a detectable concentration gradient at the observer position 10--20~seconds before the hidden vehicle reaches line-of-sight. 
+    (\textbf{D}) Around-corner detection: categorical distance $d_{\text{cat}}$ at the observer versus simulation time as a hidden vehicle approaches a perpendicular intersection. The signal increases as the vehicle's exhaust plume diffuses around the corner, reaching detectable levels ($d_{\text{cat}} > 0.012$) seconds before the vehicle would become visible. }
+    \label{fig:hazard_detection}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1396,15 +1406,17 @@ Vehicles in a spontaneously formed convoy experience a drag reduction of $20$--$
 The aerodynamic drag on a vehicle following another at distance $d$ in a convoy is reduced by a factor $1 - \eta(d/L_{\mathrm{veh}})$, where $\eta$ is the drafting efficiency and $L_{\mathrm{veh}}$ is the vehicle length. For $d \sim 2 L_{\mathrm{veh}}$ (the typical spacing in a molecular convoy, set by the trail detection lag $\sim \SI{2}{s}$ at highway speed), $\eta \sim 0.2$--$0.4$ based on wind tunnel measurements \cite{alam2015heavy}. Fuel consumption scales approximately as drag force, giving $10$--$20\%$ fuel savings.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~6: Phase Transition to Convoy Formation}\\[0.5em]
-Two panels: (a)~Vehicle density $\rho(x, t)$ in steady state for $\rho < \rhoc$ (gas phase, uniform distribution) and $\rho > \rhoc$ (liquid phase, periodic clustering into convoys). (b)~Phase diagram in $(\rho, \alpha)$ space showing the critical curve $\rhoc(\alpha) = D_\rho \Dturb / (\alpha\beta v\sigma^2)$. Shaded region: convoy formation domain. Star markers indicate predicted operating points for highway traffic at different densities.
-\vspace{3cm}}}
-\caption{Spontaneous convoy formation as a phase transition (Theorem~\ref{thm:convoy}). Above the critical density $\rhoc$, molecular trail following produces spontaneous vehicle clustering without V2V communication (Corollary~\ref{cor:no_v2v}). The convoy state yields 20--40\% drag reduction (Corollary~\ref{cor:aerodynamic}).}
-\label{fig:convoy}
-\end{figure}
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_5_convoy_formation.png}
+    \caption{\textbf{Emergent Convoy Formation: Spontaneous Spacing Convergence via Molecular Trail Following Without Vehicle-to-Vehicle Communication.}
+    (\textbf{A}) Inter-vehicle spacing versus time for four consecutive vehicle pairs in a five-vehicle convoy. Initial spacings range from 25--55~m (random). Over 40~seconds, all pairs converge to the optimal drafting distance of $\sim$18~m (red dashed line), with final standard deviation $< 1$~m. The convergence dynamics follow the coupled partial differential equations $\partial\rho/\partial t = -\nabla\cdot(\rho\mathbf{v}) + D\nabla^2\rho + \alpha\rho\nabla C$ (vehicles attracted to trails) and $\partial C/\partial t = D\nabla^2 C + \beta\rho$ (trails produced by vehicles). 
+    (\textbf{B}) Spacing distribution histogram: initial (blue) versus final (green) after 40~seconds of molecular trail following. The initial distribution spans 25--55~m with high variance ($\sigma \approx 12$~m). The final distribution collapses to a narrow peak at 18--19~m ($\sigma < 1$~m), achieving 92\% variance reduction. 
+    (\textbf{C}) Three-dimensional vehicle trajectories showing position versus time for all five vehicles (colour-coded). The leader (teal) maintains constant speed. Following vehicles (orange, purple, blue, green) converge toward equal spacing as the molecular trail coupling takes effect. 
+    (\textbf{D}) Molecular trail concentration field $C(x)$ along the road after convoy formation. The trail shows reinforced peaks at each vehicle's position (coloured dashed lines), with the cumulative trail between vehicles forming a continuous ``highway'' of elevated concentration.}
+    \label{fig:convoy_formation}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1495,15 +1507,7 @@ The composite detection range is $R_{\mathrm{pedestrian}} = \max(R_{\mathrm{CO}_
 The pedestrian detection range of 5--20\,m in total darkness compares favorably with current forward-looking infrared (FLIR) cameras, which achieve $\sim 50$\,m range but cost \$10k+ and require clear line of sight. The molecular detection works around corners (though at reduced range) by the same mechanism as Theorem~\ref{thm:around_corner}.
 \end{remark}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~7: Pedestrian Detection via Molecular Signature}\\[0.5em]
-Two panels: (a)~CO$_2$ plume from a breathing pedestrian in calm night conditions. Isopleths at $\Delta C = 0.1, 0.5, 1.0$\,ppm show the detection envelope extending to $\sim 10$\,m. (b)~Thermal anomaly field from the same pedestrian, with isotherms at $\Delta T = 0.01, 0.05, 0.1$\,K extending to $\sim 20$\,m. Both panels overlay a typical pedestrian-vehicle encounter geometry at an unlit crosswalk.
-\vspace{3cm}}}
-\caption{Human presence detection via molecular signatures (Theorem~\ref{thm:pedestrian}). CO$_2$ exhalation and thermal emission create detectable plumes in the 5--20\,m range, enabling pedestrian detection in conditions where cameras and LiDAR fail (darkness, fog, rain).}
-\label{fig:pedestrian}
-\end{figure}
+
 
 
 %%% ===================================================================
@@ -1595,15 +1599,7 @@ We specify five experimental protocols that test the core predictions of this th
 \textbf{Budget:} \$20{,}000 (sensors: \$10k; vehicle fleet rental: \$5k; highway rental: \$3k; personnel: \$2k). \textbf{Duration:} 2 weeks.
 \end{protocol}
 
-\begin{figure}[t]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}
-\textbf{FIGURE~8: Experimental Protocol Summary}\\[0.5em]
-Table summarizing five experiments: columns for Name, Key Prediction, Budget, Duration, Primary Measurement, and Falsification Criterion. Visual icons for each experiment type. Timeline showing parallel and sequential execution, with total program duration $\sim 2$ months and total budget $\sim$\$90k.
-\vspace{3cm}}}
-\caption{Summary of five experimental validation protocols (Protocols~\ref{prot:night}--\ref{prot:convoy}). The total experimental program costs $\sim$\$90k and runs $\sim$2 months. Each experiment provides a falsifiable test of a specific theoretical prediction, and negative results would identify which level of the theoretical chain fails.}
-\label{fig:experiments}
-\end{figure}
+
 
 
 %%% ===================================================================

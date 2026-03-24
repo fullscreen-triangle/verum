@@ -48,7 +48,7 @@ function ProblemCard({ title, description }) {
       <h3 className="text-2xl font-bold mb-3 text-red-600 dark:text-red-400 md:text-xl">
         {title}
       </h3>
-      <p className="font-medium text-dark/75 dark:text-light/75">{description}</p>
+      <p className="font-medium text-light/75">{description}</p>
     </motion.div>
   );
 }
@@ -60,10 +60,10 @@ function SolutionCard({ title, description }) {
       className="relative rounded-2xl border-2 border-solid border-gold bg-light p-8 dark:border-gold dark:bg-dark"
     >
       <div className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl bg-gold/20 dark:bg-gold/10" />
-      <h3 className="text-2xl font-bold mb-3 text-primary dark:text-primaryDark md:text-xl">
+      <h3 className="text-2xl font-bold mb-3 text-primaryDark md:text-xl">
         {title}
       </h3>
-      <p className="font-medium text-dark/75 dark:text-light/75">{description}</p>
+      <p className="font-medium text-light/75">{description}</p>
     </motion.div>
   );
 }
@@ -124,10 +124,10 @@ export default function Investment() {
             {...fadeInUp}
             className="w-full flex flex-col items-center justify-center mb-24 md:mb-16"
           >
-            <span className="text-9xl font-bold text-primary dark:text-primaryDark md:text-7xl sm:text-5xl">
+            <span className="text-9xl font-bold text-primaryDark md:text-7xl sm:text-5xl">
               $2.3 Trillion
             </span>
-            <p className="text-2xl font-medium text-dark/75 dark:text-light/75 mt-4 md:text-xl sm:text-lg">
+            <p className="text-2xl font-medium text-light/75 mt-4 md:text-xl sm:text-lg">
               Autonomous vehicle market by 2030
             </p>
           </motion.div>
@@ -181,34 +181,34 @@ export default function Investment() {
             </h2>
             <div className="grid grid-cols-4 gap-8 md:grid-cols-2 sm:grid-cols-1 sm:gap-6">
               <div className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-solid border-dark dark:border-light">
-                <span className="text-6xl font-bold text-primary dark:text-primaryDark md:text-5xl sm:text-4xl">
+                <span className="text-6xl font-bold text-primaryDark md:text-5xl sm:text-4xl">
                   <AnimatedNumberFramerMotion value={30} suffix="+" />
                 </span>
-                <h3 className="text-xl font-medium text-dark/75 dark:text-light/75 mt-4 text-center md:text-lg">
+                <h3 className="text-xl font-medium text-light/75 mt-4 text-center md:text-lg">
                   Papers (IP Portfolio)
                 </h3>
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-solid border-dark dark:border-light">
-                <span className="text-6xl font-bold text-primary dark:text-primaryDark md:text-5xl sm:text-4xl">
+                <span className="text-6xl font-bold text-primaryDark md:text-5xl sm:text-4xl">
                   <AnimatedNumberFramerMotion value={13} />/13
                 </span>
-                <h3 className="text-xl font-medium text-dark/75 dark:text-light/75 mt-4 text-center md:text-lg">
+                <h3 className="text-xl font-medium text-light/75 mt-4 text-center md:text-lg">
                   Validations Passed
                 </h3>
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-solid border-dark dark:border-light">
-                <span className="text-6xl font-bold text-primary dark:text-primaryDark md:text-5xl sm:text-4xl">
+                <span className="text-6xl font-bold text-primaryDark md:text-5xl sm:text-4xl">
                   10<sup>28</sup>
                 </span>
-                <h3 className="text-xl font-medium text-dark/75 dark:text-light/75 mt-4 text-center md:text-lg">
+                <h3 className="text-xl font-medium text-light/75 mt-4 text-center md:text-lg">
                   Ops/s Processing
                 </h3>
               </div>
               <div className="flex flex-col items-center justify-center p-8 rounded-2xl border-2 border-solid border-dark dark:border-light">
-                <span className="text-6xl font-bold text-primary dark:text-primaryDark md:text-5xl sm:text-4xl">
+                <span className="text-6xl font-bold text-primaryDark md:text-5xl sm:text-4xl">
                   <AnimatedNumberFramerMotion value={0} />
                 </span>
-                <h3 className="text-xl font-medium text-dark/75 dark:text-light/75 mt-4 text-center md:text-lg">
+                <h3 className="text-xl font-medium text-light/75 mt-4 text-center md:text-lg">
                   Free Parameters
                 </h3>
               </div>
@@ -230,7 +230,7 @@ export default function Investment() {
                     <th className="text-left p-4 border-b-2 border-dark dark:border-light font-bold text-lg text-red-600 dark:text-red-400">
                       Conventional AV
                     </th>
-                    <th className="text-left p-4 border-b-2 border-dark dark:border-light font-bold text-lg text-primary dark:text-primaryDark">
+                    <th className="text-left p-4 border-b-2 border-dark dark:border-light font-bold text-lg text-primaryDark">
                       Membrane AV
                     </th>
                   </tr>
@@ -244,10 +244,10 @@ export default function Investment() {
                       <td className="p-4 font-bold border-b border-dark/20 dark:border-light/20">
                         {row.category}
                       </td>
-                      <td className="p-4 font-medium border-b border-dark/20 dark:border-light/20 text-dark/75 dark:text-light/75">
+                      <td className="p-4 font-medium border-b border-dark/20 dark:border-light/20 text-light/75">
                         {row.conventional}
                       </td>
-                      <td className="p-4 font-medium border-b border-dark/20 dark:border-light/20 text-primary dark:text-primaryDark">
+                      <td className="p-4 font-medium border-b border-dark/20 dark:border-light/20 text-primaryDark">
                         {row.membrane}
                       </td>
                     </tr>
@@ -287,12 +287,48 @@ export default function Investment() {
                       {item.status}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-primary dark:text-primaryDark md:text-xl">
+                  <h3 className="text-2xl font-bold mb-3 text-primaryDark md:text-xl">
                     {item.title}
                   </h3>
-                  <p className="font-medium text-dark/75 dark:text-light/75">
+                  <p className="font-medium text-light/75">
                     {item.description}
                   </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Molecular Navigation */}
+          <motion.div {...fadeInUp} className="w-full mb-16">
+            <h2 className="font-bold text-6xl mb-4 w-full text-center md:text-4xl xs:text-3xl text-light">
+              Molecular Navigation
+            </h2>
+            <p className="text-lg text-light/70 text-center mb-8 max-w-3xl mx-auto">
+              The atmosphere remembers. Exhaust trails persist for hours, encoding optimal paths
+              discovered by millions of drivers. The membrane reads this molecular memory directly.
+            </p>
+            <div className="grid grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1">
+              {[
+                { title: "Night Vision", stat: "100m", desc: "Detection range in total darkness" },
+                { title: "Brake Warning", stat: "240ms", desc: "Advance warning before brake lights" },
+                { title: "Around Corner", stat: "10-20s", desc: "Hidden vehicle detection via exhaust diffusion" },
+                { title: "Optimal Path", stat: "0.15m", desc: "RMS error extracting path from 500 drivers" },
+                { title: "Convoy", stat: "92%", desc: "Variance reduction in spacing (no V2V)" },
+                { title: "Hazard Gaps", stat: "100%", desc: "Pothole detection from trail absence" },
+                { title: "V2A2V", stat: "\u221E", desc: "Vehicle-to-Atmosphere-to-Vehicle bandwidth" },
+                { title: "5/5", stat: "\u2713", desc: "All navigation experiments validated" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="p-4 border border-light/10 rounded-xl text-center"
+                >
+                  <div className="text-2xl font-bold text-primaryDark">{item.stat}</div>
+                  <div className="text-sm font-bold text-gold mt-1">{item.title}</div>
+                  <div className="text-xs text-light/50 mt-1">{item.desc}</div>
                 </motion.div>
               ))}
             </div>
@@ -306,13 +342,13 @@ export default function Investment() {
             <h2 className="font-bold text-6xl mb-8 w-full text-center md:text-4xl xs:text-3xl">
               Join the Revolution
             </h2>
-            <p className="text-xl font-medium text-dark/75 dark:text-light/75 mb-8 text-center max-w-2xl md:text-lg">
+            <p className="text-xl font-medium text-light/75 mb-8 text-center max-w-2xl md:text-lg">
               We are seeking strategic partners and investors who understand that the future of
               autonomous driving is not better prediction -- it is no prediction at all.
             </p>
             <Link
               href="mailto:kundai.sachikonye@wzw.tum.de"
-              className="flex items-center rounded-lg border-2 border-solid bg-dark p-6 px-12 text-lg font-semibold capitalize text-light hover:border-dark hover:bg-transparent hover:text-dark dark:bg-light dark:text-dark dark:hover:border-light dark:hover:bg-dark dark:hover:text-light md:p-4 md:px-8 md:text-base transition-all duration-300"
+              className="flex items-center rounded-lg border-2 border-gold bg-gold/10 p-6 px-12 text-lg font-semibold capitalize text-gold hover:bg-gold hover:text-dark md:p-4 md:px-8 md:text-base transition-all duration-300"
             >
               Get in Touch
             </Link>

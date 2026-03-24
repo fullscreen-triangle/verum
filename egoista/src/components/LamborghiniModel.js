@@ -7,7 +7,7 @@ import {
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 
-const MODEL_PATH = "/model/free__lamborghini.glb";
+const MODEL_PATH = "/model/mazda_rx-7_car.glb";
 
 function LamborghiniModel() {
   const { scene } = useGLTF(MODEL_PATH);

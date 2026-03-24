@@ -7,7 +7,11 @@
       "Bash(find /c/Users/kunda/Documents/distributed/verum/sighthound/src -type f -name *.rs)",
       "Bash(python -m verum_learn.membrane.validation)",
       "Bash(find /c/Users/kunda/Documents/distributed/verum/egoista/src/components -type f -name *.js -o -name *.jsx)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

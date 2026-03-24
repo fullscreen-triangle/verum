@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF, Environment } from "@react-three/drei";
 import { Suspense, useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
 
-const MODEL_PATH = "/model/free__lamborghini.glb";
+const MODEL_PATH = "/model/2017_aston_martin_vanquish_zagato_shooting_brake.glb";
 
 /* -------------------------------------------------------------------------- */
 /*  Membrane shader – lipid oscillation + phase-locked ensemble + S-entropy   */

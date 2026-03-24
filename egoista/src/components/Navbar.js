@@ -60,7 +60,8 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
 
 const Navbar = () => {
-  const [mode, setMode] = useThemeSwitch();
+  // Dark theme is permanent — no toggle needed
+  const mode = "dark";
     const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
