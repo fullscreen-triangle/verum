@@ -6,8 +6,9 @@
 %% Author: Kundai Farai Sachikonye
 %% Technical University of Munich
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[12pt]{article}
-
+\documentclass[twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 %%% Packages
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
@@ -60,9 +61,11 @@
 
 \title{\textbf{Automobile Membrane Computing: A Biological Semiconductor Surface Architecture for Autonomous Navigation via Categorical Trajectory Completion in Bounded Phase Space}}
 
-\author{Kundai Farai Sachikonye \\
-  Technical University of Munich \\
-  \texttt{kundai.sachikonye@wzw.tum.de}}
+\author{
+Kundai Farai Sachikonye\\
+AIMe Registry for Artificial Intelligence\\
+\texttt{kundai.sachikonye@bitspark.com}
+}
 
 \date{March 2026}
 
@@ -73,9 +76,6 @@
 \begin{abstract}
 We present a fundamentally new architecture for autonomous vehicle navigation in which the entire vehicle surface is wrapped in a biological lipid membrane that simultaneously serves as sensor, computer, and actuator interface. This architecture rests on the triple equivalence $\Sosc = \Scat = \Spart = \kB M \ln n$ established in prior work, which demonstrates that observation, computation, and processing are identical operations---categorical address resolution in $S$-entropy space. The membrane, derived from bounded phase space with zero free parameters (bilayer thickness \SI{4.0}{nm}, area per lipid \SI{0.64}{nm^2}, bending modulus $19\,\kB T$), provides $\sim 10^{28}$ operations per second over a typical vehicle surface area of \SI{10}{m^2}. Environmental information is encoded in phase-locked $\mathrm{O}_2$ ensembles ($\sim 10^4$ molecules per ensemble, coherence length $\xicoh \approx \SI{14}{nm}$) that transitively couple the membrane to every atmospheric perturbation---including other vehicles, obstacles, road surfaces, and weather---through the chain membrane $\leftrightarrow$ $\mathrm{O}_2$ $\leftrightarrow$ environment. Navigation is achieved via backward trajectory completion at $O(\log_3 N)$ complexity rather than forward simulation at $O(N)$, eliminating chaotic prediction failure. Sufficiency recognition---a convergence test on phase-lock quality---replaces probabilistic prediction entirely, guaranteeing that the vehicle stops whenever information is insufficient. The categorical distance metric satisfies $\partial \dcat / \partial \tau_{\mathrm{optical}} = 0$, rendering the system immune to occlusion, fog, darkness, and all photon-propagation-dependent failure modes. We prove that this architecture solves every major failure mode of conventional autonomous vehicles---limited sensor range, occlusion, GPS dependency, prediction failure, computational cost, weather sensitivity, and edge-case vulnerability---through a single biological surface that replaces LiDAR, radar, cameras, GPS, and IMU with a membrane costing orders of magnitude less and consuming milliwatts rather than kilowatts.
 \end{abstract}
-
-\tableofcontents
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part{Foundations}
@@ -580,12 +580,16 @@ The built-in potential follows from the standard semiconductor junction equation
 The rectification ratio follows from the Shockley diode equation $I = I_0(e^{eV/\kB T} - 1)$ evaluated at the thermal voltage scale. The conductivity follows from the sum of carrier contributions with measured mobilities $\mu_n \approx 2.0\;\mathrm{cm^2/(V\cdot s)}$ and $\mu_p \approx 0.5\;\mathrm{cm^2/(V\cdot s)}$ for the biological semiconductor \cite{sachikonye2025circuits}.
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure Placeholder}\\\textit{Biological semiconductor band diagram for the membrane. Shows P-type (lipid raft domain) and N-type (fluid membrane) regions, the built-in potential $V_{\mathrm{bi}} = \SI{0.78}{V}$, depletion region at the raft-fluid interface, and carrier concentrations. The ``bandgap'' corresponds to the trans-gauche isomerization barrier $\Delta E \approx 3.5\,\kB T$. Current-voltage characteristic shown as inset, demonstrating rectification ratio $> 42$.}\vspace{2cm}}}
-\caption{Biological semiconductor model of the lipid membrane. The P-N junction forms at the boundary between lipid raft domains (P-type, enriched in collective oscillatory modes) and fluid membrane regions (N-type, enriched in individual molecular oscillators). The built-in potential of \SI{0.78}{V} and rectification ratio exceeding 42 are comparable to silicon semiconductor junctions, but the membrane semiconductor operates at room temperature in an aqueous environment with self-healing capability. The effective ``bandgap'' is the \emph{trans-gauche} isomerization barrier of approximately $3.5\,\kB T$.}
-\label{fig:semiconductor}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_1_lipid_physics.png}
+    \caption{\textbf{Lipid Membrane Physics: Oscillatory Dynamics, Computational Throughput, and Biological Semiconductor Characteristics.}
+    (\textbf{A}) Lipid chain isomerization oscillation at $f = 1.0 \times 10^{11}$ Hz, showing displacement versus time over a 50~ps window. The sinusoidal waveform confirms that each lipid functions as a harmonic oscillator with well-defined frequency, phase, and amplitude. By the oscillator-processor duality ($\omega \equiv R_{\text{compute}}$), this oscillation constitutes $10^{11}$ computational operations per second per lipid---the fundamental unit of membrane processing.
+    (\textbf{B}) Total membrane processing rate versus membrane patch area on log-log axes, spanning from 1~$\mu$m$^2$ ($\sim 10^{17}$~ops/s) to 1~m$^2$ ($\sim 10^{29}$~ops/s). The linear relationship on log-log axes confirms $R_{\text{total}} = 2A/A_L \times f_{\text{iso}}$ where $A_L = 0.64$~nm$^2$ is area per lipid. The red dashed line marks modern GPU throughput ($\sim 10^{20}$~ops/s), exceeded by a membrane patch of approximately $10^{-3}$~mm$^2$---a single cell-sized area surpasses silicon computation.
+    (\textbf{C}) Current-voltage characteristic of the biological P-N junction formed at the interface between oscillatory hole (P-type, $p = 2.80 \times 10^{12}$~cm$^{-3}$) and molecular carrier (N-type, $n = 1.12 \times 10^{12}$~cm$^{-3}$) regions. Forward bias (solid) shows exponential current increase following the Shockley diode equation $I = I_s[\exp(eV/nk_BT) - 1]$ with saturation current $I_s = 1.2 \times 10^{-12}$~A and ideality factor $n = 1.8$. Reverse bias (dashed) exhibits minimal leakage. The built-in potential $V_{\text{bi}} = 0.77$~V (green dotted line), computed from $V_{\text{bi}} = (k_BT/e)\ln(N_AN_D/n_i^2)$, confirms junction formation with zero free parameters.
+    (\textbf{D}) Three-dimensional surface of rectification ratio $\log_{10}(\text{RR})$ as a function of applied voltage $V$ (0.1--1.0~V) and temperature $T$ (280--340~K). The surface demonstrates that rectification exceeds $10^4$ across all physiologically relevant temperatures at $V > 0.5$~V, far surpassing the minimum requirement of 42 predicted by the biological semiconductor model. The smooth monotonic increase with voltage confirms Shockley diode behaviour, while the weak temperature dependence validates thermal stability of the oscillatory carrier mechanism.}
+    \label{fig:lipid_physics}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -719,12 +723,7 @@ The $\mathrm{O}_2$ ensemble compresses the environmental state by a factor of $\
 Tracking $10^4$ individual molecules requires $10^4 \times 6 = 6 \times 10^4$ phase space coordinates (3 positions, 3 momenta each). The ensemble description requires 8 parameters (Table in Theorem~\ref{thm:env_encoding}), each at $\sim 2$-bit resolution, totaling $\sim 16$ bits. The compression ratio is $6 \times 10^4 \times 64 / 16 \approx 2.4 \times 10^5$, or approximately $10^4 \times$ when accounting for the entropy per coordinate.
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure Placeholder}\\\textit{Phase-locked $\mathrm{O}_2$ ensemble structure at the membrane surface. Shows $\sim 10^4$ oxygen molecules within a coherence sphere of radius $\xicoh \approx \SI{14}{nm}$. Phase arrows indicate synchronized rotational phases $|\phi_i - \phi_j| < \pi/2$. Color coding shows different environmental parameters encoded in the phase structure: coherence time (temperature), ensemble size (pressure), phase spectrum (chemistry), phase gradient (gravity/acceleration), phase drift (flow), decay rate (viscosity), Zeeman splitting (electromagnetic fields).}\vspace{2cm}}}
-\caption{Phase-locked $\mathrm{O}_2$ ensemble at the membrane surface. Approximately $10^4$ oxygen molecules within a coherence sphere of radius $\xicoh \approx \SI{14}{nm}$ maintain synchronized rotational phases through Van der Waals and paramagnetic coupling. The ensemble's phase structure encodes the complete environmental state---temperature, pressure, chemistry, flow, gravity, viscosity, and electromagnetic fields---in a compressed 15-bit representation. This $10^4$-fold reality compression enables the membrane to process environmental information at categorical (individual-molecule) bandwidth rather than ensemble (statistical-averaging) bandwidth.}
-\label{fig:o2_ensemble}
-\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -844,6 +843,17 @@ The Virtual Foundry is the membrane's ability to create, use, and destroy comput
 Each processor exists for the duration of a single isomerization event, performs its computation, and is replaced by the next isomerization. The membrane creates $\sim 10^{28}$ such processors per second.
 \end{definition}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_circuit_components.png}
+    \caption{\textbf{Membrane Circuit Components: BMD Transistor, Tri-Dimensional Logic Gates, S-Entropy Mapping, and ALU Operations.}
+    (\textbf{A}) Transfer characteristic of the Biological Maxwell Demon (BMD) transistor, plotting gate state (open/closed) versus categorical distance $d_{\text{cat}}$ between input signal and gate pattern in S-entropy space. Unlike conventional MOSFET transfer curves ($I_D$ vs.\ $V_{GS}$), the BMD transistor exhibits a sharp step transition at the pattern recognition threshold $d_{\text{threshold}} = 0.2$ (red dashed line). Inputs categorically close to the gate pattern ($d_{\text{cat}} < 0.2$) open the channel; distant inputs are blocked. This demonstrates that switching occurs via pattern recognition rather than voltage threshold crossing---the defining property of BMD computation.
+    (\textbf{B}) Truth table heatmap for the tri-dimensional logic gate, computing AND, OR, and XOR simultaneously from a single S-entropy input pair. Rows correspond to gate functions mapped to entropy dimensions: AND operates on $S_k$ (knowledge, via minimum), OR on $S_t$ (temporal, via maximum), and XOR on $S_e$ (evolution, via absolute difference). All four input combinations (00, 01, 10, 11) produce correct outputs with 100\% accuracy, validated against standard Boolean truth tables. This 3$\times$ parallelism with zero gate duplication achieves 58\% component reduction versus NAND-based implementations.
+    (\textbf{C}) Three-dimensional scatter plot of 200 oscillatory systems mapped to S-entropy coordinates $(S_k, S_t, S_e) \in [0,1]^3$ via the mapping $S_k = \ln(1+\omega)/\ln(\omega_{\max})$, $S_t = \phi/(2\pi)$, $S_e = \tanh(A)$. Points coloured by $S_e$ (plasma colormap) fill the unit cube uniformly, confirming that the S-entropy mapping provides a complete, bijective parametrization of oscillatory state space. The inverse mapping recovers original parameters $(\omega, \phi, A)$ with relative error $< 10^{-12}$, validating Proposition~2.2 (Oscillation-to-S Mapping).
+    (\textbf{D}) ALU operation curves showing output S-coordinates as functions of input $S_k$ for addition (blue) and multiplication (orange), with a fixed operand $\mathbf{B} = (0.3, 0.4, 0.5)$. Solid lines show $S_k$ output; dashed lines show $S_t$ output. Addition produces monotonically increasing $S_k$ (frequency sum), while multiplication yields sublinear growth (frequency product). Both operations preserve the $[0,1]$ bounds of S-entropy coordinates, confirming that the virtual ALU performs valid categorical arithmetic through oscillatory frequency and phase manipulation.}
+    \label{fig:circuit_components}
+\end{figure*}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \part{Automotive Membrane System}
@@ -931,12 +941,7 @@ Full sensing and navigation functionality requires membrane coverage of at least
 The $S$-entropy position determination (Theorem~\ref{thm:position_partition}) requires sampling atmospheric state from at least three non-coplanar directions (to resolve three $S$-entropy coordinates). Three non-coplanar directions subtend a minimum solid angle of $4\pi/3$ steradians. The ``no uncovered hemisphere'' condition ensures that transitive phase-locking (Section~\ref{sec:atmosphere_coupling}) can detect perturbations from any direction.
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure Placeholder}\\\textit{Vehicle membrane coverage topology. Plan view, side view, front view, and rear view of a passenger car showing membrane coverage regions (shaded) and uncovered regions (glass, joints, high-wear areas). The coverage provides $> 4\pi/3$ steradian coverage with no uncovered hemisphere. Numbered regions show distinct partition domains with different $(n, \ell, m, s)$ parameters, corresponding to different surface orientations and environmental exposures.}\vspace{2cm}}}
-\caption{Membrane coverage topology for a typical passenger car. The membrane covers approximately \SI{10}{m^2} of the vehicle's \SI{12.4}{m^2} exterior surface, providing greater than $4\pi/3$ steradian coverage with no uncovered hemisphere. Different regions of the membrane develop distinct partition domains (analogous to lipid raft domains in biological membranes) corresponding to their different orientations and environmental exposures---roof regions sample vertical atmospheric gradients, side panels sample horizontal gradients, and underbody regions sample road-surface thermal coupling.}
-\label{fig:vehicle_coverage}
-\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1699,6 +1704,17 @@ We propose a six-phase experimental validation program.
 \end{enumerate}
 
 \textbf{Success criteria}: Autonomous navigation with zero safety-critical interventions on closed course; sufficiency recognition correctly triggers safe stops in all non-convergence situations.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_sensor_validation.png}
+    \caption{\textbf{Membrane Sensor Validation: Environmental Discrimination, Signal Transduction, Trajectory Completion, and Weather Enhancement.}
+    (\textbf{A}) Five distinct environmental conditions mapped to $(S_k, S_t)$ coordinates by the complete sensor circuit, demonstrating S-entropy injectivity. Baseline (teal, 300~K, 1~atm), hot (red, +20~K), cold (blue, $-$20~K), windy (purple, 10~m/s), and high pressure (yellow, +20\%) each occupy distinct, non-overlapping positions in S-entropy space. The minimum pairwise categorical distance $d_{\text{cat}} = 0.039$ exceeds the detection threshold by $3.9\times$, confirming that the membrane produces unique S-entropy signatures for physically distinct environments---the foundation of the Position-Partition Bijection $\Pi: \mathbb{R}^3 \to [0,1]^3$.
+    (\textbf{B}) Categorical distance from baseline $d_{\text{cat}}$ for five environmental perturbations, measured through the full 7-component sensor circuit (BMD transistors $\to$ logic gates $\to$ ALU $\to$ memory). All perturbations exceed the detection threshold (grey dashed line at $d_{\text{cat}} = 0.01$): temperature changes ($d \approx 0.08$), wind ($d \approx 0.29$), pressure ($d \approx 0.26$), and vehicle proximity ($d \approx 0.11$). The obstacle (vehicle) detection at $d_{\text{cat}} = 0.11$ validates that other vehicles are detectable as S-entropy perturbations without object recognition algorithms---the atmospheric molecular state itself encodes obstacle presence.
+    (\textbf{C}) Three-dimensional S-entropy trajectory $(S_k(t), S_t(t), S_e(t))$ for a simulated driving sequence through eight environmental states: baseline $\to$ warming $\to$ hot $\to$ windy $\to$ strong wind $\to$ pressure rise $\to$ cooling $\to$ return to baseline. The trajectory traces a closed loop in $[0,1]^3$ (green circle = start, red square = end), confirming bounded categorical divergence $d_{\text{cat}} \leq \sqrt{3}$ and zero effective Lyapunov exponent $\lambda_{\text{partition}} = 0$. The smooth, non-self-intersecting path demonstrates that environmental state evolution is deterministic and non-chaotic in partition space.
+    (\textbf{D}) Weather enhancement versus conventional sensor degradation. Teal bars show membrane categorical distance $d_{\text{cat}}$ from clear-weather baseline for fog, rain, and snow; red bars show normalised conventional sensor quality (LiDAR, camera) under the same conditions. The membrane signal \emph{increases} under adverse weather ($d_{\text{cat}} > 0.05$ for all conditions) while conventional sensors degrade (quality $< 0.7$). This validates the counterintuitive prediction: adverse weather provides \emph{more} information to the membrane, not less, because increased atmospheric molecular interactions produce richer phase-locked ensemble signatures. Bad weather is an information gain, not a loss.}
+    \label{fig:sensor_validation}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

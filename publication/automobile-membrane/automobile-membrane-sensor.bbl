@@ -1,0 +1,235 @@
+\begin{thebibliography}{10}
+
+\bibitem{thrun2006stanley}
+Sebastian Thrun, Mike Montemerlo, Hendrik Dahlkamp, David Stavens, Andrei Aron,
+  James Diebel, Philip Fong, John Gale, Morgan Halpenny, Gabriel Hoffmann,
+  et~al.
+\newblock Stanley: The robot that won the {DARPA} grand challenge.
+\newblock {\em Journal of Field Robotics}, 23(9):661--692, 2006.
+
+\bibitem{schwarting2018planning}
+Wilko Schwarting, Javier Alonso-Mora, and Daniela Rus.
+\newblock Planning and decision-making for autonomous vehicles.
+\newblock {\em Annual Review of Control, Robotics, and Autonomous Systems},
+  1:187--210, 2018.
+
+\bibitem{bojarski2016end}
+Mariusz Bojarski, Davide Del~Testa, Daniel Dworakowski, Bernhard Firner, Beat
+  Flepp, Prasoon Goyal, Lawrence~D. Jackel, Mathew Monfort, Urs Muller, Jiakai
+  Zhang, et~al.
+\newblock End to end learning for self-driving cars.
+\newblock {\em arXiv preprint arXiv:1604.07316}, 2016.
+
+\bibitem{kaplan2017understanding}
+Elliott~D. Kaplan and Christopher~J. Hegarty.
+\newblock {\em Understanding {GPS/GNSS}: Principles and Applications}.
+\newblock Artech House, Boston, 3rd edition, 2017.
+
+\bibitem{helbing2001traffic}
+Dirk Helbing.
+\newblock Traffic and related self-driven many-particle systems.
+\newblock {\em Reviews of Modern Physics}, 73(4):1067--1141, 2001.
+
+\bibitem{urmson2008autonomous}
+Chris Urmson, Joshua Anhalt, Drew Bagnell, Christopher Baker, Robert Bittner,
+  M.~N. Clark, John Dolan, Dave Duggins, Tugrul Galatali, Chris Geyer, et~al.
+\newblock Autonomous driving in urban environments: {Boss} and the urban
+  challenge.
+\newblock In {\em Journal of Field Robotics}, volume~25, pages 425--466, 2008.
+
+\bibitem{sachikonye2025membrane}
+Kundai~Farai Sachikonye.
+\newblock The biological membrane computing interface: Lipid bilayers as
+  universal processors.
+\newblock {\em Technical University of Munich, Preprint}, 2025.
+
+\bibitem{sachikonye2026lipid}
+Kundai~Farai Sachikonye.
+\newblock Lipid bilayer membranes as geometric necessities of bounded phase
+  space.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2025cpu}
+Kundai~Farai Sachikonye.
+\newblock The categorical processing unit: Molecular-scale computation via
+  partition address resolution.
+\newblock {\em Technical University of Munich, Preprint}, 2025.
+
+\bibitem{sachikonye2025circuits}
+Kundai~Farai Sachikonye.
+\newblock Oscillatory integrated biological logic circuits: From {BMD}
+  transistors to seven-component architecture.
+\newblock {\em Technical University of Munich, Preprint}, 2025.
+
+\bibitem{sachikonye2026atmospheric}
+Kundai~Farai Sachikonye.
+\newblock Atmospheric s-entropy: Position determination from molecular
+  thermodynamic state.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026gas}
+Kundai~Farai Sachikonye.
+\newblock Gas-phase categorical sensing via phase-locked molecular ensembles.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026backward}
+Kundai~Farai Sachikonye.
+\newblock Backward trajectory completion via partition hierarchy navigation.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026trajectory}
+Kundai~Farai Sachikonye.
+\newblock Categorical trajectory completion in bounded phase space.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026partition}
+Kundai~Farai Sachikonye.
+\newblock Partition coordinates and the algebra of bounded phase space.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026single}
+Kundai~Farai Sachikonye.
+\newblock The single-partition theorem: Uniqueness of phase space
+  decomposition.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026poincare}
+Kundai~Farai Sachikonye.
+\newblock Poincar{\'e} recurrence and partition structure in bounded dynamical
+  systems.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026converter}
+Kundai~Farai Sachikonye.
+\newblock The categorical converter: Temperature-controlled computational base
+  selection.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2025quantum}
+Kundai~Farai Sachikonye.
+\newblock Oscillatory membrane quantum computing: Exploiting
+  categorical-physical commutation.
+\newblock {\em Technical University of Munich, Preprint}, 2025.
+
+\bibitem{lipowsky1995structure}
+Reinhard Lipowsky and Erich Sackmann.
+\newblock {\em Structure and Dynamics of Membranes}, volume~1 of {\em Handbook
+  of Biological Physics}.
+\newblock Elsevier, Amsterdam, 1995.
+
+\bibitem{helfrich1973elastic}
+Wolfgang Helfrich.
+\newblock Elastic properties of lipid bilayers: Theory and possible
+  experiments.
+\newblock {\em Zeitschrift f{\"u}r Naturforschung C}, 28(11--12):693--703,
+  1973.
+
+\bibitem{singer1972fluid}
+S.~Jonathan Singer and Garth~L. Nicolson.
+\newblock The fluid mosaic model of the structure of cell membranes.
+\newblock {\em Science}, 175(4023):720--731, 1972.
+
+\bibitem{sze2007physics}
+Simon~M. Sze and Kwok~K. Ng.
+\newblock {\em Physics of Semiconductor Devices}.
+\newblock John Wiley \& Sons, Hoboken, NJ, 3rd edition, 2007.
+
+\bibitem{kuramoto1984chemical}
+Yoshiki Kuramoto.
+\newblock {\em Chemical Oscillations, Waves, and Turbulence}.
+\newblock Springer-Verlag, Berlin, 1984.
+
+\bibitem{szilard1929entropieverminderung}
+Le{\'o} Szil{\'a}rd.
+\newblock {\"U}ber die entropieverminderung in einem thermodynamischen system
+  bei eingriffen intelligenter wesen.
+\newblock {\em Zeitschrift f{\"u}r Physik}, 53(11--12):840--856, 1929.
+
+\bibitem{leff1990maxwell}
+Harvey~S. Leff and Andrew~F. Rex.
+\newblock {\em Maxwell's Demon: Entropy, Information, Computing}.
+\newblock Princeton University Press, Princeton, NJ, 1990.
+
+\bibitem{bennett1982thermodynamics}
+Charles~H. Bennett.
+\newblock The thermodynamics of computation---a review.
+\newblock {\em International Journal of Theoretical Physics}, 21(12):905--940,
+  1982.
+
+\bibitem{landauer1961irreversibility}
+Rolf Landauer.
+\newblock Irreversibility and heat generation in the computing process.
+\newblock {\em IBM Journal of Research and Development}, 5(3):183--191, 1961.
+
+\bibitem{sachikonye2026buhera}
+Kundai~Farai Sachikonye.
+\newblock The buhera consciousness interface: Categorical boundaries and
+  self-reference.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{cover2006elements}
+Thomas~M. Cover and Joy~A. Thomas.
+\newblock {\em Elements of Information Theory}.
+\newblock John Wiley \& Sons, Hoboken, NJ, 2nd edition, 2006.
+
+\bibitem{sachikonye2026transplanckian}
+Kundai~Farai Sachikonye.
+\newblock Trans-{P}lanckian timing resolution via harmonic network
+  phase-locking.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{herzberg1945molecular}
+Gerhard Herzberg.
+\newblock {\em Molecular Spectra and Molecular Structure: {II}. Infrared and
+  Raman Spectra of Polyatomic Molecules}.
+\newblock Van Nostrand, New York, 1945.
+
+\bibitem{sachikonye2025memory}
+Kundai~Farai Sachikonye.
+\newblock Molecular dynamics categorical memory: Phase-pattern storage in lipid
+  raft domains.
+\newblock {\em Technical University of Munich, Preprint}, 2025.
+
+\bibitem{sachikonye2026cynegeticus}
+Kundai~Farai Sachikonye.
+\newblock Cynegeticus: Hunting algorithms in partition space.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026emission}
+Kundai~Farai Sachikonye.
+\newblock Emission spectroscopy as categorical readout of molecular partition
+  state.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026instrument}
+Kundai~Farai Sachikonye.
+\newblock The instrument problem: Categorical observation without physical
+  backaction.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026current}
+Kundai~Farai Sachikonye.
+\newblock Current flow in biological semiconductor membranes.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026equations}
+Kundai~Farai Sachikonye.
+\newblock Fundamental equations of categorical dynamics.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026counting}
+Kundai~Farai Sachikonye.
+\newblock Counting in bounded phase space: The origin of partition numbers.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026architecture}
+Kundai~Farai Sachikonye.
+\newblock Architecture of the categorical processing unit.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\bibitem{sachikonye2026depth}
+Kundai~Farai Sachikonye.
+\newblock Depth perception via categorical distance in s-entropy space.
+\newblock {\em Technical University of Munich, Preprint}, 2026.
+
+\end{thebibliography}

@@ -22,7 +22,7 @@ const CustomLink = ({ href, title, className = "" }) => {
       {title}
       <span
         className={`
-              inline-block h-[1px]  bg-dark absolute left-0 -bottom-0.5 
+              inline-block h-[1px]  bg-dark absolute left-0 -bottom-0.5
               group-hover:w-full transition-[width] ease duration-300 dark:bg-light
               ${router.asPath === href ? "w-full" : " w-0"} lg:bg-light lg:dark:bg-dark
               `}
@@ -38,7 +38,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
   const handleClick = () =>{
     toggle();
-    router.push(href) 
+    router.push(href)
   }
 
   return (
@@ -46,7 +46,7 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
       {title}
       <span
         className={`
-              inline-block h-[1px]  bg-dark absolute left-0 -bottom-0.5 
+              inline-block h-[1px]  bg-dark absolute left-0 -bottom-0.5
               group-hover:w-full transition-[width] ease duration-300 dark:bg-light
               ${router.asPath === href ? "w-full" : " w-0"} lg:bg-light lg:dark:bg-dark
               `}
@@ -73,7 +73,7 @@ const Navbar = () => {
     <header className="w-full flex items-center justify-between px-32 py-8 font-medium z-10 dark:text-light
     lg:px-16 relative z-1 md:px-12 sm:px-8
     ">
-      
+
       <button
         type="button"
         className=" flex-col items-center justify-center hidden lg:flex"
@@ -91,9 +91,11 @@ const Navbar = () => {
       >
       <nav className="flex items-center justify-center">
         <CustomLink className="mr-4" href="/" title="Home" />
-        <CustomLink className="mx-4" href="/about" title="About" />
-        <CustomLink className="mx-4" href="/projects" title="Projects" />
-        <CustomLink className="ml-4" href="/articles" title="Articles" />
+        <CustomLink className="mx-4" href="/framework" title="Framework" />
+        <CustomLink className="mx-4" href="/membrane" title="Membrane" />
+        <CustomLink className="mx-4" href="/architecture" title="Architecture" />
+        <CustomLink className="mx-4" href="/investment" title="Invest" />
+        <CustomLink className="ml-4" href="/papers" title="Papers" />
       </nav>
       <nav
         className="flex items-center justify-center flex-wrap lg:mt-2
@@ -152,7 +154,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={`w-6 h-6 ease ml-3 flex items-center justify-center rounded-full p-1  
+          className={`w-6 h-6 ease ml-3 flex items-center justify-center rounded-full p-1
             ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
             `}
           aria-label="theme-switcher"
@@ -166,7 +168,7 @@ const Navbar = () => {
       </nav>
       </div>
     {
-      isOpen ? 
+      isOpen ?
 
       <motion.div className="min-w-[70vw] sm:min-w-[90vw] flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2
       -translate-y-1/2
@@ -177,9 +179,11 @@ const Navbar = () => {
       >
       <nav className="flex items-center justify-center flex-col">
         <CustomMobileLink toggle={handleClick} className="mr-4 lg:m-0 lg:my-2" href="/" title="Home" />
-        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/about" title="About" />
-        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/projects" title="Projects" />
-        <CustomMobileLink toggle={handleClick} className="ml-4 lg:m-0 lg:my-2" href="/articles" title="Articles" />
+        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/framework" title="Framework" />
+        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/membrane" title="Membrane" />
+        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/architecture" title="Architecture" />
+        <CustomMobileLink toggle={handleClick} className="mx-4 lg:m-0 lg:my-2" href="/investment" title="Invest" />
+        <CustomMobileLink toggle={handleClick} className="ml-4 lg:m-0 lg:my-2" href="/papers" title="Papers" />
       </nav>
       <nav
         className="flex items-center justify-center  mt-2
@@ -238,7 +242,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className={`w-6 h-6 ease m-1 ml-3 sm:mx-1 flex items-center justify-center rounded-full p-1  
+          className={`w-6 h-6 ease m-1 ml-3 sm:mx-1 flex items-center justify-center rounded-full p-1
             ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
             `}
           aria-label="theme-switcher"
