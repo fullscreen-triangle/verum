@@ -10,7 +10,7 @@ const Footer = () => {
     "
     >
       <Layout className="py-8 flex items-center justify-between lg:flex-col lg:py-6">
-        <span>2026 &copy; Egoista. All Rights Reserved.</span>
+        <span>2026 &copy; Vesicle. All Rights Reserved.</span>
 
         <div className="flex items-center lg:py-2">
           Built on the{" "}

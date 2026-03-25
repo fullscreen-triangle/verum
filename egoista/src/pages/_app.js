@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Egoista | Membrane Computing for Autonomous Vehicles</title>
+        <title>Vesicle | Membrane Computing for Autonomous Vehicles</title>
       </Head>
       <main
         className={`${montserrat.variable} font-mont bg-dark text-light w-full min-h-screen h-full`}

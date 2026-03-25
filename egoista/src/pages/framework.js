@@ -78,10 +78,10 @@ export default function Framework() {
   return (
     <>
       <Head>
-        <title>Framework | Egoista</title>
+        <title>Framework | Vesicle</title>
         <meta
           name="description"
-          content="From one axiom to autonomous driving. The complete theoretical framework behind the Egoista membrane computing architecture."
+          content="From one axiom to autonomous driving. The complete theoretical framework behind the Vesicle membrane computing architecture."
         />
       </Head>
       <TransitionEffect />
