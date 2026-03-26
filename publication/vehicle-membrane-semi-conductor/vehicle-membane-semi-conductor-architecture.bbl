@@ -1,0 +1,202 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[P\u{a}un(2000)]{paun2000membrane}
+Gheorghe P\u{a}un.
+\newblock Computing with membranes.
+\newblock \emph{Journal of Computer and System Sciences}, 61\penalty0
+  (1):\penalty0 108--143, 2000.
+\newblock \doi{10.1006/jcss.1999.1693}.
+
+\bibitem[Lipowsky and Sackmann(1995)]{lipowsky1995structure}
+Reinhard Lipowsky and Erich Sackmann.
+\newblock \emph{Structure and Dynamics of Membranes}, volume~1 of
+  \emph{Handbook of Biological Physics}.
+\newblock Elsevier, 1995.
+\newblock ISBN 978-0-444-81975-8.
+
+\bibitem[Penrose(1989)]{penrose1989emperor}
+Roger Penrose.
+\newblock \emph{The Emperor's New Mind: Concerning Computers, Minds, and the
+  Laws of Physics}.
+\newblock Oxford University Press, Oxford, 1989.
+\newblock ISBN 978-0-19-851973-7.
+
+\bibitem[Hameroff and Penrose(1996)]{hameroff1996orchestrated}
+Stuart~R. Hameroff and Roger Penrose.
+\newblock Orchestrated reduction of quantum coherence in brain microtubules: A
+  model for consciousness.
+\newblock \emph{Mathematics and Computers in Simulation}, 40\penalty0
+  (3--4):\penalty0 453--480, 1996.
+\newblock \doi{10.1016/0378-4754(96)80476-9}.
+
+\bibitem[Lambert et~al.(2013)Lambert, Chen, Cheng, Li, Chen, and
+  Nori]{lambert2013quantum}
+Neill Lambert, Yueh-Nan Chen, Yuan-Chung Cheng, Che-Ming Li, Guang-Yin Chen,
+  and Franco Nori.
+\newblock Quantum biology.
+\newblock \emph{Nature Physics}, 9\penalty0 (1):\penalty0 10--18, 2013.
+\newblock \doi{10.1038/nphys2474}.
+
+\bibitem[Kuramoto(1984)]{kuramoto1984chemical}
+Yoshiki Kuramoto.
+\newblock \emph{Chemical Oscillations, Waves, and Turbulence}, volume~19 of
+  \emph{Springer Series in Synergetics}.
+\newblock Springer-Verlag, Berlin, 1984.
+\newblock \doi{10.1007/978-3-642-69689-3}.
+
+\bibitem[Strogatz(2000)]{strogatz2000nonlinear}
+Steven~H. Strogatz.
+\newblock From {K}uramoto to {C}rawford: Exploring the onset of synchronization
+  in populations of coupled oscillators.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 143\penalty0 (1--4):\penalty0
+  1--20, 2000.
+\newblock \doi{10.1016/S0167-2789(00)00094-4}.
+
+\bibitem[Sachikonye(2026{\natexlab{a}})]{sachikonye2026trajectory}
+Kundai~Farai Sachikonye.
+\newblock Trajectory completion in bounded phase spaces: The {TCC} framework.
+\newblock \emph{Preprint}, 2026{\natexlab{a}}.
+\newblock Technical University of Munich.
+
+\bibitem[Sachikonye(2026{\natexlab{b}})]{sachikonye2026backward}
+Kundai~Farai Sachikonye.
+\newblock Backward trajectory completion: Navigating partition trees in
+  reverse.
+\newblock \emph{Preprint}, 2026{\natexlab{b}}.
+\newblock Technical University of Munich.
+
+\bibitem[Sachikonye(2026{\natexlab{c}})]{sachikonye2026poincare}
+Kundai~Farai Sachikonye.
+\newblock Poincar\'{e} computing: Oscillatory dynamics as universal
+  computation.
+\newblock \emph{Preprint}, 2026{\natexlab{c}}.
+\newblock Technical University of Munich.
+
+\bibitem[Poincar\'{e}(1890)]{poincare1890probleme}
+Henri Poincar\'{e}.
+\newblock \emph{Sur le probl\`{e}me des trois corps et les \'{e}quations de la
+  dynamique}, volume~13.
+\newblock Acta Mathematica, 1890.
+\newblock The foundational work establishing recurrence in bounded Hamiltonian
+  systems.
+
+\bibitem[Kac(1947)]{kac1947notion}
+Mark Kac.
+\newblock On the notion of recurrence in discrete stochastic processes.
+\newblock \emph{Bulletin of the American Mathematical Society}, 53\penalty0
+  (10):\penalty0 1002--1010, 1947.
+
+\bibitem[Sachikonye(2026{\natexlab{d}})]{sachikonye2026partition}
+Kundai~Farai Sachikonye.
+\newblock Partition counting and the $c(n) = 2n^2$ multiplicity formula.
+\newblock \emph{Preprint}, 2026{\natexlab{d}}.
+\newblock Technical University of Munich.
+
+\bibitem[Sachikonye(2026{\natexlab{e}})]{sachikonye2026counting}
+Kundai~Farai Sachikonye.
+\newblock Counting in partition space: Combinatorial foundations of $c(n) =
+  2n^2$.
+\newblock \emph{Preprint}, 2026{\natexlab{e}}.
+\newblock Technical University of Munich.
+
+\bibitem[Szilard(1929)]{szilard1929entropieverminderung}
+Leo Szilard.
+\newblock \"{U}ber die entropieverminderung in einem thermodynamischen system
+  bei eingriffen intelligenter wesen.
+\newblock \emph{Zeitschrift f\"{u}r Physik}, 53\penalty0 (11--12):\penalty0
+  840--856, 1929.
+\newblock \doi{10.1007/BF01341281}.
+
+\bibitem[Leff and Rex(1990)]{leff1990maxwell}
+Harvey~S. Leff and Andrew~F. Rex.
+\newblock \emph{Maxwell's Demon: Entropy, Information, Computing}.
+\newblock Princeton University Press, Princeton, NJ, 1990.
+\newblock ISBN 978-0-691-08727-5.
+
+\bibitem[Bennett(1982)]{bennett1982thermodynamics}
+Charles~H. Bennett.
+\newblock The thermodynamics of computation---a review.
+\newblock \emph{International Journal of Theoretical Physics}, 21\penalty0
+  (12):\penalty0 905--940, 1982.
+\newblock \doi{10.1007/BF02084158}.
+
+\bibitem[Sagawa and Ueda(2010)]{sagawa2010generalized}
+Takahiro Sagawa and Masahito Ueda.
+\newblock Generalized {J}arzynski equality under nonequilibrium feedback
+  control.
+\newblock \emph{Physical Review Letters}, 104\penalty0 (9):\penalty0 090602,
+  2010.
+\newblock \doi{10.1103/PhysRevLett.104.090602}.
+
+\bibitem[Feynman(1982)]{feynman1982simulating}
+Richard~P. Feynman.
+\newblock Simulating physics with computers.
+\newblock \emph{International Journal of Theoretical Physics}, 21\penalty0
+  (6--7):\penalty0 467--488, 1982.
+\newblock \doi{10.1007/BF02650179}.
+
+\bibitem[Herzberg(1945)]{herzberg1945infrared}
+Gerhard Herzberg.
+\newblock \emph{Infrared and Raman Spectra of Polyatomic Molecules}, volume~II
+  of \emph{Molecular Spectra and Molecular Structure}.
+\newblock D. Van Nostrand, New York, 1945.
+
+\bibitem[Wilson et~al.(1955)Wilson, Decius, and Cross]{wilson1955molecular}
+Edgar~Bright Wilson, J.~C. Decius, and Paul~C. Cross.
+\newblock \emph{Molecular Vibrations: The Theory of Infrared and Raman
+  Vibrational Spectra}.
+\newblock McGraw-Hill, New York, 1955.
+
+\bibitem[Raman and Krishnan(1928)]{raman1928new}
+C.~V. Raman and K.~S. Krishnan.
+\newblock A new type of secondary radiation.
+\newblock \emph{Nature}, 121\penalty0 (3048):\penalty0 501--502, 1928.
+\newblock \doi{10.1038/121501c0}.
+
+\bibitem[Turin(1996)]{turin1996spectroscopic}
+Luca Turin.
+\newblock A spectroscopic mechanism for primary olfactory reception.
+\newblock \emph{Chemical Senses}, 21\penalty0 (6):\penalty0 773--791, 1996.
+\newblock \doi{10.1093/chemse/21.6.773}.
+
+\bibitem[Boltzmann(1896)]{boltzmann1896vorlesungen}
+Ludwig Boltzmann.
+\newblock \emph{{Vorlesungen \"{u}ber Gastheorie}}.
+\newblock Johann Ambrosius Barth, Leipzig, 1896.
+\newblock Lectures on gas theory; foundation of statistical mechanics.
+
+\bibitem[Landauer(1961)]{landauer1961irreversibility}
+Rolf Landauer.
+\newblock Irreversibility and heat generation in the computing process.
+\newblock \emph{IBM Journal of Research and Development}, 5\penalty0
+  (3):\penalty0 183--191, 1961.
+\newblock \doi{10.1147/rd.53.0183}.
+
+\bibitem[Engel et~al.(2007)Engel, Calhoun, Read, Ahn, Man\v{c}al, Cheng,
+  Blankenship, and Fleming]{engel2007evidence}
+Gregory~S. Engel, Tessa~R. Calhoun, Elizabeth~L. Read, Tae-Kyu Ahn,
+  Tom\'{a}\v{s} Man\v{c}al, Yuan-Chung Cheng, Robert~E. Blankenship, and
+  Graham~R. Fleming.
+\newblock Evidence for wavelike energy transfer through quantum coherence in
+  photosynthetic systems.
+\newblock \emph{Nature}, 446\penalty0 (7137):\penalty0 782--786, 2007.
+\newblock \doi{10.1038/nature05678}.
+
+\bibitem[Cao et~al.(2020)Cao, Cogdell, Coker, Duan, Hauer, Kleinekath\"{o}fer,
+  Jansen, Man\v{c}al, Miller, Ogilvie, Prokhorenko, Renger, Tan, Tempel,
+  Thorwart, Thyrhaug, Westenhoff, and Zigmantas]{cao2020quantum}
+Jianshu Cao, Richard~J. Cogdell, David~F. Coker, Hong-Guang Duan, J\"{u}rgen
+  Hauer, Ulrich Kleinekath\"{o}fer, Thomas L.~C. Jansen, Tom\'{a}\v{s}
+  Man\v{c}al, R.~J.~Dwayne Miller, Jennifer~P. Ogilvie, Valentyn~I.
+  Prokhorenko, Thomas Renger, Howe-Siang Tan, Roel Tempel, Michael Thorwart,
+  Erling Thyrhaug, Sebastian Westenhoff, and Donatas Zigmantas.
+\newblock Quantum biology revisited.
+\newblock \emph{Science Advances}, 6\penalty0 (14):\penalty0 eaaz4888, 2020.
+\newblock \doi{10.1126/sciadv.aaz4888}.
+
+\end{thebibliography}

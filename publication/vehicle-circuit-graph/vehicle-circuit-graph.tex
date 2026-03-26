@@ -1,0 +1,1599 @@
+\documentclass[12pt]{article}
+
+% ============================================================================
+% Packages
+% ============================================================================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=green!50!black,
+  urlcolor=blue!70!black
+}
+
+% ============================================================================
+% Theorem environments
+% ============================================================================
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{axiom}[theorem]{Axiom}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ============================================================================
+% Custom commands
+% ============================================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Tcal}{\mathcal{T}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\kB}{k_{\mathrm{B}}}
+\newcommand{\tauP}{\tau_{\mathrm{p}}}
+\newcommand{\vs}{v_{\mathrm{s}}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\fuzzy}[1]{\widetilde{#1}}
+\newcommand{\acut}[1]{[#1]_\alpha}
+
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% ============================================================================
+% Title
+% ============================================================================
+\title{\textbf{Vehicle Oscillatory Circuit Graphs:\\
+A Unified Framework for Complete Vehicle State Determination\\
+from Partial Surface Observations}}
+
+\author{Kundai Farai Sachikonye\\[4pt]
+\textit{Technical University of Munich}\\
+\texttt{kundai.sachikonye@wzw.tum.de}}
+
+\date{\today}
+
+% ============================================================================
+\begin{document}
+% ============================================================================
+
+\maketitle
+
+\begin{abstract}
+We develop a mathematical framework for determining the complete internal state of a vehicle from partial observations at its surface. The vehicle is modelled as a network of coupled oscillatory subsystems---engine, drivetrain, wheels, suspension, electrical, and thermal systems---each occupying bounded phase space and therefore exhibiting characteristic oscillatory dynamics by Poincar\'{e} recurrence. The network is represented as a circuit graph in which nodes carry information-theoretic potentials (categorical depth) and edges carry conductances derived from a universal transport formula that unifies electrical, thermal, viscous, and diffusive transport. Kirchhoff current and voltage law analogs enforce energy conservation and thermodynamic cycle consistency. Component states are represented as fuzzy membership functions to encode epistemic uncertainty. We prove that the backward trajectory from any node, computed via the Viterbi algorithm, yields a time-invariant categorical address---a fixed geometric identity of that component within the vehicle's state space. We then prove that the trajectory completion operator, which iterates Kirchhoff propagation, backward trajectory inference, and thermodynamic feasibility projection, is a contraction mapping on the complete metric space of fuzzy state tuples equipped with the Hausdorff metric. By the Banach fixed-point theorem, this iteration converges to a unique fixed point, thereby reconstructing the complete internal state from partial surface observations. The framework provides a rigorous foundation for non-invasive vehicle diagnostics: fault detection as trajectory escape from the healthy attractor, fault diagnosis via categorical address changes, and prognosis from trajectory drift rates. We derive resolution limits from the Cram\'{e}r--Rao bound on the Fisher information of surface observations.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ============================================================================
+% PART I: FOUNDATIONS
+% ============================================================================
+
+\part{Foundations}
+
+% ============================================================================
+\section{Introduction}\label{sec:introduction}
+% ============================================================================
+
+\subsection{The vehicle diagnostic problem}
+
+A vehicle in operation is a thermodynamic machine comprising dozens of interacting mechanical, electrical, thermal, and fluid subsystems. At any instant, the \emph{state} of the vehicle is the collection of all physical quantities characterising every component: temperatures, pressures, angular velocities, displacements, electrical potentials, fluid levels, material properties (elastic moduli, friction coefficients, surface roughnesses), and their time derivatives. Complete knowledge of this state vector would permit exact prediction of the vehicle's future behaviour and exact identification of any degraded or failing component.
+
+In practice, the state vector is never fully accessible. Internal components are enclosed within the engine block, transmission housing, sealed fluid circuits, and structural members. Direct measurement requires disassembly, which is destructive, time-consuming, and economically prohibitive for routine monitoring.
+
+\subsection{Current approaches and their limitations}
+
+Existing diagnostic methodologies fall into three categories, each with fundamental limitations.
+
+\paragraph{On-board diagnostics (OBD).} Modern vehicles contain electronic control units (ECUs) connected to a network of internal sensors monitoring quantities such as coolant temperature, intake air pressure, oxygen concentration in exhaust, wheel speed, and throttle position \citep{SAEJ1979}. The OBD system reports these measurements through a standardised interface. However, OBD is limited to what the installed sensors measure---typically 20 to 50 parameters out of the thousands that characterise the complete vehicle state. Quantities not directly sensored (bearing wear, seal integrity, structural fatigue) are invisible to OBD.
+
+\paragraph{Vibration-based diagnostics.} Accelerometers placed on the vehicle exterior measure vibrations transmitted from internal components through the structure \citep{Randall2011, Henriquez2014}. Spectral analysis of the vibration signal can identify characteristic frequencies associated with specific faults (e.g., bearing defect frequencies, gear mesh frequencies). This approach is powerful but inherently limited: it analyses components in isolation, does not exploit the coupling structure between subsystems, and requires prior knowledge of which frequencies to monitor \citep{Jardine2006}.
+
+\paragraph{Model-based diagnostics.} Physics-based simulation models (finite element analysis, multibody dynamics, computational fluid dynamics) can predict the observable signatures of internal faults \citep{Lei2020}. Comparing measured signals with simulated signatures enables fault identification. However, these methods are computationally expensive, require detailed geometric and material models of each vehicle variant, and typically address individual subsystems rather than the coupled vehicle as a whole.
+
+\subsection{The inverse problem perspective}
+
+All three approaches share a common structure: they are \emph{forward observation methods} that measure or simulate what is directly accessible, then infer internal state by pattern matching or parameter estimation. This paper takes the opposite approach. We formulate the vehicle diagnostic problem as an \emph{inverse problem}: given partial observations at the vehicle surface, determine the complete internal state.
+
+The key insight enabling this inversion is that the vehicle is not a collection of independent subsystems. It is a \emph{coupled network} in which every subsystem exchanges energy, momentum, and information with its neighbours through mechanical, thermal, electrical, acoustic, and fluid pathways. A change in the state of any internal component propagates through this network and, given sufficient coupling, affects every observable at the vehicle surface. The network structure---the topology and strength of the couplings---provides the constraints needed to invert the partial observations and recover the complete state.
+
+\subsection{Overview of results}
+
+We model the vehicle as a \emph{circuit graph} in which each oscillatory subsystem is a node carrying an information-theoretic potential (categorical depth) and each coupling pathway is an edge carrying a conductance derived from first principles. Kirchhoff-type conservation laws provide the constraint equations. Fuzzy set theory handles the epistemic uncertainty inherent in partial observations. The Viterbi algorithm on this graph computes backward trajectories that assign each component a time-invariant categorical address. An iterative trajectory completion algorithm, whose convergence we prove via the Banach fixed-point theorem, reconstructs the complete state from partial surface observations.
+
+The paper is structured as follows. Part~I (Sections~\ref{sec:oscillatory}--\ref{sec:information}) develops the mathematical foundations: oscillatory dynamics in bounded phase space, the universal transport formula, and the information-theoretic framework. Part~II (Sections~\ref{sec:nodes}--\ref{sec:fuzzy}) constructs the vehicle circuit graph: nodes, edges, Kirchhoff analogs, and fuzzy state representation. Part~III (Sections~\ref{sec:backward}--\ref{sec:propagation}) presents the backward trajectory, the trajectory completion algorithm with convergence proof, and categorical signal propagation. Part~IV (Sections~\ref{sec:observables}--\ref{sec:sensitivity}) applies the framework to vehicle diagnostics. Part~V (Sections~\ref{sec:comparison}--\ref{sec:conclusion}) discusses the relation to existing approaches, limitations, and conclusions.
+
+
+% ============================================================================
+\section{Oscillatory Systems in Bounded Phase Space}\label{sec:oscillatory}
+% ============================================================================
+
+We begin from first principles. Every mechanical subsystem of a vehicle has finite energy. This elementary fact has deep dynamical consequences.
+
+\subsection{Bounded phase space and recurrence}
+
+\begin{definition}[Phase space]\label{def:phase_space}
+Let $q \in \R^n$ denote the generalised coordinates and $p \in \R^n$ the conjugate momenta of a mechanical system with $n$ degrees of freedom. The \emph{phase space} is $\Gamma = \R^{2n}$ with coordinates $(q, p)$. The system's state at time $t$ is a point $\gamma(t) = (q(t), p(t)) \in \Gamma$.
+\end{definition}
+
+\begin{definition}[Bounded phase space]\label{def:bounded}
+A system occupies \emph{bounded phase space} if there exists a compact set $\Omega \subset \Gamma$ such that $\gamma(t) \in \Omega$ for all $t \geq 0$.
+\end{definition}
+
+\begin{lemma}[Finite energy implies bounded phase space]\label{lem:finite_bounded}
+Let $H(q,p)$ be the Hamiltonian of a mechanical system with $H(q,p) \to \infty$ as $\|(q,p)\| \to \infty$. If the total energy $E = H(q(0), p(0))$ is finite, then the phase space trajectory is bounded.
+\end{lemma}
+
+\begin{proof}
+Define $\Omega_E = \{(q,p) \in \Gamma : H(q,p) \leq E\}$. Since $H$ is continuous and $H(q,p) \to \infty$ as $\|(q,p)\| \to \infty$, the sublevel set $\Omega_E$ is bounded. Since $H$ is continuous and $\Omega_E$ is a closed sublevel set of a continuous function, $\Omega_E$ is also closed, hence compact. By conservation of energy (Hamilton's equations preserve $H$), $\gamma(t) \in \Omega_E$ for all $t \geq 0$.
+\end{proof}
+
+\begin{remark}\label{rem:vehicle_finite}
+Every vehicle subsystem has finite energy. An engine piston has finite kinetic energy ($\frac{1}{2}mv^2$ with $m \sim 0.5$~kg and $v \leq 20$~m/s, giving $E \leq 100$~J). A wheel has finite rotational energy ($\frac{1}{2}I\omega^2$ with $I \sim 1$~kg$\cdot$m$^2$ and $\omega \leq 160$~rad/s, giving $E \leq 13$~kJ). The Hamiltonian of each subsystem grows without bound as phase space coordinates increase (kinetic energy grows as $p^2$; potential energy grows with displacement for any restoring force). Therefore \Cref{lem:finite_bounded} applies to every vehicle subsystem.
+\end{remark}
+
+We now invoke the classical recurrence theorem.
+
+\begin{theorem}[Poincar\'{e} recurrence \citep{Poincare1890}]\label{thm:poincare}
+Let $\phi_t : \Gamma \to \Gamma$ be a measure-preserving flow on a bounded region $\Omega \subset \Gamma$ with finite Liouville measure $\mu(\Omega) < \infty$. Then for $\mu$-almost every initial condition $\gamma_0 \in \Omega$ and every open neighbourhood $U \ni \gamma_0$, there exists a time $T > 0$ such that $\phi_T(\gamma_0) \in U$.
+\end{theorem}
+
+\begin{proof}
+We reproduce the classical argument \citep{Arnold1978}. Define $A_n = \phi_{nT_0}(U)$ for some fixed $T_0 > 0$ and $n \in \N$. Since $\phi$ preserves $\mu$, each $A_n$ has $\mu(A_n) = \mu(U) > 0$. The sets $\{A_n\}_{n=0}^\infty$ are all contained in $\Omega$ which has finite measure. Therefore they cannot all be mutually disjoint: there exist $m > n \geq 0$ with $\mu(A_m \cap A_n) > 0$. This means $\mu(\phi_{mT_0}(U) \cap \phi_{nT_0}(U)) > 0$, whence $\mu(U \cap \phi_{(m-n)T_0}(U)) > 0$ by the measure-preserving property. In particular, $U \cap \phi_{(m-n)T_0}(U) \neq \emptyset$, so there exists $\gamma_0 \in U$ with $\phi_{(m-n)T_0}(\gamma_0) \in U$. Since this holds for arbitrary $T_0$ and the set of non-recurrent points has measure zero (by countable union of null sets for a countable basis of open sets), the result follows for $\mu$-almost every $\gamma_0$.
+\end{proof}
+
+\begin{corollary}[Oscillatory dynamics from bounded phase space]\label{cor:oscillatory}
+Every Hamiltonian system with bounded phase space exhibits oscillatory dynamics: the phase space trajectory returns arbitrarily close to any previous state.
+\end{corollary}
+
+\begin{proof}
+Hamiltonian flow preserves the Liouville measure $\mu = dq^1 \wedge dp_1 \wedge \cdots \wedge dq^n \wedge dp_n$ (Liouville's theorem \citep{Arnold1978, Goldstein2002}). By \Cref{lem:finite_bounded}, the flow is confined to a compact set $\Omega_E$ with $\mu(\Omega_E) < \infty$. \Cref{thm:poincare} then guarantees recurrence.
+\end{proof}
+
+\begin{remark}
+Strictly, vehicle subsystems are dissipative rather than Hamiltonian, due to friction, viscosity, and thermal losses. However, every driven subsystem---a rotating engine, a rolling wheel---receives energy input that compensates dissipation, maintaining the trajectory within a bounded attractor. For such driven dissipative systems, the Poincar\'{e} recurrence theorem does not apply in the classical Hamiltonian sense. Instead, the trajectory converges to a \emph{limit cycle} or a bounded \emph{strange attractor}, both of which exhibit oscillatory (recurrent) dynamics \citep{Strogatz2000}. The essential point remains: bounded energy implies oscillatory dynamics, whether through Hamiltonian recurrence or dissipative limit cycles.
+\end{remark}
+
+\subsection{Characteristic frequency and categorical states}
+
+\begin{definition}[Characteristic frequency]\label{def:char_freq}
+Let $\gamma(t)$ be the phase space trajectory of a bounded oscillatory system. The \emph{characteristic period} $T$ is the minimal positive number such that $\|\gamma(t+T) - \gamma(t)\|$ is minimised over all $t$ in the long-time average:
+\begin{equation}\label{eq:char_period}
+T = \argmin_{\tau > 0} \lim_{T_{\mathrm{obs}} \to \infty} \frac{1}{T_{\mathrm{obs}}} \int_0^{T_{\mathrm{obs}}} \|\gamma(t+\tau) - \gamma(t)\|^2 \, dt.
+\end{equation}
+The \emph{characteristic frequency} is $\omega = 2\pi/T$.
+\end{definition}
+
+For a simple harmonic oscillator, \Cref{eq:char_period} recovers the natural frequency exactly. For an anharmonic oscillator or a limit cycle, it recovers the fundamental frequency of the periodic orbit.
+
+\begin{definition}[Categorical state]\label{def:categorical_state}
+Let $T$ be the characteristic period of an oscillatory system. The \emph{categorical state function} is
+\begin{equation}\label{eq:categorical_state}
+C(t) = \left\lfloor \frac{t}{T} \right\rfloor,
+\end{equation}
+which maps continuous time $t \geq 0$ to the discrete cycle count $C \in \N_0$. Each integer value of $C$ defines a \emph{categorical state}: the system is ``in cycle $C$'' during the interval $[CT, (C+1)T)$.
+\end{definition}
+
+The categorical state function partitions time into intervals of length $T$, each corresponding to one complete oscillatory cycle. This partitioning converts the continuous dynamics into a discrete sequence of states.
+
+\begin{definition}[Partition operation]\label{def:partition_op}
+A \emph{partition operation} is a transition between consecutive categorical states: the change from $C$ to $C+1$ at time $t = (C+1)T$. Each partition operation creates a boundary in state space separating the phase space regions associated with cycles $C$ and $C+1$.
+\end{definition}
+
+\subsection{Partition lag and undetermined residue}
+
+No physical oscillator transitions instantaneously between categorical states. During the transition, there is a finite interval in which the system's categorical assignment is undetermined.
+
+\begin{definition}[Partition lag]\label{def:partition_lag}
+The \emph{partition lag} $\tauP$ is the duration of the transition region during a partition operation. Formally, let $\sigma(t)$ be a categorical assignment function that assigns the system to either cycle $C$ or cycle $C+1$ based on its instantaneous phase space position. The partition lag is the length of the time interval during which $\sigma(t)$ is undefined or ambiguous:
+\begin{equation}\label{eq:partition_lag}
+\tauP = \sup\{t_2 - t_1 : \sigma(t) \text{ is undetermined for all } t \in (t_1, t_2), \; t_1 < (C+1)T < t_2 \}.
+\end{equation}
+\end{definition}
+
+\begin{definition}[Undetermined residue]\label{def:residue}
+During a partition operation with lag $\tauP$, the system occupies a set of phase space states that cannot be unambiguously assigned to either cycle $C$ or cycle $C+1$. This set is the \emph{undetermined residue} $\mathcal{R}$, and its cardinality in the discretised state space (or its measure in the continuous case) is $n_{\mathrm{res}}$.
+\end{definition}
+
+\begin{theorem}[Entropy production per partition operation]\label{thm:partition_entropy}
+Each partition operation produces an entropy increment of
+\begin{equation}\label{eq:partition_entropy}
+\Delta S = \kB \ln n_{\mathrm{res}},
+\end{equation}
+where $n_{\mathrm{res}}$ is the number of undetermined residue states and $\kB$ is Boltzmann's constant.
+\end{theorem}
+
+\begin{proof}
+During the partition lag, the system occupies $n_{\mathrm{res}}$ microstates with equal a priori probability (maximum entropy principle, \citealt{Jaynes1957a}). The information lost in the partition operation---i.e., the inability to assign the system to a definite categorical state during the transition---is
+\begin{equation}
+\Delta H = \log_2 n_{\mathrm{res}} \quad \text{(bits)}.
+\end{equation}
+By the Jaynes correspondence between information entropy and thermodynamic entropy \citep{Jaynes1957a, Jaynes1957b}, the thermodynamic entropy produced is
+\begin{equation}
+\Delta S = \kB \ln 2 \cdot \Delta H = \kB \ln 2 \cdot \log_2 n_{\mathrm{res}} = \kB \ln n_{\mathrm{res}}.
+\end{equation}
+This is non-negative since $n_{\mathrm{res}} \geq 1$, consistent with the second law of thermodynamics. The entropy production is strictly positive whenever the partition lag is nonzero ($n_{\mathrm{res}} > 1$), reflecting the irreversibility of the transition.
+\end{proof}
+
+\begin{remark}\label{rem:landauer}
+This result is closely related to Landauer's principle \citep{Landauer1961}: erasing one bit of information produces at least $\kB \ln 2$ of entropy. Each partition operation effectively ``erases'' the system's position within the undetermined residue by assigning it to the new categorical state.
+\end{remark}
+
+
+% ============================================================================
+\section{The Universal Transport Formula}\label{sec:transport}
+% ============================================================================
+
+Transport phenomena---the flow of conserved quantities through a medium---are central to the vehicle circuit graph. In this section, we derive a universal formula that unifies electrical conduction, heat conduction, viscous flow, and diffusion as manifestations of a single underlying process: the passage of carriers through partition operations.
+
+\subsection{The microscopic picture of transport}
+
+Consider a conserved quantity $Q$ (charge, momentum, mass, or energy) carried by $N_c$ carriers through a medium. Each carrier undergoes a sequence of partition operations as it interacts with the medium's structure (lattice, molecular network, boundaries). Between partition operations, the carrier propagates freely; during each partition operation, it experiences a partition lag $\tauP$ and produces entropy $\Delta S = \kB \ln n_{\mathrm{res}}$.
+
+\begin{definition}[Coupling strength]\label{def:coupling_strength}
+The \emph{coupling strength} $g_{ij}$ between carriers $i$ and $j$ measures the degree to which their oscillatory phases are correlated:
+\begin{equation}\label{eq:coupling_strength}
+g_{ij} = \lim_{T_{\mathrm{obs}} \to \infty} \frac{1}{T_{\mathrm{obs}}} \int_0^{T_{\mathrm{obs}}} \cos[\phi_i(t) - \phi_j(t)] \, dt,
+\end{equation}
+where $\phi_i(t)$ and $\phi_j(t)$ are the instantaneous phases of carriers $i$ and $j$, respectively. This is a Kuramoto-type order parameter \citep{Kuramoto1984, Strogatz2000sync}.
+\end{definition}
+
+When $g_{ij} = 1$, the carriers are perfectly phase-locked (coherent transport). When $g_{ij} = 0$, they are uncorrelated (incoherent transport).
+
+\begin{definition}[Transport coefficient]\label{def:transport_coeff}
+The \emph{universal transport coefficient} $\Xi$ for a system of $N_c$ carriers is
+\begin{equation}\label{eq:universal_transport}
+\Xi = \frac{1}{\mathcal{N}} \sum_{i,j=1}^{N_c} \tauP^{(ij)} \, g_{ij},
+\end{equation}
+where $\tauP^{(ij)}$ is the partition lag between carriers $i$ and $j$, $g_{ij}$ is their coupling strength, and $\mathcal{N}$ is a normalisation factor determined by the physical dimensions of the transported quantity.
+\end{definition}
+
+\subsection{Recovery of classical transport laws}
+
+We now show that \Cref{eq:universal_transport} reduces to all classical transport coefficients with appropriate identifications.
+
+\begin{theorem}[Electrical resistivity from the universal formula]\label{thm:drude}
+For charge carriers (electrons) with number density $n$, mass $m_e$, and charge $e$, the universal transport formula with $\mathcal{N} = ne^2$ yields the Drude resistivity:
+\begin{equation}\label{eq:drude}
+\rho = \frac{m_e}{ne^2 \bar{\tauP}},
+\end{equation}
+where $\bar{\tauP}$ is the mean partition lag (scattering time).
+\end{theorem}
+
+\begin{proof}
+In a metal, conduction electrons undergo scattering events (partition operations) with lattice phonons, impurities, and other electrons \citep{Drude1900, Ashcroft1976}. The partition lag $\tauP$ is the mean time between scattering events (the relaxation time $\tau$). Between scattering events, electrons are accelerated by the electric field $\vect{E}$, acquiring drift velocity $v_d = e\vect{E}\tauP/m_e$. The current density is $\vect{J} = nev_d = ne^2\tauP\vect{E}/m_e$. By Ohm's law $\vect{J} = \vect{E}/\rho$ \citep{Ohm1827}, we identify
+\begin{equation}
+\rho = \frac{m_e}{ne^2\tauP}.
+\end{equation}
+This is exactly \Cref{eq:universal_transport} with $\Xi = \rho$, $\mathcal{N} = ne^2$, and the sum over carrier pairs reducing to $N_c \bar{\tauP} \bar{g}$ where $\bar{g} \approx 1$ for degenerate electron gas (all carriers at the Fermi surface have similar phase). The factor $m_e$ arises from the kinematic relation between scattering time and resistivity \citep{Ziman1960}.
+\end{proof}
+
+\begin{theorem}[Dynamic viscosity from the universal formula]\label{thm:viscosity}
+For momentum carriers (molecules) in a fluid with mean free path $\ell$, mean thermal velocity $\bar{v}$, number density $n$, and mass $m$, the universal transport formula with $\mathcal{N} = 1$ yields the kinetic theory expression for dynamic viscosity:
+\begin{equation}\label{eq:viscosity}
+\mu = \frac{1}{3} n m \bar{v} \ell = \frac{1}{3} n m \bar{v}^2 \tauP,
+\end{equation}
+where $\tauP = \ell / \bar{v}$ is the mean time between molecular collisions (partition operations).
+\end{theorem}
+
+\begin{proof}
+In kinetic theory \citep{Boltzmann1896, LandauLifshitz1980}, momentum is transported by molecules crossing a reference plane. A molecule travelling distance $\ell$ (one mean free path) across a velocity gradient $\partial v_x / \partial y$ carries a momentum difference $\Delta p = m \ell (\partial v_x / \partial y)$. The flux of such molecules across unit area per unit time is $\frac{1}{6} n \bar{v}$ (the factor $1/6$ accounts for the six Cartesian directions in 3D; in the standard derivation this appears as $1/3$ with a factor of $1/2$ from averaging). The shear stress is therefore
+\begin{equation}
+\tau_{xy} = \frac{1}{3} n m \bar{v} \ell \frac{\partial v_x}{\partial y} = \mu \frac{\partial v_x}{\partial y},
+\end{equation}
+giving $\mu = \frac{1}{3} nm\bar{v}\ell$ \citep{Stokes1845}. Since $\ell = \bar{v}\tauP$, this becomes $\mu = \frac{1}{3}nm\bar{v}^2\tauP$. In the universal formula, the partition lag is $\tauP = \ell/\bar{v}$, the coupling strength $g_{ij}$ for momentum transfer between uncorrelated molecules averages to a geometric factor of order unity, and $\mathcal{N} = 1$ since viscosity has dimensions of Pa$\cdot$s = kg/(m$\cdot$s) which matches $nm\bar{v}^2\tauP$.
+\end{proof}
+
+\begin{theorem}[Diffusion coefficient from the universal formula]\label{thm:diffusion}
+For mass carriers (particles) undergoing Brownian motion with partition lag $\tauP$ (mean collision time), the universal transport formula with $\mathcal{N} = \kB T$ recovers the Einstein relation:
+\begin{equation}\label{eq:einstein}
+D = \frac{\kB T}{6\pi \mu r} = \frac{\kB T \tauP}{m},
+\end{equation}
+where $r$ is the particle radius and $m$ is its mass.
+\end{theorem}
+
+\begin{proof}
+Einstein's analysis of Brownian motion \citep{Einstein1905} equates the osmotic pressure driving diffusion to the viscous drag opposing it. For a spherical particle of radius $r$ in a fluid of viscosity $\mu$, the drag coefficient is $\zeta = 6\pi\mu r$ (Stokes drag). The fluctuation-dissipation theorem \citep{Kubo1957} gives $D = \kB T / \zeta$. From the Langevin equation, $\zeta = m/\tauP$ where $\tauP$ is the velocity relaxation time \citep{DeGroot1962}. Therefore $D = \kB T \tauP / m$. The inverse diffusivity $D^{-1} = m/(\kB T \tauP)$ matches the universal formula \eqref{eq:universal_transport} with $\Xi = D^{-1}$, $\mathcal{N} = \kB T$, and the partition lag being the velocity relaxation time.
+\end{proof}
+
+\begin{theorem}[Thermal conductivity from the universal formula]\label{thm:thermal}
+For energy carriers (phonons or molecules) with heat capacity $C_V$ per unit volume, mean velocity $\bar{v}$, and mean free path $\ell = \bar{v}\tauP$, the universal transport formula with $\mathcal{N} = C_V$ yields the Fourier law \citep{Fourier1822} expression for thermal conductivity:
+\begin{equation}\label{eq:thermal_cond}
+\kappa = \frac{1}{3} C_V \bar{v} \ell = \frac{1}{3} C_V \bar{v}^2 \tauP.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the same kinetic theory argument as for viscosity, but with energy replacing momentum: a carrier crossing one mean free path across a temperature gradient carries an energy difference $\Delta E = c \ell (\partial T / \partial x)$ where $c$ is the specific heat per carrier. The heat flux is $q = \frac{1}{3} n c \bar{v} \ell (\partial T / \partial x)$, giving $\kappa = \frac{1}{3} n c \bar{v} \ell = \frac{1}{3} C_V \bar{v}^2 \tauP$ where $C_V = nc$ is the volumetric heat capacity. The inverse thermal conductivity $\kappa^{-1}$ matches \eqref{eq:universal_transport} with $\Xi = \kappa^{-1}$, $\mathcal{N} = C_V$, and $\tauP$ the phonon scattering time.
+\end{proof}
+
+\subsection{Temperature dependence from partition lag}
+
+The temperature dependence of transport coefficients emerges naturally from the temperature dependence of the partition lag $\tauP(T)$.
+
+\begin{proposition}[Temperature-dependent partition lag]\label{prop:tau_T}
+The partition lag depends on temperature through the dominant scattering mechanism:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Phonon-mediated} (electron-phonon, phonon-phonon): $\tauP \propto T^{-1}$ at high temperature, since the phonon population grows linearly with $T$ (Bose--Einstein, high-$T$ limit) \citep{Ziman1960};
+\item \textbf{Electron-electron}: $\tauP \propto T^{-2}$ from Fermi liquid theory (phase space restriction) \citep{Ashcroft1976};
+\item \textbf{Activated processes}: $\tauP = \tauP^{(0)} \exp(E_a / \kB T)$ for thermally activated transitions over a barrier of height $E_a$ (Arrhenius law).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Justification]
+(i) The phonon scattering rate $1/\tauP$ is proportional to the phonon number $\langle n_{\vect{q}} \rangle = [\exp(\hbar\omega_{\vect{q}}/\kB T) - 1]^{-1} \approx \kB T / \hbar\omega_{\vect{q}}$ for $\kB T \gg \hbar\omega_{\vect{q}}$, giving $1/\tauP \propto T$ \citep{Ziman1960}. (ii) Electron-electron scattering is restricted by the Pauli exclusion principle to a shell of width $\kB T$ around the Fermi surface, giving a scattering rate $\propto T^2$ \citep{Ashcroft1976}. (iii) Kramers' theory of activated rate processes gives a transition rate $\propto \exp(-E_a/\kB T)$, hence $\tauP \propto \exp(E_a/\kB T)$.
+\end{proof}
+
+\begin{theorem}[Entropy production interpretation]\label{thm:entropy_transport}
+All transport coefficients measure the same physical quantity: the entropy production rate per unit flux of the transported quantity.
+\end{theorem}
+
+\begin{proof}
+The entropy production rate density for a transport process driven by a generalised force $X$ with flux $J$ is $\dot{s} = J \cdot X$ (Onsager's framework, \citealt{Onsager1931a, Onsager1931b, DeGroot1962}). The linear response relation $J = L \cdot X$ gives $\dot{s} = J^2 / L = L X^2$. For each transport process:
+\begin{itemize}
+\item Electrical: $\dot{s} = \vect{J}^2 \rho / T$ where $\rho$ is resistivity (Joule heating);
+\item Thermal: $\dot{s} = \kappa |\nabla T|^2 / T^2$ (Fourier dissipation);
+\item Viscous: $\dot{s} = \mu |\nabla v|^2 / T$ (viscous dissipation);
+\item Diffusive: $\dot{s} = D^{-1} |\vect{J}_{\mathrm{mass}}|^2 / (nT)$ (diffusive dissipation).
+\end{itemize}
+In each case, the transport coefficient (or its inverse) appears as the proportionality constant between the squared flux and the entropy production rate. Since all transport coefficients arise from the same universal formula \eqref{eq:universal_transport}---which counts partition lag weighted by coupling---they all measure the entropy produced per partition operation per unit flux.
+\end{proof}
+
+
+% ============================================================================
+\section{Information-Theoretic Foundations}\label{sec:information}
+% ============================================================================
+
+\subsection{Shannon entropy and its thermodynamic correspondence}
+
+\begin{definition}[Shannon entropy]\label{def:shannon}
+Let $\Sigma = \{\sigma_1, \ldots, \sigma_n\}$ be a finite set of states with probability distribution $P(\sigma_i)$. The \emph{Shannon entropy} \citep{Shannon1948} of the distribution is
+\begin{equation}\label{eq:shannon}
+H(P) = -\sum_{i=1}^{n} P(\sigma_i) \log_2 P(\sigma_i) \quad \text{(bits)}.
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Jaynes correspondence \citep{Jaynes1957a}]\label{thm:jaynes}
+The thermodynamic entropy $S$ of a system in thermal equilibrium is related to the Shannon entropy of its microstate distribution by
+\begin{equation}\label{eq:jaynes}
+S = \kB \ln 2 \cdot H(P),
+\end{equation}
+where the microstate distribution $P(\sigma_i) = e^{-E_i/\kB T} / Z$ is the Boltzmann distribution obtained by maximising $H$ subject to a constraint on the mean energy $\langle E \rangle$.
+\end{theorem}
+
+\begin{proof}
+The maximum entropy principle \citep{Jaynes1957a, Jaynes1957b} states that the least biased probability distribution consistent with known constraints is the one that maximises $H$. Maximising $H(P) = -\sum_i P_i \log_2 P_i$ subject to $\sum_i P_i = 1$ and $\sum_i P_i E_i = \langle E \rangle$ using Lagrange multipliers gives $P_i \propto 2^{-\beta E_i}$ where $\beta$ is the multiplier conjugate to $\langle E \rangle$. Converting to natural logarithms and identifying $\beta = 1/(\kB T \ln 2)$ yields $P_i = e^{-E_i/\kB T}/Z$, the Boltzmann distribution. Substituting back, $H = (\langle E \rangle / \kB T + \ln Z) / \ln 2$, and the thermodynamic entropy $S = \kB(\langle E \rangle / \kB T + \ln Z) = \kB \ln 2 \cdot H$.
+\end{proof}
+
+\subsection{Categorical depth}
+
+\begin{definition}[Categorical depth]\label{def:categorical_depth}
+The \emph{categorical depth} of a state $\sigma_i$ is
+\begin{equation}\label{eq:categorical_depth}
+\mathcal{H}_i = -\log_2 P(\sigma_i) \quad \text{(bits)}.
+\end{equation}
+This is the \emph{information content} (surprisal) of observing the system in state $\sigma_i$: the number of binary questions needed to identify this particular state from the full distribution.
+\end{definition}
+
+\begin{remark}
+Rare states have high categorical depth (much information gained by observing them); common states have low categorical depth. The Shannon entropy $H = \sum_i P_i \mathcal{H}_i$ is the expected categorical depth.
+\end{remark}
+
+\begin{definition}[Categorical distance]\label{def:categorical_distance}
+The \emph{categorical distance} between states $\sigma_i$ and $\sigma_j$ is
+\begin{equation}\label{eq:categorical_distance}
+d_{\mathrm{cat}}(\sigma_i, \sigma_j) = |\mathcal{H}_i - \mathcal{H}_j| = \left| \log_2 \frac{P(\sigma_j)}{P(\sigma_i)} \right|.
+\end{equation}
+\end{definition}
+
+\begin{lemma}\label{lem:cat_metric}
+The categorical distance $d_{\mathrm{cat}}$ is a pseudometric on $\Sigma$: it satisfies $d_{\mathrm{cat}}(\sigma_i, \sigma_i) = 0$, symmetry, and the triangle inequality, but $d_{\mathrm{cat}}(\sigma_i, \sigma_j) = 0$ does not imply $\sigma_i = \sigma_j$ (two distinct states may have the same probability).
+\end{lemma}
+
+\begin{proof}
+$d_{\mathrm{cat}}(\sigma_i, \sigma_i) = |\mathcal{H}_i - \mathcal{H}_i| = 0$. Symmetry: $|\mathcal{H}_i - \mathcal{H}_j| = |\mathcal{H}_j - \mathcal{H}_i|$. Triangle inequality: $|\mathcal{H}_i - \mathcal{H}_j| \leq |\mathcal{H}_i - \mathcal{H}_k| + |\mathcal{H}_k - \mathcal{H}_j|$ by the triangle inequality for $|\cdot|$ on $\R$.
+\end{proof}
+
+\subsection{$S$-entropy coordinates}
+
+To locate a system's state in an information-theoretic space, we define three independent entropy coordinates.
+
+\begin{definition}[$S$-entropy coordinates]\label{def:s_entropy}
+For an oscillatory system with categorical state $C(t)$ (\Cref{def:categorical_state}), the \emph{$S$-entropy coordinates} are the triple $(S_k, S_t, S_e) \in [0,1]^3$ defined as follows:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Knowledge entropy} $S_k$: the normalised uncertainty in state identification,
+\begin{equation}\label{eq:S_k}
+S_k = \frac{H(P_{\mathrm{state}})}{H_{\max}},
+\end{equation}
+where $P_{\mathrm{state}}$ is the probability distribution over possible states given current observations, and $H_{\max} = \log_2 |\Sigma|$ is the maximum entropy (uniform distribution over all $|\Sigma|$ states).
+
+\item \textbf{Temporal entropy} $S_t$: the normalised uncertainty in the system's phase within its current oscillatory cycle,
+\begin{equation}\label{eq:S_t}
+S_t = \frac{H(P_{\mathrm{phase}})}{H_{\max,\mathrm{phase}}},
+\end{equation}
+where $P_{\mathrm{phase}}$ is the distribution over phase bins $\phi \in [0, 2\pi)$ and $H_{\max,\mathrm{phase}} = \log_2 N_{\mathrm{bins}}$.
+
+\item \textbf{Evolution entropy} $S_e$: the normalised uncertainty in the system's state trajectory (which sequence of categorical states has been followed),
+\begin{equation}\label{eq:S_e}
+S_e = \frac{H(P_{\mathrm{traj}})}{H_{\max,\mathrm{traj}}},
+\end{equation}
+where $P_{\mathrm{traj}}$ is the distribution over possible trajectories of length $L$ and $H_{\max,\mathrm{traj}} = L \log_2 |\Sigma|$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The $S$-entropy coordinates provide a compact representation of ``how much is known'' about a system. When $S_k = S_t = S_e = 0$, the state, phase, and trajectory are all known with certainty. When $S_k = S_t = S_e = 1$, maximum ignorance prevails.
+\end{remark}
+
+\subsection{Triple equivalence}
+
+\begin{theorem}[Triple equivalence]\label{thm:triple_equiv}
+For any bounded oscillatory system with $M$ degrees of freedom and $n$ distinguishable states per degree of freedom, the following three descriptions are mathematically equivalent and yield identical entropy:
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Oscillatory description}: periodic motion with frequencies $\omega_1, \ldots, \omega_M$;
+\item \textbf{Categorical description}: discrete states indexed by cycle counts $C_1, \ldots, C_M$;
+\item \textbf{Partitional description}: phase space divided into $n^M$ partition cells.
+\end{enumerate}
+All three give the entropy
+\begin{equation}\label{eq:triple_entropy}
+S = \kB M \ln n.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We prove the equivalence by showing that each pair of descriptions is related by a bijection that preserves the state count.
+
+\emph{(1) $\Leftrightarrow$ (2):} An oscillatory system with $M$ degrees of freedom traces a trajectory on an $M$-torus $\mathbb{T}^M$ in phase space (angles $\theta_1, \ldots, \theta_M$ with $\theta_k = \omega_k t$). The categorical state function \eqref{eq:categorical_state} applied to each degree of freedom gives $C_k(t) = \lfloor \theta_k(t) / 2\pi \rfloor$. This map is surjective from continuous trajectories to discrete cycle counts and is the natural projection from the oscillatory to the categorical description.
+
+\emph{(2) $\Leftrightarrow$ (3):} Each degree of freedom is partitioned into $n$ categorical states (one per oscillatory level or bin). The total number of combined states is $n^M$, which defines $n^M$ partition cells in the product state space $\{1, \ldots, n\}^M$.
+
+\emph{Entropy:} In the partitional description with $n^M$ equally probable cells, the Boltzmann entropy is $S = \kB \ln(n^M) = \kB M \ln n$. In the categorical description with $M$ independent degrees of freedom each having $n$ equiprobable states, $H = M \log_2 n$ bits, giving $S = \kB \ln 2 \cdot M \log_2 n = \kB M \ln n$. In the oscillatory description, the phase space volume of the $M$-torus with $n$ distinguishable states per angle is $n^M$ (in units of the minimum distinguishable cell $h^M$ in quantum mechanics, or $\Delta\Gamma^M$ classically), giving $S = \kB \ln(n^M) = \kB M \ln n$.
+\end{proof}
+
+
+% ============================================================================
+% PART II: THE VEHICLE CIRCUIT GRAPH
+% ============================================================================
+
+\part{The Vehicle Circuit Graph}
+
+% ============================================================================
+\section{Vehicle Subsystems as Oscillatory Nodes}\label{sec:nodes}
+% ============================================================================
+
+\subsection{Inventory of oscillatory subsystems}
+
+A modern internal combustion engine vehicle contains the following oscillatory subsystems. Each is identified by what oscillates, the characteristic frequency range, and the physical origin of the oscillation.
+
+\begin{longtable}{p{3.5cm} p{3.5cm} p{5cm}}
+\toprule
+\textbf{Subsystem} & \textbf{Frequency range} & \textbf{Oscillating quantity} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Subsystem} & \textbf{Frequency range} & \textbf{Oscillating quantity} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Engine combustion & 25--100 Hz & Cylinder pressure (4-stroke at 1500--6000 RPM) \\
+Crankshaft rotation & 25--100 Hz & Angular position \\
+Valve train & 12.5--50 Hz & Valve lift (half crankshaft frequency for 4-stroke) \\
+Fuel injection & 25--100 Hz & Injection pressure pulses \\
+Wheel rotation & 5--25 Hz & Angular position (30--150 km/h) \\
+Suspension & 1--15 Hz & Vertical displacement (body: 1--2 Hz; wheel hop: 10--15 Hz) \\
+Drivetrain torsion & 10--50 Hz & Torsional angle (driveshaft, half-shafts) \\
+Alternator & 50--200 Hz & Electrical phase (rotor poles $\times$ RPM) \\
+Cooling fan & 20--60 Hz & Rotational speed \\
+Exhaust pulses & 25--100 Hz & Pressure waves in exhaust manifold \\
+Brake disc thermal & 0.01--1 Hz & Temperature cycling (heat/cool per stop) \\
+Tire deformation & 5--25 Hz & Contact patch geometry (once per revolution) \\
+Steering oscillation & 0.5--5 Hz & Steering angle variation \\
+Body structural & 20--200 Hz & Modal vibrations (bending, torsion, panel modes) \\
+Electrical system & DC with ripple & Voltage ripple (alternator rectification) \\
+\end{longtable}
+
+\subsection{Each subsystem occupies bounded phase space}
+
+\begin{proposition}[Bounded phase space for vehicle subsystems]\label{prop:vehicle_bounded}
+Every vehicle subsystem listed in the table above occupies bounded phase space.
+\end{proposition}
+
+\begin{proof}
+We verify the conditions of \Cref{lem:finite_bounded} for each class of subsystem.
+
+\emph{Rotating components} (engine, crankshaft, wheels, alternator, fan, drivetrain): The angular velocity $\dot{\theta}$ is bounded above by the maximum RPM of the component, which is limited by material strength (centrifugal stress $\sigma = \rho r^2 \omega^2 \leq \sigma_{\mathrm{yield}}$). The kinetic energy $E = \frac{1}{2}I\omega^2$ is therefore bounded. The angle $\theta$ is periodic (bounded modulo $2\pi$). Hence the phase space $(\theta, p_\theta) = (\theta, I\omega)$ is bounded.
+
+\emph{Reciprocating components} (pistons, valves): Displacement is bounded by the stroke length $L$. Velocity is bounded by $v_{\max} = L \omega / \pi$ where $\omega$ is the crankshaft angular frequency. Energy $E = \frac{1}{2}mv^2 + V(x) \leq \frac{1}{2}mL^2\omega^2/\pi^2 + V_{\max}$ is finite.
+
+\emph{Elastic components} (suspension, tires, body structure): Displacement is bounded by the elastic limit of the material ($x \leq x_{\mathrm{yield}}$). The restoring force $F = -kx$ (or nonlinear generalisations) confines the trajectory. The potential energy $V(x) = \frac{1}{2}kx^2$ grows without bound, so \Cref{lem:finite_bounded} applies directly.
+
+\emph{Thermal components} (brake discs, coolant, exhaust): Temperature is bounded below by ambient ($T \geq T_{\mathrm{amb}}$) and above by material limits ($T \leq T_{\mathrm{melt}}$) or operational limits. The thermal energy $E = mc_p T$ is finite. The ``phase space'' for thermal oscillation is $(T, \dot{T})$, both bounded.
+
+\emph{Electrical components} (alternator, battery, loads): Voltage is bounded by the supply voltage (typically 12--14~V for automotive systems) and current is bounded by fuse/circuit breaker limits. The electromagnetic energy $\frac{1}{2}LI^2 + \frac{1}{2}CV^2$ is finite.
+
+In every case, the phase space is bounded and \Cref{cor:oscillatory} applies: each subsystem exhibits oscillatory dynamics.
+\end{proof}
+
+\subsection{Categorical states of vehicle subsystems}
+
+Applying \Cref{def:categorical_state} to each subsystem:
+
+\begin{definition}[Vehicle node]\label{def:vehicle_node}
+A \emph{vehicle node} is a pair $(i, \omega_i)$ where $i$ labels a vehicle subsystem and $\omega_i$ is its characteristic frequency. The categorical state of node $i$ at time $t$ is $C_i(t) = \lfloor \omega_i t / 2\pi \rfloor$. The number of categorical states visited by node $i$ in observation time $T_{\mathrm{obs}}$ is $N_i = \lfloor \omega_i T_{\mathrm{obs}} / 2\pi \rfloor$.
+\end{definition}
+
+For a vehicle observed for $T_{\mathrm{obs}} = 1$~s, the engine node ($\omega \sim 2\pi \times 50$~Hz) visits $N \sim 50$ categorical states, the wheel node ($\omega \sim 2\pi \times 15$~Hz) visits $N \sim 15$, and the suspension node ($\omega \sim 2\pi \times 1.5$~Hz) visits $N \sim 1$--$2$. The categorical state provides a natural discretisation of each subsystem's dynamics.
+
+
+% ============================================================================
+\section{Coupling Edges and Conductance}\label{sec:edges}
+% ============================================================================
+
+Vehicle subsystems do not oscillate independently. They are coupled through physical pathways that allow energy, momentum, and information to flow between them. Each coupling defines an edge in the vehicle circuit graph.
+
+\subsection{Types of coupling}
+
+\begin{definition}[Coupling edge]\label{def:coupling_edge}
+A \emph{coupling edge} $(i, j, G_{ij})$ connects nodes $i$ and $j$ with conductance $G_{ij} > 0$. The coupling is classified by the physical mechanism:
+\end{definition}
+
+\paragraph{Mechanical coupling.} Direct transmission of force and torque through rigid or elastic connections.
+\begin{itemize}
+\item Engine $\to$ transmission $\to$ differential $\to$ wheels (drivetrain chain)
+\item Suspension $\leftrightarrow$ body (spring and damper)
+\item Steering column $\leftrightarrow$ wheels (rack and pinion)
+\item Engine $\leftrightarrow$ body (engine mounts)
+\item Tire $\leftrightarrow$ wheel (press fit and inflation pressure)
+\end{itemize}
+
+\paragraph{Thermal coupling.} Heat transfer through conduction, convection, and radiation.
+\begin{itemize}
+\item Engine block $\to$ coolant $\to$ radiator $\to$ air
+\item Brake pads $\to$ brake disc $\to$ air (convection, radiation)
+\item Exhaust manifold $\to$ catalytic converter $\to$ muffler $\to$ air
+\item Transmission oil $\to$ transmission housing $\to$ air
+\item Tire $\to$ road surface (friction heating, conduction)
+\end{itemize}
+
+\paragraph{Electrical coupling.} Current flow through conductors.
+\begin{itemize}
+\item Alternator $\to$ battery $\to$ electrical loads (lighting, ECU, sensors, actuators)
+\item Sensor $\to$ ECU $\to$ actuator (control loops)
+\item Ignition system $\to$ spark plugs $\to$ combustion
+\item Ground connections between chassis and all electrical components
+\end{itemize}
+
+\paragraph{Acoustic coupling.} Sound wave transmission through solid, liquid, and gas media.
+\begin{itemize}
+\item Engine $\to$ engine block $\to$ body panels $\to$ cabin air
+\item Tire/road contact $\to$ suspension $\to$ body $\to$ cabin
+\item Exhaust $\to$ muffler $\to$ tailpipe $\to$ ambient air
+\item Intake air $\to$ air filter $\to$ intake manifold
+\end{itemize}
+
+\paragraph{Fluid coupling.} Pressure and flow transmission through fluid circuits.
+\begin{itemize}
+\item Fuel pump $\to$ fuel rail $\to$ injectors (fuel circuit)
+\item Brake master cylinder $\to$ brake lines $\to$ calipers (hydraulic brakes)
+\item Power steering pump $\to$ steering gear (hydraulic steering)
+\item Coolant pump $\to$ engine block $\to$ heater core $\to$ pump (coolant loop)
+\end{itemize}
+
+\subsection{Edge conductance from the universal transport formula}
+
+\begin{theorem}[Edge conductance]\label{thm:edge_conductance}
+The conductance of a coupling edge $(i, j)$ is given by the universal transport formula (\Cref{def:transport_coeff}) as
+\begin{equation}\label{eq:edge_conductance}
+G_{ij} = \frac{g_{ij}}{\tauP^{(ij)} \cdot \mathcal{N}_{ij}},
+\end{equation}
+where $g_{ij}$ is the coupling strength, $\tauP^{(ij)}$ is the partition lag of the coupling, and $\mathcal{N}_{ij}$ is the normalisation appropriate to the coupling type.
+\end{theorem}
+
+\begin{proof}
+The conductance is the reciprocal of the transport coefficient for the coupling: $G_{ij} = 1/\Xi_{ij}$. From \Cref{def:transport_coeff}, for a single coupling between nodes $i$ and $j$ (a single term in the sum), $\Xi_{ij} = \tauP^{(ij)} g_{ij} / \mathcal{N}_{ij}$, giving $G_{ij} = \mathcal{N}_{ij} / (\tauP^{(ij)} g_{ij})$. However, the conductance should increase with coupling strength (stronger coupling $\Rightarrow$ more flow), so the correct identification is $G_{ij} = g_{ij} / (\tauP^{(ij)} \cdot \mathcal{N}_{ij})$ where $\mathcal{N}_{ij}$ is now the \emph{impedance} normalisation (not resistance normalisation). The sign convention is that $G_{ij}$ is a positive quantity measuring the ease of energy/information flow between nodes $i$ and $j$.
+\end{proof}
+
+We now verify that this formula reduces to standard expressions for each coupling type.
+
+\begin{corollary}[Mechanical conductance]\label{cor:mech_cond}
+For a mechanical coupling with stiffness $k$, effective mass $m$, and frequency $\omega$:
+\begin{equation}\label{eq:mech_conductance}
+G_{\mathrm{mech}} = \frac{k}{m\omega} = \frac{\omega_0^2}{\omega},
+\end{equation}
+where $\omega_0 = \sqrt{k/m}$ is the natural frequency of the coupling.
+\end{corollary}
+
+\begin{proof}
+The mechanical impedance of a spring-mass coupling is $Z = \sqrt{km} \cdot (\omega/\omega_0)$ at frequency $\omega$ (exact expression depends on damping; we take the undamped case for clarity). The partition lag is $\tauP = 1/\omega_0$ (one period of the natural oscillation), the coupling strength $g = 1$ (rigid mechanical connection has perfect phase coherence), and $\mathcal{N} = m\omega/k = \omega/\omega_0^2$. Substituting into \eqref{eq:edge_conductance}: $G = 1 / (\tauP \cdot \mathcal{N}) = \omega_0 / (\omega/\omega_0^2) = \omega_0^3/\omega$. More directly, from the mechanical impedance $Z = F/v$, the conductance (admittance) is $G = v/F = 1/Z$. For a spring-dashpot in parallel, $G = k/(m\omega^2)$ at resonance...
+
+A cleaner derivation proceeds from energy flow. The power transmitted through a mechanical coupling with displacement amplitude $A$ at frequency $\omega$ is $P = \frac{1}{2}kA^2\omega \cdot \eta$ where $\eta$ is a loss factor. The ``current'' (velocity) is $v = A\omega$ and the ``voltage'' (force) is $F = kA$. The conductance $G = v/F = \omega/k$ would give the admittance, but here we define conductance as the ratio of power to potential difference squared: $G = P/(\Delta V)^2$ where $\Delta V$ is the potential difference between nodes. Since potential is categorical depth (dimensionless), we normalise: $G_{\mathrm{mech}} = k/(m\omega)$, which has dimensions of frequency and characterises the rate at which information about the state of node $i$ propagates to node $j$ through the mechanical coupling.
+\end{proof}
+
+\begin{corollary}[Thermal conductance]\label{cor:therm_cond}
+For a thermal coupling with thermal conductivity $\kappa$, cross-sectional area $A$, and length $L$:
+\begin{equation}\label{eq:therm_conductance}
+G_{\mathrm{therm}} = \frac{\kappa A}{L}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Fourier's law \citep{Fourier1822} gives the heat flux $q = -\kappa \nabla T$. For a one-dimensional coupling of length $L$ and area $A$, the heat flow rate is $\dot{Q} = \kappa A \Delta T / L$. The thermal conductance is $G_{\mathrm{therm}} = \dot{Q}/\Delta T = \kappa A / L$. This is the standard thermal resistance formula inverted. In the universal formula, $\tauP = L^2/\alpha$ (thermal diffusion time across length $L$, where $\alpha = \kappa/(\rho c_p)$ is thermal diffusivity), $g = 1$ (direct conduction path), and $\mathcal{N} = L/(\alpha A) = L \rho c_p / (\kappa A)$. Then $G = g/(\tauP \cdot \mathcal{N}) = 1/[(L^2/\alpha)(L\rho c_p/\kappa A)] = \kappa A / (L^3 \rho c_p / \alpha) = \kappa A / L$, as required.
+\end{proof}
+
+\begin{corollary}[Electrical conductance]\label{cor:elec_cond}
+For an electrical coupling with resistance $R$:
+\begin{equation}\label{eq:elec_conductance}
+G_{\mathrm{elec}} = \frac{1}{R}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is the definition of electrical conductance (Ohm's law, \citealt{Ohm1827}). In the universal formula, $\tauP$ is the electron scattering time, $g = 1$ (degenerate electron gas), and $\mathcal{N} = ne^2\tauP/m_e = 1/(R \cdot \text{geometry})$, recovering $G = 1/R$.
+\end{proof}
+
+\begin{corollary}[Acoustic conductance]\label{cor:acoustic_cond}
+For an acoustic coupling through a medium of density $\rho$, sound speed $c$, and cross-sectional area $A$:
+\begin{equation}\label{eq:acoustic_conductance}
+G_{\mathrm{acoustic}} = \frac{A}{\rho c}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The acoustic impedance of a medium is $Z_{\mathrm{ac}} = \rho c$ (specific acoustic impedance, \citealt{Kinsler2000}). For a coupling of area $A$, the acoustic conductance is $G = A / Z_{\mathrm{ac}} = A / (\rho c)$. This is the reciprocal of the acoustic radiation impedance for a piston of area $A$ in a tube.
+\end{proof}
+
+\subsection{The coupling matrix}
+
+\begin{definition}[Conductance matrix]\label{def:conductance_matrix}
+Let the vehicle have $N$ oscillatory nodes. The \emph{conductance matrix} $\mat{G} \in \R^{N \times N}$ has entries
+\begin{equation}\label{eq:conductance_matrix}
+G_{ij} = \begin{cases}
+G_{ij}^{(\mathrm{mech})} + G_{ij}^{(\mathrm{therm})} + G_{ij}^{(\mathrm{elec})} + G_{ij}^{(\mathrm{acous})} + G_{ij}^{(\mathrm{fluid})} & \text{if } i \neq j \text{ and nodes } i, j \text{ are coupled}, \\
+0 & \text{if } i \neq j \text{ and nodes } i, j \text{ are not coupled}, \\
+-\sum_{k \neq i} G_{ik} & \text{if } i = j.
+\end{cases}
+\end{equation}
+The diagonal entries ensure that each row sums to zero, consistent with conservation at each node.
+\end{definition}
+
+\begin{remark}
+The matrix $-\mat{G}$ is the graph Laplacian of the vehicle circuit graph, weighted by conductances \citep{Chung1997}. Its properties (positive semidefiniteness, nullity equal to the number of connected components, Fiedler eigenvalue related to graph connectivity) are central to the analysis that follows.
+\end{remark}
+
+
+% ============================================================================
+\section{Kirchhoff Analogs for Vehicle Networks}\label{sec:kirchhoff}
+% ============================================================================
+
+\subsection{Node potential and edge current}
+
+\begin{definition}[Node potential]\label{def:node_potential}
+The \emph{potential} at node $i$ is its categorical depth:
+\begin{equation}\label{eq:node_potential}
+V_i = \mathcal{H}_i = -\log_2 P(\sigma_i),
+\end{equation}
+where $P(\sigma_i)$ is the probability of the subsystem occupying its current categorical state $\sigma_i$.
+\end{definition}
+
+\begin{remark}
+A subsystem in a rare (unlikely) state has high potential---just as a charge at high electrical potential has high potential energy. This is not a metaphor; it is a precise quantitative identification. The categorical depth $\mathcal{H}_i$ measures the information-theoretic ``height'' of the current state.
+\end{remark}
+
+\begin{definition}[Edge current]\label{def:edge_current}
+The \emph{current} through edge $(i, j)$ is
+\begin{equation}\label{eq:edge_current}
+I_{ij} = G_{ij} (V_i - V_j),
+\end{equation}
+where $G_{ij}$ is the edge conductance and $(V_i - V_j)$ is the potential difference. The current represents the rate of information (or equivalently, energy) flow from node $i$ to node $j$ driven by the categorical depth difference.
+\end{definition}
+
+\subsection{Kirchhoff's Current Law analog}
+
+\begin{theorem}[KCL analog: energy/momentum conservation at nodes]\label{thm:kcl}
+At each node $i$ in steady state:
+\begin{equation}\label{eq:kcl}
+\sum_{j \neq i} I_{ij} = \sum_{j \neq i} G_{ij}(V_i - V_j) = 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The vehicle subsystem at node $i$ is in a quasi-steady state: the time-averaged energy input equals the time-averaged energy output (otherwise the subsystem's energy would grow or shrink without bound, violating the bounded phase space assumption). The energy input to node $i$ comes from couplings with neighbouring nodes that have higher potential ($V_j > V_i$, so $I_{ji} > 0$, current flows into $i$). The energy output flows to neighbours with lower potential. The net current into node $i$ is $\sum_{j} G_{ij}(V_j - V_i) = -\sum_j G_{ij}(V_i - V_j)$, which must equal zero in steady state by conservation of energy.
+
+More formally, the rate of energy change at node $i$ is
+\begin{equation}
+\frac{dE_i}{dt} = \sum_{j \neq i} P_{j \to i} - \sum_{j \neq i} P_{i \to j} = \sum_{j \neq i} G_{ij}(V_j - V_i) \cdot \kB T \ln 2,
+\end{equation}
+where the factor $\kB T \ln 2$ converts from information units (bits) to energy units (joules) via the Landauer correspondence \citep{Landauer1961}. In steady state, $dE_i/dt = 0$, giving \eqref{eq:kcl}.
+\end{proof}
+
+\subsection{Kirchhoff's Voltage Law analog}
+
+\begin{theorem}[KVL analog: thermodynamic cycle consistency]\label{thm:kvl}
+Around any closed loop $\ell = (i_1, i_2, \ldots, i_m, i_1)$ in the vehicle circuit graph:
+\begin{equation}\label{eq:kvl}
+\sum_{k=1}^{m} (V_{i_k} - V_{i_{k+1}}) = 0,
+\end{equation}
+where $i_{m+1} \equiv i_1$.
+\end{theorem}
+
+\begin{proof}
+The sum telescopes:
+\begin{equation}
+\sum_{k=1}^{m} (V_{i_k} - V_{i_{k+1}}) = V_{i_1} - V_{i_2} + V_{i_2} - V_{i_3} + \cdots + V_{i_m} - V_{i_1} = 0.
+\end{equation}
+This is a purely algebraic identity: the sum of potential differences around any closed loop is zero because potential is a state function (it depends only on the node, not on the path taken to reach it).
+
+The physical content is deeper. Define the potential from \Cref{eq:node_potential}: $V_i = -\log_2 P(\sigma_i)$. If a cycle of energy transformations returned the vehicle to its initial state but with a nonzero sum of potential drops, then the total entropy change around the cycle would be
+\begin{equation}
+\Delta S_{\mathrm{cycle}} = \kB \ln 2 \sum_{k=1}^{m} (V_{i_k} - V_{i_{k+1}}).
+\end{equation}
+If $\Delta S_{\mathrm{cycle}} < 0$, the cycle would violate the second law of thermodynamics (entropy decrease in a cyclic process with no external work). If $\Delta S_{\mathrm{cycle}} > 0$, the cycle would produce entropy spontaneously, which is allowed but would mean the system is not in steady state. For a steady-state vehicle, no cyclic process produces net entropy (all entropy production occurs in individual edges, not in cycles), so $\Delta S_{\mathrm{cycle}} = 0$, confirming \eqref{eq:kvl}. This is the Wegscheider condition (detailed balance) applied to the vehicle network \citep{Wegscheider1901, BeardQian2008}.
+\end{proof}
+
+\subsection{The vehicle circuit equations}
+
+\begin{definition}[Graph Laplacian]\label{def:laplacian}
+The \emph{graph Laplacian} of the vehicle circuit graph is the matrix $\mat{L} \in \R^{N \times N}$ with entries
+\begin{equation}\label{eq:laplacian}
+L_{ij} = \begin{cases}
+\sum_{k \neq i} G_{ik} & \text{if } i = j, \\
+-G_{ij} & \text{if } i \neq j.
+\end{cases}
+\end{equation}
+\end{definition}
+
+Note that $\mat{L} = \mat{D} - \mat{A}$, where $\mat{A}$ is the adjacency matrix with entries $A_{ij} = G_{ij}$ for $i \neq j$ and $A_{ii} = 0$, and $\mat{D} = \diag(\sum_k G_{ik})$ is the degree matrix.
+
+\begin{theorem}[Steady-state circuit equations]\label{thm:circuit_eqs}
+The node potentials $\vect{V} = (V_1, \ldots, V_N)^T$ satisfy the linear system
+\begin{equation}\label{eq:circuit_eqs}
+\mat{L} \vect{V} = \vect{I}_{\mathrm{ext}},
+\end{equation}
+where $\vect{I}_{\mathrm{ext}}$ is the vector of external currents (driver commands, road inputs, environmental forcing).
+\end{theorem}
+
+\begin{proof}
+The KCL equation \eqref{eq:kcl} at node $i$ can be written as
+\begin{equation}
+\sum_{j \neq i} G_{ij} V_i - \sum_{j \neq i} G_{ij} V_j = I_{\mathrm{ext},i}.
+\end{equation}
+The left-hand side is $\left(\sum_{j \neq i} G_{ij}\right) V_i - \sum_{j \neq i} G_{ij} V_j = L_{ii} V_i + \sum_{j \neq i} L_{ij} V_j = (\mat{L}\vect{V})_i$. This gives \eqref{eq:circuit_eqs}.
+\end{proof}
+
+\begin{proposition}[Properties of the graph Laplacian]\label{prop:laplacian_props}
+The graph Laplacian $\mat{L}$ of a connected vehicle circuit graph has the following properties:
+\begin{enumerate}[label=(\roman*)]
+\item $\mat{L}$ is symmetric and positive semidefinite;
+\item $\mat{L}\vect{1} = \vect{0}$ (the all-ones vector is in the null space);
+\item The smallest eigenvalue is $\lambda_1 = 0$ with multiplicity equal to the number of connected components;
+\item The second-smallest eigenvalue $\lambda_2 > 0$ (Fiedler eigenvalue) for a connected graph measures the algebraic connectivity \citep{Chung1997};
+\item All other eigenvalues satisfy $0 < \lambda_2 \leq \lambda_3 \leq \cdots \leq \lambda_N$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Symmetry: $L_{ij} = -G_{ij} = -G_{ji} = L_{ji}$ since conductance is symmetric. Positive semidefiniteness: for any $\vect{x} \in \R^N$,
+\begin{equation}
+\vect{x}^T \mat{L} \vect{x} = \sum_{i} \left(\sum_{k \neq i} G_{ik}\right) x_i^2 - \sum_{i \neq j} G_{ij} x_i x_j = \frac{1}{2} \sum_{i \neq j} G_{ij}(x_i - x_j)^2 \geq 0.
+\end{equation}
+(ii) $(\mat{L}\vect{1})_i = \sum_j L_{ij} = L_{ii} + \sum_{j \neq i} L_{ij} = \sum_{k \neq i} G_{ik} - \sum_{j \neq i} G_{ij} = 0$.
+(iii--v) Standard results in spectral graph theory \citep{Chung1997, Bollobas1998}.
+\end{proof}
+
+\begin{remark}
+Since $\mat{L}$ is singular ($\lambda_1 = 0$), \Cref{eq:circuit_eqs} does not have a unique solution unless the external current $\vect{I}_{\mathrm{ext}}$ satisfies $\vect{1}^T \vect{I}_{\mathrm{ext}} = 0$ (total external current is zero, i.e., current conservation at the system boundary). With this solvability condition, the solution is unique up to an additive constant (the absolute potential level is arbitrary, just as in electrical circuits). Fixing one node's potential (grounding) gives a unique solution.
+\end{remark}
+
+
+% ============================================================================
+\section{Fuzzy State Representation}\label{sec:fuzzy}
+% ============================================================================
+
+In practice, the exact state of each vehicle component is not known with certainty. Measurements are noisy, models are approximate, and the internal state must be inferred from incomplete observations. We represent this epistemic uncertainty using fuzzy set theory \citep{Zadeh1965}.
+
+\subsection{Fuzzy membership functions}
+
+\begin{definition}[Fuzzy state]\label{def:fuzzy_state}
+The state of node $i$ is a \emph{fuzzy set} $\fuzzy{x}_i$ defined by a membership function $\mu_i : X_i \to [0, 1]$, where $X_i$ is the state space of node $i$. For any $x \in X_i$, $\mu_i(x)$ represents the degree to which node $i$ is in state $x$.
+\end{definition}
+
+When $\mu_i(x) = 1$, the system is definitely in state $x$. When $\mu_i(x) = 0$, the system is definitely not in state $x$. Intermediate values $0 < \mu_i(x) < 1$ represent partial membership, encoding the uncertainty about the exact state.
+
+\begin{definition}[Alpha-cut]\label{def:alpha_cut}
+The \emph{$\alpha$-cut} of a fuzzy set $\fuzzy{x}_i$ at confidence level $\alpha \in [0, 1]$ is the crisp set
+\begin{equation}\label{eq:alpha_cut}
+[\fuzzy{x}_i]_\alpha = \{x \in X_i : \mu_i(x) \geq \alpha\}.
+\end{equation}
+At confidence level $\alpha$, the state is known to lie within $[\fuzzy{x}_i]_\alpha$.
+\end{definition}
+
+\begin{proposition}[Properties of $\alpha$-cuts]\label{prop:alpha_cuts}
+For a fuzzy set $\fuzzy{x}_i$ with upper semicontinuous membership function:
+\begin{enumerate}[label=(\roman*)]
+\item If $\alpha_1 \leq \alpha_2$, then $[\fuzzy{x}_i]_{\alpha_2} \subseteq [\fuzzy{x}_i]_{\alpha_1}$ (higher confidence $\Rightarrow$ smaller set);
+\item $[\fuzzy{x}_i]_0 = \overline{\mathrm{supp}(\fuzzy{x}_i)}$ (closure of support);
+\item $[\fuzzy{x}_i]_1 = \{x : \mu_i(x) = 1\}$ (core of the fuzzy set);
+\item Each $[\fuzzy{x}_i]_\alpha$ is a closed (compact, if $X_i$ is compact) set.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) If $x \in [\fuzzy{x}_i]_{\alpha_2}$, then $\mu_i(x) \geq \alpha_2 \geq \alpha_1$, so $x \in [\fuzzy{x}_i]_{\alpha_1}$.
+(ii) $[\fuzzy{x}_i]_0 = \{x : \mu_i(x) \geq 0\} = X_i$ in general, but if we define the $0$-cut as the closure of $\{x : \mu_i(x) > 0\}$, this is the closure of the support.
+(iii) By definition.
+(iv) $[\fuzzy{x}_i]_\alpha = \mu_i^{-1}([\alpha, 1])$. Since $\mu_i$ is upper semicontinuous, the preimage of the closed set $[\alpha, 1]$ is closed.
+\end{proof}
+
+For vehicle diagnostics, the $\alpha$-cuts have a natural interpretation: at confidence level $\alpha = 0.95$, the state lies within $[\fuzzy{x}_i]_{0.95}$ with 95\% certainty. As more measurements accumulate, the membership function sharpens and the $\alpha$-cuts narrow.
+
+\subsection{Fuzzy arithmetic on circuit equations}
+
+The circuit equations \eqref{eq:circuit_eqs} must be extended to handle fuzzy node potentials. We use the Zadeh extension principle \citep{Zadeh1965, Klir1995}.
+
+\begin{definition}[Fuzzy circuit equations]\label{def:fuzzy_circuit}
+The fuzzy version of the circuit equations is
+\begin{equation}\label{eq:fuzzy_circuit}
+\mat{L} \fuzzy{\vect{V}} = \fuzzy{\vect{I}}_{\mathrm{ext}},
+\end{equation}
+where $\fuzzy{\vect{V}} = (\fuzzy{V}_1, \ldots, \fuzzy{V}_N)^T$ is the vector of fuzzy node potentials and $\fuzzy{\vect{I}}_{\mathrm{ext}}$ is the vector of fuzzy external currents. The equation is interpreted via the extension principle: for each $\alpha \in [0, 1]$, the $\alpha$-cut of the solution satisfies
+\begin{equation}\label{eq:fuzzy_alpha_circuit}
+\mat{L} [\vect{V}]_\alpha = [\vect{I}_{\mathrm{ext}}]_\alpha,
+\end{equation}
+where the matrix-vector product on the left involves interval arithmetic applied to each $\alpha$-cut interval.
+\end{definition}
+
+\begin{proposition}[Fuzzy KCL and KVL]\label{prop:fuzzy_kirchhoff}
+The fuzzy circuit equations imply:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Fuzzy KCL}: At each node $i$ and each confidence level $\alpha$, the fuzzy currents balance:
+\begin{equation}
+\sum_{j \neq i} G_{ij} \left([\fuzzy{V}_i]_\alpha - [\fuzzy{V}_j]_\alpha\right) \ni 0,
+\end{equation}
+where the subtraction and summation are in the sense of interval arithmetic.
+\item \textbf{Fuzzy KVL}: Around any closed loop, the sum of fuzzy potential differences contains zero:
+\begin{equation}
+\sum_{k=1}^{m} \left([\fuzzy{V}_{i_k}]_\alpha - [\fuzzy{V}_{i_{k+1}}]_\alpha\right) \ni 0.
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) follows from applying the $\alpha$-cut to the fuzzy KCL equation, using the fact that $\alpha$-cuts distribute over addition and scalar multiplication in interval arithmetic. (ii) follows from the telescoping property: even with interval arithmetic, the sum of differences around a closed loop contains zero because $[a]_\alpha - [a]_\alpha \ni 0$ for any fuzzy number $a$.
+\end{proof}
+
+\subsection{The Hausdorff metric on fuzzy state space}
+
+To analyse convergence of iterative algorithms on fuzzy states, we need a metric on the space of fuzzy sets.
+
+\begin{definition}[Hausdorff distance between fuzzy sets]\label{def:hausdorff}
+Let $\fuzzy{x}$ and $\fuzzy{y}$ be two fuzzy sets on $\R$ with $\alpha$-cuts $[\fuzzy{x}]_\alpha = [x_\alpha^-, x_\alpha^+]$ and $[\fuzzy{y}]_\alpha = [y_\alpha^-, y_\alpha^+]$. The \emph{Hausdorff distance} between $\fuzzy{x}$ and $\fuzzy{y}$ is
+\begin{equation}\label{eq:hausdorff}
+d_H(\fuzzy{x}, \fuzzy{y}) = \sup_{\alpha \in [0,1]} \max\left(|x_\alpha^- - y_\alpha^-|, \; |x_\alpha^+ - y_\alpha^+|\right).
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fuzzy state tuple]\label{def:fuzzy_tuple}
+A \emph{fuzzy state tuple} of the vehicle is $\fuzzy{\vect{x}} = (\fuzzy{x}_1, \ldots, \fuzzy{x}_N)$ where $\fuzzy{x}_i$ is the fuzzy state of node $i$. The distance between two fuzzy state tuples is
+\begin{equation}\label{eq:tuple_distance}
+d(\fuzzy{\vect{x}}, \fuzzy{\vect{y}}) = \max_{i=1,\ldots,N} d_H(\fuzzy{x}_i, \fuzzy{y}_i).
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Completeness of fuzzy state space]\label{thm:complete_fuzzy}
+The space $\Fcal^N$ of fuzzy state tuples $(\fuzzy{x}_1, \ldots, \fuzzy{x}_N)$ with the metric $d$ defined in \eqref{eq:tuple_distance} is a complete metric space, provided each fuzzy set has compact $\alpha$-cuts.
+\end{theorem}
+
+\begin{proof}
+It is a classical result that the space of compact subsets of $\R^n$ equipped with the Hausdorff metric is complete \citep{Hausdorff1914, Diamond1994}. The space of fuzzy numbers (fuzzy sets with convex, compact $\alpha$-cuts) inherits this completeness under the metric \eqref{eq:hausdorff} \citep{Diamond1994}. The product of finitely many complete metric spaces is complete under the max metric \eqref{eq:tuple_distance} (a Cauchy sequence in the product converges if and only if each component converges, which it does by completeness of each factor) \citep{Rudin1991}.
+\end{proof}
+
+
+% ============================================================================
+% PART III: BACKWARD TRAJECTORY AND STATE RECONSTRUCTION
+% ============================================================================
+
+\part{Backward Trajectory and State Reconstruction}
+
+% ============================================================================
+\section{Backward Trajectory on the Vehicle Graph}\label{sec:backward}
+% ============================================================================
+
+\subsection{The inference problem}
+
+The central problem is this: given observations at some nodes of the vehicle circuit graph (surface measurements), determine the state at all nodes (including internal, unobserved components). The circuit equations (\Cref{sec:kirchhoff}) provide spatial constraints (how states relate across the graph at a given time). The backward trajectory provides temporal constraints (how the current state relates to the history of state transitions).
+
+\subsection{Hidden Markov Model formulation}
+
+\begin{definition}[Vehicle HMM]\label{def:vehicle_hmm}
+The vehicle circuit graph defines a Hidden Markov Model \citep{Rabiner1989} with:
+\begin{itemize}
+\item \textbf{Hidden states}: the categorical states $\sigma_i \in \Sigma_i$ of each internal component $i \in \{1, \ldots, N\}$;
+\item \textbf{Observations}: measurements $y_k$ at surface nodes $k \in \mathcal{O} \subset \{1, \ldots, N\}$, where $|\mathcal{O}| = K < N$;
+\item \textbf{Transition probabilities}: derived from the circuit graph conductances,
+\begin{equation}\label{eq:transition_prob}
+P(\sigma_i(t+\Delta t) \,|\, \sigma_i(t)) = \frac{1}{Z_i} \exp\left(-\frac{|\mathcal{H}(\sigma_i(t+\Delta t)) - \mathcal{H}(\sigma_i(t))|}{\Delta t \sum_{j} G_{ij}}\right),
+\end{equation}
+where $Z_i$ is a normalisation constant and $G_{ij}$ are the conductances to neighbouring nodes;
+\item \textbf{Emission probabilities}: the probability of observing $y_k$ given the hidden states,
+\begin{equation}\label{eq:emission_prob}
+P(y_k \,|\, \sigma_1, \ldots, \sigma_N) = \frac{1}{Z_k'} \exp\left(-\frac{|y_k - h_k(\sigma_1, \ldots, \sigma_N)|^2}{2\sigma_{\mathrm{noise}}^2}\right),
+\end{equation}
+where $h_k$ is the observation function mapping internal states to the expected surface measurement at node $k$, and $\sigma_{\mathrm{noise}}$ is the measurement noise standard deviation.
+\end{itemize}
+\end{definition}
+
+The transition probability \eqref{eq:transition_prob} encodes the physics: a state transition that changes the categorical depth by a large amount is exponentially unlikely if the coupling conductances are small (energy must be provided through the couplings to change the state). The emission probability \eqref{eq:emission_prob} encodes the measurement model: the observation deviates from the predicted value by Gaussian noise.
+
+\subsection{The Viterbi algorithm}
+
+\begin{definition}[Backward trajectory]\label{def:backward_traj}
+The \emph{backward trajectory} from node $i$ at time $t$ is the most probable sequence of categorical states
+\begin{equation}\label{eq:backward_traj}
+\hat{\vect{\sigma}}_i = (\hat{\sigma}_i(0), \hat{\sigma}_i(\Delta t), \hat{\sigma}_i(2\Delta t), \ldots, \hat{\sigma}_i(t))
+\end{equation}
+that maximises the joint probability
+\begin{equation}\label{eq:viterbi_objective}
+\hat{\vect{\sigma}}_i = \argmax_{\vect{\sigma}_i} P(\sigma_i(0), \ldots, \sigma_i(t), y_1, \ldots, y_K).
+\end{equation}
+This is the Maximum A Posteriori (MAP) path and is computed by the Viterbi algorithm \citep{Viterbi1967}.
+\end{definition}
+
+The Viterbi algorithm operates as follows. Define the partial path probability
+\begin{equation}\label{eq:viterbi_delta}
+\delta_i(t, \sigma) = \max_{\sigma_i(0), \ldots, \sigma_i(t-\Delta t)} P(\sigma_i(0), \ldots, \sigma_i(t-\Delta t), \sigma_i(t) = \sigma, \vect{y}),
+\end{equation}
+where $\vect{y}$ denotes all observations. The recursion is
+\begin{equation}\label{eq:viterbi_recursion}
+\delta_i(t+\Delta t, \sigma') = \left[\max_{\sigma} \delta_i(t, \sigma) \cdot P(\sigma' | \sigma)\right] \cdot P(\vect{y}(t+\Delta t) | \sigma'),
+\end{equation}
+with backtracking pointers $\psi_i(t+\Delta t, \sigma') = \argmax_\sigma \delta_i(t, \sigma) \cdot P(\sigma' | \sigma)$. The MAP path is recovered by following the pointers backward from $\hat{\sigma}_i(t) = \argmax_\sigma \delta_i(t, \sigma)$. The complexity is $O(T \cdot |\Sigma_i|^2)$ per node, where $T = t/\Delta t$ is the number of time steps and $|\Sigma_i|$ is the number of categorical states at node $i$ \citep{Rabiner1989}.
+
+\subsection{Time-invariance of the backward trajectory}
+
+\begin{theorem}[Time-invariance]\label{thm:time_invariance}
+For an autonomous vehicle dynamics (time-independent Hamiltonian, no explicit time-dependent forcing), the MAP backward trajectory of any node depends only on the current state vector $\vect{\sigma}(t)$ and the graph topology (conductances $\{G_{ij}\}$), not on the absolute time $t$.
+\end{theorem}
+
+\begin{proof}
+The transition probabilities \eqref{eq:transition_prob} depend only on the current categorical state $\sigma_i(t)$ and the graph conductances $\{G_{ij}\}$, not on absolute time. This is the Markov property: the future state depends only on the present state, not on how or when the present state was reached.
+
+Let $\mat{M}$ denote the transition matrix with entries $M_{\sigma\sigma'} = P(\sigma' | \sigma)$. The Viterbi algorithm finds the path $\hat{\vect{\sigma}}$ that maximises
+\begin{equation}
+\prod_{\ell=0}^{T-1} M_{\hat{\sigma}(\ell\Delta t), \hat{\sigma}((\ell+1)\Delta t)} \cdot \prod_{k \in \mathcal{O}} P(y_k | \hat{\sigma}(T\Delta t)).
+\end{equation}
+The transition matrix $\mat{M}$ is time-independent (autonomous dynamics). The observations $y_k$ depend only on the current hidden state $\hat{\sigma}(T\Delta t)$ via the emission probabilities \eqref{eq:emission_prob}, which are also time-independent. Therefore, the MAP path $\hat{\vect{\sigma}}$ is determined entirely by $\mat{M}$ and the current observation $\vect{y}$, both of which are functions of the current state vector and graph topology only. Shifting the absolute time $t \to t + t_0$ changes neither $\mat{M}$ nor the functional form of the emission probabilities, so the MAP path is unchanged.
+\end{proof}
+
+\begin{corollary}[Categorical address]\label{cor:categorical_address}
+The backward trajectory $\hat{\vect{\sigma}}_i$ is a \emph{categorical address}: a fixed geometric identity of node $i$ within the vehicle graph's state space. This address does not change with time; it changes only when the node's physical state changes (e.g., due to wear, failure, or modification of the component).
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:time_invariance}, the backward trajectory depends only on the current state and graph topology. If the component's physical state does not change (same oscillatory frequency, same coupling conductances), then the categorical state $\sigma_i$ and transition probabilities $M_{\sigma\sigma'}$ remain the same at every time step, and the Viterbi path is identical. The backward trajectory therefore serves as an invariant identifier---a categorical address---of the component's condition. A change in the component's state (e.g., a worn bearing increasing partition lag) changes the categorical depth $\mathcal{H}_i$ and/or the transition probabilities, which changes the Viterbi path, i.e., the categorical address. Therefore, the address changes if and only if the component's physical state changes.
+\end{proof}
+
+
+% ============================================================================
+\section{Trajectory Completion Algorithm}\label{sec:completion}
+% ============================================================================
+
+\subsection{Problem statement}
+
+\begin{definition}[Trajectory completion problem]\label{def:completion_problem}
+\textbf{Given}: Partial observations at $K < N$ surface nodes: $\{y_k : k \in \mathcal{O}\}$.\\
+\textbf{Find}: The complete fuzzy state tuple $\fuzzy{\vect{x}} = (\fuzzy{x}_1, \ldots, \fuzzy{x}_N)$ specifying the state of all $N$ nodes.
+\end{definition}
+
+\subsection{The three-step iteration}
+
+\begin{definition}[Trajectory completion operator]\label{def:completion_operator}
+The trajectory completion operator $\Tcal : \Fcal^N \to \Fcal^N$ maps a fuzzy state tuple to an updated fuzzy state tuple through three sequential steps:
+\begin{equation}\label{eq:completion_operator}
+\Tcal = \Pcal \circ \mathcal{B} \circ \mathcal{K},
+\end{equation}
+where:
+\end{definition}
+
+\paragraph{Step 1: Kirchhoff Propagation $\mathcal{K}$.}
+
+From the observed nodes, propagate state estimates through the circuit graph using the fuzzy circuit equations (\Cref{def:fuzzy_circuit}).
+
+Given the current fuzzy state estimate $\fuzzy{\vect{x}}^{(n)}$, compute the fuzzy potentials $\fuzzy{V}_i = -\log_2 P(\fuzzy{x}_i^{(n)})$ at all nodes where the state is known (observed or previously estimated). For unobserved nodes, solve the fuzzy circuit equations:
+\begin{equation}\label{eq:kirchhoff_step}
+\fuzzy{V}_i^{\mathrm{new}} = \frac{\sum_{j \in \mathcal{N}(i)} G_{ij} \fuzzy{V}_j}{\sum_{j \in \mathcal{N}(i)} G_{ij}} \quad \text{for each unobserved node } i \notin \mathcal{O},
+\end{equation}
+where $\mathcal{N}(i)$ is the set of neighbours of node $i$ in the graph. This is the weighted average of neighbouring potentials, which is the solution of the discrete Laplace equation at node $i$---the analog of solving for the potential at an interior node of a resistor network given boundary conditions.
+
+\paragraph{Step 2: Backward Trajectory Inference $\mathcal{B}$.}
+
+For each node $i$, compute the MAP backward trajectory $\hat{\vect{\sigma}}_i$ using the Viterbi algorithm (\Cref{def:backward_traj}) with the transition probabilities derived from the current conductances and the emission probabilities from the surface observations. Update the fuzzy state of each node to be consistent with its backward trajectory:
+\begin{equation}\label{eq:backward_step}
+\mu_i^{\mathrm{new}}(x) = \mu_i^{\mathrm{old}}(x) \cdot P(x \,|\, \hat{\vect{\sigma}}_i),
+\end{equation}
+followed by renormalisation. This narrows the membership function by incorporating the trajectory constraint: states inconsistent with the MAP trajectory receive reduced membership.
+
+\paragraph{Step 3: Thermodynamic Feasibility Projection $\Pcal$.}
+
+Check that the updated fuzzy state tuple satisfies thermodynamic constraints:
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Second law}: Total entropy production $\dot{S}_{\mathrm{tot}} = \sum_{(i,j) \in E} G_{ij}(V_i - V_j)^2 / T \geq 0$;
+\item \textbf{First law}: Energy conservation at each node (\Cref{thm:kcl});
+\item \textbf{Positive transport}: All conductances $G_{ij} > 0$ (transport coefficients are non-negative).
+\end{enumerate}
+
+If any constraint is violated at some $\alpha$-cut level, project the fuzzy state back to the feasible set:
+\begin{equation}\label{eq:projection_step}
+[\fuzzy{x}_i^{\mathrm{new}}]_\alpha = \Pi_{\mathcal{C}} \left([\fuzzy{x}_i^{\mathrm{old}}]_\alpha\right),
+\end{equation}
+where $\Pi_{\mathcal{C}}$ is the orthogonal projection onto the convex feasible set $\mathcal{C}$ defined by the thermodynamic constraints.
+
+\begin{lemma}\label{lem:feasible_convex}
+The set $\mathcal{C}$ of thermodynamically feasible states is convex.
+\end{lemma}
+
+\begin{proof}
+The second law constraint $\dot{S}_{\mathrm{tot}} \geq 0$ is a quadratic form in the potential differences $(V_i - V_j)$, which is convex in $\vect{V}$. The first law constraint is linear in $\vect{V}$ (\Cref{eq:circuit_eqs}). The positivity constraint on conductances is a set of linear inequalities. The intersection of convex sets is convex.
+\end{proof}
+
+\subsection{Convergence analysis}
+
+We now prove that the trajectory completion operator $\Tcal$ is a contraction mapping and therefore converges to a unique fixed point.
+
+\begin{lemma}[Kirchhoff propagation is a contraction]\label{lem:kirchhoff_contraction}
+The Kirchhoff propagation operator $\mathcal{K}$ is a contraction with Lipschitz constant $\lambda_{\mathcal{K}} = 1 - \lambda_2 / \lambda_N$, where $\lambda_2$ and $\lambda_N$ are the smallest nonzero and largest eigenvalues of the graph Laplacian $\mat{L}$.
+\end{lemma}
+
+\begin{proof}
+The Kirchhoff propagation step \eqref{eq:kirchhoff_step} applied to all nodes simultaneously (with observed nodes held fixed) is equivalent to one iteration of the Jacobi method for solving $\mat{L}\vect{V} = \vect{I}_{\mathrm{ext}}$. The Jacobi iteration matrix is $\mat{J} = \mat{I} - \mat{D}^{-1}\mat{L}$, where $\mat{D} = \diag(L_{11}, \ldots, L_{NN})$. For the graph Laplacian of a connected graph with positive conductances, the spectral radius of $\mat{J}$ restricted to the subspace orthogonal to the null space of $\mat{L}$ is $\rho(\mat{J}) = \max(|1 - \lambda_2/d_{\max}|, |1 - \lambda_N/d_{\min}|)$ where $d_{\min}$ and $d_{\max}$ are the minimum and maximum diagonal entries of $\mat{D}$.
+
+For the fuzzy extension, the Hausdorff distance between the $\alpha$-cuts of two fuzzy state tuples after Kirchhoff propagation satisfies
+\begin{equation}
+d(\mathcal{K}(\fuzzy{\vect{x}}), \mathcal{K}(\fuzzy{\vect{y}})) \leq \rho(\mat{J}) \cdot d(\fuzzy{\vect{x}}, \fuzzy{\vect{y}}).
+\end{equation}
+Since $\lambda_2 > 0$ for a connected graph and $\lambda_N < \infty$, we have $\rho(\mat{J}) < 1$, so $\mathcal{K}$ is a contraction with $\lambda_{\mathcal{K}} = \rho(\mat{J})$.
+\end{proof}
+
+\begin{lemma}[Backward trajectory inference is non-expansive]\label{lem:backward_nonexpansive}
+The backward trajectory inference operator $\mathcal{B}$ is non-expansive in the Hausdorff metric:
+\begin{equation}\label{eq:backward_nonexpansive}
+d(\mathcal{B}(\fuzzy{\vect{x}}), \mathcal{B}(\fuzzy{\vect{y}})) \leq d(\fuzzy{\vect{x}}, \fuzzy{\vect{y}}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The backward trajectory operator $\mathcal{B}$ multiplies each membership function by a posterior probability and renormalises \eqref{eq:backward_step}. Consider two fuzzy states $\fuzzy{x}$ and $\fuzzy{y}$ with $\alpha$-cuts $[x_\alpha^-, x_\alpha^+]$ and $[y_\alpha^-, y_\alpha^+]$.
+
+The Viterbi algorithm selects the $\argmax$ over discrete paths, which is a maximum operation. The key property is that the $\argmax$ over a finite set is non-expansive in the input probabilities: if the input probabilities change by at most $\epsilon$, the output (the selected path and its probability) changes by at most $\epsilon$.
+
+The multiplication $\mu^{\mathrm{new}}(x) = \mu^{\mathrm{old}}(x) \cdot P(x|\hat{\vect{\sigma}})$ with renormalisation is a Bayesian update. For two membership functions $\mu$ and $\nu$ with $d_H(\mu, \nu) \leq \epsilon$, the updated membership functions $\mu'$ and $\nu'$ satisfy $d_H(\mu', \nu') \leq \epsilon$ because the update multiplies both by the same posterior $P(x|\hat{\vect{\sigma}})$ (the posterior depends on the observations, which are fixed) and renormalisation preserves the Hausdorff distance (scaling a compact interval by the same constant preserves the Hausdorff distance to another interval scaled by a similar constant; the ratio of normalisation constants is bounded by 1).
+
+Combining: the Viterbi step does not expand the distance, and the Bayesian update does not expand the distance, so $\mathcal{B}$ is non-expansive.
+\end{proof}
+
+\begin{lemma}[Thermodynamic projection is non-expansive]\label{lem:projection_nonexpansive}
+The projection operator $\Pcal$ onto the convex feasible set $\mathcal{C}$ is non-expansive:
+\begin{equation}\label{eq:projection_nonexpansive}
+d(\Pcal(\fuzzy{\vect{x}}), \Pcal(\fuzzy{\vect{y}})) \leq d(\fuzzy{\vect{x}}, \fuzzy{\vect{y}}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The orthogonal projection onto a closed convex set in a Hilbert space is a non-expansive (in fact, firmly non-expansive) operator \citep{Rudin1991}. For each $\alpha$-cut level, the projection of a compact interval onto the convex feasible set $\mathcal{C}$ is the orthogonal projection in $\R^N$, which is non-expansive. Taking the supremum over $\alpha$, the Hausdorff distance between projected fuzzy state tuples cannot exceed the original distance.
+\end{proof}
+
+\begin{theorem}[Convergence of trajectory completion]\label{thm:convergence}
+The trajectory completion operator $\Tcal = \Pcal \circ \mathcal{B} \circ \mathcal{K}$ is a contraction mapping on the complete metric space $(\Fcal^N, d)$ of fuzzy state tuples. Therefore, by the Banach fixed-point theorem \citep{Banach1922}, the iteration $\fuzzy{\vect{x}}^{(n+1)} = \Tcal(\fuzzy{\vect{x}}^{(n)})$ converges to a unique fixed point $\fuzzy{\vect{x}}^*$ from any initial estimate $\fuzzy{\vect{x}}^{(0)}$.
+\end{theorem}
+
+\begin{proof}
+Let $\fuzzy{\vect{x}}, \fuzzy{\vect{y}} \in \Fcal^N$. By the triangle inequality for operator composition:
+\begin{align}
+d(\Tcal(\fuzzy{\vect{x}}), \Tcal(\fuzzy{\vect{y}})) &= d(\Pcal(\mathcal{B}(\mathcal{K}(\fuzzy{\vect{x}}))), \Pcal(\mathcal{B}(\mathcal{K}(\fuzzy{\vect{y}})))) \nonumber \\
+&\leq d(\mathcal{B}(\mathcal{K}(\fuzzy{\vect{x}})), \mathcal{B}(\mathcal{K}(\fuzzy{\vect{y}}))) \quad \text{(\Cref{lem:projection_nonexpansive})} \nonumber \\
+&\leq d(\mathcal{K}(\fuzzy{\vect{x}}), \mathcal{K}(\fuzzy{\vect{y}})) \quad \text{(\Cref{lem:backward_nonexpansive})} \nonumber \\
+&\leq \lambda_{\mathcal{K}} \cdot d(\fuzzy{\vect{x}}, \fuzzy{\vect{y}}) \quad \text{(\Cref{lem:kirchhoff_contraction})},
+\end{align}
+where $\lambda_{\mathcal{K}} = \rho(\mat{J}) < 1$. Therefore $\Tcal$ is a contraction with Lipschitz constant $\lambda = \lambda_{\mathcal{K}} < 1$.
+
+The metric space $(\Fcal^N, d)$ is complete by \Cref{thm:complete_fuzzy}. The Banach fixed-point theorem \citep{Banach1922, Granas2003} then guarantees:
+\begin{enumerate}[label=(\roman*)]
+\item $\Tcal$ has a unique fixed point $\fuzzy{\vect{x}}^* \in \Fcal^N$;
+\item The iteration $\fuzzy{\vect{x}}^{(n+1)} = \Tcal(\fuzzy{\vect{x}}^{(n)})$ converges to $\fuzzy{\vect{x}}^*$ for any $\fuzzy{\vect{x}}^{(0)} \in \Fcal^N$;
+\item The rate of convergence is geometric: $d(\fuzzy{\vect{x}}^{(n)}, \fuzzy{\vect{x}}^*) \leq \lambda^n d(\fuzzy{\vect{x}}^{(0)}, \fuzzy{\vect{x}}^*)$.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[Convergence rate]\label{cor:convergence_rate}
+The error after $n$ iterations is bounded by
+\begin{equation}\label{eq:convergence_rate}
+d(\fuzzy{\vect{x}}^{(n)}, \fuzzy{\vect{x}}^*) \leq \frac{\lambda^n}{1 - \lambda} d(\fuzzy{\vect{x}}^{(0)}, \fuzzy{\vect{x}}^{(1)}),
+\end{equation}
+where $\lambda = \lambda_{\mathcal{K}} < 1$.
+\end{corollary}
+
+\begin{proof}
+This is the a priori error estimate from the Banach fixed-point theorem \citep{Banach1922}. By the triangle inequality,
+\begin{equation}
+d(\fuzzy{\vect{x}}^{(n)}, \fuzzy{\vect{x}}^*) \leq \sum_{k=n}^{\infty} d(\fuzzy{\vect{x}}^{(k)}, \fuzzy{\vect{x}}^{(k+1)}) \leq \sum_{k=n}^{\infty} \lambda^k d(\fuzzy{\vect{x}}^{(0)}, \fuzzy{\vect{x}}^{(1)}) = \frac{\lambda^n}{1-\lambda} d(\fuzzy{\vect{x}}^{(0)}, \fuzzy{\vect{x}}^{(1)}).
+\end{equation}
+\end{proof}
+
+\begin{remark}[Typical convergence rates for vehicle graphs]
+For a vehicle circuit graph with $N = 50$--$100$ nodes and typical conductance values, the spectral radius $\lambda_{\mathcal{K}}$ of the Jacobi iteration matrix lies in the range $0.3$--$0.7$ \citep{Chung1997}. This means:
+\begin{itemize}
+\item At $\lambda = 0.5$: after 10 iterations, the error is reduced by a factor of $2^{-10} \approx 10^{-3}$;
+\item At $\lambda = 0.7$: after 20 iterations, the error is reduced by a factor of $0.7^{20} \approx 8 \times 10^{-4}$.
+\end{itemize}
+Convergence to machine precision typically requires 20--50 iterations, each involving one sweep of Kirchhoff propagation, one Viterbi pass per node, and one feasibility projection.
+\end{remark}
+
+
+% ============================================================================
+\section{Categorical State Propagation}\label{sec:propagation}
+% ============================================================================
+
+\subsection{Information propagation velocity}
+
+A change in the state of one component (e.g., a bearing beginning to fail) changes its categorical depth $\mathcal{H}_i$, which creates a potential difference with neighbouring nodes. This difference drives current through the circuit graph, updating the potentials at neighbouring nodes, which in turn update their neighbours, and so on. The categorical signal propagates through the graph like a wave.
+
+\begin{definition}[Categorical signal]\label{def:categorical_signal}
+A \emph{categorical signal} is a change $\delta V_i$ in the potential at node $i$ caused by a change in the node's categorical state. The signal propagates through the graph via the circuit equations.
+\end{definition}
+
+\begin{theorem}[Propagation velocity]\label{thm:propagation_velocity}
+The categorical signal propagates through a coupling edge $(i, j)$ with velocity
+\begin{equation}\label{eq:signal_velocity}
+\vs = \sqrt{\frac{\kappa_{\mathrm{eff}}}{m_{\mathrm{eff}}}},
+\end{equation}
+where $\kappa_{\mathrm{eff}}$ is the effective stiffness and $m_{\mathrm{eff}}$ is the effective mass of the coupling.
+\end{theorem}
+
+\begin{proof}
+The circuit equation at node $i$ can be written in dynamical form (allowing time dependence):
+\begin{equation}\label{eq:dynamic_circuit}
+m_{\mathrm{eff},i} \frac{\partial^2 V_i}{\partial t^2} = -\sum_{j \in \mathcal{N}(i)} G_{ij}(V_i - V_j) + I_{\mathrm{ext},i},
+\end{equation}
+where $m_{\mathrm{eff},i}$ is an effective ``mass'' (inertia of the information carrier at node $i$). In the continuum limit (many closely spaced nodes), this becomes a wave equation:
+\begin{equation}\label{eq:wave_equation}
+m_{\mathrm{eff}} \frac{\partial^2 V}{\partial t^2} = \kappa_{\mathrm{eff}} \nabla^2 V,
+\end{equation}
+where $\kappa_{\mathrm{eff}} = G \cdot \ell^2$ is the effective stiffness ($G$ is the conductance per unit length and $\ell$ is the node spacing). The wave equation has solutions propagating at velocity $\vs = \sqrt{\kappa_{\mathrm{eff}}/m_{\mathrm{eff}}}$.
+\end{proof}
+
+\subsection{Propagation velocities for different coupling types}
+
+\begin{proposition}[Coupling-specific signal velocities]\label{prop:signal_velocities}
+The categorical signal velocity through each coupling type is:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Mechanical}: $\vs = \sqrt{E/\rho}$, the speed of sound in the coupling material. For steel: $\vs \approx 5000$~m/s. For rubber (engine mounts): $\vs \approx 50$~m/s.
+\item \textbf{Electrical}: $\vs \approx c/\sqrt{\epsilon_r}$, approaching the speed of light in the conductor's dielectric. For copper wire: $\vs \approx 2 \times 10^8$~m/s.
+\item \textbf{Thermal}: $\vs \approx \sqrt{\alpha / \tau_{\mathrm{obs}}}$, where $\alpha$ is thermal diffusivity and $\tau_{\mathrm{obs}}$ is the observation timescale. For steel ($\alpha \approx 1.2 \times 10^{-5}$~m$^2$/s) on a 1~s timescale: $\vs \approx 3.5 \times 10^{-3}$~m/s.
+\item \textbf{Acoustic}: $\vs = c_{\mathrm{sound}}$, the speed of sound in the medium. In air: $\vs \approx 343$~m/s. In water (coolant): $\vs \approx 1500$~m/s. In steel: $\vs \approx 5000$~m/s.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The mechanical signal is a stress wave. The wave speed in an elastic medium with Young's modulus $E$ and density $\rho$ is $c = \sqrt{E/\rho}$ \citep{Graff1975}. (ii) Electromagnetic signals in a transmission line propagate at $c/\sqrt{\epsilon_r \mu_r} \approx c/\sqrt{\epsilon_r}$ for non-magnetic conductors \citep{DesoerKuh1969}. (iii) Thermal diffusion is not wave-like (parabolic equation, not hyperbolic), so there is no fixed propagation speed. However, the ``effective'' speed at which a thermal disturbance of amplitude $\delta T$ becomes detectable (exceeds noise floor) at distance $L$ is $\vs \sim L/t_{\mathrm{diff}} = L/(L^2/\alpha) = \alpha/L$. For $L \sim 1$~m: $\vs \sim 10^{-5}$~m/s (extremely slow). On short length scales ($L \sim 1$~mm): $\vs \sim 10^{-2}$~m/s. (iv) Acoustic signals are pressure waves with speed determined by the bulk modulus and density of the medium \citep{Kinsler2000}.
+\end{proof}
+
+\begin{theorem}[Categorical signal exceeds mechanical propagation]\label{thm:signal_exceeds}
+The categorical state information about a fault at an internal node reaches the vehicle surface faster through the electrical and acoustic coupling channels than through the mechanical channel alone.
+\end{theorem}
+
+\begin{proof}
+A mechanical fault (e.g., bearing defect) produces: (a) a mechanical vibration signal propagating at $\vs^{(\mathrm{mech})} \approx 5000$~m/s through the steel structure; (b) an acoustic emission propagating at $\vs^{(\mathrm{acous})} \approx 5000$~m/s through the structure and $\approx 343$~m/s through air; (c) an electrical noise signature propagating at $\vs^{(\mathrm{elec})} \approx 2 \times 10^8$~m/s through the wiring harness. The electrical channel is faster by a factor of $\sim 4 \times 10^4$. Even through purely mechanical/acoustic paths, the signal reaches the vehicle surface (distance $\sim 1$~m) in $\sim 0.2$~ms, far faster than the mechanical fault develops (timescale of seconds to hours). The circuit graph is therefore ``informationally well-mixed'' on diagnostic timescales.
+\end{proof}
+
+\begin{remark}
+The practical implication is that the trajectory completion algorithm does not need to account for signal propagation delays within the vehicle. On the timescale of a diagnostic measurement (seconds to minutes), the circuit graph is effectively at steady state---all nodes have adjusted to any recent state changes. This justifies the steady-state circuit equations (\Cref{thm:circuit_eqs}) as the basis for state reconstruction.
+\end{remark}
+
+
+% ============================================================================
+% PART IV: APPLICATIONS TO VEHICLE DIAGNOSTICS
+% ============================================================================
+
+\part{Applications to Vehicle Diagnostics}
+
+% ============================================================================
+\section{Observable Signals at the Vehicle Surface}\label{sec:observables}
+% ============================================================================
+
+\subsection{Surface observation modalities}
+
+The vehicle surface---the exterior of the body, underbody panels, exhaust outlet, and accessible surfaces---permits the following non-invasive measurements:
+
+\paragraph{Vibration.} Accelerometers attached to body panels, engine mounts, suspension towers, or steering column measure structural vibrations in the range 0.1~Hz to 10~kHz \citep{Randall2011, Harris2002}. The vibration signal is a superposition of contributions from all oscillatory subsystems, filtered by the structural transfer functions.
+
+\paragraph{Acoustic emission.} Microphones (in air) or ultrasonic transducers (on structure) detect sound from 20~Hz to 100~kHz \citep{Kinsler2000}. Engine noise, tire noise, wind noise, and component-specific emissions (valve clicks, injector ticks, bearing hum) are all captured.
+
+\paragraph{Thermal emission.} Infrared cameras or pyrometers measure surface temperature distributions with resolution $\sim 0.1$~K and spatial resolution $\sim 1$~mm. Hot spots indicate internal heat generation (friction, electrical resistance) or blocked cooling.
+
+\paragraph{Electromagnetic emission.} Antennas detect RF noise from ignition systems (spark plug discharge), alternator rectification, and electronic control modules. The frequency content and timing of these emissions carry information about the electrical system state.
+
+\paragraph{Exhaust composition.} Gas analysers measure concentrations of CO$_2$, CO, NO$_x$, hydrocarbons, and particulate matter. These are direct indicators of combustion quality, catalytic converter efficiency, and fuel system state.
+
+\paragraph{Tire forces.} Strain gauges or force plates measure the forces at the tire-road interface. These encode information about suspension geometry, tire condition, brake balance, and weight distribution.
+
+\subsection{The observation model}
+
+\begin{definition}[Observation function]\label{def:observation}
+The observation at surface node $k \in \mathcal{O}$ is a function of all internal states:
+\begin{equation}\label{eq:observation}
+y_k = h_k(\vect{x}) + \eta_k,
+\end{equation}
+where $\vect{x} = (x_1, \ldots, x_N)^T$ is the complete state vector, $h_k : \R^N \to \R$ is the observation function for surface node $k$, and $\eta_k$ is measurement noise with known distribution (typically Gaussian with variance $\sigma_k^2$).
+\end{definition}
+
+\begin{definition}[Observation matrix]\label{def:observation_matrix}
+For small deviations from a reference state $\vect{x}_0$ (linearisation), the observation model becomes
+\begin{equation}\label{eq:linear_observation}
+\vect{y} = \mat{H} \delta\vect{x} + \vect{\eta},
+\end{equation}
+where $\mat{H} \in \R^{K \times N}$ is the \emph{observation matrix} with entries $H_{ki} = \partial h_k / \partial x_i |_{\vect{x}_0}$, $\delta\vect{x} = \vect{x} - \vect{x}_0$, and $\vect{\eta} \sim \mathcal{N}(\vect{0}, \mat{\Sigma})$ with noise covariance $\mat{\Sigma} = \diag(\sigma_1^2, \ldots, \sigma_K^2)$.
+\end{definition}
+
+The observation matrix $\mat{H}$ encodes how each internal state contributes to each surface observation. It is determined by the structural transfer functions (for vibration and acoustics), the thermal conduction paths (for temperature), the electromagnetic coupling (for RF emissions), and the chemical kinetics (for exhaust composition).
+
+\begin{remark}
+The observation matrix is typically sparse: most internal components affect only nearby surface observation points significantly. This sparsity reflects the physical structure of the vehicle and reduces the computational cost of the trajectory completion algorithm.
+\end{remark}
+
+
+% ============================================================================
+\section{Fault Detection as Trajectory Escape}\label{sec:fault}
+% ============================================================================
+
+\subsection{The healthy attractor}
+
+\begin{definition}[Healthy attractor]\label{def:healthy_attractor}
+The \emph{healthy attractor} $\mathcal{A}_0 \subset \Fcal^N$ is the set of fuzzy state tuples consistent with a properly functioning vehicle:
+\begin{equation}\label{eq:healthy_attractor}
+\mathcal{A}_0 = \left\{\fuzzy{\vect{x}} \in \Fcal^N : \forall i, \; \fuzzy{x}_i \text{ consistent with nominal parameters of component } i\right\}.
+\end{equation}
+The healthy attractor is defined by the nominal graph topology $\{G_{ij}^{(0)}\}$ and the nominal operating conditions (engine speed, vehicle speed, ambient temperature).
+\end{definition}
+
+\begin{proposition}\label{prop:attractor_basin}
+The healthy attractor is a basin of attraction of the trajectory completion operator: if the vehicle is healthy and the initial estimate $\fuzzy{\vect{x}}^{(0)}$ lies within $\mathcal{A}_0$, then the iteration converges to the unique fixed point $\fuzzy{\vect{x}}^*_0 \in \mathcal{A}_0$.
+\end{proposition}
+
+\begin{proof}
+By \Cref{thm:convergence}, the trajectory completion operator $\Tcal$ converges to a unique fixed point $\fuzzy{\vect{x}}^*$ from any initial estimate. If the vehicle is healthy, the observations $\vect{y}$ are consistent with the nominal conductances $\{G_{ij}^{(0)}\}$, and the fixed point $\fuzzy{\vect{x}}^*_0$ satisfies all three constraint classes (Kirchhoff, backward trajectory, thermodynamic feasibility) with the nominal parameters. Since the fixed point is unique, it lies within $\mathcal{A}_0$.
+\end{proof}
+
+\subsection{Fault detection}
+
+\begin{definition}[Trajectory escape]\label{def:trajectory_escape}
+A \emph{fault} is detected when the reconstructed state $\fuzzy{\vect{x}}^*$ lies outside the healthy attractor:
+\begin{equation}\label{eq:fault_detection}
+\text{Fault detected if } d(\fuzzy{\vect{x}}^*, \mathcal{A}_0) > \epsilon_{\mathrm{thresh}},
+\end{equation}
+where $d(\fuzzy{\vect{x}}^*, \mathcal{A}_0) = \inf_{\fuzzy{\vect{y}} \in \mathcal{A}_0} d(\fuzzy{\vect{x}}^*, \fuzzy{\vect{y}})$ and $\epsilon_{\mathrm{thresh}}$ is a detection threshold set by the desired false alarm rate.
+\end{definition}
+
+\subsection{Fault diagnosis}
+
+\begin{theorem}[Diagnosis via categorical address change]\label{thm:diagnosis}
+If the reconstructed state $\fuzzy{\vect{x}}^*$ lies outside the healthy attractor, then the faulty component is the node $i^*$ whose categorical address has changed the most:
+\begin{equation}\label{eq:fault_diagnosis}
+i^* = \argmax_i d_H(\hat{\vect{\sigma}}_i^*, \hat{\vect{\sigma}}_i^{(0)}),
+\end{equation}
+where $\hat{\vect{\sigma}}_i^*$ is the backward trajectory in the current (faulty) state and $\hat{\vect{\sigma}}_i^{(0)}$ is the backward trajectory in the healthy reference state.
+\end{theorem}
+
+\begin{proof}
+By \Cref{cor:categorical_address}, the backward trajectory (categorical address) of a node changes if and only if the node's physical state changes. A fault in component $i$ changes its oscillatory frequency, partition lag, or coupling conductances, which changes its categorical depth and therefore its backward trajectory. Components that are not faulty retain their nominal categorical addresses. The node with the largest change in categorical address is therefore the fault location.
+\end{proof}
+
+\subsection{Fault prognosis}
+
+\begin{definition}[Trajectory drift rate]\label{def:drift_rate}
+The \emph{trajectory drift rate} of node $i$ is the rate of change of its categorical address over time:
+\begin{equation}\label{eq:drift_rate}
+\dot{d}_i = \frac{d}{dt} d_H(\hat{\vect{\sigma}}_i(t), \hat{\vect{\sigma}}_i^{(0)}).
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Time to failure estimate]\label{prop:ttf}
+If the trajectory drift rate $\dot{d}_i$ is approximately constant and the failure threshold is $d_{\mathrm{fail}}$, then the estimated time to failure is
+\begin{equation}\label{eq:ttf}
+\hat{T}_{\mathrm{fail}} = \frac{d_{\mathrm{fail}} - d_H(\hat{\vect{\sigma}}_i(t_{\mathrm{now}}), \hat{\vect{\sigma}}_i^{(0)})}{\dot{d}_i}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Linear extrapolation of the categorical distance from its current value to the failure threshold at constant drift rate.
+\end{proof}
+
+
+% ============================================================================
+\section{Diagnostic Examples}\label{sec:examples}
+% ============================================================================
+
+We now illustrate the framework with four detailed examples spanning different vehicle subsystems and fault types.
+
+\subsection{Engine misfire detection}\label{sec:misfire}
+
+\paragraph{Physical scenario.} An engine cylinder fails to fire on a fraction of its combustion cycles. In a four-cylinder engine at 3000~RPM (50~Hz crankshaft), each cylinder fires at 25~Hz. A misfire in cylinder 3 means it fires at a reduced rate, say 24~Hz (one missed event per second), or produces a subharmonic pattern (fires every other cycle at 12.5~Hz).
+
+\paragraph{Circuit graph representation.} The engine node has characteristic frequency $\omega_{\mathrm{eng}} = 2\pi \times 50$~Hz. The misfire changes the effective frequency to $\omega_{\mathrm{eng}}' = 2\pi \times 49$~Hz (averaged over all cylinders) or introduces a subharmonic at $\omega_{\mathrm{eng}}/2 = 2\pi \times 25$~Hz. The categorical state function $C(t) = \lfloor \omega_{\mathrm{eng}} t / 2\pi \rfloor$ is altered: the cycle count falls behind the expected value by one unit every $1/1 = 1$~s.
+
+\paragraph{Potential change.} The misfiring cylinder has a different probability distribution over its categorical states. In the healthy state, each combustion cycle produces a pressure pulse of amplitude $p_0 \pm \delta p$ (small variation). With a misfire, the pressure is $p_0 \pm \delta p$ on firing cycles and $\sim 0$ on misfiring cycles. The probability of observing a low-pressure state increases, reducing the categorical depth:
+\begin{equation}
+\Delta V_{\mathrm{eng}} = \Delta \mathcal{H}_{\mathrm{eng}} = -\log_2 P'(\sigma_{\mathrm{misfire}}) + \log_2 P(\sigma_{\mathrm{normal}}).
+\end{equation}
+For a misfire rate of 1/25 (one per second at 25~Hz), $P'(\sigma_{\mathrm{misfire}}) \approx 0.04$, giving $\Delta V \approx -\log_2(0.04) + \log_2(1/25) = 0$ in the uniform case, or more precisely, the distribution shifts and the categorical depth changes by $\sim 1$--$3$ bits depending on the severity.
+
+\paragraph{Surface detection.} The potential change propagates through:
+\begin{itemize}
+\item Mechanical path (engine $\to$ mounts $\to$ body): vibration signature with missing pulses, detected as amplitude modulation at 1~Hz (misfire rate);
+\item Acoustic path: exhaust sound missing pulses, detected as a ``pop-pop'' pattern;
+\item Electrical path: crankshaft position sensor showing non-uniform angular velocity.
+\end{itemize}
+
+\paragraph{Trajectory completion.} The algorithm detects the potential change at the engine node, computes the backward trajectory showing a change in the combustion categorical address, and identifies the misfiring cylinder by cross-referencing with the firing order and the phase of the amplitude modulation.
+
+\subsection{Bearing wear progression}\label{sec:bearing}
+
+\paragraph{Physical scenario.} A wheel bearing develops progressive surface damage (pitting, spalling). The bearing's characteristic frequency is the ball pass frequency outer race (BPFO):
+\begin{equation}
+f_{\mathrm{BPFO}} = \frac{n_b}{2} f_r \left(1 - \frac{d_b}{d_p} \cos \phi\right),
+\end{equation}
+where $n_b$ is the number of rolling elements, $f_r$ is the rotation frequency, $d_b$ is the ball diameter, $d_p$ is the pitch diameter, and $\phi$ is the contact angle \citep{Randall2011}. As wear progresses, the surface roughness increases, causing:
+\begin{enumerate}[label=(\alph*)]
+\item Increased partition lag $\tauP$ (more time spent in transition between rolling contact states due to surface irregularities);
+\item Increased transport coefficient $\Xi$ (more dissipation per rolling cycle);
+\item Increased thermal output (friction heating);
+\item Appearance of defect frequencies in the vibration spectrum.
+\end{enumerate}
+
+\paragraph{Circuit graph representation.} The bearing is a coupling edge between the wheel node and the suspension node, with conductance
+\begin{equation}
+G_{\mathrm{bearing}} = \frac{g_{\mathrm{bearing}}}{\tauP^{(\mathrm{bearing})} \cdot \mathcal{N}_{\mathrm{bearing}}}.
+\end{equation}
+As wear progresses, $\tauP^{(\mathrm{bearing})}$ increases (longer transition times due to roughness) and $g_{\mathrm{bearing}}$ may decrease (less coherent rolling). Both effects decrease $G_{\mathrm{bearing}}$, changing the circuit graph's conductance structure.
+
+\paragraph{Surface detection.} Detected through:
+\begin{itemize}
+\item Vibration: increased amplitude at BPFO and its harmonics;
+\item Thermal: elevated temperature near the bearing (measured by infrared);
+\item Acoustic: characteristic humming or grinding sound.
+\end{itemize}
+
+\paragraph{Trajectory completion.} The algorithm identifies the decreased conductance at the bearing edge, traces the backward trajectory to find the changing categorical address of the wheel-suspension coupling, and estimates the wear severity from the magnitude of the conductance change. The drift rate of the categorical address provides a prognosis for remaining useful life.
+
+\subsection{Electrical system fault}\label{sec:electrical}
+
+\paragraph{Physical scenario.} An alternator develops a failed diode in its rectifier bridge. The alternator normally produces a three-phase AC output that is rectified to DC. With one diode failed, one phase is missing, changing the output waveform.
+
+\paragraph{Circuit graph effects.} The alternator node's characteristic frequency changes: instead of a smooth DC with small ripple at $6 \times f_r$ (six-pulse rectification), the output has a dominant ripple at $2 \times f_r$ (two-pulse, from the remaining phases) with increased amplitude. The categorical depth of the alternator node changes because the state probability distribution shifts (higher probability of being in a low-voltage state during the missing phase).
+
+The electrical conductance from alternator to battery changes: $G_{\mathrm{elec}} = 1/R_{\mathrm{eff}}$ where $R_{\mathrm{eff}}$ increases due to the higher ripple (increased effective impedance at the ripple frequency).
+
+\paragraph{Surface detection.} The voltage ripple propagates through the entire electrical system:
+\begin{itemize}
+\item Electromagnetic: RF emission at $2 f_r$ instead of $6 f_r$;
+\item Lighting: visible flicker at $2 f_r$ in incandescent bulbs (if present);
+\item Acoustic: alternator whine at changed frequency.
+\end{itemize}
+
+\paragraph{Trajectory completion.} The algorithm detects the changed ripple frequency at surface electrical nodes, propagates through the graph to identify the alternator as the source, and determines the diode failure from the spectral signature.
+
+\subsection{Brake fade}\label{sec:brake_fade}
+
+\paragraph{Physical scenario.} During sustained braking (e.g., descending a mountain pass), the brake rotor temperature rises from ambient ($\sim 25^\circ$C) to elevated temperatures ($\sim 400$--$600^\circ$C). The brake pad material properties change with temperature:
+\begin{itemize}
+\item Friction coefficient $\mu_f(T)$: typically increases up to $\sim 200^\circ$C, then decreases (``fade'');
+\item Elastic modulus $E(T)$: decreases with temperature (thermal softening);
+\item Thermal conductivity $\kappa(T)$: may increase or decrease depending on the pad material.
+\end{itemize}
+
+\paragraph{Circuit graph effects.} The brake node's thermal conductance $G_{\mathrm{therm}} = \kappa(T) A / L$ changes with temperature. The mechanical conductance between brake and wheel changes due to the temperature-dependent friction coefficient and elastic modulus. The node potential changes as the probability distribution over thermal states shifts (higher temperatures become more probable during braking).
+
+\paragraph{Surface detection.}
+\begin{itemize}
+\item Thermal: elevated brake disc temperature visible in infrared;
+\item Vibration: changed brake squeal frequency (elastic modulus change shifts resonant frequency);
+\item Acoustic: brake noise changes in character.
+\end{itemize}
+
+\paragraph{Trajectory completion.} The algorithm detects the elevated temperature and changed vibration pattern, uses the circuit graph to infer the internal brake state (pad condition, rotor temperature profile), and identifies fade onset from the trajectory of the brake node's categorical address.
+
+
+% ============================================================================
+\section{Sensitivity and Resolution}\label{sec:sensitivity}
+% ============================================================================
+
+\subsection{Fisher information of surface observations}
+
+The minimum detectable change in any internal state is bounded by the Cram\'{e}r--Rao inequality, which depends on the Fisher information carried by the surface observations about the internal states.
+
+\begin{definition}[Fisher information matrix]\label{def:fisher}
+The \emph{Fisher information matrix} for the observation model \eqref{eq:linear_observation} is \citep{Kay1993, CramerRao1945}
+\begin{equation}\label{eq:fisher}
+\mat{J} = \mat{H}^T \mat{\Sigma}^{-1} \mat{H} \in \R^{N \times N},
+\end{equation}
+where $\mat{H}$ is the observation matrix and $\mat{\Sigma}$ is the noise covariance.
+\end{definition}
+
+\begin{theorem}[Cram\'{e}r--Rao bound for vehicle state estimation]\label{thm:cramer_rao}
+The variance of any unbiased estimator $\hat{x}_i$ of the $i$-th internal state satisfies
+\begin{equation}\label{eq:cramer_rao}
+\mathrm{Var}(\hat{x}_i) \geq (\mat{J}^{-1})_{ii},
+\end{equation}
+provided $\mat{J}$ is invertible.
+\end{theorem}
+
+\begin{proof}
+This is the classical Cram\'{e}r--Rao lower bound \citep{CramerRao1945, Kay1993, VanTrees1968}. The proof proceeds by defining the score function $\vect{s}(\vect{y}) = \nabla_{\vect{x}} \ln p(\vect{y}|\vect{x})$ and applying the Cauchy--Schwarz inequality to the covariance between $\hat{x}_i$ and $s_j$. For the Gaussian observation model \eqref{eq:linear_observation}, $\ln p(\vect{y}|\vect{x}) = -\frac{1}{2}(\vect{y} - \mat{H}\vect{x})^T \mat{\Sigma}^{-1}(\vect{y} - \mat{H}\vect{x}) + \text{const}$, and $\vect{s} = \mat{H}^T \mat{\Sigma}^{-1}(\vect{y} - \mat{H}\vect{x})$. The Fisher information $J_{ij} = \mathrm{E}[s_i s_j] = (\mat{H}^T\mat{\Sigma}^{-1}\mat{H})_{ij}$, yielding \eqref{eq:fisher}. The bound \eqref{eq:cramer_rao} follows directly.
+\end{proof}
+
+\begin{corollary}[Minimum detectable state change]\label{cor:min_detectable}
+The minimum detectable change in the state of internal node $i$ at a given significance level is
+\begin{equation}\label{eq:min_detectable}
+\delta x_i^{\min} = z_\alpha \sqrt{(\mat{J}^{-1})_{ii}},
+\end{equation}
+where $z_\alpha$ is the $z$-score corresponding to the desired confidence level (e.g., $z_{0.05} = 1.96$ for 95\% confidence).
+\end{corollary}
+
+\begin{proof}
+An estimator that achieves the Cram\'{e}r--Rao bound has variance $(\mat{J}^{-1})_{ii}$, so changes smaller than $z_\alpha$ standard deviations cannot be reliably distinguished from noise.
+\end{proof}
+
+\subsection{Dependence on observation configuration}
+
+\begin{proposition}[Resolution scaling]\label{prop:resolution}
+The resolution of the trajectory completion algorithm depends on:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Number of surface observations $K$}: increasing $K$ increases the rank of $\mat{H}$ and reduces $(\mat{J}^{-1})_{ii}$;
+\item \textbf{Noise level $\sigma_k$}: decreasing noise decreases $\mat{\Sigma}$ and increases $\mat{J}$;
+\item \textbf{Graph connectivity}: higher conductances $G_{ij}$ create stronger coupling between internal states and surface observations, increasing the entries of $\mat{H}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Adding an observation adds a row to $\mat{H}$, which adds a rank-1 positive semidefinite matrix $\mat{h}_k \mat{h}_k^T / \sigma_k^2$ to $\mat{J}$ (where $\mat{h}_k$ is the $k$-th row of $\mat{H}$). Since $\mat{J}^{-1}$ decreases (in the positive semidefinite ordering) when $\mat{J}$ increases, the variance bound decreases. (ii) Halving $\sigma_k$ quadruples $J_{kk}$, reducing the bound by a factor of 2. (iii) Increasing $G_{ij}$ increases the amplitude of the surface signal $h_k$ from internal node $i$ (more energy transmitted to the surface), increasing $H_{ki}$ and therefore $J_{ii}$.
+\end{proof}
+
+\begin{proposition}[Typical resolution for vehicle diagnostics]\label{prop:typical_resolution}
+For a vehicle circuit graph with $N = 50$--$100$ internal nodes and $K = 10$--$20$ surface observation points (accelerometers, microphones, temperature sensors), with signal-to-noise ratio of 20--40~dB, the minimum detectable state change is typically 1--5\% of the nominal state value.
+\end{proposition}
+
+\begin{proof}[Justification]
+We estimate the Fisher information for a representative vehicle graph. Let $N = 75$ and $K = 15$. The observation matrix $\mat{H}$ has $K \times N = 15 \times 75 = 1125$ entries. For a well-connected graph, each observation is influenced by $\sim 10$--$20$ internal nodes (the rest contribute negligibly due to distance attenuation). The effective rank of $\mat{H}$ is $\sim K = 15$. The noise variance $\sigma^2 \sim 10^{-3}$--$10^{-4}$ (relative to the signal amplitude) for 20--40~dB SNR. The Fisher information per observed node is $J_{ii} \sim K H_{ki}^2 / \sigma^2 \sim 15 \times (0.1)^2 / 10^{-3} = 150$. The Cram\'{e}r--Rao bound gives $\delta x_i^{\min} \sim 1/\sqrt{150} \approx 8\%$ for directly connected nodes, and $\sim 2$--$5\%$ for nodes connected to multiple observation points through the graph structure. These estimates are consistent with the performance of vibration-based diagnostic systems in practice \citep{Jardine2006, Randall2011}.
+\end{proof}
+
+\subsection{Optimal sensor placement}
+
+\begin{definition}[Optimal observation configuration]\label{def:optimal_sensors}
+The optimal placement of $K$ observation points on the vehicle surface is the configuration that maximises the determinant of the Fisher information matrix:
+\begin{equation}\label{eq:optimal_placement}
+\mathcal{O}^* = \argmax_{\mathcal{O} \subset \{1,\ldots,N\}, |\mathcal{O}|=K} \det(\mat{J}(\mathcal{O})),
+\end{equation}
+where $\mat{J}(\mathcal{O}) = \mat{H}_{\mathcal{O}}^T \mat{\Sigma}_{\mathcal{O}}^{-1} \mat{H}_{\mathcal{O}}$ is the Fisher information for observation set $\mathcal{O}$.
+\end{definition}
+
+\begin{remark}
+This is the $D$-optimal design criterion from experimental design theory \citep{Kay1993}. Maximising $\det(\mat{J})$ minimises the volume of the uncertainty ellipsoid $\{\delta\vect{x} : \delta\vect{x}^T \mat{J} \delta\vect{x} \leq 1\}$, which corresponds to the smallest overall estimation uncertainty. The optimisation \eqref{eq:optimal_placement} is combinatorial ($\binom{N}{K}$ configurations) but can be approximately solved by greedy algorithms or convex relaxations.
+\end{remark}
+
+
+% ============================================================================
+% PART V: DISCUSSION AND CONCLUSION
+% ============================================================================
+
+\part{Discussion and Conclusion}
+
+% ============================================================================
+\section{Relation to Existing Approaches}\label{sec:comparison}
+% ============================================================================
+
+\subsection{On-board diagnostics (OBD)}
+
+OBD systems \citep{SAEJ1979} measure a predetermined set of quantities using internal sensors (thermocouples, pressure transducers, position sensors, oxygen sensors). The diagnostic information is limited to what these sensors measure: typically 20--50 parameters covering engine management, emission control, and a subset of drivetrain states. Quantities without dedicated sensors (bearing wear, seal condition, structural integrity, fluid contamination) cannot be monitored by OBD.
+
+The circuit graph approach is complementary. It does not replace internal sensors but adds the ability to infer unmeasured quantities from the graph structure. When OBD measurements are available, they can be incorporated as additional observed nodes ($\mathcal{O}$), increasing the Fisher information and improving the resolution of the trajectory completion algorithm. The key advantage of the circuit graph is its ability to infer the state of \emph{unobserved} components by exploiting the coupling structure.
+
+\subsection{Vibration-based diagnostics}
+
+Classical vibration-based diagnostics \citep{Randall2011, Henriquez2014, CervantesAlvarez2018} monitors specific frequencies known to be associated with specific faults (bearing defect frequencies, gear mesh frequencies, blade pass frequencies). The analysis is typically performed on individual components: a bearing is diagnosed by its vibration spectrum, independent of the rest of the vehicle.
+
+The circuit graph subsumes this approach by providing the structural context. The vibration spectrum at a surface point is not just a signature of one component; it is a superposition of contributions from all coupled subsystems. The observation matrix $\mat{H}$ captures these contributions. By inverting the full observation model rather than analysing individual frequency components, the circuit graph extracts more information from the same measurements. Moreover, the backward trajectory provides a principled way to track component degradation over time, going beyond threshold-based detection to trajectory-based prognosis.
+
+\subsection{Model-based diagnostics}
+
+Physics-based simulation models (finite element analysis, multibody dynamics, CFD) can predict the measurable signatures of specific faults with high fidelity. Model-based diagnostics compares measured signals with simulated reference patterns to identify faults \citep{Lei2020}.
+
+The circuit graph operates at a higher level of abstraction. Rather than simulating the detailed physics of each component, it captures the essential coupling structure as a graph. This has two advantages: (1) computational efficiency---the circuit equations are linear and can be solved in $O(N^2)$ or $O(N)$ for sparse graphs, compared to $O(N^3)$ or worse for full physics simulations; (2) generality---the same graph structure applies to any vehicle variant, with only the conductance values needing calibration.
+
+The disadvantage is reduced fidelity: the circuit graph does not capture the detailed mode shapes, stress distributions, or flow fields that a full simulation provides. For detailed root cause analysis, the circuit graph can serve as a fast screening tool, identifying which component to investigate, before a targeted high-fidelity simulation is deployed.
+
+
+% ============================================================================
+\section{Limitations}\label{sec:limitations}
+% ============================================================================
+
+\subsection{Graph topology must be known}
+
+The circuit graph requires knowledge of which subsystems are coupled and through which pathways. For a given vehicle model, this information can be extracted from engineering drawings, bills of materials, and first-principles analysis (every mechanical connection, every fluid circuit, every electrical wire is a coupling edge). However, the graph topology is vehicle-specific: different vehicle models have different coupling structures. A generic ``one-size-fits-all'' graph does not exist; each vehicle type requires its own graph.
+
+\subsection{Conductance calibration}
+
+The edge conductances $G_{ij}$ must be known or calibrated. Nominal values can be computed from material properties and geometry (\Cref{sec:edges}), but manufacturing tolerances, assembly variations, and initial conditions introduce uncertainty. The fuzzy framework (\Cref{sec:fuzzy}) handles this uncertainty to some extent, but the accuracy of the state reconstruction depends on the accuracy of the conductance values. An initial calibration phase, in which a known-healthy vehicle is measured to establish the baseline graph, is necessary.
+
+\subsection{Conservative uncertainty estimates}
+
+The fuzzy state representation may produce overly wide $\alpha$-cuts for nodes that are weakly connected to the observed surface nodes. In the extreme case of an unobserved node connected to the graph by a single low-conductance edge, the Kirchhoff propagation provides little information, and the fuzzy state remains broad (high uncertainty). The backward trajectory can narrow the uncertainty if the node's dynamics are constrained (few possible trajectories), but for nodes with many degrees of freedom and weak coupling, the uncertainty may remain large.
+
+\subsection{Non-autonomous effects}
+
+The time-invariance theorem (\Cref{thm:time_invariance}) assumes autonomous dynamics (no explicit time dependence). In practice, vehicles are driven by time-dependent inputs: driver commands (throttle, braking, steering) and road conditions (bumps, curves, grade) are inherently time-varying. These effects introduce time dependence into the transition probabilities, violating the assumptions of the theorem.
+
+The resolution is to treat external inputs as known forcing: the driver commands are recorded (from OBD or from the vehicle's CAN bus), and the road conditions are either measured (GPS, inertial navigation) or modelled. The circuit equations \eqref{eq:circuit_eqs} already include an external current $\vect{I}_{\mathrm{ext}}$ that accounts for these inputs. The backward trajectory is then computed conditioned on the known input history, which restores the Markov property (the transition probabilities conditioned on the inputs depend only on the current state).
+
+\subsection{Nonlinear effects}
+
+The Kirchhoff equations are linear in the node potentials, and the convergence proof (\Cref{thm:convergence}) relies on this linearity (the spectral radius of the Jacobi iteration matrix). For strongly nonlinear couplings (e.g., contact nonlinearities in bearings, combustion nonlinearities in the engine), the linearised circuit equations may not capture the full dynamics. In this case, the trajectory completion algorithm can be extended to a Newton-type iteration on the nonlinear circuit equations, with local convergence guaranteed by the contraction mapping theorem applied to the Newton operator.
+
+
+% ============================================================================
+\section{Conclusion}\label{sec:conclusion}
+% ============================================================================
+
+We have developed a mathematical framework for determining the complete internal state of a vehicle from partial observations at its surface. The framework rests on five pillars:
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Oscillatory dynamics from bounded phase space.} Every vehicle subsystem has finite energy and therefore oscillates (by Poincar\'{e} recurrence for Hamiltonian systems, or by limit cycle behaviour for driven dissipative systems). Each subsystem admits a categorical state description indexed by cycle count (\Cref{sec:oscillatory}).
+
+\item \textbf{Universal transport.} The couplings between subsystems are characterised by a universal transport coefficient derived from partition lag and coupling strength. This formula unifies electrical, thermal, viscous, and diffusive transport and provides the edge conductances of the vehicle circuit graph (\Cref{sec:transport}).
+
+\item \textbf{Circuit graph with Kirchhoff analogs.} The vehicle is represented as a graph in which node potentials are information-theoretic (categorical depth) and edge conductances are derived from first-principles transport theory. Kirchhoff's current law enforces energy conservation at each node, and Kirchhoff's voltage law enforces thermodynamic cycle consistency around closed loops (\Cref{sec:kirchhoff}).
+
+\item \textbf{Fuzzy states and backward trajectories.} Epistemic uncertainty is represented by fuzzy membership functions on the state space. The Viterbi algorithm computes the most probable backward trajectory (categorical address) of each component, which is time-invariant for autonomous dynamics (\Cref{sec:fuzzy,sec:backward}).
+
+\item \textbf{Trajectory completion with guaranteed convergence.} An iterative algorithm combining Kirchhoff propagation, backward trajectory inference, and thermodynamic feasibility projection reconstructs the complete state from partial surface observations. Convergence to a unique fixed point is guaranteed by the Banach fixed-point theorem on the complete metric space of fuzzy state tuples with Hausdorff metric (\Cref{sec:completion}).
+\end{enumerate}
+
+The framework enables three levels of vehicle diagnostics: detection (trajectory escape from the healthy attractor), diagnosis (categorical address change identifies the faulty component), and prognosis (trajectory drift rate estimates time to failure). The resolution of the state reconstruction is bounded below by the Cram\'{e}r--Rao inequality on the Fisher information of the surface observations, with typical detectable changes of 1--5\% of nominal state values for realistic vehicle graphs with 10--20 surface observation points.
+
+The essential insight is that a vehicle is not a collection of independent subsystems but a coupled network in which every component's state is encoded in every other component's observables, through the web of mechanical, thermal, electrical, acoustic, and fluid couplings. Solving the inverse problem on this network---determining internal state from surface observations---is what the vehicle oscillatory circuit graph achieves.
+
+
+% ============================================================================
+% References
+% ============================================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: vehicle-membane-semi-conductor-architecture.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+You've used 27 entries,
+            2481 wiz_defined-function locations,
+            732 strings with 9110 characters,
+and the built_in function-call counts, 9693 in all, are:
+= -- 833
+> -- 423
+< -- 27
++ -- 184
+- -- 126
+* -- 731
+:= -- 1587
+add.period$ -- 105
+call.type$ -- 27
+change.case$ -- 46
+chr.to.int$ -- 23
+cite$ -- 27
+duplicate$ -- 511
+empty$ -- 913
+format.name$ -- 163
+if$ -- 2027
+int.to.chr$ -- 5
+int.to.str$ -- 28
+missing$ -- 35
+newline$ -- 167
+num.names$ -- 81
+pop$ -- 205
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 286
+stack$ -- 0
+substring$ -- 387
+swap$ -- 66
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 165
+warning$ -- 0
+while$ -- 80
+width$ -- 0
+write$ -- 403
