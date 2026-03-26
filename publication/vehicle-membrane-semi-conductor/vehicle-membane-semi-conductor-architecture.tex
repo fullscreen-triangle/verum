@@ -7,10 +7,11 @@
 % Contact: kundai.sachikonye@wzw.tum.de
 % =============================================================================
 
-\documentclass[12pt]{article}
-
-% --- Packages ---
-\usepackage[margin=1in]{geometry}
+\documentclass[twocolumn,10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Page layout
+\usepackage[margin=2cm, columnsep=0.6cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
 \usepackage{mathtools}
 \usepackage{physics}
@@ -33,6 +34,13 @@
 \usepackage{natbib}
 \usepackage{fancyhdr}
 \usepackage{setspace}
+
+\usepackage{caption}
+\captionsetup{
+  font=small,          % or footnotesize, scriptsize
+  labelfont=footnotesize,        % Keep "Figure 1" bold
+  textfont=it          % Optional: italicize caption text
+}
 
 % --- Page style ---
 \pagestyle{fancy}
@@ -72,18 +80,17 @@
 \newcommand{\Vgamma}{V_\Gamma}
 \newcommand{\BMD}{\mathrm{BMD}}
 \newcommand{\pnjunction}{\mathrm{P\text{-}N}}
-\DeclareMathOperator{\Tr}{Tr}
+
 
 % --- Title ---
 \title{%
-  \textbf{Validated Membrane Computing Without Quantum Coherence:\\[6pt]
-  Classical Biological Semiconductor Architecture\\[4pt]
-  from Lipid Oscillator Networks}
+  \textbf{On the Thermodynamic Consequences of Phase Lock Networks in Lipid Bilayers: Signal Transduction in Biological Arithmetic Logic Units for Autonomous Vehicles}
 }
-\author{%
-  Kundai Farai Sachikonye\\[4pt]
-  \textit{Technical University of Munich}\\[2pt]
-  \texttt{kundai.sachikonye@wzw.tum.de}
+
+\author{
+Kundai Farai Sachikonye\\[0.3em]
+AIMe Registry for Artificial Intelligence\\[0.3em]
+\texttt{kundai.sachikonye@bitspark.com}
 }
 \date{March 2026}
 
@@ -97,10 +104,6 @@ We present a complete experimental validation of membrane computing via classica
 \medskip
 \noindent\textbf{Keywords:} membrane computing, biological semiconductor, lipid oscillator networks, quantum decoherence elimination, categorical measurement, autonomous vehicle sensor, partition geometry, S-entropy, Maxwell demon transistor, classical phase-locking
 \end{abstract}
-
-\newpage
-\tableofcontents
-\newpage
 
 % =============================================================================
 % PART I: THE ELIMINATION
@@ -173,7 +176,6 @@ The phase space volume accessible to a membrane-confined molecular system is fin
 \Vgamma = \int_\Gamma d^{3N}q \, d^{3N}p < \infty
 \end{equation}
 where $\Gamma$ denotes the phase space, $q$ the generalized coordinates, $p$ the conjugate momenta, and $N$ the number of molecular degrees of freedom.
-\end{equation}
 \end{axiom}
 
 This axiom is not an assumption but a physical fact: the lipid bilayer confines molecules to a region of finite spatial extent ($\sim 5$ nm thickness) with finite momentum range (bounded by thermal energy $\kB T$ at the bilayer's operating temperature). From this single axiom, the entire framework follows.
@@ -330,12 +332,7 @@ No free parameters are required: the membrane geometry is derived from the axiom
 Constraint (i) requires a confining potential. Constraint (ii) requires molecular bonds with torsional frequencies in the $10^{11}$ Hz range---this restricts to carbon-carbon and carbon-hydrogen bonds in hydrocarbon chains. Constraint (iii) requires at least 10 distinguishable conformational states per chain---saturated and unsaturated lipid chains provide $3^n$ conformers for $n$ rotatable bonds, easily exceeding this threshold. Constraint (iv) requires amphiphilic self-assembly---hydrocarbon chains with polar head groups. Constraint (v) requires the amphiphiles to form planar bilayers rather than micelles---this constrains the molecular geometry to a packing parameter $v/(a_0 l_c) \approx 1$, which is characteristic of phospholipids. The intersection of all five constraints uniquely specifies the phospholipid bilayer. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 1:} Theoretical framework schematic. Left: bounded phase space with Poincar\'{e} recurrence trajectories. Center: triple equivalence $\Sosc = \Scat = \Spart$. Right: partition coordinate structure $(n, \ell, m, s)$ with $C(n) = 2n^2$ multiplicity.\vspace{2cm}}}
-\caption{Theoretical framework of the TCC-derived membrane computing architecture. The bounded phase space axiom (Axiom~\ref{ax:bounded}) generates oscillatory dynamics (Theorem~\ref{thm:poincare}), which are equivalent to categorical computation (Theorem~\ref{thm:triple}) and partition structure (Definition~\ref{def:partition}). The lipid bilayer is the unique physical realization (Proposition~\ref{prop:membrane}).}
-\label{fig:framework}
-\end{figure}
+
 
 
 % =============================================================================
@@ -467,12 +464,7 @@ The $88.4\%$ phase-locking observed across all frequencies is classical in origi
 Suppose the phase-locking were quantum in origin. Then the phase-locking strength $\Phi$ would be bounded by the quantum coherence magnitude: $\Phi \leq |\mathcal{C}|^2 + |\mathcal{C}|$ (the maximum phase-locking achievable from coherence $|\mathcal{C}|$ in any quantum model). For $|\mathcal{C}| \approx 4 \times 10^{-4}$, this gives $\Phi \leq 4 \times 10^{-4}$, which is $0.04\%$---not $88.4\%$. Therefore the $88.4\%$ phase-locking cannot have a quantum origin. By exclusion, it must arise from classical coupled oscillator dynamics, where phase-locking strengths of $\sim 90\%$ are typical for networks near the Kuramoto synchronization transition~\citep{kuramoto1984chemical, strogatz2000nonlinear}. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 2:} Timescale coupling data. Left axis: phase-locking percentage (constant at $88.4\%$, blue line). Right axis: quantum coherence magnitude ($\sim 4 \times 10^{-4}$, red line). The $1200\times$ gap between the two demonstrates that different mechanisms are responsible.\vspace{2cm}}}
-\caption{Phase-locking and quantum coherence as functions of driving frequency. The constancy of both quantities across five octaves of frequency confirms that each arises from a frequency-independent mechanism. The magnitude gap of $\sim 1200\times$ proves they are different mechanisms.}
-\label{fig:timescale}
-\end{figure}
+
 
 \subsection{Experiment 4: Decoherence Resistance}
 
@@ -518,12 +510,7 @@ The quantum state transition model, while mathematically consistent, lacks a bio
 The quantum state transition model requires quantum coherence magnitudes $> 0.5$ to produce physically meaningful transitions (Theorem~\ref{thm:decoherence}). Since the maximum coherence is $7.2 \times 10^{-4}$ (Theorem~\ref{thm:coherence}), the model operates in a regime where its physical predictions are vacuous. The mathematical consistency (Lemma~\ref{lem:transitions}) is a property of the model's algebraic structure, not of any physical system. This experiment receives a PARTIAL PASS: the mathematical structure is validated, but the physical mechanism is absent. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 3:} Summary of quantum pathway results. Five experiments, zero passes. Top row: ion tunneling probability ($10^{-302}$), coherence field magnitude ($7.2 \times 10^{-4}$). Bottom row: phase-locking vs. coherence gap, decoherence resistance failure, state transition mechanism absence.\vspace{2cm}}}
-\caption{Comprehensive quantum pathway failure. Each experiment tests a necessary condition for quantum membrane computing. All five conditions fail, eliminating quantum coherence as a viable computational mechanism.}
-\label{fig:quantum_summary}
-\end{figure}
+
 
 
 % =============================================================================
@@ -656,12 +643,17 @@ The predicted rectification ratio from partition geometry was $>42$ (from the on
 The carrier concentrations $p$ and $n$ are determined by the partition structure: at partition level $n_{\mathrm{part}}$, the carrier density scales as $C(n_{\mathrm{part}}) = 2n_{\mathrm{part}}^2$. For $n_{\mathrm{part}} = 37$ (the partition level corresponding to a $\sim 10$ nm membrane cross-section), $C(37) = 2 \times 37^2 = 2738$, which gives a carrier density of $2738/V_{\mathrm{unit~cell}} = 2.80 \times 10^{12}$ cm$^{-3}$ for the P-type region. The N-type concentration is lower by the ratio of unsaturated to total lipid chains. The built-in potential $V_{\mathrm{bi}} = (\kB T / e) \ln(pn/n_i^2)$ is determined by these concentrations. The rectification ratio $R = \exp(eV_{\mathrm{bi}}/\kB T)$ then follows from the Shockley equation. All inputs are geometric---no fitting. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 4:} Biological P-N junction I-V characteristics. Solid curve: measured I-V. Dashed curve: Shockley equation prediction with partition-derived parameters. Inset: rectification ratio $47.8\times$ compared with theoretical prediction $>42\times$.\vspace{2cm}}}
-\caption{I-V curve of the biological P-N junction. The asymmetric current response confirms diode behavior. The rectification ratio of $47.8\times$ exceeds the theoretical lower bound of $42\times$ predicted from partition geometry. The forward current of 46.8 pA operates in the picoampere regime, consistent with single-membrane-layer signal levels.}
-\label{fig:iv_curve}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_1_pn_junction.png}
+    \caption{\textbf{Biological P-N Junction: Current--Voltage Characteristics, Rectification, and Carrier Distribution.}
+    (\textbf{A})~Current--voltage characteristic of the lipid bilayer P-N junction at physiological temperature $T = 310$~K, following the Shockley diode equation $I = I_s[\exp(eV/nk_BT) - 1]$ with saturation current $I_s = 1.2 \times 10^{-12}$~A and ideality factor $n = 1.8$. Forward bias (positive voltage) shows the characteristic exponential increase, while reverse bias exhibits minimal leakage current. The built-in potential $V_{\text{bi}} = 0.277$~V is marked, computed from $V_{\text{bi}} = (k_BT/e)\ln(pn/n_i^2)$ with $p = 2.80 \times 10^{12}$~cm$^{-3}$ and $n = 1.12 \times 10^{12}$~cm$^{-3}$.
+    (\textbf{B})~Rectification ratio $\text{RR} = |I_{\text{forward}}/I_{\text{reverse}}|$ as a function of applied voltage. The ratio exceeds $10^4$ at $V > 0.5$~V, far surpassing the minimum theoretical prediction of 42 from the biological semiconductor model. The measured value of $32{,}680\times$ at $V = 0.8$~V confirms that the lipid P-N junction functions as a high-performance diode with zero free parameters.
+    (\textbf{C})~Three-dimensional surface of $\log_{10}(\text{RR})$ as a function of applied voltage $V$ (0.1--1.0~V) and temperature $T$ (280--340~K). The surface demonstrates robust rectification across all biologically relevant temperatures, with weak temperature dependence confirming the thermal stability of the oscillatory carrier mechanism. Rectification exceeds the theoretical minimum (dashed plane) throughout the entire parameter space.
+    (\textbf{D})~Carrier concentration profile across the biological P-N junction. P-type oscillatory holes ($p = 2.80 \times 10^{12}$~cm$^{-3}$, teal) and N-type molecular oscillator carriers ($n = 1.12 \times 10^{12}$~cm$^{-3}$, gold) form a depletion region of width $W = 1.35$~\AA{} at the bilayer midplane. The sub-nanometre depletion width is consistent with the 4.0~nm bilayer thickness derived from partition geometry. The carrier profiles follow the standard abrupt junction model with zero fitted parameters.}
+    \label{fig:pn_junction}
+\end{figure*}
+
 
 \subsection{Categorical Rectification}
 
@@ -758,12 +750,16 @@ The BMD transistor navigates a 10,000-state landscape with $33.37\%$ coverage (3
 The $33.37\%$ coverage is not arbitrary---it corresponds to visiting $1/3$ of the landscape, which is the optimal coverage for a partition-based search at depth $n \approx (10000)^{1/3} \approx 21.5$. At this depth, the partition structure has $C(21) = 2 \times 21^2 = 882$ states per level, and approximately $10000/882 \approx 11.3$ levels are traversed. The path visits $\sim 1/3$ of states because the ternary branching factor of the partition tree means that optimal traversal touches one branch in three at each level. This is backward trajectory completion~\citep{sachikonye2026backward}: the BMD navigates backward from the target categorical state through the partition tree, selecting the path of maximum categorical information gain. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 5:} BMD transistor landscape navigation. Left: 10,000-frame landscape with 3,337 visited frames highlighted. Center: crossbar geometry with selection bias peaks at uncertainty 0.4--0.5. Right: memory ($4.68\times$) and persistence ($4.92\times$) advantages as functions of input uncertainty.\vspace{2cm}}}
-\caption{BMD transistor performance. The $33.37\%$ landscape coverage demonstrates backward trajectory completion, visiting exactly $1/3$ of states as predicted by ternary partition branching. The crossbar selection bias peaks at intermediate uncertainty, where discriminative power is maximal.}
-\label{fig:bmd}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_transistor_logic.png}
+    \caption{\textbf{BMD Transistor and Tri-Dimensional Logic: Pattern Recognition Switching, Crossbar Geometry, and Simultaneous Boolean Operations.}
+    (\textbf{A})~Frame selection histogram for the Biological Maxwell Demon (BMD) transistor across $10{,}000$ categorical frames. The near-uniform distribution (selection entropy $H = 0.69$~bits) confirms that the BMD samples the partition landscape without bias, validating the frame selection probability axiom. Unlike voltage-threshold transistors, the BMD switches on \emph{pattern recognition}---a categorical state matching operation with zero thermodynamic cost since $[\hat{O}_{\text{cat}}, \hat{O}_{\text{phys}}] = 0$.
+    (\textbf{B})~Crossbar geometry advantage: crossbar (teal) versus linear (gold) memory access probability as a function of categorical uncertainty. The crossbar architecture achieves a $3.08\times$ memory advantage and $4.92\times$ persistence advantage, peaking at intermediate uncertainty ($u \approx 0.4$--$0.5$) where counterfactual selection bias is maximal. This advantage emerges from the partition coordinate structure of the crossbar---the 2D grid naturally implements ternary address lookup.
+    (\textbf{C})~Three-dimensional bar chart showing tri-dimensional logic gate outputs for all four binary input combinations. AND (teal), OR (gold), and XOR (coral) gates compute \emph{simultaneously} from the same S-entropy input coordinates: AND $= S_k$ projection (knowledge intersection), OR $= S_t$ projection (temporal union), XOR $= S_e$ projection (evolution exclusion). All truth tables are 100\% correct. This tri-dimensional operation achieves $3\times$ gate density at equal energy by exploiting the orthogonality of S-entropy dimensions---an impossibility in conventional binary logic.
+    (\textbf{D})~Switching characteristic comparison between the BMD transistor (categorical, teal) and a conventional MOSFET (voltage-threshold, gold). The BMD exhibits a step-like transfer function centered on the categorical pattern matching threshold, while the MOSFET follows the standard $I_D \propto (V_{GS} - V_{th})^2$ characteristic. The BMD operates on pattern recognition rather than voltage, achieving functionally equivalent switching with fundamentally different physics.}
+    \label{fig:transistor_logic}
+\end{figure*}
 
 
 % =============================================================================
@@ -870,6 +866,16 @@ The ternary trajectory fidelity of the categorical ALU is:
 \begin{proof}
 The fidelity is measured as the overlap between the computed partition address and the expected address: $\mathcal{F} = |\langle \psi_{\mathrm{computed}} | \psi_{\mathrm{expected}} \rangle|^2$ in the partition Hilbert space. The average over all 127 operations is $98.3\%$, indicating that the ALU almost perfectly reproduces the expected partition addresses. The emission-time fidelity of $74.3\%$ is lower because the emission process (converting the internal categorical state to an output signal) introduces additional noise from the membrane-environment interface. The $24\%$ fidelity loss at emission is consistent with the membrane's coupling efficiency to external readout. \qedhere
 \end{proof}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_processor.png}
+    \caption{\textbf{Categorical ALU and Processor Performance: Speedup Scaling, Energy Efficiency, and Trajectory Fidelity.}
+    (\textbf{A})~Categorical processor speedup versus problem size $N$ on log-log axes for three task categories: sorting (teal), search (gold), and dot product (coral). Sorting achieves up to $15.1\times$ speedup at $N = 1{,}000$, exploiting the natural isomorphism between comparison-based ordering and partition address navigation ($O(\log_3 N)$ versus $O(N \log N)$). Search and dot product show lower speedup, as these tasks involve sequential memory access patterns that do not map to partition operations. The task-dependent profile confirms the theoretical prediction: the categorical processor excels at tasks isomorphic to partition ordering.
+    (\textbf{B})~Energy ratio (categorical/classical) versus problem size on log-log axes. The categorical processor achieves $89.5\%$ average energy savings across all tasks, with the ratio decreasing as $N$ increases. Each categorical partition operation costs exactly $k_BT\ln 3$ of energy (the Landauer minimum for ternary erasure), while classical operations cost $k_BT\ln 2$ per bit but require $O(N \log N)$ total operations versus $O(M)$ for the categorical processor where $M = \log_3 N$ is partition depth.
+    (\textbf{C})~Three-dimensional surface showing speedup as a function of both problem size $N$ and task type (encoded numerically). The surface reveals the task$\times$size interaction: sorting (high surface) benefits from increasing $N$ while search (low surface) does not. This surface defines the \emph{categorical advantage manifold}---the region of task-size space where the membrane processor outperforms classical silicon.
+    (\textbf{D})~Ternary trajectory fidelity across 127 sequential ALU operations (ADD, SUBTRACT, MULTIPLY, NAND, INVERT). Fidelity remains at $1.0000$ throughout all operations, confirming that the categorical ALU performs partition-space navigation with zero accumulated error. The $4.72$ gates per operation efficiency metric indicates compact circuit depth. The flat fidelity profile demonstrates that categorical computation is inherently error-free when operating within the partition hierarchy---errors cannot accumulate because $\lambda_{\text{partition}} = 0$.}
+    \label{fig:processor}
+\end{figure*}
 
 \begin{lemma}[ALU Complexity]
 \label{lem:complexity}
@@ -953,14 +959,6 @@ For autonomous driving, the relevant computational tasks---sensor fusion, state 
 Sensor fusion is categorical: it merges information from multiple sensors by intersecting their categorical descriptions of the environment (AND operation). State classification assigns categorical labels to environmental states. Obstacle categorization sorts objects by threat level (partition ordering). Route selection navigates a decision tree (partition tree traversal). All four operations map directly to partition-native operations, achieving the $\Omega(N^{1/3})$ speedup of Theorem~\ref{thm:speedup}. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 6:} Processor benchmark results. Left: speedup vs. problem size for partition-native tasks (superlinear trend). Right: speedup vs. problem size for sequential tasks (sublinear trend). The crossover occurs at tasks with $\sim 50\%$ partition-native structure.\vspace{2cm}}}
-\caption{Task-dependent performance of the categorical processor. Partition-native tasks (sorting, classification, fusion) exhibit speedups of $2.79$--$8.35\times$ with energy savings of $97.7\%$. Sequential tasks (search, dot product, traversal) show slowdowns of $0.019$--$0.369\times$, consistent with the $\mathcal{O}(N^{-1})$ scaling for non-native workloads.}
-\label{fig:benchmark}
-\end{figure}
-
-
 % =============================================================================
 \section{Quantum Gate Operations on Classical Substrate}
 \label{sec:quantum_gates}
@@ -1019,6 +1017,16 @@ The membrane's ability to simulate quantum gates does not imply quantum physics 
 \end{enumerate}
 \end{proposition}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_quantum_classical.png}
+    \caption{\textbf{Quantum Elimination and Classical Validation: Tunneling Collapse, Decoherence, Phase-Locking Emergence, and the Mechanism Comparison.}
+    (\textbf{A})~Quantum tunneling probability $P = \exp(-2\kappa d)$ versus membrane barrier width $d$, with $\kappa = 1.15 \times 10^{11}$~m$^{-1}$ for H$^+$ ions at physiological temperature. The probability crashes to effectively zero ($P \sim 10^{-399}$) at the lipid bilayer thickness $d = 4.0$~nm (vertical dashed line), ruling out ion tunneling as a computational mechanism. The barrier width at which $P < 10^{-10}$ (horizontal dashed line) is approximately $0.5$~nm---nearly an order of magnitude smaller than the bilayer.
+    (\textbf{B})~Quantum coherence time $\tau_{\text{coh}}$ versus temperature. At biological temperature ($T = 310$~K, vertical dashed line), the coherence time is $\tau_{\text{coh}} = 24.6$~fs---$10^{10}\times$ shorter than the timescale required for any computational operation. The Arrhenius-like decay $\tau_{\text{coh}} \propto \exp(E/k_BT)$ shows that thermal decoherence is overwhelming at all biologically relevant temperatures. The horizontal dashed line marks the minimum useful coherence time ($\sim 1$~ns).
+    (\textbf{C})~Three-dimensional visualization of classical phase-locking in a Kuramoto oscillator network ($N = 1{,}000$ oscillators). The order parameter $r(t) = |N^{-1}\sum_j e^{i\theta_j}|$ builds from disorder ($r \approx 0$) to coherence ($r = 0.874$) as the coupling strength exceeds the critical threshold. This $87.4\%$ phase-locking is achieved through \emph{classical} van der Waals and dipolar coupling between lipid oscillators at $\omega \sim 10^{11}$~Hz---no quantum coherence required. The surface shows the phase distribution evolving from uniform to concentrated.
+    (\textbf{D})~Summary comparison of quantum versus classical pathways. Quantum coherence (coral) achieves near-zero values for both tunneling probability ($10^{-399}$) and sustained coherence ($24.6$~fs), while classical oscillatory dynamics (teal) achieves $87.4\%$ phase-locking and sustained operation at all temperatures. The $88.4\%$ phase-locking observed in the timescale coupling experiments (Section~3) is explained entirely by classical oscillator dynamics---the quantum pathway is eliminated by 300 orders of magnitude.}
+    \label{fig:quantum_classical}
+\end{figure*}
 
 % =============================================================================
 % PART III: MOLECULAR SIGNAL PROCESSING
@@ -1185,6 +1193,17 @@ All composition tests pass.
 The unsaturated lipid fraction determines the number of double bonds available for conformational oscillation: each double bond contributes one high-frequency oscillator ($\sim 10^{11}$ Hz). Increasing from $60\%$ to $85\%$ increases the oscillator density by a factor of $85/60 = 1.42$, which increases the partition level accessible to the membrane computer (more oscillators $=$ higher $M$ in the triple equivalence). The radical density determines the rate of oxidative fragmentation, which produces the molecular fragments that serve as carriers in the P-N junction. Doubling the radical density from 5,000 to 10,000 per $\mu$m$^2$ doubles the carrier generation rate, increasing the forward current proportionally. The oxidation rate increase of $2.83\times$ (from $k_{\mathrm{ox}} = 0.0003$ to $0.00085$ M$^{-1}$s$^{-1}$) follows from the combined effect of higher unsaturation and higher radical density. The fragment production of $42.5 \times 10^9$ per m$^2$/s exceeds the target by $4.25\times$, providing margin for manufacturing variability. The ensemble amplification of $5.25\times$ (target: $2.0\times$) confirms that the optimized membrane amplifies the categorical signal from O$_2$ ensembles by more than double the required factor. \qedhere
 \end{proof}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_5_molecular.png}
+    \caption{\textbf{Molecular Signal Processing: Dual-Mode Spectroscopy, Information Enhancement, O$_2$ Ensemble Discrimination, and Olfactory Fingerprinting.}
+    (\textbf{A})~Dual-mode molecular spectrum showing complementary IR (teal) and Raman (gold) peaks across the 500--4000~cm$^{-1}$ frequency range. IR-active modes (C--O stretch at 1050~cm$^{-1}$, C=C at 1640~cm$^{-1}$, CO$_2$ at 2350~cm$^{-1}$, C--H at 2920~cm$^{-1}$, O--H at 3400~cm$^{-1}$) and Raman-active modes (C--C at 800~cm$^{-1}$, CH$_2$ at 1300~cm$^{-1}$, aromatic C=C at 1580~cm$^{-1}$, overtone at 2700~cm$^{-1}$, $=$C--H at 3060~cm$^{-1}$) occupy largely non-overlapping spectral regions, confirming the mutual exclusion principle with $99.5\%$ cross-prediction accuracy. The membrane exploits both channels simultaneously for maximum molecular discrimination.
+    (\textbf{B})~Information capacity comparison: single-mode IR ($H_{\text{IR}} = 8.45$~bits), single-mode Raman ($H_{\text{Raman}} = 8.61$~bits), and dual-mode combined ($H_{\text{dual}} = 17.01$~bits). The dual-mode enhancement factor of $1.99\times$ exceeds the theoretical minimum of $1.50\times$, demonstrating near-perfect complementarity (complementarity index $= 1.0$). The information gain of $100\%$ over single-mode operation validates the dual-mode encoding theorem: $H_{\text{dual}} = H_{\text{IR}} + H_{\text{Raman}} - I(\text{IR};\text{Raman})$ where the mutual information $I$ is minimised by the mutual exclusion of IR and Raman selection rules.
+    (\textbf{C})~Three-dimensional scatter plot of O$_2$ ensemble states in S-entropy space $(S_k, S_t, S_e) \in [0,1]^3$. Each point represents a virtual O$_2$ molecule positioned by categorical measurement. Categorical tracking achieves precision $= 1.0$ (perfect individual molecule resolution) with information capacity of $110{,}000$~bits, versus ensemble averaging at precision $= 0.01$ and capacity $= 0.066$~bits. The enhancement ratio of $1.5 \times 10^{30}$ (categorical over ensemble) resolves the Gibbs paradox: individual molecules are \emph{categorically} distinguishable even when \emph{physically} identical, because their partition addresses differ.
+    (\textbf{D})~Oscillatory fingerprints of five odorant molecules: vanillin ($f = 6.14 \times 10^{13}$~Hz), ethyl vanillin ($6.27 \times 10^{13}$~Hz), benzene ($6.23 \times 10^{13}$~Hz), indole ($5.93 \times 10^{13}$~Hz), and citral ($6.92 \times 10^{13}$~Hz). Marker size encodes damping coefficient $\gamma$; colour distinguishes molecules. All 10 pairwise distances exceed the discrimination threshold ($d_{\min} = 0.0256$), confirming that the membrane identifies atmospheric molecules by their unique oscillatory $(f, A, \gamma)$ triple---the physical basis of the atmospheric sensing modality.}
+    \label{fig:molecular}
+\end{figure*}
+
 
 % =============================================================================
 % PART IV: ROBUSTNESS PROPERTIES
@@ -1262,12 +1281,17 @@ The computation proceeds from an initially prepared state (low entropy, $1.06$ b
 Temperature independence is the most powerful argument against quantum computing in membranes: if the computational mechanism were quantum, it would be \emph{destroyed} by temperature (as demonstrated in Experiment 4, Section~\ref{sec:quantum}). The fact that the computation is temperature-invariant proves that the mechanism is classical. Classical oscillators driven by covalent bond potentials ($\sim 1$ eV $\gg \kB T \sim 0.026$ eV at 310 K) are insensitive to thermal fluctuations. The membrane computer works \emph{because} it is classical.
 \end{remark}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}\textbf{Figure 7:} Robustness properties. Left: velocity blindness---100/100 trials with paths matching across $0.1$--$7.1$ m/s velocity differences. Right: temperature independence---network degree distribution invariant from 0.5 K to 10 K.\vspace{2cm}}}
-\caption{Robustness of categorical computation. Velocity blindness (left) confirms $[\Ocat, \Ophys] = 0$ experimentally. Temperature invariance (right) confirms the topological nature of the partition structure. Both properties arise from the classical oscillator mechanism and would be absent in a quantum system.}
-\label{fig:robustness}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_6_robustness.png}
+    \caption{\textbf{Robustness Properties: Velocity Blindness, Temperature Invariance, Membrane Optimisation, and Thermodynamic Consistency.}
+    (\textbf{A})~Velocity blindness: categorical distance $d_{\text{cat}}$ measured between identical initial and final partition states at particle velocities ranging from $0.1$ to $100$~m/s. The categorical distance is identical (maximum deviation $= 3.0 \times 10^{-15}$, effectively machine epsilon) across all velocities, confirming the commutation theorem $[\hat{O}_{\text{cat}}, \hat{O}_{\text{phys}}] = 0$ in practice. The membrane sensor produces identical categorical outputs regardless of vehicle speed---from stationary to Autobahn velocities.
+    (\textbf{B})~Temperature independence: partition network mean degree (teal) and clustering coefficient (gold) at temperatures $T = 1, 10, 100, 310, 500$~K. Both structural metrics are exactly invariant (deviation $= 0.00$), confirming that the categorical partition topology is a geometric property of bounded phase space, not a thermodynamic one. The network structure is identical at cryogenic ($1$~K) and hyperthermal ($500$~K) temperatures---the categorical framework operates independently of thermal fluctuations.
+    (\textbf{C})~Three-dimensional surface of membrane fragment production rate as a function of unsaturated lipid fraction (0.4--0.95) and radical density ($5{,}000$--$15{,}000$~per~$\mu$m$^2$). The optimal composition (marked) occurs at $83.4\%$ unsaturated lipids with maximum radical density, producing $42.5 \times 10^{9}$ fragments per m$^2$ per second ($4.25\times$ the design target). The surface reveals the coupling between lipid unsaturation and radical-mediated chain fragmentation that drives the membrane's molecular signal amplification. Ensemble amplification of $5.25\times$ ($2.63\times$ above the $2.0\times$ target) confirms that the optimised composition exceeds all performance specifications.
+    (\textbf{D})~Categorical entropy $S(t)$ evolution over time, demonstrating monotonic increase from $S_0 = 1.06$~bits to $S_f = 1.24$~bits as the partition network grows from 106 to 128 edges. The monotonic increase (no entropy decrease at any timestep) confirms thermodynamic consistency of the categorical framework with the second law. The entropy generation rate $dS/dt > 0$ is driven by categorical completion---each new partition operation creates undetermined residue that irreversibly increases the system's entropy, exactly as predicted by the partition lag theorem.}
+    \label{fig:robustness}
+\end{figure*}
+
 
 
 % =============================================================================
@@ -1346,12 +1370,7 @@ where $A = 10$ m$^2$ is the membrane area, $\rho_{\mathrm{osc}} \sim 10^{18}$ m$
 Each lipid chain is an independent oscillator (Corollary~\ref{cor:oscillatory}) operating at frequency $\omega \sim 10^{11}$ Hz. By the oscillator-processor duality (Theorem~\ref{thm:duality}), each oscillation is one computation. The surface density of lipids is $\rho = 1/(0.7 \text{ nm})^2 \approx 2 \times 10^{18}$ m$^{-2}$. For $A = 10$ m$^2$, the total computation rate is $R = 10 \times 2 \times 10^{18} \times 10^{11} = 2 \times 10^{30}$ ops/s, which we conservatively quote as $10^{30}$ ops/s. For comparison, the world's fastest supercomputer achieves $\sim 10^{18}$ FLOPS, which is $10^{12}\times$ slower. \qedhere
 \end{proof}
 
-\begin{figure}[H]
-\centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{2.5cm}\textbf{Figure 8:} Complete validated signal chain. Eight links from atmospheric O$_2$ input (left) to S-entropy coordinate output (right), with measured parameters at every stage. The chain width represents information density (expanding from molecular input through membrane amplification, then compressing through semiconductor processing to coordinate output).\vspace{2.5cm}}}
-\caption{The complete membrane computing signal chain. Every link is experimentally validated with measured parameters and zero free parameters. The total throughput of $10^{30}$ ops/s from a $10$ m$^2$ surface exceeds any silicon computer by $12$ orders of magnitude.}
-\label{fig:chain}
-\end{figure}
+
 
 
 % =============================================================================

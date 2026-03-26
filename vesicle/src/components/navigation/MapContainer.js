@@ -1,24 +1,28 @@
 import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-// Munich route: Leopoldstraße → Ludwigstraße → Odeonsplatz
+// Munich route: Arnulfstraße → Nymphenburger Straße (near Hochbunker)
 const ROUTE = [
-  [11.5847, 48.1620], [11.5845, 48.1590], [11.5842, 48.1560],
-  [11.5840, 48.1530], [11.5838, 48.1500], [11.5835, 48.1470],
-  [11.5833, 48.1440], [11.5831, 48.1410], [11.5830, 48.1380],
-  [11.5770, 48.1370], [11.5740, 48.1365], [11.5710, 48.1360],
+  [11.5600, 48.1490], [11.5620, 48.1488], [11.5640, 48.1486],
+  [11.5660, 48.1485], [11.5680, 48.1484], [11.5700, 48.1483],
+  [11.5720, 48.1482], [11.5740, 48.1480], [11.5760, 48.1478],
+  [11.5780, 48.1476], [11.5800, 48.1474], [11.5820, 48.1472],
 ];
+
+// Hochbunker Munich coordinates
+const BUNKER_LNG = 11.5675;
+const BUNKER_LAT = 48.1485;
 
 // Generate synthetic trail with heat/diffusion
 function generateTrailData() {
   const features = [];
-  const now = Date.now();
-  // Multiple "past vehicles" with decaying trails
   for (let v = 0; v < 20; v++) {
     const ageMinutes = v * 8 + Math.random() * 5;
     const offset = (Math.random() - 0.5) * 0.0003;
     for (let i = 0; i < ROUTE.length - 1; i++) {
-      const spread = 0.0001 + ageMinutes * 0.00001; // trail widens with age
-      const intensity = Math.max(0.1, 1 - ageMinutes / 180); // fades over 3 hours
+      const spread = 0.0001 + ageMinutes * 0.00001;
+      const intensity = Math.max(0.1, 1 - ageMinutes / 180);
       for (let j = 0; j < 5; j++) {
         features.push({
           type: "Feature",
@@ -35,6 +39,108 @@ function generateTrailData() {
     }
   }
   return { type: "FeatureCollection", features };
+}
+
+// Build the Mapbox custom layer that renders the bunker GLB via Three.js
+function createBunkerLayer(mapboxgl) {
+  const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+    [BUNKER_LNG, BUNKER_LAT],
+    0
+  );
+
+  const modelTransform = {
+    translateX: modelAsMercatorCoordinate.x,
+    translateY: modelAsMercatorCoordinate.y,
+    translateZ: modelAsMercatorCoordinate.z,
+    rotateX: Math.PI / 2,
+    rotateY: 0,
+    rotateZ: 0,
+    scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits(),
+  };
+
+  return {
+    id: "bunker-3d-model",
+    type: "custom",
+    renderingMode: "3d",
+
+    onAdd(map, gl) {
+      this.camera = new THREE.Camera();
+      this.scene = new THREE.Scene();
+
+      // Lighting
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+      directionalLight.position.set(0, -70, 100).normalize();
+      this.scene.add(directionalLight);
+
+      const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.6);
+      directionalLight2.position.set(0, 70, 100).normalize();
+      this.scene.add(directionalLight2);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      this.scene.add(ambientLight);
+
+      // Load the GLB model
+      const loader = new GLTFLoader();
+      loader.load(
+        "/model/bunker_munich.glb",
+        (gltf) => {
+          this.scene.add(gltf.scene);
+        },
+        undefined,
+        (error) => {
+          console.error("Error loading bunker GLB model:", error);
+        }
+      );
+
+      // Renderer sharing Mapbox's WebGL context
+      this.renderer = new THREE.WebGLRenderer({
+        canvas: map.getCanvas(),
+        context: gl,
+        antialias: true,
+      });
+      this.renderer.autoClear = false;
+
+      this.map = map;
+    },
+
+    render(gl, matrix) {
+      const rotationX = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(1, 0, 0),
+        modelTransform.rotateX
+      );
+      const rotationY = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 1, 0),
+        modelTransform.rotateY
+      );
+      const rotationZ = new THREE.Matrix4().makeRotationAxis(
+        new THREE.Vector3(0, 0, 1),
+        modelTransform.rotateZ
+      );
+
+      const m = new THREE.Matrix4().fromArray(matrix);
+      const l = new THREE.Matrix4()
+        .makeTranslation(
+          modelTransform.translateX,
+          modelTransform.translateY,
+          modelTransform.translateZ
+        )
+        .scale(
+          new THREE.Vector3(
+            modelTransform.scale,
+            -modelTransform.scale,
+            modelTransform.scale
+          )
+        )
+        .multiply(rotationX)
+        .multiply(rotationY)
+        .multiply(rotationZ);
+
+      this.camera.projectionMatrix = m.multiply(l);
+      this.renderer.resetState();
+      this.renderer.render(this.scene, this.camera);
+      this.map.triggerRepaint();
+    },
+  };
 }
 
 export default function MapContainer() {
@@ -55,7 +161,7 @@ export default function MapContainer() {
             <div style="font-size:48px;margin-bottom:16px;">🗺️</div>
             <div style="margin-bottom:8px;font-weight:bold;color:#D4AF37;">Mapbox Token Required</div>
             <div>Add NEXT_PUBLIC_MAPBOX_TOKEN to .env.local</div>
-            <div style="margin-top:12px;color:#2AA198;">Munich · Molecular Trail Visualization</div>
+            <div style="margin-top:12px;color:#2AA198;">Munich · Hochbunker 3D Visualization</div>
           </div>
         </div>
       `;
@@ -68,10 +174,11 @@ export default function MapContainer() {
     map.current = new mapboxgl.Map({
       container: container.current,
       style: "mapbox://styles/mapbox/dark-v11",
-      center: [11.5835, 48.1470],
-      zoom: 14,
-      pitch: 45,
-      bearing: -10,
+      center: [BUNKER_LNG, BUNKER_LAT],
+      zoom: 16,
+      pitch: 60,
+      bearing: -20,
+      antialias: true,
     });
 
     map.current.on("load", () => {
@@ -115,6 +222,9 @@ export default function MapContainer() {
           "line-dasharray": [2, 4],
         },
       });
+
+      // 3D Bunker model layer
+      map.current.addLayer(createBunkerLayer(mapboxgl));
 
       // Animated car marker
       const el = document.createElement("div");
