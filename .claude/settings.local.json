@@ -19,7 +19,10 @@
       "Bash(sort -k7 -rn)",
       "Bash(ls -lh \"/c/Users/kunda/Documents/distributed/verum/publication/datasets/membrane/\"*.json)",
       "Read(//c/Users/kunda/Documents/distributed/verum/**)",
-      "Bash(ls -lh \"/c/Users/kunda/Documents/distributed/verum/publication/datasets/logic-circuits/\"*.json)"
+      "Bash(ls -lh \"/c/Users/kunda/Documents/distributed/verum/publication/datasets/logic-circuits/\"*.json)",
+      "Bash(find c:/Users/kunda/Documents/distributed/verum/publication/datasets/ -type f -exec ls -lh {})",
+      "Bash(2)",
+      "Bash(python publication/vehicle-membrane-semi-conductor/figures/generate_panels.py)"
     ]
   }
 }
