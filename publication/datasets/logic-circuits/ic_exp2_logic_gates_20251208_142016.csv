@@ -1,0 +1,5 @@
+test_case,and_correct,or_correct,xor_correct
+0,True,True,True
+1,True,True,True
+2,True,True,True
+3,True,True,True

@@ -11,7 +11,15 @@
       "Bash(gh repo:*)",
       "Bash(gh api:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(ls -lh /c/Users/kunda/Documents/distributed/verum/vesicle/public/model/*.glb)",
+      "Bash(grep -r \"isochrone\\\\|directions\\\\|matrix\\\\|routing\" /c/Users/kunda/Documents/distributed/verum/vesicle/src/components/ --include=*.tsx --include=*.ts --include=*.js --include=*.jsx)",
+      "Bash(grep -r \"react-map\\\\|deck.gl\\\\|react-three-map\" /c/Users/kunda/Documents/distributed/verum/vesicle/src/components/maps/ --include=*.tsx --include=*.ts)",
+      "Bash(find /c/Users/kunda/Documents/distributed/verum -path */node_modules -prune -o -path */.next -prune -o -path */.git -prune -o -type f \\\\\\(-name *.json -o -name *.csv \\\\\\) -size +1M -print)",
+      "Bash(sort -k7 -rn)",
+      "Bash(ls -lh \"/c/Users/kunda/Documents/distributed/verum/publication/datasets/membrane/\"*.json)",
+      "Read(//c/Users/kunda/Documents/distributed/verum/**)",
+      "Bash(ls -lh \"/c/Users/kunda/Documents/distributed/verum/publication/datasets/logic-circuits/\"*.json)"
     ]
   }
 }

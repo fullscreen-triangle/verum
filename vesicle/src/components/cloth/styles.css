@@ -1,0 +1,10 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  background-color: rgb(254, 242, 242);
+  font-family: sans-serif;
+  text-align: center;
+}
