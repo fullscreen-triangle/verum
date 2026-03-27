@@ -122,6 +122,12 @@ Over 30 papers organized by category, all derived from the single axiom.
 |-------|-----------|
 | Validated Membrane Computing Without Quantum Coherence | **12/12 experiments pass** -- biological semiconductor architecture fully validated |
 
+### Vehicle Diagnostics (1)
+
+| Paper | Key Result |
+|-------|-----------|
+| Vehicle Oscillatory Circuit Graphs | **10/10 validated** -- complete vehicle state from 33% surface observations, Banach fixed-point convergence (independent, zero self-citations) |
+
 ---
 
 ## 3. The 9-Layer Vesicle Platform
@@ -200,6 +206,22 @@ Implemented in `verum-learn/verum_learn/molecular_navigation/experiments/`. Five
 | Around-Corner Detection | PASS | 10-20 s before visual contact |
 | Sweet Spot Discovery | PASS | 0.15 m RMS optimal path |
 | Convoy Formation | PASS | 92% variance reduction |
+
+### Philharmonic: Vehicle Oscillatory Circuit Graph
+
+A vehicle is a network of coupled oscillatory subsystems. Philharmonic models the complete vehicle as an electrical circuit graph where every component is a node and every coupling is an edge. From partial surface observations (vibration, acoustic, thermal, electromagnetic), the complete internal state is reconstructed via backward trajectory completion with guaranteed convergence (Banach fixed-point theorem).
+
+**Key results (10/10 validated):**
+- Graph: 15-node vehicle circuit, connected, Laplacian positive semi-definite
+- KCL: current balance < 10⁻¹⁰ at all nodes
+- KVL: cycle voltage violation < 10⁻¹⁰ for all loops
+- Transport formula reproduces Drude, Einstein, Fourier, Stokes
+- Fuzzy states converge in < 50 iterations
+- Backward trajectory is time-invariant (deviation < 10⁻¹²)
+- Complete state reconstructed from 33% surface observations (error < 10%)
+- Contraction mapping verified (λ < 1)
+- Fault detection: 30% bearing wear correctly localized
+- Signal propagation: categorical velocity exceeds mechanical wave speed
 
 ---
 
@@ -364,6 +386,7 @@ make build
 33. K.F. Sachikonye, "Current-Flux Mechanism," 2026.
 34. K.F. Sachikonye, "Emission-Strobe Spectroscopy," 2026.
 35. K.F. Sachikonye, "Molecular Memory in Road Networks," 2026.
+36. K.F. Sachikonye, "Vehicle Oscillatory Circuit Graphs: Complete Vehicle State from Partial Surface Observations," 2026.
 
 ---
 

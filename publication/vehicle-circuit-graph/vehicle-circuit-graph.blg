@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: vehicle-circuit-graph.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty journal in Diamond1994
+You've used 49 entries,
+            2773 wiz_defined-function locations,
+            931 strings with 11493 characters,
+and the built_in function-call counts, 18230 in all, are:
+= -- 1596
+> -- 754
+< -- 48
++ -- 277
+- -- 225
+* -- 1322
+:= -- 2875
+add.period$ -- 148
+call.type$ -- 49
+change.case$ -- 203
+chr.to.int$ -- 46
+cite$ -- 99
+duplicate$ -- 985
+empty$ -- 1736
+format.name$ -- 292
+if$ -- 3791
+int.to.chr$ -- 4
+int.to.str$ -- 1
+missing$ -- 73
+newline$ -- 253
+num.names$ -- 196
+pop$ -- 471
+preamble$ -- 1
+purify$ -- 173
+quote$ -- 0
+skip$ -- 646
+stack$ -- 0
+substring$ -- 639
+swap$ -- 63
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 414
+warning$ -- 1
+while$ -- 191
+width$ -- 0
+write$ -- 653
+(There was 1 warning)

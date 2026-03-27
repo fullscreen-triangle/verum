@@ -249,6 +249,16 @@ export const papers = [
     category: 'Molecular Navigation',
     year: 2026,
   },
+
+  // ── Vehicle Diagnostics ────────────────────────────────────────────
+  {
+    title:
+      'Vehicle Oscillatory Circuit Graphs: Complete Vehicle State from Partial Surface Observations',
+    summary:
+      'Models the complete vehicle as an electrical circuit graph of coupled oscillatory subsystems, reconstructing full internal state from 33% surface observations via backward trajectory completion with Banach fixed-point convergence. 10/10 validated.',
+    category: 'Vehicle Diagnostics',
+    year: 2026,
+  },
 ];
 
 export const categories = [...new Set(papers.map((p) => p.category))];

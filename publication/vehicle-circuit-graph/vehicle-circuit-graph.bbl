@@ -1,0 +1,295 @@
+\begin{thebibliography}{49}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arnold(1978)]{Arnold1978}
+Vladimir~I. Arnold.
+\newblock \emph{Mathematical Methods of Classical Mechanics}, volume~60 of
+  \emph{Graduate Texts in Mathematics}.
+\newblock Springer-Verlag, New York, 1978.
+
+\bibitem[Ashcroft and Mermin(1976)]{Ashcroft1976}
+Neil~W. Ashcroft and N.~David Mermin.
+\newblock \emph{Solid State Physics}.
+\newblock Holt, Rinehart and Winston, New York, 1976.
+
+\bibitem[Banach(1922)]{Banach1922}
+Stefan Banach.
+\newblock Sur les op\'{e}rations dans les ensembles abstraits et leur
+  application aux \'{e}quations int\'{e}grales.
+\newblock \emph{Fundamenta Mathematicae}, 3:\penalty0 133--181, 1922.
+
+\bibitem[Beard and Qian(2008)]{BeardQian2008}
+Daniel~A. Beard and Hong Qian.
+\newblock \emph{Chemical Biophysics: Quantitative Analysis of Cellular
+  Systems}.
+\newblock Cambridge University Press, Cambridge, 2008.
+
+\bibitem[Bollob\'{a}s(1998)]{Bollobas1998}
+B\'{e}la Bollob\'{a}s.
+\newblock \emph{Modern Graph Theory}, volume 184 of \emph{Graduate Texts in
+  Mathematics}.
+\newblock Springer-Verlag, New York, 1998.
+
+\bibitem[Boltzmann(1896)]{Boltzmann1896}
+Ludwig Boltzmann.
+\newblock \emph{Vorlesungen \"{u}ber Gastheorie}.
+\newblock Johann Ambrosius Barth, Leipzig, 1896.
+
+\bibitem[Cervantes-Alvarez et~al.(2018)Cervantes-Alvarez, Reyes-Reyes, and
+  Delpiano]{CervantesAlvarez2018}
+Fernando Cervantes-Alvarez, Juan Reyes-Reyes, and Jos\'{e} Delpiano.
+\newblock Vibration-based condition monitoring of rotating machinery: A review.
+\newblock \emph{Mechanical Systems and Signal Processing}, 100:\penalty0
+  827--864, 2018.
+
+\bibitem[Chung(1997)]{Chung1997}
+Fan R.~K. Chung.
+\newblock \emph{Spectral Graph Theory}, volume~92 of \emph{CBMS Regional
+  Conference Series in Mathematics}.
+\newblock American Mathematical Society, Providence, RI, 1997.
+
+\bibitem[de~Groot and Mazur(1962)]{DeGroot1962}
+Sybren~R. de~Groot and Peter Mazur.
+\newblock \emph{Non-Equilibrium Thermodynamics}.
+\newblock North-Holland, Amsterdam, 1962.
+
+\bibitem[Desoer and Kuh(1969)]{DesoerKuh1969}
+Charles~A. Desoer and Ernest~S. Kuh.
+\newblock \emph{Basic Circuit Theory}.
+\newblock McGraw-Hill, New York, 1969.
+
+\bibitem[Diamond and Kloeden(1994)]{Diamond1994}
+Phil Diamond and Peter Kloeden.
+\newblock Metric spaces of fuzzy sets: Theory and applications.
+\newblock 1994.
+
+\bibitem[Drude(1900)]{Drude1900}
+Paul Drude.
+\newblock Zur elektronentheorie der metalle.
+\newblock \emph{Annalen der Physik}, 306\penalty0 (3):\penalty0 566--613, 1900.
+
+\bibitem[Einstein(1905)]{Einstein1905}
+Albert Einstein.
+\newblock \"{U}ber die von der molekularkinetischen theorie der w\"{a}rme
+  geforderte bewegung von in ruhenden fl\"{u}ssigkeiten suspendierten teilchen.
+\newblock \emph{Annalen der Physik}, 322\penalty0 (8):\penalty0 549--560, 1905.
+
+\bibitem[Fourier(1822)]{Fourier1822}
+Jean-Baptiste~Joseph Fourier.
+\newblock \emph{Th\'{e}orie analytique de la chaleur}.
+\newblock Firmin Didot P\`{e}re et Fils, Paris, 1822.
+
+\bibitem[Goldstein et~al.(2002)Goldstein, Poole, and Safko]{Goldstein2002}
+Herbert Goldstein, Charles~P. Poole, and John~L. Safko.
+\newblock \emph{Classical Mechanics}.
+\newblock Addison-Wesley, San Francisco, 3rd edition, 2002.
+
+\bibitem[Graff(1975)]{Graff1975}
+Karl~F. Graff.
+\newblock \emph{Wave Motion in Elastic Solids}.
+\newblock Dover Publications, New York, 1975.
+
+\bibitem[Granas and Dugundji(2003)]{Granas2003}
+Andrzej Granas and James Dugundji.
+\newblock \emph{Fixed Point Theory}.
+\newblock Springer Monographs in Mathematics. Springer-Verlag, New York, 2003.
+
+\bibitem[Harris and Piersol(2002)]{Harris2002}
+Cyril~M. Harris and Allan~G. Piersol.
+\newblock \emph{Harris' Shock and Vibration Handbook}.
+\newblock McGraw-Hill, New York, 5th edition, 2002.
+
+\bibitem[Hausdorff(1914)]{Hausdorff1914}
+Felix Hausdorff.
+\newblock \emph{Grundz\"{u}ge der Mengenlehre}.
+\newblock Veit \& Comp., Leipzig, 1914.
+
+\bibitem[Henr\'{i}quez et~al.(2014)Henr\'{i}quez, Alonso, Ferrer, and
+  Travieso]{Henriquez2014}
+Patricia Henr\'{i}quez, Jes\'{u}s~B. Alonso, Miguel~A. Ferrer, and Carlos~M.
+  Travieso.
+\newblock Review of automatic fault diagnosis systems using audio and vibration
+  signals.
+\newblock \emph{IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  44\penalty0 (5):\penalty0 642--652, 2014.
+
+\bibitem[Jardine et~al.(2006)Jardine, Lin, and Banjevic]{Jardine2006}
+Andrew K.~S. Jardine, Daming Lin, and Dragan Banjevic.
+\newblock A review on machinery diagnostics and prognostics implementing
+  condition-based maintenance.
+\newblock \emph{Mechanical Systems and Signal Processing}, 20\penalty0
+  (7):\penalty0 1483--1510, 2006.
+
+\bibitem[Jaynes(1957{\natexlab{a}})]{Jaynes1957a}
+Edwin~T. Jaynes.
+\newblock Information theory and statistical mechanics.
+\newblock \emph{Physical Review}, 106\penalty0 (4):\penalty0 620--630,
+  1957{\natexlab{a}}.
+
+\bibitem[Jaynes(1957{\natexlab{b}})]{Jaynes1957b}
+Edwin~T. Jaynes.
+\newblock Information theory and statistical mechanics. {II}.
+\newblock \emph{Physical Review}, 108\penalty0 (2):\penalty0 171--190,
+  1957{\natexlab{b}}.
+
+\bibitem[Kay(1993)]{Kay1993}
+Steven~M. Kay.
+\newblock \emph{Fundamentals of Statistical Signal Processing: Estimation
+  Theory}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 1993.
+
+\bibitem[Kinsler et~al.(2000)Kinsler, Frey, Coppens, and Sanders]{Kinsler2000}
+Lawrence~E. Kinsler, Austin~R. Frey, Alan~B. Coppens, and James~V. Sanders.
+\newblock \emph{Fundamentals of Acoustics}.
+\newblock John Wiley \& Sons, New York, 4th edition, 2000.
+
+\bibitem[Klir and Yuan(1995)]{Klir1995}
+George~J. Klir and Bo~Yuan.
+\newblock \emph{Fuzzy Sets and Fuzzy Logic: Theory and Applications}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 1995.
+
+\bibitem[Kubo(1957)]{Kubo1957}
+Ryogo Kubo.
+\newblock Statistical-mechanical theory of irreversible processes. {I}. general
+  theory and simple applications to magnetic and conduction problems.
+\newblock \emph{Journal of the Physical Society of Japan}, 12\penalty0
+  (6):\penalty0 570--586, 1957.
+
+\bibitem[Kuramoto(1984)]{Kuramoto1984}
+Yoshiki Kuramoto.
+\newblock \emph{Chemical Oscillations, Waves, and Turbulence}, volume~19 of
+  \emph{Springer Series in Synergetics}.
+\newblock Springer-Verlag, Berlin, 1984.
+
+\bibitem[Landau and Lifshitz(1980)]{LandauLifshitz1980}
+Lev~D. Landau and Evgeny~M. Lifshitz.
+\newblock \emph{Statistical Physics, Part 1}, volume~5 of \emph{Course of
+  Theoretical Physics}.
+\newblock Butterworth-Heinemann, Oxford, 3rd edition, 1980.
+
+\bibitem[Landauer(1961)]{Landauer1961}
+Rolf Landauer.
+\newblock Irreversibility and heat generation in the computing process.
+\newblock \emph{IBM Journal of Research and Development}, 5\penalty0
+  (3):\penalty0 183--191, 1961.
+
+\bibitem[Lei et~al.(2020)Lei, Li, Guo, Li, Yan, and Lin]{Lei2020}
+Yaguo Lei, Naipeng Li, Liang Guo, Ningbo Li, Tao Yan, and Jing Lin.
+\newblock Machinery health prognostics: A systematic review from data
+  acquisition to {RUL} prediction.
+\newblock \emph{Mechanical Systems and Signal Processing}, 104:\penalty0
+  799--834, 2020.
+
+\bibitem[Ohm(1827)]{Ohm1827}
+Georg~Simon Ohm.
+\newblock \emph{Die galvanische Kette, mathematisch bearbeitet}.
+\newblock T. H. Riemann, Berlin, 1827.
+
+\bibitem[Onsager(1931{\natexlab{a}})]{Onsager1931a}
+Lars Onsager.
+\newblock Reciprocal relations in irreversible processes. {I}.
+\newblock \emph{Physical Review}, 37\penalty0 (4):\penalty0 405--426,
+  1931{\natexlab{a}}.
+
+\bibitem[Onsager(1931{\natexlab{b}})]{Onsager1931b}
+Lars Onsager.
+\newblock Reciprocal relations in irreversible processes. {II}.
+\newblock \emph{Physical Review}, 38\penalty0 (12):\penalty0 2265--2279,
+  1931{\natexlab{b}}.
+
+\bibitem[Poincar\'{e}(1890)]{Poincare1890}
+Henri Poincar\'{e}.
+\newblock Sur le probl\`{e}me des trois corps et les \'{e}quations de la
+  dynamique.
+\newblock \emph{Acta Mathematica}, 13:\penalty0 1--270, 1890.
+
+\bibitem[Rabiner(1989)]{Rabiner1989}
+Lawrence~R. Rabiner.
+\newblock A tutorial on hidden {M}arkov models and selected applications in
+  speech recognition.
+\newblock \emph{Proceedings of the IEEE}, 77\penalty0 (2):\penalty0 257--286,
+  1989.
+
+\bibitem[Randall(2011)]{Randall2011}
+Robert~B. Randall.
+\newblock \emph{Vibration-Based Condition Monitoring: Industrial, Aerospace and
+  Automotive Applications}.
+\newblock John Wiley \& Sons, Chichester, 2011.
+
+\bibitem[Rao(1945)]{CramerRao1945}
+C.~Radhakrishna Rao.
+\newblock Information and the accuracy attainable in the estimation of
+  statistical parameters.
+\newblock \emph{Bulletin of the Calcutta Mathematical Society}, 37:\penalty0
+  81--91, 1945.
+
+\bibitem[Rudin(1991)]{Rudin1991}
+Walter Rudin.
+\newblock \emph{Functional Analysis}.
+\newblock McGraw-Hill, New York, 2nd edition, 1991.
+
+\bibitem[Shannon(1948)]{Shannon1948}
+Claude~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock \emph{The Bell System Technical Journal}, 27\penalty0 (3):\penalty0
+  379--423, 1948.
+
+\bibitem[{Society of Automotive Engineers}(2014)]{SAEJ1979}
+{Society of Automotive Engineers}.
+\newblock {SAE} {J1979}: {E/E} diagnostic test modes.
+\newblock Standard, SAE International, 2014.
+
+\bibitem[Stokes(1845)]{Stokes1845}
+George~Gabriel Stokes.
+\newblock On the theories of the internal friction of fluids in motion, and of
+  the equilibrium and motion of elastic solids.
+\newblock \emph{Transactions of the Cambridge Philosophical Society},
+  8:\penalty0 287--319, 1845.
+
+\bibitem[Strogatz(2000{\natexlab{a}})]{Strogatz2000}
+Steven~H. Strogatz.
+\newblock \emph{Nonlinear Dynamics and Chaos}.
+\newblock Westview Press, Cambridge, MA, 2000{\natexlab{a}}.
+
+\bibitem[Strogatz(2000{\natexlab{b}})]{Strogatz2000sync}
+Steven~H. Strogatz.
+\newblock From {K}uramoto to {C}rawford: Exploring the onset of synchronization
+  in populations of coupled oscillators.
+\newblock \emph{Physica D: Nonlinear Phenomena}, 143\penalty0 (1--4):\penalty0
+  1--20, 2000{\natexlab{b}}.
+
+\bibitem[Van~Trees(1968)]{VanTrees1968}
+Harry~L. Van~Trees.
+\newblock \emph{Detection, Estimation, and Modulation Theory, Part {I}}.
+\newblock John Wiley \& Sons, New York, 1968.
+
+\bibitem[Viterbi(1967)]{Viterbi1967}
+Andrew~J. Viterbi.
+\newblock Error bounds for convolutional codes and an asymptotically optimum
+  decoding algorithm.
+\newblock \emph{IEEE Transactions on Information Theory}, 13\penalty0
+  (2):\penalty0 260--269, 1967.
+
+\bibitem[Wegscheider(1901)]{Wegscheider1901}
+Rudolf Wegscheider.
+\newblock \"{U}ber simultane gleichgewichte und die beziehungen zwischen
+  thermodynamik und reaktionskinetik homogener systeme.
+\newblock \emph{Monatshefte f\"{u}r Chemie}, 22\penalty0 (8):\penalty0
+  849--906, 1901.
+
+\bibitem[Zadeh(1965)]{Zadeh1965}
+Lotfi~A. Zadeh.
+\newblock Fuzzy sets.
+\newblock \emph{Information and Control}, 8\penalty0 (3):\penalty0 338--353,
+  1965.
+
+\bibitem[Ziman(1960)]{Ziman1960}
+John~M. Ziman.
+\newblock \emph{Electrons and Phonons}.
+\newblock Oxford University Press, Oxford, 1960.
+
+\end{thebibliography}
