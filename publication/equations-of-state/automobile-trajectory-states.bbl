@@ -1,0 +1,180 @@
+\begin{thebibliography}{10}
+
+\bibitem{thrun2006}
+Sebastian Thrun et~al.
+\newblock Stanley: the robot that won the {DARPA Grand Challenge}.
+\newblock {\em Journal of Field Robotics}, 23(9):661--692, 2006.
+
+\bibitem{urmson2008}
+Chris Urmson et~al.
+\newblock Autonomous driving in urban environments: {Boss} and the {Urban
+  Challenge}.
+\newblock {\em Journal of Field Robotics}, 25(8):425--466, 2008.
+
+\bibitem{schwarting2018}
+Wilko Schwarting, Javier Alonso-Mora, and Daniela Rus.
+\newblock Planning and decision-making for autonomous vehicles.
+\newblock {\em Annual Review of Control, Robotics, and Autonomous Systems},
+  1:187--210, 2018.
+
+\bibitem{helbing2001}
+Dirk Helbing.
+\newblock Traffic and related self-driven many-particle systems.
+\newblock {\em Reviews of Modern Physics}, 73(4):1067--1141, 2001.
+
+\bibitem{kerner1993}
+Boris~S. Kerner and Pavel Konh\"{a}user.
+\newblock Cluster effect in initially homogeneous traffic flow.
+\newblock {\em Physical Review E}, 48(4):R2335--R2338, 1993.
+
+\bibitem{sachikonye2026trajectory}
+Kundai~Farai Sachikonye.
+\newblock Trajectory completion computing: Observation, computation, and
+  physical processing as categorical address resolution in bounded phase space.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026backward}
+Kundai~Farai Sachikonye.
+\newblock Backward trajectory completion in bounded phase space: A foundation
+  for {P}oincar\'{e} computing.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026poincare}
+Kundai~Farai Sachikonye.
+\newblock {P}oincar\'{e} computing: Backward trajectory completion in bounded
+  phase space.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026single}
+Kundai~Farai Sachikonye.
+\newblock On the derivation of single-particle gas laws from partition geometry
+  in bounded phase space.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026atmospheric}
+Kundai~Farai Sachikonye.
+\newblock Atmospheric trajectory completion: Deterministic weather and terrain
+  prediction via molecular categorical computation in bounded phase space.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026gas}
+Kundai~Farai Sachikonye.
+\newblock On the thermodynamic consequences of bounded phase space:
+  Thermodynamic behaviour as trajectory completion.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026partition}
+Kundai~Farai Sachikonye.
+\newblock Partition counting in bounded phase space: The physical structure of
+  time-telling.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026depth}
+Kundai~Farai Sachikonye.
+\newblock On the consequences of geometric partitioning operations: Partition
+  depth and the limits of distinguishability.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026transplanckian}
+Kundai~Farai Sachikonye.
+\newblock On the thermodynamic consequences of categorical state counting:
+  Oscillatory categorical partitioning based recursive harmonic networks.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026buhera}
+Kundai~Farai Sachikonye.
+\newblock Buhera: A categorical operating system based on trajectory
+  completion.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026current}
+Kundai~Farai Sachikonye.
+\newblock On the categorical state propagation mechanism of electrical current.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026mass}
+Kundai~Farai Sachikonye.
+\newblock On the geometric consequences of partitioning in fluid flux
+  mechanisms.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026sango}
+Kundai~Farai Sachikonye.
+\newblock On the thermodynamic consequences of statistical ensemble dynamics:
+  Gas molecule based distributed communication network protocols.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{sachikonye2026ion}
+Kundai~Farai Sachikonye.
+\newblock Complete trajectory of a charged ion in bounded phase space.
+\newblock {\em Manuscript}, 2026.
+\newblock Technical University of Munich.
+
+\bibitem{poincare1890}
+Henri Poincar\'{e}.
+\newblock Sur le probl\`{e}me des trois corps et les \'{e}quations de la
+  dynamique.
+\newblock {\em Acta Mathematica}, 13:1--270, 1890.
+
+\bibitem{landau1980}
+Lev~D. Landau and Evgeny~M. Lifshitz.
+\newblock {\em Statistical Physics, Part 1}.
+\newblock Butterworth-Heinemann, 3rd edition, 1980.
+
+\bibitem{shannon1948}
+Claude~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock {\em Bell System Technical Journal}, 27(3):379--423, 1948.
+
+\bibitem{cover2006}
+Thomas~M. Cover and Joy~A. Thomas.
+\newblock {\em Elements of Information Theory}.
+\newblock Wiley-Interscience, 2nd edition, 2006.
+
+\bibitem{khinchin1949}
+Alexander~I. Khinchin.
+\newblock {\em Mathematical Foundations of Statistical Mechanics}.
+\newblock Dover, 1949.
+
+\bibitem{greenshields1935}
+Bruce~D. Greenshields.
+\newblock A study of traffic capacity.
+\newblock {\em Highway Research Board Proceedings}, 14:448--477, 1935.
+
+\bibitem{lighthill1955}
+Michael~J. Lighthill and Gerald~B. Whitham.
+\newblock On kinematic waves. {II}. {A} theory of traffic flow on long crowded
+  roads.
+\newblock {\em Proceedings of the Royal Society of London. Series A},
+  229(1178):317--345, 1955.
+
+\bibitem{boltzmann1896}
+Ludwig Boltzmann.
+\newblock {\em Vorlesungen \"{u}ber Gastheorie}.
+\newblock J.A. Barth, Leipzig, 1896.
+
+\bibitem{bojarski2016}
+Mariusz Bojarski et~al.
+\newblock End to end learning for self-driving cars.
+\newblock {\em arXiv preprint arXiv:1604.07316}, 2016.
+
+\bibitem{bansal2019}
+Mayank Bansal, Alex Krizhevsky, and Abhijit Ogale.
+\newblock {ChauffeurNet}: learning to drive by imitating the best and
+  synthesizing the worst.
+\newblock {\em arXiv preprint arXiv:1812.03079}, 2019.
+
+\end{thebibliography}

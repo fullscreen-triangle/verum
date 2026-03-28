@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: automobile-trajectory-states.aux
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Database file #1: references.bib
+You've used 29 entries,
+            1791 wiz_defined-function locations,
+            574 strings with 7207 characters,
+and the built_in function-call counts, 5020 in all, are:
+= -- 477
+> -- 158
+< -- 0
++ -- 69
+- -- 40
+* -- 236
+:= -- 861
+add.period$ -- 101
+call.type$ -- 29
+change.case$ -- 27
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 249
+empty$ -- 518
+format.name$ -- 40
+if$ -- 1099
+int.to.chr$ -- 0
+int.to.str$ -- 29
+missing$ -- 33
+newline$ -- 162
+num.names$ -- 29
+pop$ -- 68
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 89
+stack$ -- 0
+substring$ -- 237
+swap$ -- 29
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 47
+width$ -- 31
+write$ -- 332

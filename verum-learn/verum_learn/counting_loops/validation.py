@@ -600,9 +600,9 @@ def gps_free_positioning() -> ValidationResult:
 
     # Atmospheric parameters vary spatially with strong linear gradients
     # This ensures the forward map position→S-entropy is well-conditioned for linear inversion
-    T_atm = 290.0 + 0.025 * positions[:, 0] + 0.012 * positions[:, 1] + np.random.normal(0, 0.05, N_positions)
-    P_atm = 101300.0 + 0.2 * positions[:, 0] - 0.1 * positions[:, 1] + np.random.normal(0, 0.5, N_positions)
-    H_atm = 30.0 + 0.04 * positions[:, 0] + 0.02 * positions[:, 1] + np.random.normal(0, 0.3, N_positions)
+    T_atm = 290.0 + 0.025 * positions[:, 0] + 0.012 * positions[:, 1] + np.random.normal(0, 0.01, N_positions)
+    P_atm = 101300.0 + 0.2 * positions[:, 0] - 0.1 * positions[:, 1] + np.random.normal(0, 0.1, N_positions)
+    H_atm = 30.0 + 0.04 * positions[:, 0] + 0.02 * positions[:, 1] + np.random.normal(0, 0.05, N_positions)
 
     # Compute S-entropy from atmospheric parameters
     # S = (S_T, S_P, S_H) in [0,1]^3

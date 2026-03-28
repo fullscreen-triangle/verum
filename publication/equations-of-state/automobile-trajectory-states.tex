@@ -3,6 +3,8 @@
 % in Bounded Phase Space
 % ===================================================================
 \documentclass[twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -16,7 +18,14 @@
 \usepackage{algorithmic}
 \usepackage{physics}
 \usepackage{float}
+
 \usepackage{caption}
+\captionsetup{
+  font=small,          % or footnotesize, scriptsize
+  labelfont=footnotesize,        % Keep "Figure 1" bold
+  textfont=it          % Optional: italicize caption text
+}
+
 \usepackage{subcaption}
 
 % --- Theorem environments ---
@@ -58,9 +67,14 @@
 
 \title{Equations of State for Vehicular Trajectory Completion\\in Bounded Phase Space}
 
-\author{Kundai Farai Sachikonye\\
-\textit{Technical University of Munich}\\
-\texttt{kundai.sachikonye@wzw.tum.de}}
+\author{
+Kundai Farai Sachikonye\\
+AIMe Registry for Artificial Intelligence\\
+Experimental Bioinformatics\\
+Maximus-von-Imhof-Forum 3\\
+85354 Freising, Germany\\
+\texttt{kundai.sachikonye@bitspark.com}
+}
 
 \date{\today}
 
@@ -237,12 +251,16 @@ For a typical automobile, $M \approx 40$--$50$ refinement levels suffice for the
 The practical partition depth is determined not by the quantum state count but by the number of driving-relevant distinguishable states. A vehicle's position is practically distinguishable to $\sim \SI{0.1}{m}$ resolution over a road network of length $\sim \SI{5e6}{m}$, giving $\sim 5 \times 10^7$ position bins. Velocity is distinguishable to $\sim \SI{0.1}{m/s}$ over a range of $\SI{60}{m/s}$, giving $\sim 600$ velocity bins per axis, hence $\sim 600^3 \approx 2 \times 10^8$ momentum bins. The practical state count is therefore $N_{\mathrm{prac}} \sim 5 \times 10^7 \times 2 \times 10^8 = 10^{16}$, giving $M_{\mathrm{prac}} = \log_3 10^{16} \approx 33.5$. Including additional degrees of freedom (steering angle, yaw rate, lateral position) increases this to $M \approx 40$--$50$.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig1.png}
-\caption{\textbf{Bounded vehicular phase space and its partitioning.} The left panel shows the six-dimensional vehicular phase space $\GammaV$ projected onto the $(q_{\mathrm{lon}}, p_{\mathrm{lon}})$ plane, where $q_{\mathrm{lon}}$ is the longitudinal position along the road network and $p_{\mathrm{lon}} = mv_{\mathrm{lon}}$ is the corresponding momentum. The accessible region (shaded blue) is bounded by the road network extent and the maximum speed. The right panel shows the hierarchical ternary partitioning of this phase space into $3^M$ cells at partition depth $M$. Each successive refinement level trisects the current cell, yielding the address tree structure. The red trajectory shows a vehicle's path through phase space, which by Theorem~\ref{thm:poincare} must eventually recur. The dashed box indicates the practical resolution ($\sim \SI{0.1}{m}$ in position, $\sim \SI{0.1}{m/s}$ in velocity), which determines the practical partition depth $M_{\mathrm{prac}} \approx 40$--$50$.}
-\label{fig:phasespace}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_1_phase_space.png}
+    \caption{\textbf{Bounded Phase Space and Partition Structure: Phase Portrait, Shell Capacity, Cumulative States, and Partition Depth.}
+    (\textbf{A})~Vehicular phase space portrait in position--velocity coordinates with the bounded region shaded. Position is constrained by road network geometry $q \in [0, L]$ with $L = 1000$~m, and velocity is bounded by $|v| \leq v_{\max} = 50$~m/s. The finite phase space volume $V_\Gamma = \int_{\text{Road}} dq \int_{|p| \leq p_{\max}} dp < \infty$ is the foundational axiom from which all subsequent results derive. The bounded region admits a finite number of distinguishable states $N_{\max} = V_\Gamma / h^d > 10^6$, ensuring that the partition hierarchy has finite depth.
+    (\textbf{B})~Partition shell capacity $C(n) = 2n^2$ versus principal partition number $n$ for $n = 1$ to $20$. Bars show computed values; the red dashed curve shows the theoretical formula. Perfect agreement confirms that the capacity formula is exact---it counts the number of distinguishable states at each partition depth level, derived from the geometric constraints $0 \leq \ell < n$, $-\ell \leq m \leq \ell$, $s \in \{-\tfrac{1}{2}, +\tfrac{1}{2}\}$ on the partition coordinates $(n, \ell, m, s)$.
+    (\textbf{C})~Three-dimensional surface of cumulative state count $C_{\text{tot}}(N) = N(N+1)(2N+1)/3$ as a function of maximum partition depth $N$. The cubic growth demonstrates the rapidly increasing resolution available at deeper partition levels. For a typical urban road network with $N = 20$, the total distinguishable states exceed $10^4$, providing sufficient resolution for lane-level positioning.
+    (\textbf{D})~Partition depth $M = \log_3 N_{\max}$ versus road network size (number of road segments). The logarithmic relationship confirms that the partition hierarchy grows slowly with network complexity---doubling the road network adds only one partition level. This logarithmic scaling is the foundation of $O(\log_3 N)$ backward navigation: the number of steps to find the penultimate state scales as partition depth, not network size.}
+    \label{fig:phase_space}
+\end{figure*}
 
 
 % ===================================================================
@@ -363,12 +381,7 @@ s &= +\tfrac{1}{2} \quad \text{(right-hand traffic, Germany)}.
 \end{align}
 The vehicle is in state $|n, \ell, m, s\rangle = |2, 0, 0, +\frac{1}{2}\rangle$. If the driver signals a right turn onto Ludwigstra\ss{}e (a collector road), the state transitions to $|3, 1, +1, +\frac{1}{2}\rangle$: the hierarchy level increases to $n = 3$ (collector), the angular number becomes $\ell = 1$ (one turn), and the orientation becomes $m = +1$ (displaced to the right).
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig2.png}
-\caption{\textbf{Partition coordinates for a real road network.} The figure shows a section of the Munich road network with the partition coordinate assignments. The A9 motorway is at level $n=1$ (blue), the Altstadtring at $n=2$ (green), collector roads at $n=3$ (orange), and local streets at $n=4$ (red). At each junction, the ternary branching is indicated with arrows. The right panel shows the state capacity $C(n) = 2n^2$ at each level: $C(1) = 2$, $C(2) = 8$, $C(3) = 18$, $C(4) = 32$. The total state count for $N=4$ hierarchy levels is $\Ctot(4) = 2 + 8 + 18 + 32 = 60$, matching $4 \times 5 \times 9 / 3 = 60$ from Theorem~\ref{thm:totalstates}.}
-\label{fig:partition}
-\end{figure}
+
 
 
 % ===================================================================
@@ -491,6 +504,16 @@ Different driving scenarios occupy distinct regions of S-space:
 \end{corollary}
 
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_s_entropy.png}
+    \caption{\textbf{S-Entropy Coordinate System: Scenario Separation, Cluster Distances, Temporal Evolution, and Classification Accuracy.}
+    (\textbf{A})~Three-dimensional scatter plot of 1000 driving states in S-entropy coordinates $(S_k, S_t, S_e) \in [0,1]^3$, coloured by driving scenario: highway (teal), city (gold), parking (coral), merging (cyan), and braking (purple). The five scenarios occupy distinct, non-overlapping regions of S-entropy space with inter-cluster separation exceeding 0.1 in all pairwise comparisons. Highway driving (low $S_k$, low $S_t$, low $S_e$) occupies the origin corner; parking (high $S_k$, high $S_t$, high $S_e$) occupies the far corner. This spatial separation confirms that S-entropy coordinates provide a natural, physically grounded feature space for driving state classification.
+    (\textbf{B})~Pairwise inter-cluster distance matrix (heatmap) for the five driving scenarios. Each entry shows the Euclidean distance between cluster centroids in S-entropy space. All off-diagonal entries exceed the 0.1 minimum separation threshold, confirming that the S-entropy mapping is injective at the scenario level---different driving conditions produce categorically distinguishable S-entropy signatures. The largest separation (highway--parking) reflects the maximum contrast in all three entropy dimensions; the smallest (city--merging) reflects the partial overlap in temporal uncertainty.
+    (\textbf{C})~S-entropy evolution over 100 timesteps for an intersection approach scenario. $S_k$ (teal, knowledge entropy) increases as the vehicle approaches the intersection (increasing positional uncertainty), peaks at the stop line, then decreases during the turn. $S_t$ (gold, temporal entropy) spikes at the deceleration phase (high velocity autocorrelation change) and drops to near zero at the stop. $S_e$ (coral, evolution entropy) increases through the turn (energy redistribution between braking and steering). All three coordinates remain bounded in $[0, 1]$ throughout, and no single-step jump exceeds 0.1, confirming smooth, physically consistent evolution.
+    (\textbf{D})~Confusion matrix for k-means clustering ($k = 5$) of 1000 driving states in S-entropy space. Classification accuracy exceeds 90\%, with the dominant diagonal confirming that unsupervised clustering in S-space recovers the true driving scenarios without labelled training data. The off-diagonal errors (primarily city--merging and city--braking misclassifications) reflect the physical similarity of these scenarios in their temporal entropy component. This validates S-entropy as a self-organising coordinate system for driving state recognition.}
+    \label{fig:s_entropy}
+\end{figure*}
 % ===================================================================
 \section{The Automobile Equation of State}\label{sec:eos}
 % ===================================================================
@@ -696,12 +719,16 @@ Taking the continuum limit $N \to \infty$, $\Vroad \to \infty$ with $\rho = N/\V
 is the Lighthill--Whitham--Richards equation, with the flow-density relation derived from the vehicular equation of state rather than assumed empirically.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig3.png}
-\caption{\textbf{Phase diagram and equation of state for vehicular traffic.} The top panel shows the $\Pdrive$--$\Vroad$ diagram (analogous to $P$--$V$ diagram for gases) at several categorical temperatures $\Tcat$. The isotherms show the characteristic van der Waals behavior below the critical temperature $\Tcat^{(c)}$, with the Maxwell construction (horizontal tie line) indicating the first-order phase transition between free-flow and synchronized phases. The critical point is marked with a red dot. The bottom panel shows the traffic phase diagram in the $\rho$--$\Tcat$ plane, with three phases: free-flow (gas, blue), synchronized flow (liquid, green), and jam (crystal, red). The coexistence curves are derived from the equation of state. The dashed lines show the critical densities $\rho_{c1}$ and $\rho_{c2}$ from Theorem~\ref{thm:phasetransition}. Empirical data from highway loop detectors (gray points, \cite{kerner1993}) fall along the predicted phase boundaries.}
-\label{fig:phaseplot}
-\end{figure}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_equation_of_state.png}
+    \caption{\textbf{Vehicular Equation of State: Pressure--Density Relationship, Thermodynamic Consistency, Phase Space, and Categorical Temperature.}
+    (\textbf{A})~Computational pressure $P_{\text{drive}}$ (decisions per unit road-space per unit time) versus vehicle count $N$ for fixed road volume $V_{\text{road}} = 5000$~m. The linear relationship confirms the ideal gas analog: $P_{\text{drive}} \propto N$ at constant $V_{\text{road}}$ and $T_{\text{cat}}$. The slope gives $k_B T_{\text{cat}} / V_{\text{road}}$, from which the categorical temperature $T_{\text{cat}}$ (rate of categorical state transitions) is extracted. This is the vehicular analog of Boyle's law: more vehicles in fixed road space create proportionally more computational pressure.
+    (\textbf{B})~Relative error of the equation of state $|P_{\text{drive}} V_{\text{road}} - N k_B T_{\text{cat}}| / (N k_B T_{\text{cat}})$ versus vehicle count $N$. All errors fall below the 1\% threshold (dashed line), confirming that $P_{\text{drive}} \cdot V_{\text{road}} = N \cdot k_B \cdot T_{\text{cat}}$ holds to better than 1\% accuracy across the tested range $N = 10$--$200$. The equation of state is not a fit---it is derived from partition dynamics and verified numerically.
+    (\textbf{C})~Three-dimensional surface of $P_{\text{drive}}$ as a function of vehicle count $N$ (10--200) and road volume $V_{\text{road}}$ (1000--10000~m). The surface has the characteristic $P \propto N/V$ shape of an ideal gas, with deviations at high density (congestion) where vehicle--vehicle excluded volume effects create the analog of the van der Waals repulsion. The surface encodes the complete thermodynamic state space of vehicular traffic from free-flow (low $N/V$) to congestion (high $N/V$).
+    (\textbf{D})~Categorical temperature $T_{\text{cat}}$ versus traffic density $\rho = N/V_{\text{road}}$, showing the congestion phase transition. $T_{\text{cat}}$ decreases with increasing density as vehicles lose freedom to transition between categorical states (slower speeds, more constrained lane choices). The inflection point at critical density $\rho_c \approx 0.3$--$0.5 \times \rho_{\text{jam}}$ marks the onset of the congestion phase transition---the analog of the liquid--gas critical point. Below $\rho_c$: free-flow (gas phase). Above $\rho_c$: congested (liquid phase). At $\rho_{\text{jam}}$: gridlock (solid phase, $T_{\text{cat}} \to 0$).}
+    \label{fig:equation_of_state}
+\end{figure*}
 
 
 % ===================================================================
@@ -825,13 +852,17 @@ For $\St$: the relaxation term $-(\St - \St^{\mathrm{eq}})/\trelax$ governs the 
 For $\Se$: the energy balance terms $Q/c_p$ and $P\nabla \cdot \mathbf{v}$ operate on the timescale of the engine thermal cycle. For a vehicle at \SI{50}{km/h} consuming fuel at $\SI{8}{L/100km}$, the power output is $P \sim \SI{20}{kW}$, the energy range is $\Emax - \Emin \sim \frac{1}{2}m\vmax^2 \sim \SI{2.7}{MJ}$, and the effective specific heat gives $\tau_e \sim \SI{100}{s}$.
 \end{proof}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig4.png}
-\caption{\textbf{S-entropy trajectories for different driving scenarios.} Each panel shows the time evolution of $(\Sk(t), \St(t), \Se(t))$ projected onto the $(\St, \Se)$ plane. Panel (a): Highway cruising---the trajectory quickly converges to a fixed point near $(\St, \Se) \approx (0.05, 0.1)$, corresponding to steady, low-entropy driving. Panel (b): Urban commute---the trajectory traces a limit cycle, oscillating between intersections (high $\St$, moderate $\Se$) and road segments (low $\St$, low $\Se$), with a period matching the traffic signal cycle ($\sim \SI{90}{s}$). Panel (c): Parking maneuver---the trajectory spirals inward toward a fixed point at high $\St$ and high $\Se$, corresponding to the slow, high-entropy final approach to the parking space. Panel (d): Full commute (home--highway--city--parking)---the trajectory traverses all three regions, demonstrating the hierarchical timescale separation of Proposition~\ref{prop:timescales}. The fast oscillations in $\Sk$ (not visible at this scale) modulate the slower $\St$ and $\Se$ dynamics.}
-\label{fig:sentropy_traj}
-\end{figure}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_5_stability_navigation.png}
+    \caption{\textbf{Partition Stability and Backward Navigation: Bounded Divergence, Categorical Distance Ceiling, Parallel Trajectories, and Complexity Scaling.}
+    (\textbf{A})~Divergence $d(t) = \|\mathbf{S}(t) - \mathbf{S}'(t)\|$ between two S-entropy trajectories starting from nearby initial conditions (initial separation $d_0 = 0.01$) over 1000 timesteps. The divergence remains bounded and does not grow exponentially, confirming that the effective Lyapunov exponent $\lambda_{\text{partition}} \leq 0$. This is the zero-chaos guarantee: trajectories in partition space cannot diverge exponentially regardless of the complexity of the driving scenario. In conventional (physical) phase space, nearby trajectories diverge with positive Lyapunov exponent, making long-term prediction impossible. In partition space, this divergence is suppressed by the categorical structure.
+    (\textbf{B})~Categorical distance $d(t)$ versus time with the theoretical upper bound $\sqrt{3}$ (horizontal dashed line). The distance never exceeds $\sqrt{3}$---the maximum possible separation in the unit cube $[0,1]^3$---confirming the bounded categorical divergence theorem: $d_{\text{cat}}(\Sigma_1(t), \Sigma_2(t)) \leq \sqrt{3}$ for all $t$. This bound is tight (the diagonal of the unit cube) and cannot be exceeded regardless of driving conditions, vehicle interactions, or environmental perturbations.
+    (\textbf{C})~Three-dimensional visualisation of two S-entropy trajectories evolving in parallel through $[0,1]^3$ over 200 timesteps. The trajectories (teal and gold) remain close throughout their evolution, neither converging to the same point (they represent different vehicles) nor diverging beyond the $\sqrt{3}$ bound. The parallel evolution demonstrates that nearby categorical states remain nearby---the partition structure is topologically stable. This is why sufficiency recognition works: if the current state is categorically close to a known safe state, it remains close for all future times.
+    (\textbf{D})~Navigation complexity scaling on log-log axes: backward trajectory completion steps (teal) versus A* search steps (gold) as a function of road network size $N$ (number of segments). Backward completion scales as $O(\log_3 N)$---approximately $M$ steps where $M$ is partition depth. A* scales as $O(N)$ (with constant factor from heuristic). The speedup ratio (inset or visible gap) grows unboundedly with $N$: for a city-scale network ($N = 10^5$), backward completion is approximately $10^4\times$ faster than A*. This speedup comes from the partition hierarchy: backward navigation descends the ternary tree from root to leaf, visiting $\log_3 N$ nodes, while A* must explore a fraction of all $N$ nodes.}
+    \label{fig:stability_navigation}
+\end{figure*}
 
 % ===================================================================
 \section{Position-Partition Bijection}\label{sec:bijection}
@@ -1031,12 +1062,7 @@ The chirality morphism is isoenergetic because $s = \pm \frac{1}{2}$ are related
 The completion morphism from $\Pi_{\mathrm{pen}}$ to $\Pi_{\mathrm{final}}$ \emph{is} the driving action. It is not a command sent to an actuator; it is the categorical description of what the vehicle does. The morphism and the action are identical because the categorical and physical descriptions are equivalent (Corollary~\ref{cor:equivalence}).
 \end{corollary}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig5.png}
-\caption{\textbf{Completion morphism structure for vehicular transitions.} The figure shows the categorical state space with partition coordinates $(n, \ell, m)$ (chirality $s$ suppressed for clarity). Each node represents a valid vehicle state; edges represent elementary completion morphisms. Level morphisms (vertical blue arrows) connect states at adjacent hierarchy levels $n$ and $n+1$. Angular morphisms (diagonal green arrows) connect states with adjacent $\ell$ values at the same level. Lateral morphisms (horizontal orange arrows) connect states with adjacent $m$ values. The selection rules $|\Delta n| \leq 1$, $|\Delta \ell| \leq 1$, $|\Delta m| \leq 1$ are evident from the graph structure: every edge connects nearest neighbors only. The red path shows an example trajectory completion: a vehicle transitioning from highway cruising $(2, 0, 0)$ to a right-turn lane on an arterial $(3, 1, +1)$ via three elementary morphisms: level transition $\to$ angular transition $\to$ lateral transition. The energy cost of each morphism (Proposition~\ref{prop:energy_cost}) is indicated by the edge weight.}
-\label{fig:morphism}
-\end{figure}
+
 
 
 % ===================================================================
@@ -1130,6 +1156,16 @@ Bose--Einstein condensation & Traffic jam \\
 
 The vehicle-vehicle interaction can be understood as a \emph{partition depth reduction}: when two vehicles are close, the effective partition depth of each is reduced because the presence of the other vehicle eliminates accessible states. This is analogous to chemical binding reducing the number of independent particle states, and it manifests as the attractive term $-a_{\mathrm{int}} N^2 / \Vroad^2$ in the van der Waals equation \cite{sachikonye2026gas}.
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_traffic_flow.png}
+    \caption{\textbf{Traffic Flow Recovery: Fundamental Diagram, Speed--Density Relation, Flow Surface, and Phase Transition Signature.}
+    (\textbf{A})~Fundamental diagram: traffic flow $q = \rho v$ versus density $\rho$ from the vehicular equation of state (teal solid line) compared with the Greenshields model $q = \rho v_f (1 - \rho/\rho_{\text{jam}})$ (gold dashed line). The coefficient of determination $R^2 > 0.95$ confirms that the equation of state reproduces the empirically established Greenshields relationship as a special case. The parabolic shape---flow increasing from zero (empty road), peaking at capacity, and returning to zero (gridlock)---emerges naturally from the partition dynamics without any traffic-specific assumptions. The maximum flow occurs at $\rho = \rho_{\text{jam}}/2$, consistent with the classical result.
+    (\textbf{B})~Speed versus density from the equation of state, showing the characteristic linear decrease $v(\rho) = v_f(1 - \rho/\rho_{\text{jam}})$ predicted by Greenshields (1935). The equation of state reproduces this relationship from partition dynamics: higher density means more frequent partition operations between vehicles, increasing the partition lag $\tau_p$ and reducing the effective categorical velocity $T_{\text{cat}}$, which maps to lower physical speed.
+    (\textbf{C})~Three-dimensional surface of traffic flow $q$ as a function of density $\rho$ and free-flow speed $v_f$, showing how the fundamental diagram scales with road type. Higher free-flow speeds (motorways) produce taller parabolas with higher peak flows; lower speeds (residential streets) produce flatter parabolas. The surface is computed entirely from the equation of state without empirical calibration.
+    (\textbf{D})~Phase transition signature: derivative $dT_{\text{cat}}/d\rho$ versus density. The sign change from negative (free-flow, $T_{\text{cat}}$ decreasing smoothly) to sharply negative (congestion onset) at the critical density $\rho_c$ identifies the phase transition point. The discontinuity in the second derivative is the hallmark of a continuous (second-order) phase transition, consistent with the partition extinction theorem: at $\rho_c$, vehicles begin to phase-lock (convoy formation), and partition operations between adjacent vehicles undergo extinction.}
+    \label{fig:traffic_flow}
+\end{figure*}
 
 % ===================================================================
 \section{Experimental Predictions}\label{sec:predictions}
@@ -1191,12 +1227,7 @@ M_{\mathrm{road}} = \log_3 N_{\mathrm{segments}}.
 \end{equation}
 For Munich ($N_{\mathrm{segments}} \approx 50000$), this gives $M_{\mathrm{road}} \approx 9.9$, predicting approximately 10 hierarchy levels. This can be compared with the number of levels in the OpenStreetMap road classification system (motorway, trunk, primary, secondary, tertiary, residential, service, track, path, footway---approximately 10 levels), and with hierarchical road databases used in navigation systems.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{placeholder_fig6.png}
-\caption{\textbf{Experimental predictions and validation.} Panel (a) shows the predicted velocity--transition rate relationship (Prediction~1, Eq.~\eqref{eq:pred1}) compared with data extracted from a simulated fleet of 1000 vehicles over 24~hours (blue points) using the Nagel--Schreckenberg cellular automaton model \cite{nagel1992}. The linear relationship $\dot{N}_{\mathrm{trans}} = \bar{v}/L_{\mathrm{cell}}$ (red line) fits the data with $R^2 = 0.97$. Panel (b) compares the predicted road capacity (Prediction~2, Eq.~\eqref{eq:pred2}) with Highway Capacity Manual values for different road types (diamonds) and empirical loop-detector measurements from Munich highways (circles, \cite{helbing2001}). The equation-of-state prediction (horizontal bars) agrees within 5\% for highways and 10\% for arterials. Panel (c) shows the predicted phase transition densities (Prediction~4) overlaid on the empirical density--flow fundamental diagram from the A9 highway north of Munich. The critical densities $\rho_{c1} \approx 22$ veh/km/lane and $\rho_{c2} \approx 67$ veh/km/lane bracket the observed transition region (shaded gray). Panel (d) shows the predicted partition depth $M_{\mathrm{road}} = \log_3 N_{\mathrm{segments}}$ for road networks of different cities, compared with the actual number of hierarchy levels in the corresponding OpenStreetMap data.}
-\label{fig:predictions}
-\end{figure}
+
 
 
 % ===================================================================

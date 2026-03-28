@@ -1,0 +1,959 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.20)  28 MAR 2026 20:27
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./bounded-phase-space-state-counting.tex
+(bounded-phase-space-state-counting.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen149
+))
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count283
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count284
+\leftroot@=\count285
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count286
+\DOTSCASE@=\count287
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count288
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count289
+\dotsspace@=\muskip17
+\c@parentequation=\count290
+\dspbrk@lvl=\count291
+\tag@help=\toks20
+\row@=\count292
+\column@=\count293
+\maxfields@=\count294
+\andhelp@=\toks21
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks22
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks29
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks30
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count295
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count296
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
+ty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen160
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
+ (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count299
+ (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count300
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen161
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count301
+\Field@Width=\dimen162
+\Fld@charsize=\dimen163
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip57
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count307
+\@cmidlb=\count308
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count309
+\@lastruleclass=\count310
+\@thisrulewidth=\dimen176
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count311
+\l__siunitx_number_exponent_fixed_int=\count312
+\l__siunitx_number_min_decimal_int=\count313
+\l__siunitx_number_min_integer_int=\count314
+\l__siunitx_number_round_precision_int=\count315
+\l__siunitx_number_lower_threshold_int=\count316
+\l__siunitx_number_upper_threshold_int=\count317
+\l__siunitx_number_group_first_int=\count318
+\l__siunitx_number_group_size_int=\count319
+\l__siunitx_number_group_minimum_int=\count320
+\l__siunitx_angle_tmp_dim=\dimen177
+\l__siunitx_angle_marker_box=\box55
+\l__siunitx_angle_unit_box=\box56
+\l__siunitx_compound_count_int=\count321
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/translations\translatio
+ns.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+)
+\l__siunitx_table_tmp_box=\box57
+\l__siunitx_table_tmp_dim=\dimen178
+\l__siunitx_table_column_width_dim=\dimen179
+\l__siunitx_table_integer_box=\box58
+\l__siunitx_table_decimal_box=\box59
+\l__siunitx_table_uncert_box=\box60
+\l__siunitx_table_before_box=\box61
+\l__siunitx_table_after_box=\box62
+\l__siunitx_table_before_dim=\dimen180
+\l__siunitx_table_carry_dim=\dimen181
+\l__siunitx_unit_tmp_int=\count322
+\l__siunitx_unit_position_int=\count323
+\l__siunitx_unit_total_int=\count324
+ (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen182
+\ar@mcellbox=\box63
+\extrarowheight=\dimen183
+\NC@list=\toks31
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box64
+))
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count325
+\Gm@cntv=\count326
+\c@Gm@tempcnt=\count327
+\Gm@bindingoffset=\dimen184
+\Gm@wd@mp=\dimen185
+\Gm@odd@mp=\dimen186
+\Gm@even@mp=\dimen187
+\Gm@layoutwidth=\dimen188
+\Gm@layoutheight=\dimen189
+\Gm@layouthoffset=\dimen190
+\Gm@layoutvoffset=\dimen191
+\Gm@dimlist=\toks32
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.st
+y
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+ (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count328
+\float@exts=\toks33
+\float@box=\box65
+\@float@everytoks=\toks34
+\@floatcapt=\box66
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks35
+\c@algorithm=\count329
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.
+sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count330
+\c@ALC@line=\count331
+\c@ALC@rem=\count332
+\c@ALC@depth=\count333
+\ALC@tlm=\skip60
+\algorithmicindent=\skip61
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count334
+\calc@Bcount=\count335
+\calc@Adimen=\dimen192
+\calc@Bdimen=\dimen193
+\calc@Askip=\skip62
+\calc@Bskip=\skip63
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count336
+\calc@Cskip=\skip64
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count337
+\l_MT_multwidth_dim=\dimen194
+\origjot=\skip65
+\l_MT_shortvdotswithinadjustabove_dim=\dimen195
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen196
+\l_MT_above_intertext_sep=\dimen197
+\l_MT_below_intertext_sep=\dimen198
+\l_MT_above_shortintertext_sep=\dimen199
+\l_MT_below_shortintertext_sep=\dimen256
+\xmathstrut@box=\box67
+\xmathstrut@dim=\dimen257
+) (C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip66
+\enit@outerparindent=\dimen258
+\enit@toks=\toks36
+\enit@inbox=\box68
+\enit@count@id=\count338
+\enitdp@description=\count339
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 36.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen259
+\captionmargin=\dimen260
+\caption@leftmargin=\dimen261
+\caption@rightmargin=\dimen262
+\caption@width=\dimen263
+\caption@indent=\dimen264
+\caption@parindent=\dimen265
+\caption@hangindent=\dimen266
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count340
+\c@continuedfloat=\count341
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+\c@theorem=\count342
+Package translations Info: No language package found. I am going to use `englis
+h' as default language. on input line 91.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count343
+) (bounded-phase-space-state-counting.aux)
+\openout1 = `bounded-phase-space-state-counting.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count344
+\scratchdimen=\dimen267
+\scratchbox=\box69
+\nofMPsegments=\count345
+\nofMParguments=\count346
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count347
+\MPscratchDim=\dimen268
+\MPnumerator=\count348
+\makeMPintoPDFobject=\count349
+\everyMPtoPDFconversion=\toks38
+)
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring ON on input line 91.
+ (bounded-phase-space-state-counting.out)
+(bounded-phase-space-state-counting.out)
+\@outlinefile=\write3
+\openout3 = `bounded-phase-space-state-counting.out'.
+
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
+slations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 91.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+
+
+(C:\Users\kunda\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{C:/Users/kunda/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+
+]
+Underfull \hbox (badness 4217) in paragraph at lines 230--235
+[][]\T1/cmr/bx/n/10 Definition 2.1 \T1/cmr/m/n/10 (Ve-hi-cle Os-cil-la-tor In-v
+en-tory)\T1/cmr/bx/n/10 .
+ []
+
+
+Underfull \hbox (badness 3612) in paragraph at lines 230--235
+[]\T1/cmr/m/n/10 A ve-hi-cle os-cil-la-tor in-ven-tory is a set $\OMS/cmsy/m/n/
+10 V \OT1/cmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 5091) in paragraph at lines 264--270
+[][]\T1/cmr/bx/n/10 Definition 2.2 \T1/cmr/m/n/10 (Count-ing Loop)\T1/cmr/bx/n/
+10 . []\T1/cmr/m/n/10 Let $\OMS/cmsy/m/n/10 V \OT1/cmr/m/n/10 =
+ []
+
+[2]
+Underfull \hbox (badness 6204) in paragraph at lines 363--367
+\T1/cmr/m/n/10 The mean Poincaré re-turn time is $\OMS/cmsy/m/n/10 h\OML/cmm/m/
+it/10 ^^\[]\OMS/cmsy/m/n/10 i \OT1/cmr/m/n/10 =
+ []
+
+[3]
+<figures/panel_1_counting_loops.png, id=254, 1171.7376pt x 377.2494pt>
+File: figures/panel_1_counting_loops.png Graphic file (type png)
+<use figures/panel_1_counting_loops.png>
+Package pdftex.def Info: figures/panel_1_counting_loops.png  used on input line
+ 417.
+(pdftex.def)             Requested size: 469.75502pt x 151.24246pt.
+
+Underfull \hbox (badness 1648) in paragraph at lines 428--428
+[]\T1/cmr/bx/n/14.4 Harmonic Co-in-ci-dence Net-
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 431--431
+[]\T1/cmr/bx/n/12 Rational Fre-quency Ra-tios and
+ []
+
+
+Underfull \hbox (badness 2837) in paragraph at lines 433--436
+\T1/cmr/m/n/10 The os-cil-la-tors in $\OMS/cmsy/m/n/10 V$ \T1/cmr/m/n/10 do not
+ op-er-ate in-de-pen-
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 474--485
+\T1/cmr/m/n/10 cou-pling ex-pe-ri-enced by os-cil-la-tor $\OML/cmm/m/it/10 i$ \
+T1/cmr/m/n/10 is $\OML/cmm/m/it/10 K[] \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (11.12714pt too wide) detected at line 520
+[][][]\OML/cmm/m/it/10 ^^Q \OT1/cmr/m/n/10 = [] = 1 + [] [] \OML/cmm/m/it/10 w\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 v[]; v[]\OT1/cmr/m/n/10 ) [](\OML/cmm/m/it/10 
+^^^[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 )\OML/cmm/m/it
+/10 :
+ []
+
+[4] [5 <./figures/panel_1_counting_loops.png>]
+Underfull \hbox (badness 2351) in paragraph at lines 573--579
+[]\T1/cmr/m/n/10 The overde-ter-mined lin-ear sys-tem has a
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 588--591
+\T1/cmr/m/n/10 The ve-hi-cle's on-board com-puter, con-ven-tion-ally
+ []
+
+<figures/panel_2_precision_fusion.png, id=293, 1167.1605pt x 373.8768pt>
+File: figures/panel_2_precision_fusion.png Graphic file (type png)
+<use figures/panel_2_precision_fusion.png>
+Package pdftex.def Info: figures/panel_2_precision_fusion.png  used on input li
+ne 643.
+(pdftex.def)             Requested size: 469.75502pt x 150.47226pt.
+
+Underfull \hbox (badness 5133) in paragraph at lines 655--657
+[][]\T1/cmr/bx/n/10 Proposition 4.3 \T1/cmr/m/n/10 (Jit-ter--S-En-tropy Cor-re-
+spon-
+ []
+
+[6] [7 <./figures/panel_2_precision_fusion.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 673--673
+[]\T1/cmr/bx/n/12 Hardware--Atmospheric Co-in-ci-
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 776--778
+[]\T1/cmr/bx/it/10 Convergence\T1/cmr/m/it/10 : $\OMS/cmsy/m/n/10 k\OT1/cmr/bx/
+n/10 S[] \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/bx/n/10 S[]\OMS/cmsy/m/n/10 k ^^T
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 836--839
+[][]\T1/cmr/bx/n/10 Definition 6.1 \T1/cmr/m/n/10 (Nav-i-ga-tional Suf-fi-cienc
+y)\T1/cmr/bx/n/10 . []\T1/cmr/m/n/10 Let
+ []
+
+
+Overfull \hbox (24.08328pt too wide) detected at line 871
+[]
+ []
+
+[9]
+Overfull \hbox (0.68413pt too wide) detected at line 959
+[][][]\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) = []  []\OMS/cmsy
+/m/n/10 j\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10
+ ) \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\
+OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 S[]\OT1
+/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10
+ ;  \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\O
+T1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/
+cmr/m/n/10 )\OMS/cmsy/m/n/10 j[]
+ []
+
+[10]
+<figures/panel_3_sufficiency.png, id=392, 1172.2194pt x 377.2494pt>
+File: figures/panel_3_sufficiency.png Graphic file (type png)
+<use figures/panel_3_sufficiency.png>
+Package pdftex.def Info: figures/panel_3_sufficiency.png  used on input line 10
+31.
+(pdftex.def)             Requested size: 469.75502pt x 151.17914pt.
+
+Underfull \hbox (badness 4886) in paragraph at lines 1052--1054
+[][]\T1/cmr/bx/n/10 Definition 7.1 \T1/cmr/m/n/10 (Tran-s--Planck-ian En-hance-
+ment
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 1055--1058
+\T1/cmr/m/n/10 duce ef-fec-tive fre-quen-cies $\OML/cmm/m/it/10 n[]![] \OT1/cmr
+/m/n/10 + \OML/cmm/m/it/10 n[]![]$ \T1/cmr/m/n/10 with
+ []
+
+
+Underfull \hbox (badness 2126) in paragraph at lines 1058--1062
+[]\T1/cmr/bx/n/10 Phase in-ter-po-la-tion\T1/cmr/m/n/10 : The rel-a-tive phase
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
+[][]\T1/cmr/bx/n/10 Theorem 7.2 \T1/cmr/m/n/10 (Tran-s--Planck-ian En-hance-men
+t
+ []
+
+[11] [12 <./figures/panel_3_sufficiency.png>]
+Underfull \hbox (badness 2376) in paragraph at lines 1149--1154
+\OT1/cmr/m/n/10 10[]$\T1/cmr/m/n/10 . Cross-mechanism syn-er-gies (har-monic
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 1186--1190
+\T1/cmr/m/it/10 This is in con-trast to the quan-tum me-chan-i-cal
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 1263--1271
+[]\T1/cmr/m/n/10 By con-di-tion (a), the at-mo-spheric pa-ram-e-ters
+ []
+
+[13]
+Underfull \hbox (badness 1377) in paragraph at lines 1341--1346
+[][]\T1/cmr/bx/n/10 Corollary 8.5 \T1/cmr/m/n/10 (GP-S-Free Nav-i-ga-tion)\T1/c
+mr/bx/n/10 . []\T1/cmr/m/it/10 A ve-hi-
+ []
+
+
+Underfull \hbox (badness 3460) in paragraph at lines 1349--1357
+\T1/cmr/m/n/10 de-ter-mi-na-tion from clock jit-ter), the Position-
+ []
+
+<figures/panel_4_positioning.png, id=451, 1169.5695pt x 345.9324pt>
+File: figures/panel_4_positioning.png Graphic file (type png)
+<use figures/panel_4_positioning.png>
+Package pdftex.def Info: figures/panel_4_positioning.png  used on input line 13
+61.
+(pdftex.def)             Requested size: 469.75502pt x 138.94058pt.
+[14] [15 <./figures/panel_4_positioning.png>] [16]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 1530.
+
+Underfull \hbox (badness 1502) in paragraph at lines 1537--1540
+[] []\T1/cmr/m/n/10 Compute kine-matic S-entropy: $\OML/cmm/m/it/10 S[] \OMS/cm
+sy/m/n/10   \OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 1540--1543
+[] []\T1/cmr/m/n/10 Compute tem-po-ral S-entropy: $\OML/cmm/m/it/10 S[] \OMS/cm
+sy/m/n/10   \OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 1569--1571
+[]\T1/cmr/bx/n/10 Computational load\T1/cmr/m/n/10 : CPU cy-cles per S-
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 1615--1621
+[]\T1/cmr/m/it/10 Part (f)\T1/cmr/m/n/10 : The S-entropy com-pu-ta-tion (Al-go-
+
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 1626--1626
+\T1/cmr/m/it/9 entropy nav-i-ga-tion and con-ven-tional GPS/perception-
+ []
+
+
+Overfull \hbox (40.88867pt too wide) in paragraph at lines 1628--1645
+ [][] 
+ []
+
+<figures/panel_5_duality.png, id=509, 1174.8693pt x 358.2183pt>
+File: figures/panel_5_duality.png Graphic file (type png)
+<use figures/panel_5_duality.png>
+Package pdftex.def Info: figures/panel_5_duality.png  used on input line 1649.
+(pdftex.def)             Requested size: 469.75502pt x 143.23012pt.
+[17] [18 <./figures/panel_5_duality.png>]
+Underfull \hbox (badness 2035) in paragraph at lines 1679--1684
+[]\T1/cmr/bx/n/10 Computer as Spec-trom-e-ter \T1/cmr/m/n/10 (Sec-tion [][]4[][
+]):
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 1702--1707
+[]\T1/cmr/bx/n/10 Position With-out GPS \T1/cmr/m/n/10 (Sec-tion [][]8[][]): We
+
+ []
+
+(bounded-phase-space-state-counting.bbl
+Underfull \hbox (badness 1127) in paragraph at lines 20--26
+\T1/cmr/m/n/10 Dworakowski, Bern-hard Firner, Beat Flepp,
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 35--38
+\T1/cmr/m/it/10 of In-for-ma-tion The-ory\T1/cmr/m/n/10 .  Wiley-Interscience,
+ []
+
+[19]
+Underfull \hbox (badness 2027) in paragraph at lines 40--44
+[]\T1/cmr/m/n/10 Gerhard Herzberg.  \T1/cmr/m/it/10 Molec-u-lar Spec-tra and
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 56--60
+[]\T1/cmr/m/n/10 Yoshiki Ku-ramoto.  \T1/cmr/m/it/10 Chem-i-cal Os-cil-la-tions
+,
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 86--90
+\T1/cmr/m/n/10 of frequency-selective cou-pling struc-tures in
+ []
+
+
+Underfull \hbox (badness 4391) in paragraph at lines 128--137
+[]\T1/cmr/m/n/10 Sebastian Thrun, Mike Mon-te-merlo, Hen-
+ []
+
+) [20]
+Underfull \hbox (badness 3895) in paragraph at lines 1777--1784
+[]\T1/cmr/m/n/10 Injectivity: Sup-pose $\OT1/cmr/m/n/10 	(\OML/cmm/m/it/10 n[];
+ `[]; m[]; s[]\OT1/cmr/m/n/10 ) =
+ []
+
+
+Overfull \hbox (14.482pt too wide) detected at line 1808
+[][][][] \OT1/cmr/m/n/10 = [] [] + [] [] [](\OML/cmm/m/it/10 ^^^[] \OMS/cmsy/m/
+n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 ) + \OMS/cmsy/m/n/10 O\OT1/cmr/m
+/n/10 (\OML/cmm/m/it/10 w[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :
+ []
+
+
+Underfull \hbox (badness 1072) in paragraph at lines 1835--1836
+[][]\T1/cmr/bx/n/10 Theorem C.1 \T1/cmr/m/n/10 (S-En-tropy Evo-lu-tion Equa-tio
+n)\T1/cmr/bx/n/10 .
+ []
+
+
+Overfull \hbox (51.4435pt too wide) detected at line 1883
+[][][][] \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1897--1897
+[]\T1/cmr/bx/n/14.4 Information-Theoretic
+ []
+
+[21] [22
+
+] (bounded-phase-space-state-counting.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package rerunfilecheck Info: File `bounded-phase-space-state-counting.out' has 
+not changed.
+(rerunfilecheck)             Checksum: BC9E115F1E7AFF3D061566348D615528;7516.
+ ) 
+Here is how much of TeX's memory you used:
+ 17861 strings out of 467867
+ 343023 string characters out of 5418334
+ 771278 words of memory out of 5000000
+ 46241 multiletter control sequences out of 15000+600000
+ 656369 words of font info for 114 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,13n,79p,2857b,1351s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
+0900.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbi1000.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecti0600.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecti0900.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbi0900.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\kunda\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\kunda\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\kunda\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\kunda\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\
+kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\
+Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk
+> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+200.pk> <C:\Users\kunda\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
+\ecrm1728.pk><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmbx7.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/kunda/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kunda/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/kunda/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/
+kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C
+:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmmi7.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi9.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmib10.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kunda/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/kunda/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/kunda/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kunda/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/k
+unda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
+Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy6.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Users/kunda/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/kunda/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/kunda/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on bounded-phase-space-state-counting.pdf (22 pages, 3185108 byt
+es).
+PDF statistics:
+ 1455 PDF objects out of 1728 (max. 8388607)
+ 280 named destinations out of 1000 (max. 500000)
+ 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+
