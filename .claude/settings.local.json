@@ -25,7 +25,8 @@
       "Bash(python publication/vehicle-membrane-semi-conductor/figures/generate_panels.py)",
       "Bash(ls /c/Users/kunda/Documents/distributed/verum/publication/vehicle-membrane-semi-conductor/figures/*.png)",
       "Bash(python publication/equations-of-state/figures/generate_panels.py)",
-      "Bash(python publication/counting-loops/figures/generate_panels.py)"
+      "Bash(python publication/counting-loops/figures/generate_panels.py)",
+      "Bash(pip install:*)"
     ]
   }
 }

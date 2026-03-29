@@ -1,0 +1,1 @@
+"""Philharmonic figure generation."""
