@@ -122,11 +122,12 @@ Over 30 papers organized by category, all derived from the single axiom.
 |-------|-----------|
 | Validated Membrane Computing Without Quantum Coherence | **12/12 experiments pass** -- biological semiconductor architecture fully validated |
 
-### Vehicle Diagnostics (1)
+### Vehicle Diagnostics (2)
 
 | Paper | Key Result |
 |-------|-----------|
 | Vehicle Oscillatory Circuit Graphs | **10/10 validated** -- complete vehicle state from 33% surface observations, Banach fixed-point convergence (independent, zero self-citations) |
+| Philharmonic: Complete F1 Vehicle State Reconstruction from Partial Telemetry via Oscillatory Circuit Graph Trajectory Completion | **4/4 validated** -- real 2023 Bahrain GP data, state reconstruction, fault prediction, tire degradation, racing line extraction |
 
 ---
 
@@ -152,7 +153,7 @@ Every layer communicates through categorical state transitions. The membrane har
 
 ## 4. Validated Results
 
-Three independent validation suites confirm the theoretical predictions.
+**64/64 total validations** across all test suites confirm the theoretical predictions.
 
 ### Semiconductor Architecture: 12/12 PASS
 
@@ -223,6 +224,16 @@ A vehicle is a network of coupled oscillatory subsystems. Philharmonic models th
 - Fault detection: 30% bearing wear correctly localized
 - Signal propagation: categorical velocity exceeds mechanical wave speed
 
+### Philharmonic F1 Validation
+
+Validated on real 2023 FIA Formula One World Championship data (Bahrain GP, Verstappen, 242 telemetry samples via FastF1 API).
+
+**4/4 tests passed:**
+- State Reconstruction: 5/5 consistency checks, suspension-aero correlation r=0.9997, convergence residual 7.2×10⁻⁹
+- Fault Prediction: ICE-Turbo fault detected 13 laps before injection
+- Tire Degradation: lap time range 88.9-107.0s tracked correctly
+- Racing Line: optimal 80.4s vs fastest 82.5s extracted from 8 qualifying laps
+
 ---
 
 ## 5. Software Architecture
@@ -234,6 +245,7 @@ verum/
 ├── sighthound/          Rust     Sensor fusion
 ├── verum-network/       Go       Distributed coordination
 ├── verum-learn/         Python   Membrane + semiconductor + molecular navigation validation
+├── philharmonic/        Python   F1 telemetry validation (FastF1 API, 20-node circuit graph, trajectory completion)
 ├── ruzende/             DSL      Inter-module communication protocols
 └── vesicle/             Next.js  Investor/demo website with 3D, Mapbox, live data
 ```
@@ -247,6 +259,8 @@ verum/
 **verum-network** implements distributed coordination in Go: inter-vehicle V2A2V communication, fleet state synchronization, and atmospheric protocol management.
 
 **verum-learn** contains all validation code in Python: the 12-module membrane signal transduction suite, the 12-experiment semiconductor validation, and the 5-experiment molecular navigation validation.
+
+**philharmonic/** contains the F1 telemetry validation in Python: a 20-node oscillatory circuit graph tested on real 2023 FIA Formula One World Championship data via the FastF1 API, validating state reconstruction, fault prediction, tire degradation, and racing line extraction.
 
 **ruzende** defines the DSL for inter-module communication protocols -- categorical state transitions encoded as typed messages.
 
@@ -337,6 +351,9 @@ cd verum-learn && python -m verum_learn.semiconductor.validation
 # Python molecular navigation validation (5/5)
 cd verum-learn && python -m verum_learn.molecular_navigation.experiments.run_all
 
+# Python F1 telemetry validation (4/4)
+cd philharmonic && python -m philharmonic.validate
+
 # Go network
 cd verum-network && go build ./cmd/...
 
@@ -387,6 +404,7 @@ make build
 34. K.F. Sachikonye, "Emission-Strobe Spectroscopy," 2026.
 35. K.F. Sachikonye, "Molecular Memory in Road Networks," 2026.
 36. K.F. Sachikonye, "Vehicle Oscillatory Circuit Graphs: Complete Vehicle State from Partial Surface Observations," 2026.
+37. K.F. Sachikonye, "Philharmonic: Complete F1 Vehicle State Reconstruction from Partial Telemetry via Oscillatory Circuit Graph Trajectory Completion," 2026.
 
 ---
 

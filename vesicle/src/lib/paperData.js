@@ -259,6 +259,14 @@ export const papers = [
     category: 'Vehicle Diagnostics',
     year: 2026,
   },
+  {
+    title:
+      'Philharmonic: Complete F1 Vehicle State Reconstruction from Partial Telemetry',
+    summary:
+      '4/4 validated on real 2023 Bahrain GP data — state reconstruction, fault prediction, tire degradation, racing line extraction',
+    category: 'Vehicle Diagnostics',
+    year: 2026,
+  },
 ];
 
 export const categories = [...new Set(papers.map((p) => p.category))];
