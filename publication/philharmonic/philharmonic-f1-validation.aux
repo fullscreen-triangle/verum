@@ -1,0 +1,493 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{FIA2023}
+\citation{Koutrik2014,Heilmeier2020}
+\@writefile{toc}{\contentsline {part}{I\hspace  {1em}Theory}{1}{part.1}\protected@file@percent }
+\newlabel{part:theory}{{I}{1}{Theory}{part.1}{}}
+\newlabel{part:theory@cref}{{[part][1][]I}{[1][1][]1}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:introduction}{{1}{1}{Introduction}{section.1}{}}
+\newlabel{sec:introduction@cref}{{[section][1][]1}{[1][1][]1}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}The Formula One telemetry problem}{1}{subsection.1.1}\protected@file@percent }
+\citation{Heilmeier2020}
+\citation{Theelke2023}
+\citation{Gillespie1992,Milliken1995}
+\citation{Pacejka2012}
+\citation{Bishop2006}
+\citation{Kalman1960,Kay1993}
+\citation{Sachikonye2026circuitgraph}
+\citation{Banach1922}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Current approaches and their limitations}{2}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Physics-based simulation.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Machine learning.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Statistical estimation.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Oscillatory Circuit Graph Completion}{2}{subsection.1.3}\protected@file@percent }
+\citation{Sachikonye2026circuitgraph}
+\citation{Sachikonye2026circuitgraph}
+\citation{Poincare1890}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Key results}{3}{subsection.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Relation to companion paper}{3}{subsection.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Notation}{3}{subsection.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}The F1 Car as an Oscillatory System}{3}{section.2}\protected@file@percent }
+\newlabel{sec:oscillatory}{{2}{3}{The F1 Car as an Oscillatory System}{section.2}{}}
+\newlabel{sec:oscillatory@cref}{{[section][2][]2}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Bounded phase space implies oscillation}{3}{subsection.2.1}\protected@file@percent }
+\newlabel{ax:finite_energy}{{2.1}{3}{Finite energy}{theorem.2.1}{}}
+\newlabel{ax:finite_energy@cref}{{[theorem][1][2]2.1}{[1][3][]3}{}{}{}}
+\newlabel{thm:oscillation}{{2.2}{3}{Oscillatory dynamics from bounded phase space}{theorem.2.2}{}}
+\newlabel{thm:oscillation@cref}{{[theorem][2][2]2.2}{[1][3][]3}{}{}{}}
+\newlabel{cor:frequency}{{2.3}{3}{Characteristic frequency}{theorem.2.3}{}}
+\newlabel{cor:frequency@cref}{{[theorem][3][2]2.3}{[1][3][]3}{}{}{}}
+\newlabel{eq:frequency}{{1}{3}{Characteristic frequency}{equation.1}{}}
+\newlabel{eq:frequency@cref}{{[equation][1][]1}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Complete F1 subsystem inventory}{4}{subsection.2.2}\protected@file@percent }
+\newlabel{def:cat_state}{{2.4}{4}{Categorical state count}{theorem.2.4}{}}
+\newlabel{def:cat_state@cref}{{[theorem][4][2]2.4}{[1][4][]4}{}{}{}}
+\newlabel{eq:cat_count}{{2}{4}{Categorical state count}{equation.2}{}}
+\newlabel{eq:cat_count@cref}{{[equation][2][]2}{[1][4][]4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Complete inventory of 20 oscillatory subsystems of a 2023 Formula One car. Frequencies are characteristic values at typical racing conditions. Phase space dimension $2n$ counts generalised coordinates and conjugate momenta. Categorical state count $C_i$ is computed for $T_{\mathrm  {obs}} = 1$\,s.}}{4}{table.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:inventory}{{1}{4}{Complete inventory of 20 oscillatory subsystems of a 2023 Formula One car. Frequencies are characteristic values at typical racing conditions. Phase space dimension $2n$ counts generalised coordinates and conjugate momenta. Categorical state count $C_i$ is computed for $T_{\mathrm {obs}} = 1$\,s}{table.caption.5}{}}
+\newlabel{tab:inventory@cref}{{[table][1][]1}{[1][4][]4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Physical basis for each frequency}{4}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ICE (Node 1).}{4}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Turbocharger (Node 2).}{4}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{MGU-K (Node 3).}{4}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{MGU-H (Node 4).}{4}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Battery (Node 5).}{4}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gearbox (Node 6).}{4}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Differential (Node 7).}{5}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Wheels (Nodes 8--11).}{5}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Brakes (Nodes 12--15).}{5}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Suspensions (Nodes 16--19).}{5}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Aerodynamic body (Node 20).}{5}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}The oscillator-processor duality}{5}{subsection.2.4}\protected@file@percent }
+\newlabel{prop:osc_compute}{{2.5}{5}{Oscillation is computation}{theorem.2.5}{}}
+\newlabel{prop:osc_compute@cref}{{[theorem][5][2]2.5}{[1][5][]5}{}{}{}}
+\newlabel{eq:osc_compute}{{3}{5}{Oscillation is computation}{equation.3}{}}
+\newlabel{eq:osc_compute@cref}{{[equation][3][]3}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}S-entropy coordinates}{5}{subsection.2.5}\protected@file@percent }
+\newlabel{def:s_entropy}{{2.6}{5}{S-entropy triple}{theorem.2.6}{}}
+\newlabel{def:s_entropy@cref}{{[theorem][6][2]2.6}{[1][5][]5}{}{}{}}
+\newlabel{eq:s_entropy}{{4}{5}{S-entropy triple}{equation.4}{}}
+\newlabel{eq:s_entropy@cref}{{[equation][4][]4}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Circuit Graph Construction}{5}{section.3}\protected@file@percent }
+\newlabel{sec:circuit_graph}{{3}{5}{Circuit Graph Construction}{section.3}{}}
+\newlabel{sec:circuit_graph@cref}{{[section][3][]3}{[1][5][]5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Nodes and potentials}{5}{subsection.3.1}\protected@file@percent }
+\newlabel{def:node_potential}{{3.1}{5}{Node potential}{theorem.3.1}{}}
+\newlabel{def:node_potential@cref}{{[theorem][1][3]3.1}{[1][5][]5}{}{}{}}
+\newlabel{eq:node_potential}{{5}{5}{Node potential}{equation.5}{}}
+\newlabel{eq:node_potential@cref}{{[equation][5][]5}{[1][5][]5}{}{}{}}
+\citation{Sachikonye2026circuitgraph}
+\citation{Drude1900}
+\citation{Fourier1822}
+\citation{Einstein1905}
+\citation{Drude1900}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Edges and conductances}{6}{subsection.3.2}\protected@file@percent }
+\newlabel{def:conductance}{{3.3}{6}{Edge conductance}{theorem.3.3}{}}
+\newlabel{def:conductance@cref}{{[theorem][3][3]3.3}{[1][6][]6}{}{}{}}
+\newlabel{eq:conductance}{{6}{6}{Edge conductance}{equation.6}{}}
+\newlabel{eq:conductance@cref}{{[equation][6][]6}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Mechanical coupling}{6}{subsubsection.3.2.1}\protected@file@percent }
+\newlabel{eq:mech_chain}{{7}{6}{Mechanical coupling}{equation.7}{}}
+\newlabel{eq:mech_chain@cref}{{[equation][7][]7}{[1][6][]6}{}{}{}}
+\newlabel{eq:mech_G}{{8}{6}{Mechanical coupling}{equation.8}{}}
+\newlabel{eq:mech_G@cref}{{[equation][8][]8}{[1][6][]6}{}{}{}}
+\newlabel{eq:mguk_mech}{{9}{6}{Mechanical coupling}{equation.9}{}}
+\newlabel{eq:mguk_mech@cref}{{[equation][9][]9}{[1][6][]6}{}{}{}}
+\newlabel{eq:mguh_mech}{{10}{6}{Mechanical coupling}{equation.10}{}}
+\newlabel{eq:mguh_mech@cref}{{[equation][10][]10}{[1][6][]6}{}{}{}}
+\newlabel{eq:brake_mech}{{11}{6}{Mechanical coupling}{equation.11}{}}
+\newlabel{eq:brake_mech@cref}{{[equation][11][]11}{[1][6][]6}{}{}{}}
+\newlabel{eq:susp_mech}{{12}{6}{Mechanical coupling}{equation.12}{}}
+\newlabel{eq:susp_mech@cref}{{[equation][12][]12}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Thermal coupling}{6}{subsubsection.3.2.2}\protected@file@percent }
+\newlabel{eq:thermal_G}{{13}{6}{Thermal coupling}{equation.13}{}}
+\newlabel{eq:thermal_G@cref}{{[equation][13][]13}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Electrical coupling}{6}{subsubsection.3.2.3}\protected@file@percent }
+\newlabel{eq:mguk_elec}{{14}{6}{Electrical coupling}{equation.14}{}}
+\newlabel{eq:mguk_elec@cref}{{[equation][14][]14}{[1][6][]6}{}{}{}}
+\newlabel{eq:mguh_elec}{{15}{6}{Electrical coupling}{equation.15}{}}
+\newlabel{eq:mguh_elec@cref}{{[equation][15][]15}{[1][6][]6}{}{}{}}
+\newlabel{eq:elec_G}{{16}{6}{Electrical coupling}{equation.16}{}}
+\newlabel{eq:elec_G@cref}{{[equation][16][]16}{[1][6][]6}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Aerodynamic coupling}{6}{subsubsection.3.2.4}\protected@file@percent }
+\newlabel{eq:aero_susp}{{17}{6}{Aerodynamic coupling}{equation.17}{}}
+\newlabel{eq:aero_susp@cref}{{[equation][17][]17}{[1][6][]6}{}{}{}}
+\newlabel{eq:aero_G}{{18}{6}{Aerodynamic coupling}{equation.18}{}}
+\newlabel{eq:aero_G@cref}{{[equation][18][]18}{[1][6][]6}{}{}{}}
+\citation{Callen1985}
+\newlabel{eq:drs}{{19}{7}{Aerodynamic coupling}{equation.19}{}}
+\newlabel{eq:drs@cref}{{[equation][19][]19}{[1][6][]7}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}The complete adjacency matrix}{7}{subsection.3.3}\protected@file@percent }
+\newlabel{eq:adjacency}{{20}{7}{The complete adjacency matrix}{equation.20}{}}
+\newlabel{eq:adjacency@cref}{{[equation][20][]20}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Kirchhoff's Current Law analog}{7}{subsection.3.4}\protected@file@percent }
+\newlabel{thm:kcl}{{3.4}{7}{Energy conservation at each node}{theorem.3.4}{}}
+\newlabel{thm:kcl@cref}{{[theorem][4][3]3.4}{[1][7][]7}{}{}{}}
+\newlabel{eq:kcl}{{21}{7}{Energy conservation at each node}{equation.21}{}}
+\newlabel{eq:kcl@cref}{{[equation][21][]21}{[1][7][]7}{}{}{}}
+\newlabel{eq:energy_balance}{{22}{7}{Kirchhoff's Current Law analog}{equation.22}{}}
+\newlabel{eq:energy_balance@cref}{{[equation][22][]22}{[1][7][]7}{}{}{}}
+\newlabel{eq:power_flow}{{23}{7}{Kirchhoff's Current Law analog}{equation.23}{}}
+\newlabel{eq:power_flow@cref}{{[equation][23][]23}{[1][7][]7}{}{}{}}
+\newlabel{eq:kcl_matrix}{{24}{7}{Kirchhoff's Current Law analog}{equation.24}{}}
+\newlabel{eq:kcl_matrix@cref}{{[equation][24][]24}{[1][7][]7}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Kirchhoff's Voltage Law analog}{7}{subsection.3.5}\protected@file@percent }
+\newlabel{thm:kvl}{{3.5}{7}{Thermodynamic cycle consistency}{theorem.3.5}{}}
+\newlabel{thm:kvl@cref}{{[theorem][5][3]3.5}{[1][7][]7}{}{}{}}
+\newlabel{eq:kvl}{{25}{7}{Thermodynamic cycle consistency}{equation.25}{}}
+\newlabel{eq:kvl@cref}{{[equation][25][]25}{[1][7][]7}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Formula One Vehicle Circuit Graph: Adjacency Structure, Oscillatory Frequencies, Spatial Embedding, and Laplacian Spectrum.} (\textbf  {A})~Conductance-weighted adjacency matrix of the 20-node F1 oscillatory circuit graph constructed for the 2023 Red Bull RB19. Rows and columns index the 20 subsystems: ICE, turbocharger, MGU-K, MGU-H, battery, gearbox, differential, four wheels (FL/FR/RL/RR), four brakes (FL/FR/RL/RR), four suspensions (FL/FR/RL/RR), and aerodynamic body. Non-zero entries indicate physical couplings: mechanical (powertrain chain ICE--Gearbox--Differential--Wheels, MGU-K--ICE, MGU-H--Turbo), thermal (ICE--Turbo exhaust gas, Wheel--Brake friction heating), electrical (MGU-K--Battery, MGU-H--Battery energy recovery and deployment), and aerodynamic (Aero--Suspension downforce loading proportional to $v^2$). (\textbf  {B})~Characteristic oscillatory frequencies of all 20 subsystems spanning four orders of magnitude. The turbocharger and MGU-H operate at the highest frequencies ($\sim $2000\,Hz, corresponding to 120,000\,RPM shaft speed), the ICE and gearbox at $\sim $250\,Hz (15,000\,RPM crankshaft), the MGU-K at $\sim $500\,Hz, wheels at $\sim $25\,Hz (corresponding to $\sim $300\,km/h at rolling radius 0.33\,m), suspensions at $\sim $4\,Hz (natural frequency of F1 spring-damper assemblies), brakes at $\sim $1\,Hz (thermal cycling frequency between braking zones), battery at $\sim $10\,Hz (energy deployment/recovery switching), and the aerodynamic body at $\sim $0.5\,Hz (quasi-static ride height and pitch variation). (\textbf  {C})~Three-dimensional embedding of the 20-node circuit graph. Node positions encode characteristic oscillatory frequency (x-axis, Hz), categorical depth $\mathcal  {H}_i = -\log _2 P(\sigma _i)$ (y-axis, bits), and total coupling degree $\DOTSB \sum@ \slimits@ _j G_{ij}$ (z-axis). Node colour distinguishes subsystem class: powertrain (ICE, Turbo, MGU-K, MGU-H, Gearbox, Differential), energy storage (Battery), corners (Wheels, Brakes, Suspensions), and aerodynamics (Aero body). (\textbf  {D})~Eigenvalue spectrum of the graph Laplacian $\mathbf  {L} = \mathbf  {D} - \mathbf  {A}$. The single zero eigenvalue $\lambda _1 = 0$ confirms that the 20-node F1 circuit graph is connected (Theorem~3.5): categorical state information can propagate from any node to any other node. The algebraic connectivity $\lambda _2 > 0$ (Fiedler value) quantifies the minimum coupling strength that must be severed to disconnect the graph and governs the convergence rate of the trajectory completion algorithm.}}{8}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:f1_circuit}{{1}{8}{\textbf {Formula One Vehicle Circuit Graph: Adjacency Structure, Oscillatory Frequencies, Spatial Embedding, and Laplacian Spectrum.} (\textbf {A})~Conductance-weighted adjacency matrix of the 20-node F1 oscillatory circuit graph constructed for the 2023 Red Bull RB19. Rows and columns index the 20 subsystems: ICE, turbocharger, MGU-K, MGU-H, battery, gearbox, differential, four wheels (FL/FR/RL/RR), four brakes (FL/FR/RL/RR), four suspensions (FL/FR/RL/RR), and aerodynamic body. Non-zero entries indicate physical couplings: mechanical (powertrain chain ICE--Gearbox--Differential--Wheels, MGU-K--ICE, MGU-H--Turbo), thermal (ICE--Turbo exhaust gas, Wheel--Brake friction heating), electrical (MGU-K--Battery, MGU-H--Battery energy recovery and deployment), and aerodynamic (Aero--Suspension downforce loading proportional to $v^2$). (\textbf {B})~Characteristic oscillatory frequencies of all 20 subsystems spanning four orders of magnitude. The turbocharger and MGU-H operate at the highest frequencies ($\sim $2000\,Hz, corresponding to 120,000\,RPM shaft speed), the ICE and gearbox at $\sim $250\,Hz (15,000\,RPM crankshaft), the MGU-K at $\sim $500\,Hz, wheels at $\sim $25\,Hz (corresponding to $\sim $300\,km/h at rolling radius 0.33\,m), suspensions at $\sim $4\,Hz (natural frequency of F1 spring-damper assemblies), brakes at $\sim $1\,Hz (thermal cycling frequency between braking zones), battery at $\sim $10\,Hz (energy deployment/recovery switching), and the aerodynamic body at $\sim $0.5\,Hz (quasi-static ride height and pitch variation). (\textbf {C})~Three-dimensional embedding of the 20-node circuit graph. Node positions encode characteristic oscillatory frequency (x-axis, Hz), categorical depth $\mathcal {H}_i = -\log _2 P(\sigma _i)$ (y-axis, bits), and total coupling degree $\sum _j G_{ij}$ (z-axis). Node colour distinguishes subsystem class: powertrain (ICE, Turbo, MGU-K, MGU-H, Gearbox, Differential), energy storage (Battery), corners (Wheels, Brakes, Suspensions), and aerodynamics (Aero body). (\textbf {D})~Eigenvalue spectrum of the graph Laplacian $\mathbf {L} = \mathbf {D} - \mathbf {A}$. The single zero eigenvalue $\lambda _1 = 0$ confirms that the 20-node F1 circuit graph is connected (Theorem~3.5): categorical state information can propagate from any node to any other node. The algebraic connectivity $\lambda _2 > 0$ (Fiedler value) quantifies the minimum coupling strength that must be severed to disconnect the graph and governs the convergence rate of the trajectory completion algorithm}{figure.caption.17}{}}
+\newlabel{fig:f1_circuit@cref}{{[figure][1][]1}{[1][7][]8}{}{}{}}
+\citation{Chung1997}
+\citation{Theelke2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Graph Laplacian properties}{9}{subsection.3.6}\protected@file@percent }
+\newlabel{thm:connectivity}{{3.7}{9}{Connectivity of the F1 circuit graph}{theorem.3.7}{}}
+\newlabel{thm:connectivity@cref}{{[theorem][7][3]3.7}{[1][9][]9}{}{}{}}
+\newlabel{cor:info_prop}{{3.8}{9}{Information propagation}{theorem.3.8}{}}
+\newlabel{cor:info_prop@cref}{{[theorem][8][3]3.8}{[1][9][]9}{}{}{}}
+\newlabel{def:algebraic_connectivity}{{3.9}{9}{Algebraic connectivity}{theorem.3.9}{}}
+\newlabel{def:algebraic_connectivity@cref}{{[theorem][9][3]3.9}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Observable vs Hidden Partition}{9}{section.4}\protected@file@percent }
+\newlabel{sec:partition}{{4}{9}{Observable vs Hidden Partition}{section.4}{}}
+\newlabel{sec:partition@cref}{{[section][4][]4}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Observable nodes from FastF1 telemetry}{9}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Mapping from FastF1 telemetry channels to circuit graph observable nodes. Each telemetry channel directly informs the categorical state of one or more graph nodes.}}{9}{table.caption.18}\protected@file@percent }
+\newlabel{tab:observable}{{2}{9}{Mapping from FastF1 telemetry channels to circuit graph observable nodes. Each telemetry channel directly informs the categorical state of one or more graph nodes}{table.caption.18}{}}
+\newlabel{tab:observable@cref}{{[table][2][]2}{[1][9][]9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Hidden nodes}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}The observation model}{9}{subsection.4.3}\protected@file@percent }
+\newlabel{def:observation_matrix}{{4.1}{9}{Observation matrix}{theorem.4.1}{}}
+\newlabel{def:observation_matrix@cref}{{[theorem][1][4]4.1}{[1][9][]9}{}{}{}}
+\newlabel{eq:observation}{{27}{9}{Observation matrix}{equation.27}{}}
+\newlabel{eq:observation@cref}{{[equation][27][]27}{[1][9][]9}{}{}{}}
+\citation{Chung1997}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Fisher information analysis}{10}{subsection.4.4}\protected@file@percent }
+\newlabel{def:fisher}{{4.2}{10}{Fisher information matrix}{theorem.4.2}{}}
+\newlabel{def:fisher@cref}{{[theorem][2][4]4.2}{[1][10][]10}{}{}{}}
+\newlabel{eq:fisher}{{28}{10}{Fisher information matrix}{equation.28}{}}
+\newlabel{eq:fisher@cref}{{[equation][28][]28}{[1][10][]10}{}{}{}}
+\newlabel{eq:laplacian_partition}{{29}{10}{Fisher information analysis}{equation.29}{}}
+\newlabel{eq:laplacian_partition@cref}{{[equation][29][]29}{[1][10][]10}{}{}{}}
+\newlabel{eq:hidden_from_observed}{{30}{10}{Fisher information analysis}{equation.30}{}}
+\newlabel{eq:hidden_from_observed@cref}{{[equation][30][]30}{[1][10][]10}{}{}{}}
+\newlabel{eq:hidden_solution}{{31}{10}{Fisher information analysis}{equation.31}{}}
+\newlabel{eq:hidden_solution@cref}{{[equation][31][]31}{[1][10][]10}{}{}{}}
+\newlabel{thm:observability}{{4.3}{10}{Observability of the F1 circuit graph}{theorem.4.3}{}}
+\newlabel{thm:observability@cref}{{[theorem][3][4]4.3}{[1][10][]10}{}{}{}}
+\newlabel{cor:cramer_rao}{{4.4}{10}{Cram\'{e}r--Rao bound}{theorem.4.4}{}}
+\newlabel{cor:cramer_rao@cref}{{[theorem][4][4]4.4}{[1][10][]10}{}{}{}}
+\newlabel{eq:cramer_rao}{{35}{10}{Cram\'{e}r--Rao bound}{equation.35}{}}
+\newlabel{eq:cramer_rao@cref}{{[equation][35][]35}{[1][10][]10}{}{}{}}
+\citation{CramerRao1945,Kay1993}
+\citation{Viterbi1967}
+\citation{Rabiner1989}
+\citation{Zadeh1965,Klir1995}
+\citation{Diamond1994,Hausdorff1914}
+\citation{Diamond1994}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Trajectory Completion Algorithm}{11}{section.5}\protected@file@percent }
+\newlabel{sec:algorithm}{{5}{11}{Trajectory Completion Algorithm}{section.5}{}}
+\newlabel{sec:algorithm@cref}{{[section][5][]5}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Step 1: Kirchhoff propagation}{11}{subsection.5.1}\protected@file@percent }
+\newlabel{eq:kirchhoff_prop}{{36}{11}{Step 1: Kirchhoff propagation}{equation.36}{}}
+\newlabel{eq:kirchhoff_prop@cref}{{[equation][36][]36}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Step 2: Backward trajectory inference}{11}{subsection.5.2}\protected@file@percent }
+\newlabel{def:backward_traj}{{5.1}{11}{Backward trajectory}{theorem.5.1}{}}
+\newlabel{def:backward_traj@cref}{{[theorem][1][5]5.1}{[1][11][]11}{}{}{}}
+\newlabel{eq:backward_traj}{{37}{11}{Backward trajectory}{equation.37}{}}
+\newlabel{eq:backward_traj@cref}{{[equation][37][]37}{[1][11][]11}{}{}{}}
+\newlabel{eq:viterbi}{{38}{11}{Step 2: Backward trajectory inference}{equation.38}{}}
+\newlabel{eq:viterbi@cref}{{[equation][38][]38}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Step 3: Thermodynamic projection}{11}{subsection.5.3}\protected@file@percent }
+\newlabel{def:feasible}{{5.2}{11}{Thermodynamic feasibility set}{theorem.5.2}{}}
+\newlabel{def:feasible@cref}{{[theorem][2][5]5.2}{[1][11][]11}{}{}{}}
+\newlabel{eq:feasible}{{39}{11}{Thermodynamic feasibility set}{equation.39}{}}
+\newlabel{eq:feasible@cref}{{[equation][39][]39}{[1][11][]11}{}{}{}}
+\newlabel{eq:projection}{{40}{11}{Step 3: Thermodynamic projection}{equation.40}{}}
+\newlabel{eq:projection@cref}{{[equation][40][]40}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Fuzzy state representation}{11}{subsection.5.4}\protected@file@percent }
+\newlabel{def:fuzzy_state}{{5.3}{11}{Fuzzy state tuple}{theorem.5.3}{}}
+\newlabel{def:fuzzy_state@cref}{{[theorem][3][5]5.3}{[1][11][]11}{}{}{}}
+\newlabel{def:hausdorff_fuzzy}{{5.4}{11}{Hausdorff metric on fuzzy state tuples}{theorem.5.4}{}}
+\newlabel{def:hausdorff_fuzzy@cref}{{[theorem][4][5]5.4}{[1][11][]11}{}{}{}}
+\newlabel{eq:hausdorff_fuzzy}{{41}{11}{Hausdorff metric on fuzzy state tuples}{equation.41}{}}
+\newlabel{eq:hausdorff_fuzzy@cref}{{[equation][41][]41}{[1][11][]11}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {State Reconstruction from Partial Telemetry: Observable Recovery, Hidden State Inference, Cross-Validation, and Convergence.} (\textbf  {A})~Engine RPM trace over one representative lap of the 2023 Bahrain Grand Prix (Verstappen, RB19, 242 telemetry samples). Blue: observed telemetry from FastF1 API. Red (overlaid, visually indistinguishable): circuit graph reconstruction from the trajectory completion algorithm. The perfect overlay confirms that the algorithm recovers observed states exactly by construction---the observed nodes are boundary conditions for the Kirchhoff equation system $\mathbf  {L}_{HH}\bm  {\mathcal  {H}}_H = \mathbf  {b}$, and their reconstruction error is $0.0000$ NRMSE. (\textbf  {B})~Reconstructed battery state-of-charge (SOC) variation over one lap, expressed as categorical depth of the battery node (Node 5). The SOC oscillates as the battery charges during braking (MGU-K energy recovery, visible as upward spikes coinciding with braking events) and discharges during acceleration (MGU-K deployment, visible as downward ramps on straights). (\textbf  {C})~Three-dimensional scatter plot comparing ground truth categorical depth (x-axis) versus reconstructed categorical depth (y-axis) for all 20 nodes, with node index on the z-axis. Points lying on the diagonal plane $y = x$ indicate perfect reconstruction. All 11 observed nodes (blue markers) lie exactly on the diagonal. The 9 hidden nodes (gold markers) are positioned by the self-consistent Kirchhoff solution. (\textbf  {D})~Per-node reconstruction residual after convergence of the trajectory completion algorithm. Observed nodes (blue bars, Nodes 1, 6, 8--15, 20) show zero residual by construction. Hidden nodes (gold bars, Nodes 2--5, 7, 16--19) show residuals at the convergence tolerance: median residual $7.2 \times 10^{-9}$, consistent with machine precision for double-precision floating-point arithmetic. }}{12}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:reconstruction}{{2}{12}{\textbf {State Reconstruction from Partial Telemetry: Observable Recovery, Hidden State Inference, Cross-Validation, and Convergence.} (\textbf {A})~Engine RPM trace over one representative lap of the 2023 Bahrain Grand Prix (Verstappen, RB19, 242 telemetry samples). Blue: observed telemetry from FastF1 API. Red (overlaid, visually indistinguishable): circuit graph reconstruction from the trajectory completion algorithm. The perfect overlay confirms that the algorithm recovers observed states exactly by construction---the observed nodes are boundary conditions for the Kirchhoff equation system $\mathbf {L}_{HH}\boldsymbol {\mathcal {H}}_H = \mathbf {b}$, and their reconstruction error is $0.0000$ NRMSE. (\textbf {B})~Reconstructed battery state-of-charge (SOC) variation over one lap, expressed as categorical depth of the battery node (Node 5). The SOC oscillates as the battery charges during braking (MGU-K energy recovery, visible as upward spikes coinciding with braking events) and discharges during acceleration (MGU-K deployment, visible as downward ramps on straights). (\textbf {C})~Three-dimensional scatter plot comparing ground truth categorical depth (x-axis) versus reconstructed categorical depth (y-axis) for all 20 nodes, with node index on the z-axis. Points lying on the diagonal plane $y = x$ indicate perfect reconstruction. All 11 observed nodes (blue markers) lie exactly on the diagonal. The 9 hidden nodes (gold markers) are positioned by the self-consistent Kirchhoff solution. (\textbf {D})~Per-node reconstruction residual after convergence of the trajectory completion algorithm. Observed nodes (blue bars, Nodes 1, 6, 8--15, 20) show zero residual by construction. Hidden nodes (gold bars, Nodes 2--5, 7, 16--19) show residuals at the convergence tolerance: median residual $7.2 \times 10^{-9}$, consistent with machine precision for double-precision floating-point arithmetic}{figure.caption.19}{}}
+\newlabel{fig:reconstruction@cref}{{[figure][2][]2}{[1][11][]12}{}{}{}}
+\newlabel{prop:complete_metric}{{5.5}{12}{}{theorem.5.5}{}}
+\newlabel{prop:complete_metric@cref}{{[theorem][5][5]5.5}{[1][11][]12}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The trajectory completion operator}{12}{subsection.5.5}\protected@file@percent }
+\newlabel{def:tc_operator}{{5.6}{12}{Trajectory completion operator}{theorem.5.6}{}}
+\newlabel{def:tc_operator@cref}{{[theorem][6][5]5.6}{[1][12][]12}{}{}{}}
+\newlabel{eq:tc_operator}{{42}{12}{Trajectory completion operator}{equation.42}{}}
+\newlabel{eq:tc_operator@cref}{{[equation][42][]42}{[1][12][]12}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Convergence theorem}{12}{subsection.5.6}\protected@file@percent }
+\newlabel{thm:contraction}{{5.7}{12}{Contraction mapping}{theorem.5.7}{}}
+\newlabel{thm:contraction@cref}{{[theorem][7][5]5.7}{[1][12][]12}{}{}{}}
+\newlabel{eq:contraction}{{43}{12}{Contraction mapping}{equation.43}{}}
+\newlabel{eq:contraction@cref}{{[equation][43][]43}{[1][12][]12}{}{}{}}
+\newlabel{eq:lipschitz}{{44}{12}{Contraction mapping}{equation.44}{}}
+\newlabel{eq:lipschitz@cref}{{[equation][44][]44}{[1][12][]12}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Step 1: Kirchhoff propagation is a contraction.}{12}{section*.20}\protected@file@percent }
+\citation{Banach1922,Granas2003}
+\@writefile{toc}{\contentsline {paragraph}{Step 2: Viterbi refinement is non-expansive.}{13}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Step 3: Projection is non-expansive.}{13}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Combined contraction.}{13}{section*.23}\protected@file@percent }
+\newlabel{thm:fixed_point}{{5.8}{13}{Existence and uniqueness of the fixed point}{theorem.5.8}{}}
+\newlabel{thm:fixed_point@cref}{{[theorem][8][5]5.8}{[1][13][]13}{}{}{}}
+\newlabel{eq:convergence_rate}{{52}{13}{Existence and uniqueness of the fixed point}{equation.52}{}}
+\newlabel{eq:convergence_rate@cref}{{[equation][52][]52}{[1][13][]13}{}{}{}}
+\newlabel{cor:iterations}{{5.9}{13}{Iteration count}{theorem.5.9}{}}
+\newlabel{cor:iterations@cref}{{[theorem][9][5]5.9}{[1][13][]13}{}{}{}}
+\newlabel{eq:iteration_count}{{53}{13}{Iteration count}{equation.53}{}}
+\newlabel{eq:iteration_count@cref}{{[equation][53][]53}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Computational complexity}{13}{subsection.5.7}\protected@file@percent }
+\newlabel{prop:complexity}{{5.10}{13}{Complexity}{theorem.5.10}{}}
+\newlabel{prop:complexity@cref}{{[theorem][10][5]5.10}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Fault Detection via Trajectory Escape}{13}{section.6}\protected@file@percent }
+\newlabel{sec:fault}{{6}{13}{Fault Detection via Trajectory Escape}{section.6}{}}
+\newlabel{sec:fault@cref}{{[section][6][]6}{[1][13][]13}{}{}{}}
+\citation{Theelke2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The healthy attractor}{14}{subsection.6.1}\protected@file@percent }
+\newlabel{def:healthy_attractor}{{6.1}{14}{Healthy attractor}{theorem.6.1}{}}
+\newlabel{def:healthy_attractor@cref}{{[theorem][1][6]6.1}{[1][13][]14}{}{}{}}
+\newlabel{eq:healthy_attractor}{{54}{14}{Healthy attractor}{equation.54}{}}
+\newlabel{eq:healthy_attractor@cref}{{[equation][54][]54}{[1][13][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Fault as conductance perturbation}{14}{subsection.6.2}\protected@file@percent }
+\newlabel{def:fault}{{6.2}{14}{Fault model}{theorem.6.2}{}}
+\newlabel{def:fault@cref}{{[theorem][2][6]6.2}{[1][14][]14}{}{}{}}
+\newlabel{eq:fault}{{55}{14}{Fault model}{equation.55}{}}
+\newlabel{eq:fault@cref}{{[equation][55][]55}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Detection via backward trajectory}{14}{subsection.6.3}\protected@file@percent }
+\newlabel{thm:fault_detection}{{6.3}{14}{Fault detection}{theorem.6.3}{}}
+\newlabel{thm:fault_detection@cref}{{[theorem][3][6]6.3}{[1][14][]14}{}{}{}}
+\newlabel{eq:fault_response}{{56}{14}{Fault detection}{equation.56}{}}
+\newlabel{eq:fault_response@cref}{{[equation][56][]56}{[1][14][]14}{}{}{}}
+\newlabel{eq:detection_condition}{{57}{14}{Fault detection}{equation.57}{}}
+\newlabel{eq:detection_condition@cref}{{[equation][57][]57}{[1][14][]14}{}{}{}}
+\newlabel{thm:fault_local}{{6.4}{14}{Fault localisation}{theorem.6.4}{}}
+\newlabel{thm:fault_local@cref}{{[theorem][4][6]6.4}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Prognosis from trajectory drift}{14}{subsection.6.4}\protected@file@percent }
+\newlabel{prop:ttf}{{6.5}{14}{Time to failure}{theorem.6.5}{}}
+\newlabel{prop:ttf@cref}{{[theorem][5][6]6.5}{[1][14][]14}{}{}{}}
+\newlabel{eq:ttf}{{59}{14}{Time to failure}{equation.59}{}}
+\newlabel{eq:ttf@cref}{{[equation][59][]59}{[1][14][]14}{}{}{}}
+\newlabel{thm:detection_lead}{{6.6}{14}{Detection lead time}{theorem.6.6}{}}
+\newlabel{thm:detection_lead@cref}{{[theorem][6][6]6.6}{[1][14][]14}{}{}{}}
+\newlabel{eq:detection_iter}{{60}{14}{Detection lead time}{equation.60}{}}
+\newlabel{eq:detection_iter@cref}{{[equation][60][]60}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {part}{II\hspace  {1em}Experimental Validation}{14}{part.2}\protected@file@percent }
+\newlabel{part:validation}{{II}{15}{Experimental Validation}{part.2}{}}
+\newlabel{part:validation@cref}{{[part][2][]II}{[1][14][]15}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Data Source: 2023 FIA Formula One World Championship}{15}{section.7}\protected@file@percent }
+\newlabel{sec:data}{{7}{15}{Data Source: 2023 FIA Formula One World Championship}{section.7}{}}
+\newlabel{sec:data@cref}{{[section][7][]7}{[1][14][]15}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}The FastF1 telemetry API}{15}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Session selection}{15}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Data characteristics}{15}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Data preprocessing}{15}{subsection.7.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Telemetry data characteristics for the 2023 Bahrain Grand Prix, Max Verstappen (Red Bull RB19).}}{15}{table.caption.24}\protected@file@percent }
+\newlabel{tab:data}{{3}{15}{Telemetry data characteristics for the 2023 Bahrain Grand Prix, Max Verstappen (Red Bull RB19)}{table.caption.24}{}}
+\newlabel{tab:data@cref}{{[table][3][]3}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Test 1: State Reconstruction}{15}{section.8}\protected@file@percent }
+\newlabel{sec:test1}{{8}{15}{Test 1: State Reconstruction}{section.8}{}}
+\newlabel{sec:test1@cref}{{[section][8][]8}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Circuit graph construction}{15}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Observable node initialisation}{16}{subsection.8.2}\protected@file@percent }
+\newlabel{eq:potential_from_data}{{61}{16}{Observable node initialisation}{equation.61}{}}
+\newlabel{eq:potential_from_data@cref}{{[equation][61][]61}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Trajectory completion execution}{16}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Results: five consistency checks}{16}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Check 1: Turbo-ICE categorical depth ratio.}{16}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Check 2: MGU-K braking correlation.}{16}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Check 3: Battery state-of-charge variation.}{16}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Check 4: Suspension-aerodynamic load correlation.}{16}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Check 5: Convergence residual.}{16}{section*.29}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Summary of five consistency checks for state reconstruction on 2023 Bahrain GP data.}}{16}{table.caption.30}\protected@file@percent }
+\newlabel{tab:checks}{{4}{16}{Summary of five consistency checks for state reconstruction on 2023 Bahrain GP data}{table.caption.30}{}}
+\newlabel{tab:checks@cref}{{[table][4][]4}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Observable node recovery}{16}{subsection.8.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Test 2: Fault Prediction}{16}{section.9}\protected@file@percent }
+\newlabel{sec:test2}{{9}{16}{Test 2: Fault Prediction}{section.9}{}}
+\newlabel{sec:test2@cref}{{[section][9][]9}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Synthetic fault injection}{16}{subsection.9.1}\protected@file@percent }
+\newlabel{eq:synthetic_fault}{{62}{16}{Synthetic fault injection}{equation.62}{}}
+\newlabel{eq:synthetic_fault@cref}{{[equation][62][]62}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Detection results}{17}{subsection.9.2}\protected@file@percent }
+\newlabel{eq:deviation}{{63}{17}{Detection results}{equation.63}{}}
+\newlabel{eq:deviation@cref}{{[equation][63][]63}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Detection lead time.}{17}{section*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Per-node deviation.}{17}{section*.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Interpretation}{17}{subsection.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Test 3: Tire Degradation}{17}{section.10}\protected@file@percent }
+\newlabel{sec:test3}{{10}{17}{Test 3: Tire Degradation}{section.10}{}}
+\newlabel{sec:test3@cref}{{[section][10][]10}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Wear-dependent tire model}{17}{subsection.10.1}\protected@file@percent }
+\newlabel{eq:tire_wear}{{64}{17}{Wear-dependent tire model}{equation.64}{}}
+\newlabel{eq:tire_wear@cref}{{[equation][64][]64}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}30-lap stint analysis}{17}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lap time degradation.}{17}{section*.34}\protected@file@percent }
+\newlabel{eq:lap_time}{{65}{17}{Lap time degradation}{equation.65}{}}
+\newlabel{eq:lap_time@cref}{{[equation][65][]65}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Tire categorical depth.}{17}{section*.35}\protected@file@percent }
+\citation{Koutrik2014}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Fault Detection via Trajectory Escape: Categorical Depth Evolution, Node Deviation, Three-Dimensional Escape, and Detection Timeline.} (\textbf  {A})~Turbocharger node (Node 2) categorical depth versus lap number for a 20-lap simulation. Blue: healthy baseline with nominal ICE-Turbo conductance $G_{1,2}^{(0)}$. Red: faulty condition with 30\% reduction in ICE-Turbo conductance ($G_{1,2} = 0.7 \cdot G_{1,2}^{(0)}$) injected at lap 15, simulating turbocharger bearing degradation. The faulty trace diverges progressively from the healthy baseline after the fault onset. (\textbf  {B})~Per-node deviation magnitude $|\delta \mathcal  {H}_i|$ between healthy and faulty states, normalised to the maximum. Brake nodes (12--15) show the highest sensitivity ($|\delta \mathcal  {H}| = 1.0$), because the turbo fault reduces engine power, which reduces speed at braking points, which changes brake usage patterns and hence brake categorical depth. (\textbf  {C})~Three-dimensional trajectory in the space of (ICE categorical depth, Turbo categorical depth, Battery categorical depth) for healthy (blue) and faulty (red) conditions across 20 laps. The healthy trajectory forms a compact attractor. (\textbf  {D})~Detection timeline: cumulative deviation metric $\Delta (l) = \|\bm  {\mathcal  {H}}(l) - \bm  {\mathcal  {H}}_{\mathrm  {ref}}\|_2$ versus lap number. The alarm threshold (horizontal dashed line) is crossed at \textbf  {lap 2}, providing a 13-lap lead time before the synthetic fault injection at lap 15. }}{18}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:fault}{{3}{18}{\textbf {Fault Detection via Trajectory Escape: Categorical Depth Evolution, Node Deviation, Three-Dimensional Escape, and Detection Timeline.} (\textbf {A})~Turbocharger node (Node 2) categorical depth versus lap number for a 20-lap simulation. Blue: healthy baseline with nominal ICE-Turbo conductance $G_{1,2}^{(0)}$. Red: faulty condition with 30\% reduction in ICE-Turbo conductance ($G_{1,2} = 0.7 \cdot G_{1,2}^{(0)}$) injected at lap 15, simulating turbocharger bearing degradation. The faulty trace diverges progressively from the healthy baseline after the fault onset. (\textbf {B})~Per-node deviation magnitude $|\delta \mathcal {H}_i|$ between healthy and faulty states, normalised to the maximum. Brake nodes (12--15) show the highest sensitivity ($|\delta \mathcal {H}| = 1.0$), because the turbo fault reduces engine power, which reduces speed at braking points, which changes brake usage patterns and hence brake categorical depth. (\textbf {C})~Three-dimensional trajectory in the space of (ICE categorical depth, Turbo categorical depth, Battery categorical depth) for healthy (blue) and faulty (red) conditions across 20 laps. The healthy trajectory forms a compact attractor. (\textbf {D})~Detection timeline: cumulative deviation metric $\Delta (l) = \|\boldsymbol {\mathcal {H}}(l) - \boldsymbol {\mathcal {H}}_{\mathrm {ref}}\|_2$ versus lap number. The alarm threshold (horizontal dashed line) is crossed at \textbf {lap 2}, providing a 13-lap lead time before the synthetic fault injection at lap 15}{figure.caption.33}{}}
+\newlabel{fig:fault@cref}{{[figure][3][]3}{[1][17][]18}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Cliff detection.}{18}{section*.36}\protected@file@percent }
+\newlabel{eq:cliff}{{66}{18}{Cliff detection}{equation.66}{}}
+\newlabel{eq:cliff@cref}{{[equation][66][]66}{[1][17][]18}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Implications for race strategy}{18}{subsection.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Test 4: Racing Line Extraction}{18}{section.11}\protected@file@percent }
+\newlabel{sec:test4}{{11}{18}{Test 4: Racing Line Extraction}{section.11}{}}
+\newlabel{sec:test4@cref}{{[section][11][]11}{[1][18][]18}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}S-entropy as racing line descriptor}{18}{subsection.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Qualifying lap analysis}{18}{subsection.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fastest lap identification.}{18}{section*.38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {Tire Degradation Tracking: Lap Time Evolution, Categorical Depth Curve, Three-Dimensional State Surface, and Cliff Prediction.} (\textbf  {A})~Lap time versus lap number over a 30-lap stint with wear-dependent tire conductance $G_{\mathrm  {tire}}(l) = G_{\mathrm  {tire}}^{(0)} \exp (-\beta l)$. Lap times degrade from 88.9\,s (lap 1, fresh tires) to 107.0\,s (lap 30, worn tires), an increase of 20.3\%. The degradation follows the expected pattern for a long stint on soft-compound tires in Bahrain's abrasive surface conditions: gradual performance loss with an accelerating tail as the tire compound overheats and the tread depth approaches zero. The lap time curve is fitted by $t_{\mathrm  {lap}}(l) = t_0 + \Delta t_{\max }(1 - e^{-\beta l})$ with $t_0 = 88.9$\,s and $\Delta t_{\max } \approx 18.1$\,s. (\textbf  {B})~Tire node categorical depth $\mathcal  {H}_{\mathrm  {tire}}(l)$ versus lap number, extracted from the trajectory completion algorithm applied to each lap independently. The categorical depth tracks the physical degradation: as tire-road coupling decreases (reduced grip), the tire's oscillatory dynamics change (fewer effective traction states, reduced phase space volume), producing a monotonic increase in categorical depth. (\textbf  {C})~Three-dimensional tire state surface showing the evolution of tire categorical depth (x-axis), lap time (y-axis), and an inferred grip level index (z-axis) across the 30-lap stint. Each point represents one lap. (\textbf  {D})~Degradation cliff prediction via second derivative of tire categorical depth. The predicted cliff (maximum of $d^2\mathcal  {H}_{\mathrm  {tire}}/dl^2$) occurs at lap 5, while the actual pit stop window in the race was approximately lap 25. The 20-lap offset is a calibration issue: the exponential wear parameter $\beta $ was set to a default value rather than fitted to the specific tire compound (Pirelli C3) and Bahrain surface characteristics. }}{19}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:tires}{{4}{19}{\textbf {Tire Degradation Tracking: Lap Time Evolution, Categorical Depth Curve, Three-Dimensional State Surface, and Cliff Prediction.} (\textbf {A})~Lap time versus lap number over a 30-lap stint with wear-dependent tire conductance $G_{\mathrm {tire}}(l) = G_{\mathrm {tire}}^{(0)} \exp (-\beta l)$. Lap times degrade from 88.9\,s (lap 1, fresh tires) to 107.0\,s (lap 30, worn tires), an increase of 20.3\%. The degradation follows the expected pattern for a long stint on soft-compound tires in Bahrain's abrasive surface conditions: gradual performance loss with an accelerating tail as the tire compound overheats and the tread depth approaches zero. The lap time curve is fitted by $t_{\mathrm {lap}}(l) = t_0 + \Delta t_{\max }(1 - e^{-\beta l})$ with $t_0 = 88.9$\,s and $\Delta t_{\max } \approx 18.1$\,s. (\textbf {B})~Tire node categorical depth $\mathcal {H}_{\mathrm {tire}}(l)$ versus lap number, extracted from the trajectory completion algorithm applied to each lap independently. The categorical depth tracks the physical degradation: as tire-road coupling decreases (reduced grip), the tire's oscillatory dynamics change (fewer effective traction states, reduced phase space volume), producing a monotonic increase in categorical depth. (\textbf {C})~Three-dimensional tire state surface showing the evolution of tire categorical depth (x-axis), lap time (y-axis), and an inferred grip level index (z-axis) across the 30-lap stint. Each point represents one lap. (\textbf {D})~Degradation cliff prediction via second derivative of tire categorical depth. The predicted cliff (maximum of $d^2\mathcal {H}_{\mathrm {tire}}/dl^2$) occurs at lap 5, while the actual pit stop window in the race was approximately lap 25. The 20-lap offset is a calibration issue: the exponential wear parameter $\beta $ was set to a default value rather than fitted to the specific tire compound (Pirelli C3) and Bahrain surface characteristics}{figure.caption.37}{}}
+\newlabel{fig:tires@cref}{{[figure][4][]4}{[1][18][]19}{}{}{}}
+\citation{Heilmeier2020}
+\citation{Gillespie1992,Milliken1995}
+\citation{Pacejka2012}
+\newlabel{eq:fastest_criterion}{{67}{20}{Fastest lap identification}{equation.67}{}}
+\newlabel{eq:fastest_criterion@cref}{{[equation][67][]67}{[1][18][]20}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Sector-by-sector S-entropy profile.}{20}{section*.39}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces S-entropy values by sector for the fastest qualifying lap (lap 8), 2023 Bahrain GP.}}{20}{table.caption.40}\protected@file@percent }
+\newlabel{tab:s_entropy}{{5}{20}{S-entropy values by sector for the fastest qualifying lap (lap 8), 2023 Bahrain GP}{table.caption.40}{}}
+\newlabel{tab:s_entropy@cref}{{[table][5][]5}{[1][20][]20}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Interpretation.}{20}{section*.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Optimal versus fastest lap time}{20}{subsection.11.3}\protected@file@percent }
+\newlabel{eq:optimal}{{68}{20}{Optimal versus fastest lap time}{equation.68}{}}
+\newlabel{eq:optimal@cref}{{[equation][68][]68}{[1][20][]20}{}{}{}}
+\newlabel{eq:optimal_sentropy}{{69}{20}{Optimal versus fastest lap time}{equation.69}{}}
+\newlabel{eq:optimal_sentropy@cref}{{[equation][69][]69}{[1][20][]20}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}The S-entropy trace as categorical racing line}{20}{subsection.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{III\hspace  {1em}Discussion}{20}{part.3}\protected@file@percent }
+\newlabel{part:discussion}{{III}{20}{Discussion}{part.3}{}}
+\newlabel{part:discussion@cref}{{[part][3][]III}{[1][20][]20}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Comparison with Existing Approaches}{20}{section.12}\protected@file@percent }
+\newlabel{sec:comparison}{{12}{20}{Comparison with Existing Approaches}{section.12}{}}
+\newlabel{sec:comparison@cref}{{[section][12][]12}{[1][20][]20}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Physics-based simulation}{20}{subsection.12.1}\protected@file@percent }
+\citation{Kalman1960}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Racing Line Extraction via S-Entropy Analysis: Speed Traces, Entropy Profile, Three-Dimensional Trajectory, and Sector Comparison.} (\textbf  {A})~Speed traces for all 8 qualifying laps overlaid. Grey: laps 1--7. Red (highlighted): lap 8, identified as the fastest qualifying lap (82.5\,s) by the S-entropy analysis. The fastest lap shows consistently higher minimum speeds through corners (indicating greater commitment to the apex trajectory) and marginally higher straight-line speeds (indicating better traction out of corners). (\textbf  {B})~S-entropy components $(S_k, S_t, S_e)$ plotted along normalised lap distance for the fastest qualifying lap (lap 8). Knowledge entropy $S_k$ (blue) remains above 0.86 throughout, indicating a highly committed trajectory with low categorical uncertainty. Temporal entropy $S_t$ (red) varies significantly: low through Sector 1 (high-speed committed corners, $S_t = 0.228$) and high through Sector 2 (multiple sequential slow-speed inputs, $S_t = 0.786$). (\textbf  {C})~Three-dimensional S-entropy trajectory $(S_k, S_t, S_e) \in [0,1]^3$ for the fastest qualifying lap (red) and the slowest qualifying lap (blue). The fastest lap traces a tighter, more compact trajectory in S-entropy space, reflecting the driver's more precise and committed inputs. (\textbf  {D})~Sector-by-sector S-entropy comparison for the fastest qualifying lap. Sector 1: $S_k = 0.988$, $S_t = 0.228$, $S_e = 0.302$---the highest commitment and lowest temporal uncertainty, corresponding to the high-speed Turn 1--4 complex where the driver commits to a precise trajectory with minimal adjustment margin. }}{21}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:racing_line}{{5}{21}{\textbf {Racing Line Extraction via S-Entropy Analysis: Speed Traces, Entropy Profile, Three-Dimensional Trajectory, and Sector Comparison.} (\textbf {A})~Speed traces for all 8 qualifying laps overlaid. Grey: laps 1--7. Red (highlighted): lap 8, identified as the fastest qualifying lap (82.5\,s) by the S-entropy analysis. The fastest lap shows consistently higher minimum speeds through corners (indicating greater commitment to the apex trajectory) and marginally higher straight-line speeds (indicating better traction out of corners). (\textbf {B})~S-entropy components $(S_k, S_t, S_e)$ plotted along normalised lap distance for the fastest qualifying lap (lap 8). Knowledge entropy $S_k$ (blue) remains above 0.86 throughout, indicating a highly committed trajectory with low categorical uncertainty. Temporal entropy $S_t$ (red) varies significantly: low through Sector 1 (high-speed committed corners, $S_t = 0.228$) and high through Sector 2 (multiple sequential slow-speed inputs, $S_t = 0.786$). (\textbf {C})~Three-dimensional S-entropy trajectory $(S_k, S_t, S_e) \in [0,1]^3$ for the fastest qualifying lap (red) and the slowest qualifying lap (blue). The fastest lap traces a tighter, more compact trajectory in S-entropy space, reflecting the driver's more precise and committed inputs. (\textbf {D})~Sector-by-sector S-entropy comparison for the fastest qualifying lap. Sector 1: $S_k = 0.988$, $S_t = 0.228$, $S_e = 0.302$---the highest commitment and lowest temporal uncertainty, corresponding to the high-speed Turn 1--4 complex where the driver commits to a precise trajectory with minimal adjustment margin}{figure.caption.42}{}}
+\newlabel{fig:racing_line@cref}{{[figure][5][]5}{[1][20][]21}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Machine learning}{21}{subsection.12.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Kalman filtering}{21}{subsection.12.3}\protected@file@percent }
+\citation{FIA2023}
+\citation{Koutrik2014}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Comparison of Philharmonic with existing approaches for F1 vehicle state reconstruction.}}{22}{table.caption.43}\protected@file@percent }
+\newlabel{tab:comparison}{{6}{22}{Comparison of Philharmonic with existing approaches for F1 vehicle state reconstruction}{table.caption.43}{}}
+\newlabel{tab:comparison@cref}{{[table][6][]6}{[1][22][]22}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{22}{section.13}\protected@file@percent }
+\newlabel{sec:limitations}{{13}{22}{Limitations}{section.13}{}}
+\newlabel{sec:limitations@cref}{{[section][13][]13}{[1][22][]22}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.1}Graph topology must be known}{22}{subsection.13.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.2}Conductance calibration}{22}{subsection.13.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.3}Limited public telemetry}{22}{subsection.13.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.4}Tire degradation cliff calibration}{22}{subsection.13.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.5}Steady-state assumption}{22}{subsection.13.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.6}Sensor noise and data quality}{22}{subsection.13.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {14}Implications}{22}{section.14}\protected@file@percent }
+\newlabel{sec:implications}{{14}{22}{Implications}{section.14}{}}
+\newlabel{sec:implications@cref}{{[section][14][]14}{[1][22][]22}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}Race strategy}{22}{subsection.14.1}\protected@file@percent }
+\citation{Sachikonye2026circuitgraph}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}Reliability and fault prediction}{23}{subsection.14.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.3}Generalisation to other vehicles}{23}{subsection.14.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.4}Fundamental insight: topology determines reconstructibility}{23}{subsection.14.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}Conclusion}{23}{section.15}\protected@file@percent }
+\newlabel{sec:conclusion}{{15}{23}{Conclusion}{section.15}{}}
+\newlabel{sec:conclusion@cref}{{[section][15][]15}{[1][23][]23}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Derivation of the Universal Transport Formula}{23}{appendix.A}\protected@file@percent }
+\newlabel{app:transport}{{A}{23}{Derivation of the Universal Transport Formula}{appendix.A}{}}
+\newlabel{app:transport@cref}{{[section][1][]A}{[1][23][]23}{}{}{}}
+\citation{Drude1900,Ashcroft1976}
+\citation{Fourier1822}
+\citation{Einstein1905}
+\citation{Zadeh1965,Klir1995}
+\citation{Viterbi1967}
+\newlabel{eq:current_app}{{70}{24}{Derivation of the Universal Transport Formula}{equation.70}{}}
+\newlabel{eq:current_app@cref}{{[equation][70][]70}{[1][24][]24}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Graph Laplacian Spectral Analysis}{24}{appendix.B}\protected@file@percent }
+\newlabel{app:spectral}{{B}{24}{Graph Laplacian Spectral Analysis}{appendix.B}{}}
+\newlabel{app:spectral@cref}{{[section][2][]B}{[1][24][]24}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Fuzzy Arithmetic on $\alpha $-Cuts}{24}{appendix.C}\protected@file@percent }
+\newlabel{app:fuzzy}{{C}{24}{Fuzzy Arithmetic on $\alpha $-Cuts}{appendix.C}{}}
+\newlabel{app:fuzzy@cref}{{[section][3][]C}{[1][24][]24}{}{}{}}
+\newlabel{eq:fuzzy_add}{{71}{24}{Fuzzy Arithmetic on $\alpha $-Cuts}{equation.71}{}}
+\newlabel{eq:fuzzy_add@cref}{{[equation][71][]71}{[1][24][]24}{}{}{}}
+\newlabel{eq:fuzzy_sub}{{72}{24}{Fuzzy Arithmetic on $\alpha $-Cuts}{equation.72}{}}
+\newlabel{eq:fuzzy_sub@cref}{{[equation][72][]72}{[1][24][]24}{}{}{}}
+\newlabel{eq:fuzzy_mul}{{73}{24}{Fuzzy Arithmetic on $\alpha $-Cuts}{equation.73}{}}
+\newlabel{eq:fuzzy_mul@cref}{{[equation][73][]73}{[1][24][]24}{}{}{}}
+\newlabel{eq:fuzzy_div}{{74}{24}{Fuzzy Arithmetic on $\alpha $-Cuts}{equation.74}{}}
+\newlabel{eq:fuzzy_div@cref}{{[equation][74][]74}{[1][24][]24}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Viterbi Algorithm on Circuit Graphs}{24}{appendix.D}\protected@file@percent }
+\newlabel{app:viterbi}{{D}{24}{Viterbi Algorithm on Circuit Graphs}{appendix.D}{}}
+\newlabel{app:viterbi@cref}{{[section][4][]D}{[1][24][]24}{}{}{}}
+\newlabel{eq:transition}{{75}{24}{Viterbi Algorithm on Circuit Graphs}{equation.75}{}}
+\newlabel{eq:transition@cref}{{[equation][75][]75}{[1][24][]24}{}{}{}}
+\newlabel{eq:emission}{{76}{24}{Viterbi Algorithm on Circuit Graphs}{equation.76}{}}
+\newlabel{eq:emission@cref}{{[equation][76][]76}{[1][24][]24}{}{}{}}
+\newlabel{eq:map_path}{{77}{24}{Viterbi Algorithm on Circuit Graphs}{equation.77}{}}
+\newlabel{eq:map_path@cref}{{[equation][77][]77}{[1][24][]24}{}{}{}}
+\gdef \LT@i {\LT@entry 
+    {4}{15.99757pt}\LT@entry 
+    {4}{78.6504pt}\LT@entry 
+    {4}{78.6504pt}\LT@entry 
+    {4}{112.55879pt}\LT@entry 
+    {4}{109.808pt}}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{Ashcroft1976}{{1}{1976}{{Ashcroft and Mermin}}{{}}}
+\bibcite{Banach1922}{{2}{1922}{{Banach}}{{}}}
+\bibcite{Bishop2006}{{3}{2006}{{Bishop}}{{}}}
+\bibcite{Callen1985}{{4}{1985}{{Callen}}{{}}}
+\bibcite{Chung1997}{{5}{1997}{{Chung}}{{}}}
+\bibcite{Diamond1994}{{6}{1994}{{Diamond and Kloeden}}{{}}}
+\bibcite{Drude1900}{{7}{1900}{{Drude}}{{}}}
+\bibcite{Einstein1905}{{8}{1905}{{Einstein}}{{}}}
+\bibcite{FIA2023}{{9}{2023}{{F\'{e}d\'{e}ration Internationale de l'Automobile}}{{}}}
+\bibcite{Fourier1822}{{10}{1822}{{Fourier}}{{}}}
+\bibcite{Gillespie1992}{{11}{1992}{{Gillespie}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Complete Edge List}{25}{appendix.E}\protected@file@percent }
+\newlabel{app:edges}{{E}{25}{Complete Edge List}{appendix.E}{}}
+\newlabel{app:edges@cref}{{[section][5][]E}{[1][24][]25}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Complete edge list for the 20-node F1 oscillatory circuit graph.}}{25}{table.7}\protected@file@percent }
+\newlabel{tab:edges}{{7}{25}{Complete edge list for the 20-node F1 oscillatory circuit graph}{table.7}{}}
+\newlabel{tab:edges@cref}{{[table][7][]7}{[1][24][]25}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Detailed Convergence Analysis}{25}{appendix.F}\protected@file@percent }
+\newlabel{app:convergence}{{F}{25}{Detailed Convergence Analysis}{appendix.F}{}}
+\newlabel{app:convergence@cref}{{[section][6][]F}{[1][25][]25}{}{}{}}
+\newlabel{lem:lip_cond}{{F.1}{25}{Lipschitz continuity of conductance}{theorem.F.1}{}}
+\newlabel{lem:lip_cond@cref}{{[theorem][1][6]F.1}{[1][25][]25}{}{}{}}
+\newlabel{thm:refined_contraction}{{F.2}{25}{Refined contraction bound}{theorem.F.2}{}}
+\newlabel{thm:refined_contraction@cref}{{[theorem][2][6]F.2}{[1][25][]25}{}{}{}}
+\newlabel{eq:contraction_condition}{{81}{25}{Refined contraction bound}{equation.81}{}}
+\newlabel{eq:contraction_condition@cref}{{[equation][81][]81}{[1][25][]25}{}{}{}}
+\bibcite{Granas2003}{{12}{2003}{{Granas and Dugundji}}{{}}}
+\bibcite{Hausdorff1914}{{13}{1914}{{Hausdorff}}{{}}}
+\bibcite{Heilmeier2020}{{14}{2020}{{Heilmeier et~al.}}{{Heilmeier, Thomaser, Graf, and Betz}}}
+\bibcite{Kalman1960}{{15}{1960}{{Kalman}}{{}}}
+\bibcite{Kay1993}{{16}{1993}{{Kay}}{{}}}
+\bibcite{Klir1995}{{17}{1995}{{Klir and Yuan}}{{}}}
+\bibcite{Milliken1995}{{18}{1995}{{Milliken and Milliken}}{{}}}
+\bibcite{Pacejka2012}{{19}{2012}{{Pacejka}}{{}}}
+\bibcite{Poincare1890}{{20}{1890}{{Poincar\'{e}}}{{}}}
+\bibcite{Rabiner1989}{{21}{1989}{{Rabiner}}{{}}}
+\bibcite{CramerRao1945}{{22}{1945}{{Rao}}{{}}}
+\bibcite{Sachikonye2026circuitgraph}{{23}{2026}{{Sachikonye}}{{}}}
+\bibcite{Theelke2023}{{24}{2023}{{Theelke}}{{}}}
+\bibcite{Koutrik2014}{{25}{2014}{{van~de Koutrik}}{{}}}
+\bibcite{Viterbi1967}{{26}{1967}{{Viterbi}}{{}}}
+\bibcite{Zadeh1965}{{27}{1965}{{Zadeh}}{{}}}
+\gdef \@abspage@last{26}

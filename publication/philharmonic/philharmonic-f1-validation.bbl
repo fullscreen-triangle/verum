@@ -1,0 +1,166 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ashcroft and Mermin(1976)]{Ashcroft1976}
+Neil~W. Ashcroft and N.~David Mermin.
+\newblock \emph{Solid State Physics}.
+\newblock Holt, Rinehart and Winston, New York, 1976.
+
+\bibitem[Banach(1922)]{Banach1922}
+Stefan Banach.
+\newblock Sur les op\'{e}rations dans les ensembles abstraits et leur
+  application aux \'{e}quations int\'{e}grales.
+\newblock \emph{Fundamenta Mathematicae}, 3:\penalty0 133--181, 1922.
+
+\bibitem[Bishop(2006)]{Bishop2006}
+Christopher~M. Bishop.
+\newblock \emph{Pattern Recognition and Machine Learning}.
+\newblock Springer, New York, 2006.
+
+\bibitem[Callen(1985)]{Callen1985}
+Herbert~B. Callen.
+\newblock \emph{Thermodynamics and an Introduction to Thermostatistics}.
+\newblock John Wiley \& Sons, New York, 2nd edition, 1985.
+
+\bibitem[Chung(1997)]{Chung1997}
+Fan R.~K. Chung.
+\newblock \emph{Spectral Graph Theory}, volume~92 of \emph{CBMS Regional
+  Conference Series in Mathematics}.
+\newblock American Mathematical Society, Providence, RI, 1997.
+
+\bibitem[Diamond and Kloeden(1994)]{Diamond1994}
+Phil Diamond and Peter Kloeden.
+\newblock Metric spaces of fuzzy sets: Theory and applications.
+\newblock 1994.
+
+\bibitem[Drude(1900)]{Drude1900}
+Paul Drude.
+\newblock Zur elektronentheorie der metalle.
+\newblock \emph{Annalen der Physik}, 306\penalty0 (3):\penalty0 566--613, 1900.
+
+\bibitem[Einstein(1905)]{Einstein1905}
+Albert Einstein.
+\newblock \"{U}ber die von der molekularkinetischen theorie der w\"{a}rme
+  geforderte bewegung von in ruhenden fl\"{u}ssigkeiten suspendierten teilchen.
+\newblock \emph{Annalen der Physik}, 322\penalty0 (8):\penalty0 549--560, 1905.
+
+\bibitem[{F\'{e}d\'{e}ration Internationale de l'Automobile}(2023)]{FIA2023}
+{F\'{e}d\'{e}ration Internationale de l'Automobile}.
+\newblock 2023 {F}ormula {O}ne technical regulations.
+\newblock Regulation, FIA, 2023.
+\newblock Issue 10, 2023-02-20.
+
+\bibitem[Fourier(1822)]{Fourier1822}
+Jean-Baptiste~Joseph Fourier.
+\newblock \emph{Th\'{e}orie analytique de la chaleur}.
+\newblock Firmin Didot P\`{e}re et Fils, Paris, 1822.
+
+\bibitem[Gillespie(1992)]{Gillespie1992}
+Thomas~D. Gillespie.
+\newblock \emph{Fundamentals of Vehicle Dynamics}.
+\newblock Society of Automotive Engineers, Warrendale, PA, 1992.
+
+\bibitem[Granas and Dugundji(2003)]{Granas2003}
+Andrzej Granas and James Dugundji.
+\newblock \emph{Fixed Point Theory}.
+\newblock Springer Monographs in Mathematics. Springer-Verlag, New York, 2003.
+
+\bibitem[Hausdorff(1914)]{Hausdorff1914}
+Felix Hausdorff.
+\newblock \emph{Grundz\"{u}ge der Mengenlehre}.
+\newblock Veit \& Comp., Leipzig, 1914.
+
+\bibitem[Heilmeier et~al.(2020)Heilmeier, Thomaser, Graf, and
+  Betz]{Heilmeier2020}
+Alexander Heilmeier, Andre Thomaser, Markus Graf, and Johannes Betz.
+\newblock Virtual strategy engineer: Using artificial intelligence to support
+  race strategy decisions in motorsport.
+\newblock \emph{Applied Sciences}, 10\penalty0 (21):\penalty0 7805, 2020.
+
+\bibitem[Kalman(1960)]{Kalman1960}
+Rudolf~E. Kalman.
+\newblock A new approach to linear filtering and prediction problems.
+\newblock \emph{Journal of Basic Engineering}, 82\penalty0 (1):\penalty0
+  35--45, 1960.
+
+\bibitem[Kay(1993)]{Kay1993}
+Steven~M. Kay.
+\newblock \emph{Fundamentals of Statistical Signal Processing: Estimation
+  Theory}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 1993.
+
+\bibitem[Klir and Yuan(1995)]{Klir1995}
+George~J. Klir and Bo~Yuan.
+\newblock \emph{Fuzzy Sets and Fuzzy Logic: Theory and Applications}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 1995.
+
+\bibitem[Milliken and Milliken(1995)]{Milliken1995}
+William~F. Milliken and Douglas~L. Milliken.
+\newblock \emph{Race Car Vehicle Dynamics}.
+\newblock Society of Automotive Engineers, Warrendale, PA, 1995.
+
+\bibitem[Pacejka(2012)]{Pacejka2012}
+Hans~B. Pacejka.
+\newblock \emph{Tire and Vehicle Dynamics}.
+\newblock Butterworth-Heinemann, Oxford, 3rd edition, 2012.
+
+\bibitem[Poincar\'{e}(1890)]{Poincare1890}
+Henri Poincar\'{e}.
+\newblock Sur le probl\`{e}me des trois corps et les \'{e}quations de la
+  dynamique.
+\newblock \emph{Acta Mathematica}, 13:\penalty0 1--270, 1890.
+
+\bibitem[Rabiner(1989)]{Rabiner1989}
+Lawrence~R. Rabiner.
+\newblock A tutorial on hidden {M}arkov models and selected applications in
+  speech recognition.
+\newblock \emph{Proceedings of the IEEE}, 77\penalty0 (2):\penalty0 257--286,
+  1989.
+
+\bibitem[Rao(1945)]{CramerRao1945}
+C.~Radhakrishna Rao.
+\newblock Information and the accuracy attainable in the estimation of
+  statistical parameters.
+\newblock \emph{Bulletin of the Calcutta Mathematical Society}, 37:\penalty0
+  81--91, 1945.
+
+\bibitem[Sachikonye(2026)]{Sachikonye2026circuitgraph}
+Kundai~Farai Sachikonye.
+\newblock On the consequences of transport propagation on charge conservation
+  in representative analogue circuit network graphs: Vehicle oscillatory
+  circuit graphs for complete vehicle state determination from partial surface
+  observations.
+\newblock \emph{Preprint}, 2026.
+\newblock Companion paper.
+
+\bibitem[Theelke(2023)]{Theelke2023}
+Philipp Theelke.
+\newblock {FastF1}: {A} {P}ython package for accessing {F}ormula 1 historical
+  timing data and telemetry.
+\newblock \url{https://github.com/theOehrly/Fast-F1}, 2023.
+\newblock Version 3.1.
+
+\bibitem[van~de Koutrik(2014)]{Koutrik2014}
+Alexander van~de Koutrik, Maarten and";~Heilmeier.
+\newblock Optimal race strategy in formula one.
+\newblock In \emph{Proceedings of the FISITA World Automotive Congress}, pages
+  1--12, 2014.
+
+\bibitem[Viterbi(1967)]{Viterbi1967}
+Andrew~J. Viterbi.
+\newblock Error bounds for convolutional codes and an asymptotically optimum
+  decoding algorithm.
+\newblock \emph{IEEE Transactions on Information Theory}, 13\penalty0
+  (2):\penalty0 260--269, 1967.
+
+\bibitem[Zadeh(1965)]{Zadeh1965}
+Lotfi~A. Zadeh.
+\newblock Fuzzy sets.
+\newblock \emph{Information and Control}, 8\penalty0 (3):\penalty0 338--353,
+  1965.
+
+\end{thebibliography}

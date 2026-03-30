@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: philharmonic-f1-validation.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--empty journal in Diamond1994
+You've used 27 entries,
+            2773 wiz_defined-function locations,
+            786 strings with 8790 characters,
+and the built_in function-call counts, 9554 in all, are:
+= -- 844
+> -- 354
+< -- 28
++ -- 132
+- -- 105
+* -- 623
+:= -- 1514
+add.period$ -- 85
+call.type$ -- 27
+change.case$ -- 107
+chr.to.int$ -- 27
+cite$ -- 55
+duplicate$ -- 538
+empty$ -- 938
+format.name$ -- 142
+if$ -- 2003
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 37
+newline$ -- 146
+num.names$ -- 108
+pop$ -- 255
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 362
+stack$ -- 0
+substring$ -- 292
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 237
+warning$ -- 1
+while$ -- 103
+width$ -- 0
+write$ -- 364
+(There was 1 warning)

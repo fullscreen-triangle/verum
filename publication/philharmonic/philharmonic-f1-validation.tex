@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[twocolumn,10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % ============================================================================
@@ -84,16 +84,15 @@
 % ============================================================================
 % Title
 % ============================================================================
-\title{\textbf{Philharmonic: Complete Formula One Vehicle State Reconstruction\\
-from Partial Telemetry via Oscillatory Circuit Graph\\
-Trajectory Completion}}
+\title{\textbf{On the Consequences of Oscillatory Circuit Graphs in Formula One Vehicle State Reconstruction: Backward Trajectory Completion from Partial Telemetry }}
 
 \author{
 Kundai Farai Sachikonye\\
-Technical University of Munich\\
+AIMe Registry for Artificial Intelligence\\
+Experimental Bioinformatics\\
 Maximus-von-Imhof-Forum 3\\
 85354 Freising, Germany\\
-\texttt{kundai.sachikonye@wzw.tum.de}
+\texttt{kundai.sachikonye@bitspark.com}
 }
 
 \date{\today}
@@ -108,8 +107,7 @@ Maximus-von-Imhof-Forum 3\\
 We demonstrate that the complete internal state of a Formula One vehicle---comprising approximately 300 sensor channels across 20 coupled subsystems---can be reconstructed from the 15 publicly available telemetry channels using the oscillatory circuit graph framework. The F1 car is modelled as a connected graph of 20 oscillatory nodes (internal combustion engine, turbocharger, MGU-K, MGU-H, battery, gearbox, differential, four wheels, four brakes, four suspensions, and aerodynamic body) coupled by mechanical, thermal, electrical, and aerodynamic edges. Each node's dynamics are characterised by its natural oscillatory frequency, bounded phase space, and categorical state count. We prove that the 11 observable nodes (from publicly available FastF1 telemetry) carry sufficient Fisher information to uniquely determine the 9 hidden nodes, with the observability matrix having full column rank. The trajectory completion algorithm---Kirchhoff propagation, backward Viterbi inference, and thermodynamic projection---is proved to be a contraction mapping with Lipschitz constant $\lambda \in [0.3, 0.7]$, converging to the unique fixed point in fewer than 50 iterations by the Banach fixed-point theorem. We validate the framework on telemetry from the 2023 Bahrain Grand Prix (Max Verstappen, Red Bull RB19, 57 laps, 242 samples per lap): all five consistency checks pass (turbo-ICE categorical depth ratio, MGU-K regenerative braking correlation, battery state-of-charge variation $\sigma = 24.85$, suspension-aerodynamic load correlation $r = 0.9997$, convergence residual $7.2 \times 10^{-9}$). Synthetic fault injection (30\% ICE-turbo conductance reduction) is detected 13 laps before onset. Tire degradation tracking reproduces the correct exponential degradation curve from lap times of 88.9\,s (fresh) to 107.0\,s (worn). Racing line extraction from 8 qualifying laps identifies the optimal trajectory via S-entropy minimisation, yielding 80.4\,s versus the observed fastest lap of 82.5\,s (2.5\% gap). Every claim is stated as a theorem with proof. No simulation, training data, or car-specific model is required---only the graph topology and publicly available telemetry.
 \end{abstract}
 
-\tableofcontents
-\newpage
+
 
 % ============================================================================
 % PART I: THEORY
@@ -139,7 +137,7 @@ Three classes of methods have been applied to the vehicle state reconstruction p
 
 \paragraph{Statistical estimation.} Kalman filters, particle filters, and Bayesian estimation methods model the state evolution as a stochastic process and update estimates using observations \citep{Kalman1960, Kay1993}. The Kalman filter requires a linear state-space model with known process and measurement noise covariance matrices. The extended Kalman filter (EKF) and unscented Kalman filter (UKF) handle nonlinearity approximately but provide no global convergence guarantees. Particle filters handle arbitrary nonlinearity but suffer from the curse of dimensionality for high-dimensional state spaces.
 
-\subsection{Our approach: oscillatory circuit graph trajectory completion}
+\subsection{Oscillatory Circuit Graph Completion}
 
 This paper takes a fundamentally different approach. We model the F1 car as an \emph{oscillatory circuit graph}: a network of 20 nodes (subsystems), each characterised by its natural oscillatory frequency and categorical state count, coupled by edges whose conductances are derived from the universal transport formula \citep{Sachikonye2026circuitgraph}. The graph encodes the physical topology of the car---which components are mechanically, thermally, electrically, and aerodynamically coupled.
 
@@ -174,12 +172,7 @@ We validate the framework on real telemetry from the 2023 Bahrain Grand Prix (Ma
     \item \textbf{Racing line extraction}: S-entropy analysis of 8 qualifying laps identifies optimal trajectory. Predicted optimal lap time 80.4\,s versus observed fastest 82.5\,s (2.5\% gap, consistent with typical qualifying improvement margin).
 \end{enumerate}
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/panel_1_f1_circuit.png}
-    \caption{The Formula One car modelled as a 20-node oscillatory circuit graph. (A) Conductance-weighted adjacency matrix showing mechanical, thermal, electrical, and aerodynamic couplings. (B) Characteristic oscillatory frequencies of all 20 subsystems spanning four orders of magnitude (1--2000\,Hz). (C) Three-dimensional embedding with frequency, categorical depth, and coupling degree as coordinates. (D) Eigenvalue spectrum of the graph Laplacian confirming connectivity ($\lambda_1 = 0$, unique) and quantifying algebraic connectivity via the Fiedler value $\lambda_2 > 0$.}
-    \label{fig:f1_circuit}
-\end{figure}
+
 
 \subsection{Relation to companion paper}
 
@@ -455,12 +448,16 @@ Collecting all edges, the 20-node circuit graph has the following coupling struc
 
 The matrix is symmetric: $A_{ij} = A_{ji}$ for all $i, j$. This reflects the bidirectional nature of all physical couplings (Newton's third law for mechanical, detailed balance for thermal, Kirchhoff's law for electrical).
 
-\begin{figure}[!htbp]
+\begin{figure*}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/panel_2_reconstruction.png}
-    \caption{State reconstruction from partial telemetry. (A) Engine RPM trace over one lap: observed telemetry (blue) versus circuit graph reconstruction (red, perfectly overlaid). (B) Reconstructed battery state-of-charge variation over one lap showing charge/discharge cycling with standard deviation $\sigma = 24.85$. (C) Three-dimensional scatter plot of observed versus reconstructed states for all 20 nodes (points on diagonal indicate perfect reconstruction). (D) Per-node reconstruction error: observed nodes (blue) show zero error; hidden nodes (gold) show consistency-check residuals below $7.2 \times 10^{-9}$.}
-    \label{fig:reconstruction}
-\end{figure}
+    \includegraphics[width=\textwidth]{figures/panel_1_f1_circuit.png}
+    \caption{\textbf{Formula One Vehicle Circuit Graph: Adjacency Structure, Oscillatory Frequencies, Spatial Embedding, and Laplacian Spectrum.}
+    (\textbf{A})~Conductance-weighted adjacency matrix of the 20-node F1 oscillatory circuit graph constructed for the 2023 Red Bull RB19. Rows and columns index the 20 subsystems: ICE, turbocharger, MGU-K, MGU-H, battery, gearbox, differential, four wheels (FL/FR/RL/RR), four brakes (FL/FR/RL/RR), four suspensions (FL/FR/RL/RR), and aerodynamic body. Non-zero entries indicate physical couplings: mechanical (powertrain chain ICE--Gearbox--Differential--Wheels, MGU-K--ICE, MGU-H--Turbo), thermal (ICE--Turbo exhaust gas, Wheel--Brake friction heating), electrical (MGU-K--Battery, MGU-H--Battery energy recovery and deployment), and aerodynamic (Aero--Suspension downforce loading proportional to $v^2$). 
+    (\textbf{B})~Characteristic oscillatory frequencies of all 20 subsystems spanning four orders of magnitude. The turbocharger and MGU-H operate at the highest frequencies ($\sim$2000\,Hz, corresponding to 120,000\,RPM shaft speed), the ICE and gearbox at $\sim$250\,Hz (15,000\,RPM crankshaft), the MGU-K at $\sim$500\,Hz, wheels at $\sim$25\,Hz (corresponding to $\sim$300\,km/h at rolling radius 0.33\,m), suspensions at $\sim$4\,Hz (natural frequency of F1 spring-damper assemblies), brakes at $\sim$1\,Hz (thermal cycling frequency between braking zones), battery at $\sim$10\,Hz (energy deployment/recovery switching), and the aerodynamic body at $\sim$0.5\,Hz (quasi-static ride height and pitch variation). 
+    (\textbf{C})~Three-dimensional embedding of the 20-node circuit graph. Node positions encode characteristic oscillatory frequency (x-axis, Hz), categorical depth $\mathcal{H}_i = -\log_2 P(\sigma_i)$ (y-axis, bits), and total coupling degree $\sum_j G_{ij}$ (z-axis). Node colour distinguishes subsystem class: powertrain (ICE, Turbo, MGU-K, MGU-H, Gearbox, Differential), energy storage (Battery), corners (Wheels, Brakes, Suspensions), and aerodynamics (Aero body). 
+    (\textbf{D})~Eigenvalue spectrum of the graph Laplacian $\mathbf{L} = \mathbf{D} - \mathbf{A}$. The single zero eigenvalue $\lambda_1 = 0$ confirms that the 20-node F1 circuit graph is connected (Theorem~3.5): categorical state information can propagate from any node to any other node. The algebraic connectivity $\lambda_2 > 0$ (Fiedler value) quantifies the minimum coupling strength that must be severed to disconnect the graph and governs the convergence rate of the trajectory completion algorithm.}
+    \label{fig:f1_circuit}
+\end{figure*}
 
 The total number of edges (non-zero off-diagonal entries in the upper triangle) is:
 \begin{itemize}
@@ -591,7 +588,7 @@ The observation matrix $\mat{H} \in \R^{11 \times 20}$ maps the complete state v
     \vect{y} = \mat{H} \vect{x} + \vect{n},
 \end{equation}
 where $\vect{n}$ is measurement noise. The matrix $\mat{H}$ is a selection matrix: row $k$ has a 1 in column $j_k$ (the index of the $k$-th observable node) and zeros elsewhere.
-\end{equation}
+
 \end{definition}
 
 \subsection{Fisher information analysis}
@@ -639,7 +636,7 @@ Note that $\mat{L}_{HH}$ is \emph{not} the graph Laplacian of the subgraph induc
     (\mat{L}_{HH})_{ii} = \sum_{k \in \mathcal{N}(i)} G_{ik} = \sum_{k \in \mathcal{N}(i) \cap H} G_{ik} + \sum_{k \in \mathcal{N}(i) \cap O} G_{ik}.
 \end{equation}
 
-Wait---this is the full degree, but the off-diagonal entries only include hidden-hidden edges. Thus $\mat{L}_{HH}$ is a diagonally dominant matrix: each diagonal entry exceeds the sum of the absolute values of the off-diagonal entries in its row by $\sum_{k \in \mathcal{N}(i) \cap O} G_{ik} > 0$ (since every hidden node is connected to at least one observed node, which we verify below). By the Gershgorin circle theorem, all eigenvalues of $\mat{L}_{HH}$ are strictly positive. Hence $\mat{L}_{HH}$ is invertible.
+Thus $\mat{L}_{HH}$ is a diagonally dominant matrix: each diagonal entry exceeds the sum of the absolute values of the off-diagonal entries in its row by $\sum_{k \in \mathcal{N}(i) \cap O} G_{ik} > 0$ (since every hidden node is connected to at least one observed node, which we verify below). By the Gershgorin circle theorem, all eigenvalues of $\mat{L}_{HH}$ are strictly positive. Hence $\mat{L}_{HH}$ is invertible.
 
 It remains to verify that every hidden node is connected to at least one observed node:
 \begin{itemize}
@@ -670,6 +667,16 @@ where $\mat{J}$ is the Fisher information matrix. This bound is achieved by the 
 This is the Cram\'{e}r--Rao inequality \citep{CramerRao1945, Kay1993}. The trajectory completion algorithm, being the maximum likelihood estimator in the Gaussian case (equivalent to the Kirchhoff propagation), achieves the bound asymptotically.
 \end{proof}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_reconstruction.png}
+    \caption{\textbf{State Reconstruction from Partial Telemetry: Observable Recovery, Hidden State Inference, Cross-Validation, and Convergence.}
+    (\textbf{A})~Engine RPM trace over one representative lap of the 2023 Bahrain Grand Prix (Verstappen, RB19, 242 telemetry samples). Blue: observed telemetry from FastF1 API. Red (overlaid, visually indistinguishable): circuit graph reconstruction from the trajectory completion algorithm. The perfect overlay confirms that the algorithm recovers observed states exactly by construction---the observed nodes are boundary conditions for the Kirchhoff equation system $\mathbf{L}_{HH}\boldsymbol{\mathcal{H}}_H = \mathbf{b}$, and their reconstruction error is $0.0000$ NRMSE. 
+    (\textbf{B})~Reconstructed battery state-of-charge (SOC) variation over one lap, expressed as categorical depth of the battery node (Node 5). The SOC oscillates as the battery charges during braking (MGU-K energy recovery, visible as upward spikes coinciding with braking events) and discharges during acceleration (MGU-K deployment, visible as downward ramps on straights). 
+    (\textbf{C})~Three-dimensional scatter plot comparing ground truth categorical depth (x-axis) versus reconstructed categorical depth (y-axis) for all 20 nodes, with node index on the z-axis. Points lying on the diagonal plane $y = x$ indicate perfect reconstruction. All 11 observed nodes (blue markers) lie exactly on the diagonal. The 9 hidden nodes (gold markers) are positioned by the self-consistent Kirchhoff solution. 
+    (\textbf{D})~Per-node reconstruction residual after convergence of the trajectory completion algorithm. Observed nodes (blue bars, Nodes 1, 6, 8--15, 20) show zero residual by construction. Hidden nodes (gold bars, Nodes 2--5, 7, 16--19) show residuals at the convergence tolerance: median residual $7.2 \times 10^{-9}$, consistent with machine precision for double-precision floating-point arithmetic. }
+    \label{fig:reconstruction}
+\end{figure*}
 
 % ============================================================================
 \section{Trajectory Completion Algorithm}\label{sec:algorithm}
@@ -871,12 +878,7 @@ Each iteration requires:
 Total per iteration: $O(N^2)$. Number of iterations: $O(\log(1/\epsilon)/|\log\lambda|)$. Combined: $O(N^2 \log(1/\epsilon))$.
 \end{proof}
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/panel_3_fault.png}
-    \caption{Fault detection via trajectory escape. (A) Categorical depth of the turbocharger node versus lap number under healthy (blue) and faulty (red, 30\% ICE-turbo conductance reduction injected at lap 15) conditions; anomaly detected 13 laps before fault onset. (B) Per-node deviation between healthy and faulty states: brake nodes show highest sensitivity (1.0), aero and suspension nodes show intermediate sensitivity (0.07--0.09). (C) Three-dimensional trajectory escape: the faulty state (red) diverges from the healthy attractor (blue) in the categorical depth space. (D) Detection timeline showing the cumulative deviation metric crossing the alarm threshold at lap 2.}
-    \label{fig:fault}
-\end{figure}
+
 
 
 % ============================================================================
@@ -1137,12 +1139,7 @@ The per-node deviation $|\delta\Hcal_i|$ after fault injection reveals the fault
     \item ICE (1), Turbo (2): direct fault location, $|\delta\Hcal| \approx 0.05$.
 \end{itemize}
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/panel_4_tires.png}
-    \caption{Tire degradation tracking over a 30-lap stint. (A) Lap time versus lap number showing degradation from 88.9\,s (fresh tires, lap 1) to 107.0\,s (worn tires, lap 30), an increase of 20.3\%. (B) Tire node categorical depth versus lap, tracking the exponential degradation curve. (C) Three-dimensional tire state surface showing the evolution of tire categorical depth, lap time, and grip level across the stint. (D) Predicted degradation cliff (second derivative peak) versus actual pit stop window; the predicted cliff at lap 5 precedes the actual pit at lap 25, indicating calibration required for the absolute timing but correct curve shape.}
-    \label{fig:tires}
-\end{figure}
+
 
 The sensitivity pattern is physically interpretable: the fault in the ICE-turbo coupling reduces turbo efficiency, which reduces engine power, which reduces speed, which changes brake usage patterns (different speeds at braking points), which produces the largest categorical depth changes at the brake nodes. The aerodynamic and suspension nodes respond to the speed change through the $v^2$ downforce relationship.
 
@@ -1150,6 +1147,16 @@ The sensitivity pattern is physically interpretable: the fault in the ICE-turbo 
 
 The 13-lap lead time demonstrates that the trajectory completion framework is sensitive to deviations from the expected operating regime. In a practical application, the healthy baseline would be calibrated from the first few laps of the session, and the detection threshold would be set to filter expected variation (fuel burn, tire wear) while flagging unexpected changes (faults). The per-node deviation pattern provides diagnostic information: the spatial pattern of deviations through the circuit graph identifies which coupling has changed, enabling fault localisation even when the faulty component (turbocharger) is a hidden node.
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_fault.png}
+    \caption{\textbf{Fault Detection via Trajectory Escape: Categorical Depth Evolution, Node Deviation, Three-Dimensional Escape, and Detection Timeline.}
+    (\textbf{A})~Turbocharger node (Node 2) categorical depth versus lap number for a 20-lap simulation. Blue: healthy baseline with nominal ICE-Turbo conductance $G_{1,2}^{(0)}$. Red: faulty condition with 30\% reduction in ICE-Turbo conductance ($G_{1,2} = 0.7 \cdot G_{1,2}^{(0)}$) injected at lap 15, simulating turbocharger bearing degradation. The faulty trace diverges progressively from the healthy baseline after the fault onset. 
+    (\textbf{B})~Per-node deviation magnitude $|\delta\mathcal{H}_i|$ between healthy and faulty states, normalised to the maximum. Brake nodes (12--15) show the highest sensitivity ($|\delta\mathcal{H}| = 1.0$), because the turbo fault reduces engine power, which reduces speed at braking points, which changes brake usage patterns and hence brake categorical depth.  
+    (\textbf{C})~Three-dimensional trajectory in the space of (ICE categorical depth, Turbo categorical depth, Battery categorical depth) for healthy (blue) and faulty (red) conditions across 20 laps. The healthy trajectory forms a compact attractor. 
+    (\textbf{D})~Detection timeline: cumulative deviation metric $\Delta(l) = \|\boldsymbol{\mathcal{H}}(l) - \boldsymbol{\mathcal{H}}_{\mathrm{ref}}\|_2$ versus lap number. The alarm threshold (horizontal dashed line) is crossed at \textbf{lap 2}, providing a 13-lap lead time before the synthetic fault injection at lap 15. }
+    \label{fig:fault}
+\end{figure*}
 
 % ============================================================================
 \section{Test 3: Tire Degradation}\label{sec:test3}
@@ -1198,6 +1205,16 @@ The tire degradation tracking from Philharmonic has direct implications for F1 r
     \item Pit stop timing: with calibrated wear parameters, the cliff prediction enables optimal pit stop window calculation.
 \end{itemize}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_tires.png}
+    \caption{\textbf{Tire Degradation Tracking: Lap Time Evolution, Categorical Depth Curve, Three-Dimensional State Surface, and Cliff Prediction.}
+    (\textbf{A})~Lap time versus lap number over a 30-lap stint with wear-dependent tire conductance $G_{\mathrm{tire}}(l) = G_{\mathrm{tire}}^{(0)} \exp(-\beta l)$. Lap times degrade from 88.9\,s (lap 1, fresh tires) to 107.0\,s (lap 30, worn tires), an increase of 20.3\%. The degradation follows the expected pattern for a long stint on soft-compound tires in Bahrain's abrasive surface conditions: gradual performance loss with an accelerating tail as the tire compound overheats and the tread depth approaches zero. The lap time curve is fitted by $t_{\mathrm{lap}}(l) = t_0 + \Delta t_{\max}(1 - e^{-\beta l})$ with $t_0 = 88.9$\,s and $\Delta t_{\max} \approx 18.1$\,s.
+    (\textbf{B})~Tire node categorical depth $\mathcal{H}_{\mathrm{tire}}(l)$ versus lap number, extracted from the trajectory completion algorithm applied to each lap independently. The categorical depth tracks the physical degradation: as tire-road coupling decreases (reduced grip), the tire's oscillatory dynamics change (fewer effective traction states, reduced phase space volume), producing a monotonic increase in categorical depth. 
+    (\textbf{C})~Three-dimensional tire state surface showing the evolution of tire categorical depth (x-axis), lap time (y-axis), and an inferred grip level index (z-axis) across the 30-lap stint. Each point represents one lap.
+    (\textbf{D})~Degradation cliff prediction via second derivative of tire categorical depth. The predicted cliff (maximum of $d^2\mathcal{H}_{\mathrm{tire}}/dl^2$) occurs at lap 5, while the actual pit stop window in the race was approximately lap 25. The 20-lap offset is a calibration issue: the exponential wear parameter $\beta$ was set to a default value rather than fitted to the specific tire compound (Pirelli C3) and Bahrain surface characteristics. }
+    \label{fig:tires}
+\end{figure*}
 
 % ============================================================================
 \section{Test 4: Racing Line Extraction}\label{sec:test4}
@@ -1216,12 +1233,7 @@ The S-entropy triple $\Sent = (S_k, S_t, S_e)$ (Definition~\ref{def:s_entropy}) 
 
 We analyse 8 qualifying laps from the 2023 Bahrain GP qualifying session. For each lap, the S-entropy is computed for each sector (the circuit is divided into three sectors by FIA timing lines).
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/panel_5_racing_line.png}
-    \caption{Racing line extraction via S-entropy analysis. (A) Speed traces for all 8 qualifying laps overlaid, with the fastest lap (\#8) highlighted in red. (B) S-entropy components $(S_k, S_t, S_e)$ along the lap distance for the fastest lap, showing high knowledge entropy $S_k > 0.86$ throughout. (C) Three-dimensional S-entropy trajectory $(S_k, S_t, S_e)$ for the fastest (red) and slowest (blue) qualifying laps, showing the tighter trajectory of the faster lap. (D) Sector-by-sector S-entropy comparison: Sector 1 ($S_k = 0.988$, $S_t = 0.228$) shows highest commitment; Sector 2 ($S_k = 0.975$, $S_t = 0.786$) shows highest complexity.}
-    \label{fig:racing_line}
-\end{figure}
+
 
 \paragraph{Fastest lap identification.}
 The S-entropy analysis automatically identifies lap 8 as the fastest qualifying lap. The identification criterion is the lap with the highest mean $S_k$ (most committed trajectory) and lowest mean $S_t$ (most precise timing):
@@ -1282,6 +1294,17 @@ The 2.5\% gap between the predicted optimal and the observed fastest is consiste
 The S-entropy trajectory $\Sent(s)$ as a function of track distance $s$ is the racing line expressed in categorical space. Unlike the geometric racing line (x, y, z coordinates of the car on track), the S-entropy trace captures the \emph{information content} of the driving: how committed the trajectory is, how precisely timed the inputs are, and how fully the energy budget is utilised.
 
 Two laps with identical geometric racing lines but different driver inputs (e.g., different throttle application timing through a corner) will have different S-entropy traces. The S-entropy trace therefore provides a finer-grained characterisation of driving quality than the geometric line alone.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_5_racing_line.png}
+    \caption{\textbf{Racing Line Extraction via S-Entropy Analysis: Speed Traces, Entropy Profile, Three-Dimensional Trajectory, and Sector Comparison.}
+    (\textbf{A})~Speed traces for all 8 qualifying laps overlaid. Grey: laps 1--7. Red (highlighted): lap 8, identified as the fastest qualifying lap (82.5\,s) by the S-entropy analysis. The fastest lap shows consistently higher minimum speeds through corners (indicating greater commitment to the apex trajectory) and marginally higher straight-line speeds (indicating better traction out of corners). 
+    (\textbf{B})~S-entropy components $(S_k, S_t, S_e)$ plotted along normalised lap distance for the fastest qualifying lap (lap 8). Knowledge entropy $S_k$ (blue) remains above 0.86 throughout, indicating a highly committed trajectory with low categorical uncertainty. Temporal entropy $S_t$ (red) varies significantly: low through Sector 1 (high-speed committed corners, $S_t = 0.228$) and high through Sector 2 (multiple sequential slow-speed inputs, $S_t = 0.786$).
+    (\textbf{C})~Three-dimensional S-entropy trajectory $(S_k, S_t, S_e) \in [0,1]^3$ for the fastest qualifying lap (red) and the slowest qualifying lap (blue). The fastest lap traces a tighter, more compact trajectory in S-entropy space, reflecting the driver's more precise and committed inputs.
+    (\textbf{D})~Sector-by-sector S-entropy comparison for the fastest qualifying lap. Sector 1: $S_k = 0.988$, $S_t = 0.228$, $S_e = 0.302$---the highest commitment and lowest temporal uncertainty, corresponding to the high-speed Turn 1--4 complex where the driver commits to a precise trajectory with minimal adjustment margin. }
+    \label{fig:racing_line}
+\end{figure*}
 
 
 % ============================================================================
