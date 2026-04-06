@@ -4,7 +4,7 @@ import TransitionEffect from "@/components/TransitionEffect";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
-const NavigationMap = dynamic(() => import("@/components/navigation/MapContainer"), { ssr: false });
+const NavigationMap = dynamic(() => import("@/components/MunichMapScene"), { ssr: false });
 
 const fadeIn = {
   initial: { y: 30, opacity: 0 },

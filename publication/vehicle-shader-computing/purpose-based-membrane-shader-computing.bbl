@@ -1,0 +1,206 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Beer(1852)]{beer1852bestimmung}
+August Beer.
+\newblock Bestimmung der absorption des rothen lichts in farbigen
+  fl\"{u}ssigkeiten.
+\newblock \emph{Annalen der Physik und Chemie}, 162\penalty0 (5):\penalty0
+  78--88, 1852.
+\newblock \doi{10.1002/andp.18521620505}.
+
+\bibitem[Boltzmann(1896)]{boltzmann1896vorlesungen}
+Ludwig Boltzmann.
+\newblock \emph{Vorlesungen \"{u}ber Gastheorie}, volume~I.
+\newblock Johann Ambrosius Barth, Leipzig, 1896.
+
+\bibitem[Born and Wolf(1999)]{born1999principles}
+Max Born and Emil Wolf.
+\newblock \emph{Principles of Optics: Electromagnetic Theory of Propagation,
+  Interference and Diffraction of Light}.
+\newblock Cambridge University Press, Cambridge, 7th (expanded) edition, 1999.
+\newblock \doi{10.1017/CBO9781139644181}.
+
+\bibitem[Fresnel(1818)]{fresnel1818memoire}
+Augustin-Jean Fresnel.
+\newblock M\'{e}moire sur la diffraction de la lumi\`{e}re.
+\newblock \emph{Annales de Chimie et de Physique}, 1:\penalty0 239--281, 1818.
+
+\bibitem[Gururangan et~al.(2020)Gururangan, Marasovi\'{c}, Swayamdipta, Lo,
+  Beltagy, Downey, and Smith]{gururangan2020dont}
+Suchin Gururangan, Ana Marasovi\'{c}, Swabha Swayamdipta, Kyle Lo, Iz~Beltagy,
+  Doug Downey, and Noah~A. Smith.
+\newblock Don't stop pretraining: Adapt language models to domains and tasks.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 8342--8360, 2020.
+\newblock \doi{10.18653/v1/2020.acl-main.740}.
+
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2022lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock In \emph{Proceedings of the Tenth International Conference on
+  Learning Representations (ICLR)}, 2022.
+\newblock URL \url{https://openreview.net/forum?id=nZeVKeeFYf9}.
+
+\bibitem[Huygens(1690)]{huygens1690traite}
+Christiaan Huygens.
+\newblock \emph{Trait\'{e} de la Lumi\`{e}re}.
+\newblock Pierre van der Aa, Leiden, 1690.
+
+\bibitem[Jaynes(1957)]{jaynes1957information}
+Edwin~T. Jaynes.
+\newblock Information theory and statistical mechanics.
+\newblock \emph{Physical Review}, 106\penalty0 (4):\penalty0 620--630, 1957.
+\newblock \doi{10.1103/PhysRev.106.620}.
+
+\bibitem[Kirchhoff(1845)]{kirchhoff1845ueber}
+Gustav Kirchhoff.
+\newblock {\"U}ber den durchgang eines elektrischen stromes durch eine ebene,
+  insbesondere durch eine kreisf\"{o}rmige.
+\newblock \emph{Annalen der Physik und Chemie}, 140\penalty0 (4):\penalty0
+  497--514, 1845.
+\newblock \doi{10.1002/andp.18451400402}.
+
+\bibitem[Koopman(1931)]{koopman1931hamiltonian}
+Bernard~O. Koopman.
+\newblock Hamiltonian systems and transformation in {H}ilbert space.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 17\penalty0
+  (5):\penalty0 315--318, 1931.
+\newblock \doi{10.1073/pnas.17.5.315}.
+
+\bibitem[Kuramoto(1984)]{kuramoto1984chemical}
+Yoshiki Kuramoto.
+\newblock \emph{Chemical Oscillations, Waves, and Turbulence}, volume~19 of
+  \emph{Springer Series in Synergetics}.
+\newblock Springer-Verlag, Berlin, 1984.
+\newblock \doi{10.1007/978-3-642-69689-3}.
+
+\bibitem[Lambert(1760)]{lambert1760photometria}
+Johann~Heinrich Lambert.
+\newblock \emph{Photometria, sive de Mensura et Gradibus Luminis, Colorum et
+  Umbrae}.
+\newblock Eberhardt Klett, Augsburg, 1760.
+
+\bibitem[Landau and Lifshitz(1980)]{landau1980statistical}
+Lev~D. Landau and Evgeny~M. Lifshitz.
+\newblock \emph{Statistical Physics, Part 1}, volume~5 of \emph{Course of
+  Theoretical Physics}.
+\newblock Butterworth-Heinemann, Oxford, 3rd edition, 1980.
+
+\bibitem[Marrin(2011)]{marrin2011webgl}
+Chris Marrin.
+\newblock {WebGL} specification.
+\newblock In \emph{Proceedings of the 17th International Conference on 3D Web
+  Technology (Web3D)}. ACM, 2011.
+\newblock Khronos Group, WebGL 1.0 Specification.
+
+\bibitem[Martin and Synge(1941)]{martin1941new}
+Archer J.~P. Martin and Richard L.~M. Synge.
+\newblock A new form of chromatogram employing two liquid phases.
+\newblock \emph{Biochemical Journal}, 35\penalty0 (12):\penalty0 1358--1368,
+  1941.
+\newblock \doi{10.1042/bj0351358}.
+
+\bibitem[Owens et~al.(2008)Owens, Houston, Luebke, Green, Stone, and
+  Phillips]{owens2008gpu}
+John~D. Owens, Mike Houston, David Luebke, Simon Green, John~E. Stone, and
+  James~C. Phillips.
+\newblock {GPU} computing.
+\newblock \emph{Proceedings of the IEEE}, 96\penalty0 (5):\penalty0 879--899,
+  2008.
+\newblock \doi{10.1109/JPROC.2008.917757}.
+
+\bibitem[Poincar\'{e}(1890)]{poincare1890probleme}
+Henri Poincar\'{e}.
+\newblock Sur le probl\`{e}me des trois corps et les \'{E}quations de la
+  dynamique.
+\newblock \emph{Acta Mathematica}, 13:\penalty0 1--270, 1890.
+\newblock \doi{10.1007/BF02392506}.
+
+\bibitem[Sachikonye(2026{\natexlab{a}})]{sachikonye2026membrane}
+Kundai~Farai Sachikonye.
+\newblock The biomolecular membrane sensor: Atmospheric spectral transduction
+  via lipid oscillator arrays.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{a}}.
+\newblock Companion paper: membrane fabrication, O2 ensemble phase-locking,
+  environmental training.
+
+\bibitem[Sachikonye(2026{\natexlab{b}})]{sachikonye2026metacognitive}
+Kundai~Farai Sachikonye.
+\newblock The metacognitive membrane: Categorical address resolution in
+  biological semiconductor architectures.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{b}}.
+\newblock Companion paper: membrane processor architecture, OCP identity,
+  biomolecular P-N junction, tri-dimensional logic.
+
+\bibitem[Sachikonye(2026{\natexlab{c}})]{sachikonye2026philharmonic}
+Kundai~Farai Sachikonye.
+\newblock Philharmonic validation: Spectral analysis of formula one telemetry
+  via bounded phase space methods.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{c}}.
+\newblock Companion paper: F1 telemetry spectral decomposition, tire
+  degradation cliffs, powertrain fault isolation.
+
+\bibitem[Sachikonye(2026{\natexlab{d}})]{sachikonye2026raytracing}
+Kundai~Farai Sachikonye.
+\newblock Ray-tracing cellular computing: The triple observation identity for
+  simultaneous optical, chromatographic, and circuit measurement.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{d}}.
+\newblock Companion paper: Triple Observation Identity,
+  Beer-Lambert/Martin-Synge/Kirchhoff unification, volume ray marching.
+
+\bibitem[Sachikonye(2026{\natexlab{e}})]{sachikonye2026scattering}
+Kundai~Farai Sachikonye.
+\newblock Scattering puzzle imaging: Assembling complete spectral images from
+  heterogeneous observation fragments.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{e}}.
+\newblock Companion paper: visible/invisible pixel reconstruction, dual-pixel
+  consistency, Kramers-Kronig validation.
+
+\bibitem[Sachikonye(2026{\natexlab{f}})]{sachikonye2026spectralmatching}
+Kundai~Farai Sachikonye.
+\newblock Universal spectral matching: The reduction of all bounded system
+  comparison to image distance.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{f}}.
+\newblock Companion paper: Spectral Image Theorem, Universal Reduction Theorem,
+  GPU as interference engine, five-pass pipeline.
+
+\bibitem[Sachikonye(2026{\natexlab{g}})]{sachikonye2026trajectory}
+Kundai~Farai Sachikonye.
+\newblock Trajectory completion conjecture: Partition geometry and backward
+  navigation in bounded phase space.
+\newblock \emph{Technical Report, Technical University of Munich},
+  2026{\natexlab{g}}.
+\newblock Companion paper: TCC framework, partition coordinates, shell capacity
+  $C(n) = 2n^2$, triple equivalence, S-entropy coordinates.
+
+\bibitem[Shannon(1948)]{shannon1948mathematical}
+Claude~E. Shannon.
+\newblock A mathematical theory of communication.
+\newblock \emph{The Bell System Technical Journal}, 27\penalty0 (3):\penalty0
+  379--423, 1948.
+\newblock \doi{10.1002/j.1538-7305.1948.tb01338.x}.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
+  Kaiser, and Polosukhin]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, {\L}ukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock In \emph{Advances in Neural Information Processing Systems 30
+  (NeurIPS)}, pages 5998--6008, 2017.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html}.
+
+\end{thebibliography}

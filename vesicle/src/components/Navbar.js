@@ -12,6 +12,8 @@ const NAV_GROUPS = [
     items: [
       { href: "/platform", title: "Platform" },
       { href: "/membrane", title: "Membrane" },
+      { href: "/membrane-map", title: "Membrane Map" },
+      { href: "/airflow", title: "Airflow" },
       { href: "/oscillations", title: "Oscillations" },
       { href: "/semiconductor", title: "Semiconductor" },
       { href: "/systems", title: "Systems" },
@@ -115,6 +117,8 @@ const ALL_MOBILE_LINKS = [
   { href: "/", title: "Home" },
   { href: "/platform", title: "Platform" },
   { href: "/membrane", title: "Membrane" },
+  { href: "/membrane-map", title: "Membrane Map" },
+  { href: "/airflow", title: "Airflow" },
   { href: "/oscillations", title: "Oscillations" },
   { href: "/semiconductor", title: "Semiconductor" },
   { href: "/systems", title: "Systems" },

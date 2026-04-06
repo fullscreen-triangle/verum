@@ -4,6 +4,7 @@ import {
   ContactShadows,
   Environment,
   Lightformer,
+  Float,
   useGLTF,
 } from "@react-three/drei";
 import * as THREE from "three";
@@ -11,47 +12,45 @@ import * as THREE from "three";
 const MODEL_PATH = "/model/mclaren_w1.glb";
 
 function McLarenW1(props) {
-  const { scene } = useGLTF(MODEL_PATH);
+  const { scene, nodes, materials } = useGLTF(MODEL_PATH);
   const ref = useRef();
 
-  // Boost materials once
-  if (!scene.userData._boosted) {
+  // Enhance materials once for a realistic showroom look
+  if (!scene.userData._materialsEnhanced) {
     scene.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
         if (child.material) {
-          child.material.envMapIntensity = 2;
-          child.material.roughness = Math.min(child.material.roughness ?? 0.5, 0.4);
-          child.material.metalness = Math.max(child.material.metalness ?? 0.6, 0.7);
-          child.material.wireframe = props.wireframe || false;
+          // Boost environment reflection for that automotive showroom feel
+          child.material.envMapIntensity = 3;
+          child.material.roughness = Math.min(child.material.roughness ?? 0.5, 0.35);
+          child.material.metalness = Math.max(child.material.metalness ?? 0.6, 0.8);
           child.material.needsUpdate = true;
         }
       }
     });
-    scene.userData._boosted = true;
+    scene.userData._materialsEnhanced = true;
   }
 
   return <primitive ref={ref} object={scene} {...props} />;
 }
 
-function CameraRig() {
-  const v = useRef(new THREE.Vector3());
-  useFrame((state) => {
+function CameraRig({ v = new THREE.Vector3() }) {
+  return useFrame((state) => {
     const t = state.clock.elapsedTime;
     state.camera.position.lerp(
-      v.current.set(Math.sin(t / 8) * 5, 2, 8 + Math.cos(t / 8) * 2),
-      0.02
+      v.set(Math.sin(t / 5) * 6, 2.5, 8 + Math.cos(t / 5) * 2),
+      0.025
     );
     state.camera.lookAt(0, 0, 0);
   });
-  return null;
 }
 
 function Podium() {
   const ref = useRef();
   useFrame((_, delta) => {
-    ref.current.rotation.y += delta * 0.15;
+    ref.current.rotation.y += delta * 0.12;
   });
   return (
     <group ref={ref} scale={[3.5, 0.3, 3.5]} position={[0, -1.35, 0]}>
@@ -71,6 +70,73 @@ function Podium() {
   );
 }
 
+function Lightformers() {
+  const group = useRef();
+  useFrame(
+    (state, delta) =>
+      (group.current.position.z += delta * 10) > 20 &&
+      (group.current.position.z = -60)
+  );
+  return (
+    <>
+      {/* Ceiling */}
+      <Lightformer
+        intensity={0.75}
+        rotation-x={Math.PI / 2}
+        position={[0, 5, -9]}
+        scale={[10, 10, 1]}
+      />
+      <group rotation={[0, 0.5, 0]}>
+        <group ref={group}>
+          {[2, 0, 2, 0, 2, 0, 2, 0].map((x, i) => (
+            <Lightformer
+              key={i}
+              form="circle"
+              intensity={2}
+              rotation={[Math.PI / 2, 0, 0]}
+              position={[x, 4, i * 4]}
+              scale={[3, 1, 1]}
+            />
+          ))}
+        </group>
+      </group>
+      {/* Sides */}
+      <Lightformer
+        intensity={4}
+        rotation-y={Math.PI / 2}
+        position={[-5, 1, -1]}
+        scale={[20, 0.1, 1]}
+      />
+      <Lightformer
+        rotation-y={Math.PI / 2}
+        position={[-5, -1, -1]}
+        scale={[20, 0.5, 1]}
+      />
+      <Lightformer
+        rotation-y={-Math.PI / 2}
+        position={[10, 1, 0]}
+        scale={[20, 1, 1]}
+      />
+      {/* Accent (teal) */}
+      <Float speed={5} floatIntensity={2} rotationIntensity={2}>
+        <Lightformer
+          form="ring"
+          color="#2AA198"
+          intensity={8}
+          scale={10}
+          position={[-15, 4, -18]}
+          target={[0, 0, 0]}
+        />
+      </Float>
+      {/* Background sphere */}
+      <mesh scale={100}>
+        <sphereGeometry args={[1, 64, 64]} />
+        <meshBasicMaterial color="#0a0a0a" side={THREE.BackSide} />
+      </mesh>
+    </>
+  );
+}
+
 export default function HeroScene() {
   return (
     <Suspense
@@ -87,7 +153,7 @@ export default function HeroScene() {
       >
         <color attach="background" args={["#0a0a0a"]} />
 
-        <group position={[0, -0.5, 0]} rotation={[0, -Math.PI / 6, 0]}>
+        <group position={[0, -1, 0]} rotation={[0, -Math.PI / 6, 0]}>
           <McLarenW1 />
         </group>
 
@@ -130,36 +196,8 @@ export default function HeroScene() {
           />
         </mesh>
 
-        <Environment resolution={512}>
-          {[-9, -6, -3, 0, 3, 6, 9].map((z) => (
-            <Lightformer
-              key={z}
-              intensity={2}
-              rotation-x={Math.PI / 2}
-              position={[0, 4, z]}
-              scale={[10, 1, 1]}
-            />
-          ))}
-          <Lightformer
-            intensity={2}
-            rotation-y={Math.PI / 2}
-            position={[-50, 2, 0]}
-            scale={[100, 2, 1]}
-          />
-          <Lightformer
-            intensity={2}
-            rotation-y={-Math.PI / 2}
-            position={[50, 2, 0]}
-            scale={[100, 2, 1]}
-          />
-          <Lightformer
-            form="ring"
-            color="#2AA198"
-            intensity={10}
-            scale={2}
-            position={[10, 5, 10]}
-            onUpdate={(self) => self.lookAt(0, 0, 0)}
-          />
+        <Environment resolution={256} background blur={1}>
+          <Lightformers />
         </Environment>
 
         <CameraRig />
