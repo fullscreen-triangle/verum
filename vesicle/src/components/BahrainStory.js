@@ -175,7 +175,7 @@ export default function BahrainStory() {
     setHasToken(true);
 
     const mapboxgl = require("mapbox-gl");
-    mapboxgl.accessToken = token;
+    mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,

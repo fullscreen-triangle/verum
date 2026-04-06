@@ -6,7 +6,7 @@ export default function NetworkMap({ towers, traffic }) {
 
   useEffect(() => {
     if (map.current || !mapContainer.current) return;
-    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
     // If no token, show fallback
     if (!token) {

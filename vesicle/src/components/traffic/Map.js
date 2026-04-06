@@ -74,7 +74,7 @@ function Map({ width, height, viewport, setViewport, token }) {
           layers={layers}
           getTooltip={getTooltip}
         >
-          )}
+        
           <InfoPanel
             style={{
               width: "100px",

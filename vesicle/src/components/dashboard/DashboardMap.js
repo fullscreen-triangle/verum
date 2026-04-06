@@ -6,7 +6,7 @@ import { HeatmapLayer } from "@deck.gl/aggregation-layers";
 import LayerPanel from "./LayerPanel";
 import InfoPanel from "./InfoPanel";
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
 // Munich center
 const INITIAL_VIEW = { lng: 11.582, lat: 48.1351, zoom: 12.5, pitch: 45, bearing: -17.6 };

@@ -27,7 +27,8 @@
       "Bash(python publication/equations-of-state/figures/generate_panels.py)",
       "Bash(python publication/counting-loops/figures/generate_panels.py)",
       "Bash(pip install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(python publication/vehicle-shader-computing/figures/generate_panels.py)"
     ]
   }
 }

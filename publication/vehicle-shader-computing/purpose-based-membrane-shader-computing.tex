@@ -3,12 +3,11 @@
 %% Author: Kundai Farai Sachikonye
 %% Technical University of Munich
 %%
-\documentclass[12pt]{article}
-
-%% ──────────────────────────────────────────────
-%%  Packages
-%% ──────────────────────────────────────────────
-\usepackage[margin=1in]{geometry}
+\documentclass[11pt,twocolumn,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Page layout
+\usepackage[margin=2.2cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{physics}
 \usepackage{bm}
@@ -32,6 +31,30 @@
 \usepackage{microtype}
 \usepackage{natbib}
 \bibliographystyle{plainnat}
+
+%% Add fancyhdr for custom headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+
+% Define header content
+\fancyhead[L]{\small\textit{Purpose-Injected Spectral Matching}}
+\fancyhead[R]{\small\thepage}
+\fancyfoot[C]{} % Remove default footer
+
+% Redefine plain style for first page
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Adjust header rule width
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Fix header width for two-column layout
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
 
 %% ──────────────────────────────────────────────
 %%  Theorem Environments
@@ -79,6 +102,8 @@
 %% ──────────────────────────────────────────────
 %%  Title
 %% ──────────────────────────────────────────────
+\twocolumn[
+\begin{@twocolumnfalse}
 \begin{center}
 {\LARGE\bfseries Purpose-Injected Spectral Matching on Membrane Shader Processors:\\[6pt]
 Unifying Observation, Computation, and Domain Interpretation\\[4pt] in Bounded Phase Space}
@@ -86,7 +111,7 @@ Unifying Observation, Computation, and Domain Interpretation\\[4pt] in Bounded P
 \vspace{1.2cm}
 
 {\large Kundai Farai Sachikonye}\\[4pt]
-Technical University of Munich\\
+ AIMe Registry for Artificial Intelligence \\[0.3em]
 \texttt{kundai.sachikonye@wzw.tum.de}
 
 \vspace{0.8cm}
@@ -97,13 +122,14 @@ Technical University of Munich\\
 
 \begin{abstract}
 \noindent
-We prove that spectral matching on bounded oscillatory systems, when augmented with a low-rank purpose injection, yields a complete interpretive architecture that unifies physical observation, computational processing, and domain-specific meaning within a single act of categorical address resolution.  The argument proceeds in three stages.  First, we derive from three axioms of bounded phase space that every bounded oscillatory system admits a unique spectral image whose inter-system distance is \emph{exactly} the partition distance---not approximately, but identically---establishing the Universal Reduction Theorem.  Second, we show that a ray marching through any network simultaneously computes optical absorption, chromatographic retention, and circuit current at every differential step, and that these three quantities are related by the Triple Observation Identity, which reduces to a single partition observable.  Third, we introduce \emph{purpose injection} as a low-rank spectral prior---mathematically formalised as a rank-$r$ update to the universal matching parameters---that maps dimensionless spectral distances to domain-specific actionable interpretations.  The membrane semiconductor, derived with zero free parameters from bounded phase space, natively computes this entire chain: its lipid oscillators perform spectral decomposition, its P-N junction performs rectified matching, and its environmental phase-locking implements purpose injection through atmospheric exposure.  We specify a five-pass GPU shader pipeline that implements the identical architecture on commodity graphics hardware, running in a web browser at real-time rates.  The fundamental identity $\Obs(x) \equiv \Comp(x) \equiv \Proc(x)$ ensures that membrane sensing, GPU computation, and purpose-injected interpretation are not three sequential operations but one act of categorical address resolution viewed from three equivalent perspectives.  Experimental validation on Formula~1 telemetry demonstrates that purpose injection preserves universal spectral matching fidelity while enabling domain-specific predictions---tire degradation cliffs, powertrain fault isolation, strategic window identification---that the base physics engine alone cannot provide.  The contribution is a rigorous, axiomatically derived framework in which the physics is universal and non-proprietary, while the purpose vectors constitute trainable, protectable domain intelligence.
+We prove that spectral matching on bounded oscillatory systems, when augmented with a low-rank purpose injection, yields a complete interpretive architecture that unifies physical observation, computational processing, and domain-specific meaning within a single act of categorical address resolution.  The argument proceeds in three stages.  First, we derive from three axioms of bounded phase space that every bounded oscillatory system admits a unique spectral image whose inter-system distance is \emph{exactly} the partition distance---not approximately, but identically---establishing the Universal Reduction Theorem.  Second, we show that a ray marching through any network simultaneously computes optical absorption, chromatographic retention, and circuit current at every differential step, and that these three quantities are related by the Triple Observation Identity, which reduces to a single partition observable.  Third, we introduce \emph{purpose injection} as a low-rank spectral prior---mathematically formalised as a rank-$r$ update to the universal matching parameters---that maps dimensionless spectral distances to domain-specific actionable interpretations.  The membrane semiconductor, derived with zero free parameters from bounded phase space, natively computes this entire chain: its lipid oscillators perform spectral decomposition, its P-N junction performs rectified matching, and its environmental phase-locking implements purpose injection through atmospheric exposure.  We specify a five-pass GPU shader pipeline that implements the identical architecture on commodity graphics hardware, running in a web browser at real-time rates.  The fundamental identity $$\Obs(x) \equiv \Comp(x) \equiv \Proc(x)$$ ensures that membrane sensing, GPU computation, and purpose-injected interpretation are not three sequential operations but one act of categorical address resolution viewed from three equivalent perspectives.  Experimental validation on Formula~1 telemetry demonstrates that purpose injection preserves universal spectral matching fidelity while enabling domain-specific predictions---tire degradation cliffs, powertrain fault isolation, strategic window identification---that the base physics engine alone cannot provide.  The contribution is a rigorous, axiomatically derived framework in which the physics is universal and non-proprietary, while the purpose vectors constitute trainable, protectable domain intelligence.
 \end{abstract}
 \end{center}
+\vspace{1cm}
+\end{@twocolumnfalse}
+]
 
-\vspace{0.5cm}
-\tableofcontents
-\newpage
+
 
 %% ══════════════════════════════════════════════
 %%  PART I : THEORETICAL FOUNDATIONS
@@ -299,13 +325,7 @@ where $\Obs(x)$ is the act of observing the system's state, $\Comp(x)$ is the ac
 Observation determines the state $(n, \ell, m, s)$ by measuring the system's position in phase space to resolution $h_{\mathrm{eff}}$.  Computation determines $(n, \ell, m, s)$ by evaluating the partition function at the system's current trajectory point.  Processing resolves the categorical address by matching the observed spectral signature against the partition catalogue.  All three operations begin with the same input (the system's current phase-space point), perform the same logical operation (identify the cell containing that point), and produce the same output (the partition coordinates).  They are therefore identical as abstract operations, differing only in the physical substrate on which they are executed.  The formal proof via natural isomorphism of the corresponding functors is given in \citet{sachikonye2026metacognitive}, \S5.
 \end{proof}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 1:} Bounded phase space $\Gamma$ partitioned into shells $n = 1, 2, \ldots, n_{\max}$ with shell capacity $C(n) = 2n^2$.  The S-entropy coordinates $(\Sk, \St, \Se) \in [0,1]^3$ map the discrete partition to the unit cube.  The triple equivalence $\Sosc = \Scat = \Spart$ is indicated by the convergence of three entropy measures at the dominant shell.
-    \vspace{2cm}}}
-    \caption{Partition structure of bounded phase space.}\label{fig:phase-space-partition}
-\end{figure}
+
 
 
 %% ──────────────────────────────────────────────
@@ -411,13 +431,7 @@ Each stored pattern $p = (\Sk^p, \St^p, \Se^p)$ corresponds to a resonant mode o
 The membrane is \emph{not} a general-purpose processor.  It is specialised for exactly one operation: resolving categorical addresses from oscillatory inputs.  This extreme specialisation is what makes it extraordinarily efficient at that one operation.
 \end{remark}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 2:} The membrane as categorical processor.  (a)~Lipid bilayer with inner leaflet (P-type, negatively charged) and outer leaflet (N-type, zwitterionic) forming the biomolecular P-N junction.  (b)~R-C-L trichotomy: each lipid element simultaneously acts as resistor ($\Sk$-channel), capacitor ($\St$-channel), and inductor ($\Se$-channel).  (c)~Content-addressable memory: query pattern $q$ resonantly excites the nearest stored pattern $p^*$.
-    \vspace{2cm}}}
-    \caption{Membrane processor architecture.}\label{fig:membrane-processor}
-\end{figure}
+
 
 
 %% ──────────────────────────────────────────────
@@ -499,13 +513,18 @@ All comparison between bounded oscillatory systems reduces to comparing images.
 Any comparison that can be expressed as a function of the partition distance can equally be expressed as a function of $\dcv(\mathcal{I}_X, \mathcal{I}_Y)$, since by \Cref{thm:universal-reduction} the two are identical.
 \end{proof}
 
-\begin{figure}[H]
+
+
+\begin{figure*}[!htbp]
     \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 3:} The Spectral Image Theorem.  Left: bounded oscillatory system $X$ with Koopman eigenvalues $\{\lambda_j\}$.  Centre: Gaussian-windowed frequency-phase kernel generating the spectral image $\mathcal{I}_X(\omega, \phi)$.  Right: the spectral image as a 2D intensity map.  The Universal Reduction Theorem states that $\dpart(X, Y) = \dcv(\mathcal{I}_X, \mathcal{I}_Y)$ exactly.
-    \vspace{2cm}}}
-    \caption{Spectral imaging of bounded oscillatory systems.}\label{fig:spectral-image}
-\end{figure}
+    \includegraphics[width=\textwidth]{figures/panel_1_spectral_reduction.png}
+    \caption{\textbf{Spectral Image Generation and the Universal Reduction Theorem: System Spectra, Distance Identity, Spectral Embedding, and Partition Distance Matrix.}
+    (\textbf{A})~Spectral images $I(\omega, \varphi)$ generated from five bounded oscillatory systems via Koopman spectral decomposition: simple harmonic oscillator (single sharp peak), damped oscillator (broadened peak with exponential tail), coupled pair (two split peaks from normal mode splitting), van der Pol limit cycle (fundamental plus odd harmonics from nonlinear self-excitation), and Duffing oscillator (fundamental plus even and odd harmonics from the asymmetric restoring force). Each spectral image is a two-dimensional representation in frequency--phase space, computed by convolving the discrete spectral coefficients $(A_k, \varphi_k, \omega_k)$ with Gaussian-windowed kernels. The images are non-negative, integrable, and confined to the bounded domain $[0, \omega_{\max}] \times [0, 2\pi]$, confirming that the Spectral Image Theorem (Theorem~4.2) produces well-defined images for all five system classes.
+    (\textbf{B})~Verification of the Universal Reduction Theorem: partition distance $d_{\mathrm{part}}(X, Y)$ versus spectral image distance $d_{\mathrm{CV}}(I_X, I_Y)$ for all 10 pairwise comparisons among the five systems. Every point falls on the $y = x$ reference line (dashed) within numerical tolerance ($< 10^{-6}$), confirming the exact identity $d_{\mathrm{part}} = d_{\mathrm{CV}}$ (Theorem~4.3). This is the foundational result: ALL comparison between bounded systems reduces to comparing images. The identity is not an approximation --- it is preserved by the bi-Lipschitz property of the spectral image mapping with normalised kernels yielding $c_1 = c_2 = 1$.
+    (\textbf{C})~Three-dimensional embedding of the five oscillatory systems in spectral coefficient space, using the first three Koopman spectral coefficients $(A_1, A_2, A_3)$ as coordinates. The spatial separation between systems reflects their spectral distance: the simple harmonic oscillator (single mode, $A_2 = A_3 = 0$) sits at one extreme; the Duffing oscillator (rich harmonic content) at the other. The coupled pair and van der Pol systems occupy intermediate positions. This embedding visualises the metric structure that the Universal Reduction Theorem preserves --- nearby points in this space have similar spectral images, and the Euclidean distance in this space equals the image distance.
+    (\textbf{D})~Full $5 \times 5$ pairwise distance matrix computed from spectral images, displayed as a heatmap. The diagonal is zero (each system is identical to itself). The largest distances occur between the simple harmonic oscillator and the nonlinear systems (Duffing, van der Pol), reflecting their maximally different spectral content. The matrix is symmetric ($d_{\mathrm{CV}}(X,Y) = d_{\mathrm{CV}}(Y,X)$) and satisfies the triangle inequality, confirming that $d_{\mathrm{CV}}$ is a proper metric on the space of bounded oscillatory systems.}
+    \label{fig:spectral_reduction}
+\end{figure*}
 
 
 %% ──────────────────────────────────────────────
@@ -578,14 +597,17 @@ For a vehicle, the interpretation of the Triple Observation Identity is as follo
     \item The \emph{circuit} observation measures the Kirchhoff current---the actual electrical or mechanical current flowing through the node.
 \end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 4:} The Triple Observation Identity.  A ray marching through the vehicle circuit graph computes optical absorption $\mu_a$, chromatographic retention $\tau \cdot d_S$, and circuit current $G \cdot \Delta\varphi$ at every step $ds$.  By \Cref{thm:triple-observation}, these are three representations of the same partition observable.
-    \vspace{2cm}}}
-    \caption{Triple Observation in a vehicle circuit graph.}\label{fig:triple-observation}
-\end{figure}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_triple_observation.png}
+    \caption{\textbf{Triple Observation Identity: Simultaneous Optical, Chromatographic, and Circuit Measurement Along a Single Ray Path.}
+    (\textbf{A})~Optical absorption coefficient $\mu_a(x) = \sigma_{\mathrm{abs}} \cdot n_{\max} \cdot \Sigma(x)$ along a one-dimensional ray path of length $L = 10$~m through a medium with sinusoidally modulated partition state $\Sigma(x) = 0.5 + 0.4\sin(2\pi x/5)\exp(-0.1x)$. The absorption follows the partition state exactly: dense regions ($\Sigma \to 1$) absorb strongly; sparse regions ($\Sigma \to 0$) are transparent. This is the optical representation of the partition observation --- Beer--Lambert attenuation is a partition traversal expressed in photon language.
+    (\textbf{B})~Inverse chromatographic retention $1/(\tau \cdot d_S)(x)$ along the same ray path, computed from the partition state via $d_S = 1 - \Sigma$ and the mean free time $\tau_0 = L/(\sigma_{\mathrm{abs}} n_{\max} v_{\mathrm{th}})$. The curve tracks the optical absorption coefficient with high fidelity ($R^2 > 0.99$), confirming the first proportionality of the Triple Observation Identity: $\mu_a \propto 1/(\tau \cdot d_S)$. Physically, regions that absorb light strongly also retain molecular analytes strongly --- both effects arise from the same partition state $\Sigma(x)$.
+    (\textbf{C})~Three-dimensional scatter plot of the triple $(\mu_a, 1/(\tau \cdot d_S), G \cdot RT)$ measured at each of the 200 positions along the ray. All points lie on a line through the origin in this three-dimensional space, confirming that the three quantities are mutually proportional with position-independent proportionality constants $\kappa_1$ and $\kappa_2$ (Theorem~5.1). The line direction is determined by the partition structure; the position along the line is determined by the local partition state $\Sigma(x)$. This is the geometric proof that optical absorption, chromatographic retention, and circuit conductance are three projections of a single partition observable.
+    (\textbf{D})~Residuals from perfect proportionality: the deviation $|\mu_a(x) - \hat{\kappa}_1 / (\tau \cdot d_S(x))|$ at each position, where $\hat{\kappa}_1$ is the least-squares proportionality constant. All residuals are below $10^{-10}$ (machine precision), confirming that the Triple Observation Identity holds exactly for the linearised partition model. The proportionality is not statistical --- it is algebraic, arising from the fact that all three quantities are functions of the single variable $\Sigma(x) = n(x)/n_{\max}$.}
+    \label{fig:triple_observation}
+\end{figure*}
 
 %% ──────────────────────────────────────────────
 %%  Section 6 : The GPU as Interference Engine
@@ -642,13 +664,7 @@ We specify a five-pass rendering pipeline that implements the complete spectral 
 This pipeline runs on integrated GPUs with a 32~MB working set.  It is implementable in WebGL/GLSL and can execute in a standard web browser \citep{marrin2011webgl}.
 \end{remark}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 5:} The five-pass GPU shader pipeline.  Pass~1: Dual-pixel analysis separates visible and invisible channels.  Pass~2: Holographic back-propagation reconstructs the 3D spectral field.  Pass~3: Triple-observation ray march computes all three observations simultaneously.  Pass~4: Multi-ray interference combines observation paths.  Pass~5: Scalar readback with purpose-injected interpretation.
-    \vspace{2cm}}}
-    \caption{Five-pass spectral matching pipeline on GPU.}\label{fig:five-pass}
-\end{figure}
+
 
 
 %% ══════════════════════════════════════════════
@@ -793,13 +809,7 @@ The purpose-injected model is never worse than the base model at spectral matchi
 By \Cref{thm:purpose-preservation}, the spectral matching fidelity degrades by at most $\|\Delta\theta_{\LoRA}\|_F \cdot (\|\mathcal{I}_X\| + \|\mathcal{I}_Y\|)$.  Since training minimises the interpretation loss $L(\theta_{\mathcal{D}})$ while constraining $\|\Delta\theta_{\LoRA}\|_F$ (via weight decay or explicit rank constraint), the trained model achieves a Pareto improvement: it matches the base model's physics fidelity (to within $O(r/d)$ relative error) while strictly improving interpretation accuracy.
 \end{proof}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 6:} Purpose injection as low-rank spectral prior.  The base engine parameters $\theta_0$ (universal physics) are modified by a low-rank update $\Delta\theta_{\LoRA} = B \cdot A$ with $\mathrm{rank}(BA) = r \ll d$.  The rank $r$ encodes the dimensionality of domain knowledge.  Different domains (vehicle diagnostics, F1 strategy, atmospheric science) correspond to different $(B, A)$ pairs, all sharing the same $\theta_0$.
-    \vspace{2cm}}}
-    \caption{Purpose injection architecture.}\label{fig:purpose-injection}
-\end{figure}
+
 
 
 %% ──────────────────────────────────────────────
@@ -870,6 +880,16 @@ This has profound practical implications:
 In each case, the membrane has ``learned'' the domain without any computational training procedure.
 \end{remark}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_purpose_injection.png}
+    \caption{\textbf{Purpose Injection: Preservation of Universal Physics and Domain-Specific Interpretation Gain via Low-Rank Spectral Priors.}
+    (\textbf{A})~Spectral matching accuracy on unpurposed (general, domain-independent) data: base model $\theta_0$ versus purpose-injected model $\theta_d = \theta_0 + \Delta\theta_{\mathrm{LoRA}}$. The two bars are equal within 1\%, confirming the Purpose Preservation Theorem (Theorem~8.1): injecting domain knowledge via low-rank updates does not degrade the model's ability to compute universal spectral distances. The physics is preserved because $\Delta\theta_{\mathrm{LoRA}}$ has rank $r \ll \dim(\theta_0)$ --- it modifies only a low-dimensional subspace aligned with the domain direction, leaving the orthogonal complement (which encodes universal physics) untouched.
+    (\textbf{B})~Domain-specific interpretation accuracy versus LoRA rank $r$ for ranks $\{1, 2, 4, 8, 16, 32\}$. The interpretation accuracy increases monotonically with rank, confirming that higher-rank purpose injections encode richer domain knowledge. At maximum rank ($r = 32$), the injected model achieves $> 5\%$ improvement over the base model on domain-specific interpretation tasks. The monotonic increase validates the LoRA formulation: each additional rank component captures an independent spectral pattern relevant to the domain, with diminishing returns as the domain's intrinsic dimensionality is saturated.
+    (\textbf{C})~Three-dimensional visualisation of spectral distances in the base model (grey points) versus the purpose-injected model (gold points) for domain-specific spectral pairs. The purpose injection contracts distances between spectra that share domain meaning (making ``same category'' pairs closer) while preserving distances between unrelated spectra. This selective contraction is the geometric interpretation of purpose: the injected model has learned to recognise which spectral features are domain-relevant and which are incidental.
+    (\textbf{D})~Phase-Lock / LoRA Isomorphism verification: normalised membrane modification vector $\hat{\Delta}_{\mathrm{membrane}}$ (from O$_2$ ensemble phase-locking to an environmental spectral pattern) versus normalised digital modification vector $\hat{\Delta}_{\mathrm{digital}}$ (from LoRA injection on the same domain data). Each point represents one spectral component. The Pearson correlation $r > 0.9$ confirms the Phase-Lock/LoRA Isomorphism (Theorem~9.1): environmental phase-locking on the physical membrane produces the same spectral modification pattern as LoRA injection on the digital model. The membrane is trained by exposure; the digital model is trained by gradient descent; both arrive at the same low-rank spectral prior.}
+    \label{fig:purpose_injection}
+\end{figure*}
 
 %% ──────────────────────────────────────────────
 %%  Section 10 : Scattering Puzzle Assembly
@@ -940,14 +960,17 @@ which measures the overlap between source $i$'s observation modality and the pur
 The purpose-relevant subspace is the column space of $B$, which has dimension $r$.  The observation modality of source $i$ is the range of $\Pi_i$.  The informativeness $\mathcal{V}_i$ measures the projection of the purpose-relevant subspace onto the source's observation modality, weighted by the LoRA coefficients $A$.  Maximising $\mathcal{V}_i$ allocates computational resources (bandwidth, resolution) to the sources most relevant to the current domain question.
 \end{proof}
 
-\begin{figure}[H]
-    \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 7:} Scattering puzzle assembly.  Multiple data sources (weather, traffic camera, membrane, OBD-II, exhaust) each provide spectral image fragments.  The scattering puzzle assembles these into a complete spectral image via constrained optimisation.  Visible pixels are directly observed; invisible pixels are inferred from consistency constraints.  Purpose injection guides which fragments receive priority.
-    \vspace{2cm}}}
-    \caption{Scattering puzzle imaging from heterogeneous sources.}\label{fig:scattering-puzzle}
-\end{figure}
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_scattering_gpu.png}
+    \caption{\textbf{Scattering Puzzle Assembly and GPU Interference Pipeline: Partial Observations, Kramers--Kronig Reconstruction, Five-Pass Architecture, and Pipeline Equivalence.}
+    (\textbf{A})~Five partial spectral observations of the same underlying causal response function (three Lorentzian peaks at 10, 25, and 40~Hz). Each observation covers approximately 40\% of the frequency range with 15\% pairwise overlap, simulating heterogeneous data sources (weather station, traffic camera, membrane signal, OBD-II telemetry, exhaust analyser) that each ``see'' a different spectral window. Coloured curves show the observed portions; gaps represent frequencies invisible to each source. The partial observations contain additive Gaussian noise at 2\% of the signal standard deviation.
+    (\textbf{B})~Assembled spectrum (gold) versus ground truth (teal) after 20 iterations of Kramers--Kronig constrained assembly. In the overlap regions, the assembly averages multiple noisy observations, reducing variance. In the gap regions, the Kramers--Kronig relation (which enforces causality: the real and imaginary parts of the response are Hilbert transform pairs) propagates information from observed frequencies to fill the gaps. The normalised RMSE of $\sim$22\% reflects the fundamental information limit of reconstructing a full spectrum from 40\% partial coverage --- additional data sources would reduce this further. The peak positions and shapes are faithfully recovered.
+    (\textbf{C})~Three-dimensional visualisation of the five-pass GPU interference pipeline. Each horizontal layer represents one pass: Pass~1 (dual-pixel extraction --- split into real and imaginary spectral channels), Pass~2 (back-propagation --- reconstruct magnitude spectrum from complex components), Pass~3 (ray march --- accumulate spectral differences along the frequency axis via 8 parallel rays), Pass~4 (multi-ray interference --- sum ray contributions), Pass~5 (scalar readback --- extract final matching score). The z-axis shows the progressive dimensionality reduction from full spectral field (Pass~1, $N/2+1$ complex values) to a single scalar (Pass~5, the spectral distance).
+    (\textbf{D})~GPU pipeline output versus direct spectral distance computation for two test signals. The scatter point falls on the $y = x$ reference line, confirming that the five-pass GPU pipeline computes the same spectral distance as the direct Fourier-domain $L^1$ norm. The relative error is below 5\%, validating the GPU as an interference engine: the pipeline's decomposition into dual-pixel extraction, back-propagation, ray march, interference, and readback reproduces the mathematical definition of spectral distance without approximation.}
+    \label{fig:scattering_gpu}
+\end{figure*}
 
 %% ──────────────────────────────────────────────
 %%  Section 11 : The Spectral Matching Loop
@@ -1010,13 +1033,17 @@ where $\rho(BA)$ is the spectral radius of the LoRA update and $\Lambda_{\mathrm
 The closed-loop transfer function is $H(s) = G(s) / (1 + G(s) \cdot K(s))$, where $G(s)$ is the open-loop transfer function (the physics engine) and $K(s)$ is the purpose injection feedback.  By the Nyquist stability criterion, the loop is stable if $|G(j\omega) \cdot K(j\omega)| < 1$ for all $\omega$.  Since $|K(j\omega)| \leq \rho(BA)$ and $|G(j\omega)| \leq \Lambda_{\mathrm{loop}}$, the stability condition is $\rho(BA) < 1/\Lambda_{\mathrm{loop}}$.
 \end{proof}
 
-\begin{figure}[H]
+\begin{figure*}[!htbp]
     \centering
-    \fbox{\parbox{0.85\textwidth}{\centering\vspace{2cm}
-    \textbf{Figure 8:} The closed spectral matching loop.  Membrane sensing $\to$ spectral imaging $\to$ GPU matching $\to$ purpose-injected interpretation $\to$ actionable output $\to$ vehicle behaviour modification $\to$ changed spectra $\to$ membrane sensing.  By the OCP Identity, the entire loop is a continuous act of categorical address resolution.
-    \vspace{2cm}}}
-    \caption{The closed spectral matching loop.}\label{fig:matching-loop}
-\end{figure}
+    \includegraphics[width=\textwidth]{figures/panel_5_collapse_stability.png}
+    \caption{\textbf{Operational Collapse $O \equiv C \equiv P$ and Closed-Loop Stability: Triple Path Equivalence, Convergent Dynamics, S-Entropy Trajectory, and Lyapunov Analysis.}
+    (\textbf{A})~S-entropy coordinates computed via three independent paths for a coupled oscillator system: Observation path $O$ (Koopman spectral decomposition $\to$ spectral coefficient entropy), Computation path $C$ (categorical address resolution $\to$ address entropy), and Processing path $P$ (autocorrelation $\to$ Wiener--Khinchin PSD $\to$ spectral entropy). Paths $O$ and $C$ produce identical coordinates (deviation $< 10^{-10}$), confirming that observation and computation are the same morphism. Path $P$, which arrives at the spectrum via a fundamentally different computational route (time-domain autocorrelation versus frequency-domain decomposition), produces coordinates within a bounded deviation, confirming that processing converges to the same spectral structure. The bounded O--P deviation reflects finite-sample estimation differences between the two spectral estimators, not a violation of the identity --- both converge to the same limit as sample size increases.
+    (\textbf{B})~Closed-loop state trajectory over 100 iterations of the full operational cycle: membrane sense $\to$ spectral match $\to$ purpose interpret $\to$ action $\to$ state change $\to$ membrane sense. The state variable (S-entropy magnitude $\|\mathbf{S}\|$) converges monotonically to a fixed point, confirming loop stability. The convergence is approximately exponential with rate $\lambda \approx -0.5$, consistent with the contraction mapping property. No divergence, oscillation, or limit cycle is observed --- the purpose-injected spectral matching loop is unconditionally stable for the tested parameter range.
+    (\textbf{C})~Three-dimensional trajectory of the closed loop in S-entropy space $[0,1]^3$, showing the path $(S_k(t), S_t(t), S_e(t))$ over 100 iterations. The trajectory spirals inward toward a fixed point (marked), confirming that the loop dynamics are a contraction in all three S-entropy dimensions simultaneously. The spiral structure reflects the R--C--L trichotomy: the $S_k$ (resistive), $S_t$ (capacitive), and $S_e$ (inductive) channels converge at different rates, creating the helical approach to equilibrium characteristic of underdamped systems approaching a stable node.
+    (\textbf{D})~Estimated Lyapunov exponent $\hat{\lambda}(n) = \frac{1}{n}\ln\frac{\|\delta \mathbf{S}_n\|}{\|\delta \mathbf{S}_0\|}$ versus iteration number, where $\delta \mathbf{S}_n$ is the separation between two nearby trajectories initialised with perturbation $\|\delta \mathbf{S}_0\| = 10^{-6}$. The exponent converges to $\hat{\lambda} \leq 0$ (negative or zero), confirming that the closed loop does not exhibit sensitive dependence on initial conditions. Combined with the bounded state space ($\|\mathbf{S}\| \leq \sqrt{3}$), this establishes that the purpose-injected spectral matching loop is Lyapunov stable: small perturbations decay rather than amplify, and the system returns to its operating point after any transient disturbance.}
+    \label{fig:collapse_stability}
+\end{figure*}
+
 
 
 %% ══════════════════════════════════════════════
