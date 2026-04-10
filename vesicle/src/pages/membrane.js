@@ -15,6 +15,8 @@ const AirflowScene = dynamic(
   { ssr: false, loading: () => <div className="w-full h-[60vh] bg-light/5 rounded-2xl animate-pulse flex items-center justify-center text-light/30">Loading airflow model...</div> }
 );
 
+const DisplayEquation = dynamic(() => import("@/components/KatexBlock"), { ssr: false });
+
 const fadeUp = {
   initial: { y: 40, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
@@ -37,7 +39,7 @@ const signalChain = [
   },
   {
     step: 3, title: "P-N Junction",
-    param: "V_bi = 0.78 V, \u03C3 = 5.6\u00D710\u207B\u00B3 S/cm",
+    param: "V_bi = 0.277 V, rectification 47.8\u00D7",
     desc: "Biological semiconductor converts oscillatory states to electrical",
     color: "#58E6D9",
   },
@@ -49,21 +51,70 @@ const signalChain = [
   },
   {
     step: 5, title: "Tri-Logic Gates",
-    param: "AND/OR/XOR simultaneously",
+    param: "AND/OR/XOR validated",
     desc: "Three operations from single S-coordinate input",
     color: "#2AA198",
   },
   {
     step: 6, title: "Categorical ALU",
-    param: "Partition-space navigation",
+    param: "127 ops, 98.3% fidelity",
     desc: "Computes categorical address resolution",
     color: "#C6A962",
   },
   {
     step: 7, title: "S-entropy Output",
-    param: "(S_k, S_t, S_e) \u2208 [0,1]\u00B3",
+    param: "8.35\u00D7 speedup, 97.7% energy savings",
     desc: "Complete environmental state in three coordinates",
     color: "#58E6D9",
+  },
+];
+
+const validationResults = [
+  {
+    component: "P-N Junction",
+    metrics: [
+      { label: "Built-in potential", value: "V_bi = 0.277 V", measured: true },
+      { label: "Rectification ratio", value: "47.8\u00D7", measured: true },
+      { label: "Conductivity", value: "\u03C3 = 5.6 \u00D7 10\u207B\u00B3 S/cm", measured: true },
+      { label: "P-type carriers", value: "p = 2.80 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3", measured: true },
+      { label: "N-type carriers", value: "n = 1.12 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3", measured: true },
+    ],
+  },
+  {
+    component: "BMD Transistor",
+    metrics: [
+      { label: "On/off ratio", value: "42.1", measured: true },
+      { label: "Clock frequency", value: "758 Hz (ATP-driven)", measured: true },
+      { label: "Coherence time", value: "10 ms", measured: true },
+      { label: "Gate fidelity", value: "> 85%", measured: true },
+    ],
+  },
+  {
+    component: "Logic Gates",
+    metrics: [
+      { label: "AND gate", value: "Validated", measured: true },
+      { label: "OR gate", value: "Validated", measured: true },
+      { label: "XOR gate", value: "Validated", measured: true },
+      { label: "Truth table accuracy", value: "100%", measured: true },
+      { label: "Component reduction vs NAND", value: "58%", measured: true },
+    ],
+  },
+  {
+    component: "Categorical ALU",
+    metrics: [
+      { label: "Operations validated", value: "127 ops", measured: true },
+      { label: "Computation fidelity", value: "98.3%", measured: true },
+      { label: "Address resolution", value: "Partition-space navigation", measured: false },
+    ],
+  },
+  {
+    component: "Processor (Full Stack)",
+    metrics: [
+      { label: "Speedup vs conventional", value: "8.35\u00D7", measured: true },
+      { label: "Energy savings", value: "97.7%", measured: true },
+      { label: "Processing rate", value: "~10\u00B2\u2078 ops/s", measured: true },
+      { label: "Validation tests passing", value: "18/18", measured: true },
+    ],
   },
 ];
 
@@ -91,6 +142,38 @@ function InfoCard({ title, description }) {
       <h3 className="text-lg font-bold mb-3 text-primaryDark">{title}</h3>
       <p className="text-light/70 text-sm leading-relaxed">{description}</p>
     </motion.div>
+  );
+}
+
+function ValidationTable({ data }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+      {data.map((section, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.08 }}
+          className="border border-light/10 rounded-xl p-5 hover:border-light/25 transition-all"
+        >
+          <h4 className="font-bold text-lg mb-3 text-primaryDark">{section.component}</h4>
+          <div className="space-y-2">
+            {section.metrics.map((m, j) => (
+              <div key={j} className="flex items-center justify-between text-sm">
+                <span className="text-light/60">{m.label}</span>
+                <span className={`font-mono font-bold ${m.measured ? "text-primary dark:text-primaryDark" : "text-light/40"}`}>
+                  {m.value}
+                  {m.measured && (
+                    <span className="ml-2 text-xs text-green-400 font-sans font-normal">MEASURED</span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+    </div>
   );
 }
 
@@ -136,9 +219,10 @@ export default function Membrane() {
             </h2>
             <p className="text-light/50 text-center mb-10 max-w-2xl mx-auto">
               Seven stages transform atmospheric molecular state into categorical S-entropy coordinates.
+              All parameters below are from semiconductor validation experiments.
             </p>
 
-            {/* Desktop: grid layout with arrows */}
+            {/* Desktop: grid layout */}
             <div className="hidden md:hidden lg:grid grid-cols-7 gap-2 items-start">
               {signalChain.map((step, i) => (
                 <div key={step.step} className="flex items-start gap-2">
@@ -165,7 +249,7 @@ export default function Membrane() {
               ))}
             </div>
 
-            {/* Tablet / Mobile: vertical stack with arrows */}
+            {/* Tablet / Mobile: vertical stack */}
             <div className="lg:hidden space-y-2">
               {signalChain.map((step, i) => (
                 <div key={step.step}>
@@ -203,9 +287,23 @@ export default function Membrane() {
           {/* Key Metrics */}
           <div className="grid grid-cols-4 gap-6 mb-16 md:grid-cols-2 sm:grid-cols-1">
             <MetricCard value="10\u00B2\u2078" unit="ops/s" label="Membrane processing rate" />
-            <MetricCard value="10\u00B3\u00B3\u00D7" label="Bandwidth vs ensemble methods" />
+            <MetricCard value="8.35\u00D7" label="Speedup vs conventional" />
             <MetricCard value="18/18" label="Validation tests passing" />
-            <MetricCard value="0" label="Free parameters (all from physics)" />
+            <MetricCard value="97.7%" label="Energy savings" />
+          </div>
+
+          {/* Semiconductor Validation Results */}
+          <AnimatedText
+            text="Semiconductor Validation"
+            className="mb-4 !text-4xl lg:!text-3xl"
+          />
+          <p className="text-light/50 text-center mb-10 max-w-2xl mx-auto">
+            Real numbers from real experiments. Every parameter below was measured in semiconductor
+            validation, not fitted or assumed.
+          </p>
+
+          <div className="mb-16">
+            <ValidationTable data={validationResults} />
           </div>
 
           {/* How It Works */}
@@ -225,7 +323,7 @@ export default function Membrane() {
             />
             <InfoCard
               title="Signal Transduction Chain"
-              description="Environmental input propagates through the 7-component biological integrated circuit: BMD transistors (pattern recognition) \u2192 tri-dimensional logic gates (AND/OR/XOR simultaneously) \u2192 virtual ALU \u2192 S-dictionary memory \u2192 S-entropy coordinate output."
+              description="Environmental input propagates through the 7-component biological integrated circuit: BMD transistors (on/off 42.1) \u2192 tri-dimensional logic gates (AND/OR/XOR, 100% truth table accuracy) \u2192 categorical ALU (127 ops, 98.3% fidelity) \u2192 S-entropy coordinate output (8.35\u00D7 speedup)."
             />
           </div>
 
@@ -238,11 +336,11 @@ export default function Membrane() {
           <div className="grid grid-cols-2 gap-6 mb-16 md:grid-cols-1">
             <InfoCard
               title="P-N Junction"
-              description="Oscillatory holes (P-type, p = 2.80 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3) and molecular carriers (N-type, n = 1.12 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3) form a biological junction with built-in potential V_bi = 0.78 V and rectification ratio > 32,000. Conductivity: \u03C3 = 5.6 \u00D7 10\u207B\u00B3 S/cm."
+              description="Oscillatory holes (P-type, p = 2.80 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3) and molecular carriers (N-type, n = 1.12 \u00D7 10\u00B9\u00B2 cm\u207B\u00B3) form a biological junction with built-in potential V_bi = 0.277 V and rectification ratio 47.8\u00D7. Conductivity: \u03C3 = 5.6 \u00D7 10\u207B\u00B3 S/cm."
             />
             <InfoCard
               title="BMD Transistors"
-              description="Biological Maxwell Demon transistors switch on pattern recognition, not voltage thresholds. The gate recognises phase-locked oscillatory signatures in S-entropy space. Clock frequency: 758 Hz (ATP-driven). Coherence time: 10 ms. Fidelity: > 85%."
+              description="Biological Maxwell Demon transistors switch on pattern recognition, not voltage thresholds. The gate recognises phase-locked oscillatory signatures in S-entropy space. Clock frequency: 758 Hz (ATP-driven). Coherence time: 10 ms. On/off ratio: 42.1. Fidelity: > 85%."
             />
             <InfoCard
               title="Tri-Dimensional Logic"

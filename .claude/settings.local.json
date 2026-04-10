@@ -28,7 +28,9 @@
       "Bash(python publication/counting-loops/figures/generate_panels.py)",
       "Bash(pip install:*)",
       "Bash(npm run:*)",
-      "Bash(python publication/vehicle-shader-computing/figures/generate_panels.py)"
+      "Bash(python publication/vehicle-shader-computing/figures/generate_panels.py)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

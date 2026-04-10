@@ -154,7 +154,7 @@ export default function HeroScene() {
         <color attach="background" args={["#0a0a0a"]} />
 
         <group position={[0, -1, 0]} rotation={[0, -Math.PI / 6, 0]}>
-          <McLarenW1 />
+          <McLarenW1 scale={[0.1, 0.1, 0.1]} />
         </group>
 
         <Podium />

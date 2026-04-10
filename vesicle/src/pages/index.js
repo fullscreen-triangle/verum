@@ -36,7 +36,7 @@ export default function Home() {
                 fontWeight: 900,
                 letterSpacing: "0.15em",
                 color: "transparent",
-                WebkitTextStroke: "1.5px rgba(255,255,255,0.25)",
+                WebkitTextStroke: "1.5px rgba(22, 7, 7, 0.25)",
                 textShadow: "0 0 60px rgba(42,161,152,0.15)",
               }}
             >
