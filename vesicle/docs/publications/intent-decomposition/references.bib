@@ -1,0 +1,831 @@
+% =====================================================================
+% References for:
+% "High-Velocity Vehicle Intent Decomposition: A Reflex-Cognitive
+%  Architecture for Autonomous Driving Based on Action-Intent
+%  Attribution in Physics-Dominated Regimes"
+% =====================================================================
+
+% -------- Classical mechanics and optimal control --------------------
+
+@book{goldstein2002classical,
+  author    = {Goldstein, Herbert and Poole, Charles and Safko, John},
+  title     = {Classical Mechanics},
+  edition   = {3},
+  publisher = {Addison-Wesley},
+  year      = {2002}
+}
+
+@book{arnold1989mathematical,
+  author    = {Arnold, Vladimir I.},
+  title     = {Mathematical Methods of Classical Mechanics},
+  edition   = {2},
+  publisher = {Springer},
+  year      = {1989}
+}
+
+@book{pontryagin1962mathematical,
+  author    = {Pontryagin, Lev S. and Boltyanskii, V. G. and Gamkrelidze, R. V. and Mishchenko, E. F.},
+  title     = {The Mathematical Theory of Optimal Processes},
+  publisher = {Interscience},
+  year      = {1962}
+}
+
+@book{bryson1975applied,
+  author    = {Bryson, Arthur E. and Ho, Yu-Chi},
+  title     = {Applied Optimal Control: Optimization, Estimation, and Control},
+  publisher = {Hemisphere Publishing},
+  year      = {1975}
+}
+
+@book{kirk2012optimal,
+  author    = {Kirk, Donald E.},
+  title     = {Optimal Control Theory: An Introduction},
+  publisher = {Dover Publications},
+  year      = {2012}
+}
+
+@book{bertsekas2012dynamic,
+  author    = {Bertsekas, Dimitri P.},
+  title     = {Dynamic Programming and Optimal Control},
+  edition   = {4},
+  publisher = {Athena Scientific},
+  year      = {2012}
+}
+
+@book{astrom2010feedback,
+  author    = {{\AA}str{\"o}m, Karl J. and Murray, Richard M.},
+  title     = {Feedback Systems: An Introduction for Scientists and Engineers},
+  publisher = {Princeton University Press},
+  year      = {2010}
+}
+
+@article{anderson1971linear,
+  author    = {Anderson, Brian D. O. and Moore, John B.},
+  title     = {Linear Optimal Control},
+  journal   = {Prentice-Hall},
+  year      = {1971}
+}
+
+% -------- Vehicle dynamics --------------------------------------------
+
+@book{milliken1995race,
+  author    = {Milliken, William F. and Milliken, Douglas L.},
+  title     = {Race Car Vehicle Dynamics},
+  publisher = {SAE International},
+  year      = {1995}
+}
+
+@book{gillespie1992fundamentals,
+  author    = {Gillespie, Thomas D.},
+  title     = {Fundamentals of Vehicle Dynamics},
+  publisher = {SAE International},
+  year      = {1992}
+}
+
+@book{pacejka2012tyre,
+  author    = {Pacejka, Hans B.},
+  title     = {Tyre and Vehicle Dynamics},
+  edition   = {3},
+  publisher = {Butterworth-Heinemann},
+  year      = {2012}
+}
+
+@book{genta1997motor,
+  author    = {Genta, Giancarlo},
+  title     = {Motor Vehicle Dynamics: Modeling and Simulation},
+  publisher = {World Scientific},
+  year      = {1997}
+}
+
+@book{guiggiani2014science,
+  author    = {Guiggiani, Massimo},
+  title     = {The Science of Vehicle Dynamics: Handling, Braking, and Ride of Road and Race Cars},
+  publisher = {Springer},
+  year      = {2014}
+}
+
+@book{rajamani2011vehicle,
+  author    = {Rajamani, Rajesh},
+  title     = {Vehicle Dynamics and Control},
+  edition   = {2},
+  publisher = {Springer},
+  year      = {2011}
+}
+
+@book{jazar2017vehicle,
+  author    = {Jazar, Reza N.},
+  title     = {Vehicle Dynamics: Theory and Application},
+  edition   = {3},
+  publisher = {Springer},
+  year      = {2017}
+}
+
+@book{wong2008theory,
+  author    = {Wong, J. Y.},
+  title     = {Theory of Ground Vehicles},
+  edition   = {4},
+  publisher = {Wiley},
+  year      = {2008}
+}
+
+% -------- Racing and racing-line optimisation -------------------------
+
+@book{wright2001formula,
+  author    = {Wright, Peter},
+  title     = {Formula 1 Technology},
+  publisher = {SAE International},
+  year      = {2001}
+}
+
+@book{beckman1991physics,
+  author    = {Beckman, Brian},
+  title     = {The Physics of Racing},
+  publisher = {Self-published},
+  year      = {1991}
+}
+
+@article{casanova2000minimum,
+  author    = {Casanova, D.},
+  title     = {On Minimum Time Vehicle Manoeuvring: The Theoretical Optimal Lap},
+  journal   = {PhD Thesis, Cranfield University},
+  year      = {2000}
+}
+
+@article{perantoni2014optimal,
+  author    = {Perantoni, Giacomo and Limebeer, David J. N.},
+  title     = {Optimal Control for a {F}ormula {O}ne Car with Variable Parameters},
+  journal   = {Vehicle System Dynamics},
+  volume    = {52},
+  number    = {5},
+  pages     = {653--678},
+  year      = {2014}
+}
+
+@article{limebeer2015optimal,
+  author    = {Limebeer, David J. N. and Perantoni, G. and Rao, Anil V.},
+  title     = {Optimal Control of Formula One Car Energy Recovery Systems},
+  journal   = {International Journal of Control},
+  volume    = {87},
+  number    = {10},
+  pages     = {2065--2080},
+  year     = {2015}
+}
+
+@article{tremlett2015minimum,
+  author    = {Tremlett, Alexander and Limebeer, David J. N.},
+  title     = {Minimum Lap-Time Solutions for a Single-Seater Race Car with Active Suspension},
+  journal   = {Vehicle System Dynamics},
+  volume    = {54},
+  number    = {12},
+  pages     = {1680--1706},
+  year      = {2015}
+}
+
+@article{velenis2008minimum,
+  author    = {Velenis, Efstathios and Tsiotras, Panagiotis},
+  title     = {Minimum-Time Travel for a Vehicle with Acceleration Limits: Theoretical Analysis and Receding-Horizon Implementation},
+  journal   = {Journal of Optimization Theory and Applications},
+  volume    = {138},
+  pages     = {275--296},
+  year      = {2008}
+}
+
+@article{aftalion2014train,
+  author    = {Aftalion, Amandine and Tr{\'e}lat, Emmanuel},
+  title     = {How to Run 100 Meters},
+  journal   = {SIAM Journal on Applied Mathematics},
+  volume    = {74},
+  number    = {5},
+  pages     = {1285--1306},
+  year      = {2014}
+}
+
+@article{kelly2008controlvehicle,
+  author    = {Kelly, Daniel P. and Sharp, Robin S.},
+  title     = {Time-Optimal Control of the Race Car: A Numerical Method to Emulate the Ideal Driver},
+  journal   = {Vehicle System Dynamics},
+  volume    = {48},
+  number    = {12},
+  pages     = {1461--1474},
+  year      = {2008}
+}
+
+% -------- Aerodynamics ------------------------------------------------
+
+@book{anderson2010aerodynamics,
+  author    = {Anderson, John D.},
+  title     = {Fundamentals of Aerodynamics},
+  edition   = {5},
+  publisher = {McGraw-Hill},
+  year      = {2010}
+}
+
+@book{katz2006aerodynamics,
+  author    = {Katz, Joseph},
+  title     = {Race Car Aerodynamics: Designing for Speed},
+  edition   = {2},
+  publisher = {Bentley Publishers},
+  year      = {2006}
+}
+
+@book{katzplotkin2001low,
+  author    = {Katz, Joseph and Plotkin, Allen},
+  title     = {Low-Speed Aerodynamics},
+  edition   = {2},
+  publisher = {Cambridge University Press},
+  year      = {2001}
+}
+
+@book{hoerner1965fluid,
+  author    = {Hoerner, Sighard F.},
+  title     = {Fluid-Dynamic Drag: Practical Information on Aerodynamic Drag and Hydrodynamic Resistance},
+  publisher = {Hoerner Fluid Dynamics},
+  year      = {1965}
+}
+
+@book{schlichting2017boundary,
+  author    = {Schlichting, Hermann and Gersten, Klaus},
+  title     = {Boundary-Layer Theory},
+  edition   = {9},
+  publisher = {Springer},
+  year      = {2017}
+}
+
+% -------- Internal combustion and hybrid ------------------------------
+
+@book{heywood2018internal,
+  author    = {Heywood, John B.},
+  title     = {Internal Combustion Engine Fundamentals},
+  edition   = {2},
+  publisher = {McGraw-Hill},
+  year      = {2018}
+}
+
+@book{stone1999introduction,
+  author    = {Stone, Richard},
+  title     = {Introduction to Internal Combustion Engines},
+  edition   = {3},
+  publisher = {Palgrave Macmillan},
+  year      = {1999}
+}
+
+@book{larminie2012electric,
+  author    = {Larminie, James and Lowry, John},
+  title     = {Electric Vehicle Technology Explained},
+  edition   = {2},
+  publisher = {Wiley},
+  year      = {2012}
+}
+
+@book{ehsani2018modern,
+  author    = {Ehsani, Mehrdad and Gao, Yimin and Longo, Stefano and Ebrahimi, Kambiz},
+  title     = {Modern Electric, Hybrid Electric, and Fuel Cell Vehicles},
+  edition   = {3},
+  publisher = {CRC Press},
+  year      = {2018}
+}
+
+% -------- Extreme value statistics ------------------------------------
+
+@book{gumbel1958statistics,
+  author    = {Gumbel, Emil J.},
+  title     = {Statistics of Extremes},
+  publisher = {Columbia University Press},
+  year      = {1958}
+}
+
+@article{fisher1928limiting,
+  author    = {Fisher, Ronald A. and Tippett, Leonard H. C.},
+  title     = {Limiting Forms of the Frequency Distribution of the Largest or Smallest Member of a Sample},
+  journal   = {Mathematical Proceedings of the Cambridge Philosophical Society},
+  volume    = {24},
+  number    = {2},
+  pages     = {180--190},
+  year      = {1928}
+}
+
+@book{coles2001introduction,
+  author    = {Coles, Stuart},
+  title     = {An Introduction to Statistical Modeling of Extreme Values},
+  publisher = {Springer},
+  year      = {2001}
+}
+
+@book{dehaan2006extreme,
+  author    = {de Haan, Laurens and Ferreira, Ana},
+  title     = {Extreme Value Theory: An Introduction},
+  publisher = {Springer},
+  year      = {2006}
+}
+
+@book{embrechts1997modelling,
+  author    = {Embrechts, Paul and Kl{\"u}ppelberg, Claudia and Mikosch, Thomas},
+  title     = {Modelling Extremal Events for Insurance and Finance},
+  publisher = {Springer},
+  year      = {1997}
+}
+
+% -------- Motor learning / neuroscience -------------------------------
+
+@book{shadmehr2005biology,
+  author    = {Shadmehr, Reza and Mussa-Ivaldi, Sandro},
+  title     = {Biological Learning and Control: How the Brain Builds Representations, Predicts Events, and Makes Decisions},
+  publisher = {MIT Press},
+  year      = {2012}
+}
+
+@book{schmidt2019motor,
+  author    = {Schmidt, Richard A. and Lee, Timothy D. and Winstein, Carolee J. and Wulf, Gabriele and Zelaznik, Howard N.},
+  title     = {Motor Control and Learning: A Behavioral Emphasis},
+  edition   = {6},
+  publisher = {Human Kinetics},
+  year      = {2019}
+}
+
+@book{willingham1998motor,
+  author    = {Willingham, Daniel B.},
+  title     = {A Neuropsychological Theory of Motor Skill Learning},
+  publisher = {Psychological Review},
+  year      = {1998}
+}
+
+@article{doyon2005reorganization,
+  author    = {Doyon, Julien and Benali, Habib},
+  title     = {Reorganization and Plasticity in the Adult Brain During Learning of Motor Skills},
+  journal   = {Current Opinion in Neurobiology},
+  volume    = {15},
+  pages     = {161--167},
+  year      = {2005}
+}
+
+@book{kandel2013principles,
+  author    = {Kandel, Eric R. and Schwartz, James H. and Jessell, Thomas M. and Siegelbaum, Steven A. and Hudspeth, A. J.},
+  title     = {Principles of Neural Science},
+  edition   = {5},
+  publisher = {McGraw-Hill},
+  year      = {2013}
+}
+
+@book{eccles1957physiology,
+  author    = {Eccles, John C.},
+  title     = {The Physiology of Nerve Cells},
+  publisher = {Johns Hopkins Press},
+  year      = {1957}
+}
+
+@book{enoka2015neuromechanics,
+  author    = {Enoka, Roger M.},
+  title     = {Neuromechanics of Human Movement},
+  edition   = {5},
+  publisher = {Human Kinetics},
+  year      = {2015}
+}
+
+% -------- Cognitive psychology ----------------------------------------
+
+@book{kahneman2011thinking,
+  author    = {Kahneman, Daniel},
+  title     = {Thinking, Fast and Slow},
+  publisher = {Farrar, Straus and Giroux},
+  year      = {2011}
+}
+
+@book{nielsen1993response,
+  author    = {Nielsen, Jakob},
+  title     = {Usability Engineering},
+  publisher = {Morgan Kaufmann},
+  year      = {1993}
+}
+
+@book{card1983psychology,
+  author    = {Card, Stuart K. and Moran, Thomas P. and Newell, Allen},
+  title     = {The Psychology of Human-Computer Interaction},
+  publisher = {Lawrence Erlbaum Associates},
+  year      = {1983}
+}
+
+% -------- Decision theory / uncertainty -------------------------------
+
+@book{knight1921risk,
+  author    = {Knight, Frank H.},
+  title     = {Risk, Uncertainty, and Profit},
+  publisher = {Houghton Mifflin},
+  year      = {1921}
+}
+
+@book{savage1972foundations,
+  author    = {Savage, Leonard J.},
+  title     = {The Foundations of Statistics},
+  edition   = {2},
+  publisher = {Dover},
+  year      = {1972}
+}
+
+@book{kay2020radical,
+  author    = {Kay, John and King, Mervyn},
+  title     = {Radical Uncertainty: Decision-Making Beyond the Numbers},
+  publisher = {W. W. Norton},
+  year      = {2020}
+}
+
+% -------- Autonomous vehicles -----------------------------------------
+
+@article{thrun2006stanley,
+  author    = {Thrun, Sebastian and Montemerlo, Michael and Dahlkamp, Hendrik and Stavens, David and Aron, Andrei and Diebel, James and Fong, Philip and Gale, John and Halpenny, Morgan and Hoffmann, Gabriel and others},
+  title     = {Stanley: The Robot That Won the {DARPA} Grand Challenge},
+  journal   = {Journal of Field Robotics},
+  volume    = {23},
+  number    = {9},
+  pages     = {661--692},
+  year      = {2006}
+}
+
+@article{urmson2008boss,
+  author    = {Urmson, Chris and Anhalt, Joshua and Bagnell, Drew and Baker, Christopher and Bittner, Robert and Clark, M. N. and Dolan, John and Duggins, Dave and Galatali, Tugrul and Geyer, Chris and others},
+  title     = {Autonomous Driving in Urban Environments: Boss and the Urban Challenge},
+  journal   = {Journal of Field Robotics},
+  volume    = {25},
+  number    = {8},
+  pages     = {425--466},
+  year      = {2008}
+}
+
+@article{levinson2011junior,
+  author    = {Levinson, Jesse and Askeland, Jake and Becker, Jan and Dolson, Jennifer and Held, David and Kammel, Soeren and Kolter, J. Zico and Langer, Dirk and Pink, Oliver and Pratt, Vaughan and others},
+  title     = {Towards Fully Autonomous Driving: Systems and Algorithms},
+  journal   = {IEEE Intelligent Vehicles Symposium},
+  pages     = {163--168},
+  year      = {2011}
+}
+
+@article{schwarting2018planning,
+  author    = {Schwarting, Wilko and Alonso-Mora, Javier and Rus, Daniela},
+  title     = {Planning and Decision-Making for Autonomous Vehicles},
+  journal   = {Annual Review of Control, Robotics, and Autonomous Systems},
+  volume    = {1},
+  pages     = {187--210},
+  year      = {2018}
+}
+
+@article{bojarski2016endtoend,
+  author    = {Bojarski, Mariusz and Del Testa, Davide and Dworakowski, Daniel and Firner, Bernhard and Flepp, Beat and Goyal, Prasoon and Jackel, Lawrence D. and Monfort, Mathew and Muller, Urs and Zhang, Jiakai and others},
+  title     = {End to End Learning for Self-Driving Cars},
+  journal   = {arXiv preprint arXiv:1604.07316},
+  year      = {2016}
+}
+
+@article{bansal2019chauffeurnet,
+  author    = {Bansal, Mayank and Krizhevsky, Alex and Ogale, Abhijit},
+  title     = {{ChauffeurNet}: Learning to Drive by Imitating the Best and Synthesizing the Worst},
+  journal   = {Robotics: Science and Systems},
+  year      = {2019}
+}
+
+@article{codevilla2018endtoend,
+  author    = {Codevilla, Felipe and M{\"u}ller, Matthias and L{\'o}pez, Antonio and Koltun, Vladlen and Dosovitskiy, Alexey},
+  title     = {End-to-End Driving via Conditional Imitation Learning},
+  journal   = {IEEE International Conference on Robotics and Automation},
+  year      = {2018}
+}
+
+@article{karnchanachari2022safety,
+  author    = {Karnchanachari, Napat and Wassermann, Marc-Oliver and Lomax, James and Ervan, Matthias and Blabutzki, Rene and Brenner, Mike and Hansen, Christian and Birkhoff, Dominik and Marchegiani, Letizia and Ijssel de Schepper, Kees},
+  title     = {Towards Learning-Based Planning: The nuPlan Benchmark for Real-World Autonomous Driving},
+  journal   = {arXiv preprint arXiv:2206.02623},
+  year      = {2022}
+}
+
+@techreport{sae2021j3016,
+  author    = {{SAE International}},
+  title     = {Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles},
+  institution = {{SAE}},
+  number    = {J3016},
+  year      = {2021}
+}
+
+% -------- MPC and racing-line optimisation ----------------------------
+
+@article{liniger2015optimization,
+  author    = {Liniger, Alexander and Domahidi, Alexander and Morari, Manfred},
+  title     = {Optimization-Based Autonomous Racing of 1:43 Scale {RC} Cars},
+  journal   = {Optimal Control Applications and Methods},
+  volume    = {36},
+  number    = {5},
+  pages     = {628--647},
+  year      = {2015}
+}
+
+@article{rosolia2019learning,
+  author    = {Rosolia, Ugo and Borrelli, Francesco},
+  title     = {Learning Model Predictive Control for Iterative Tasks. {A} Data-Driven Control Framework},
+  journal   = {IEEE Transactions on Automatic Control},
+  volume    = {63},
+  number    = {7},
+  pages     = {1883--1896},
+  year      = {2019}
+}
+
+% -------- RL in driving and methodology -------------------------------
+
+@article{kendall2019learning,
+  author    = {Kendall, Alex and Hawke, Jeffrey and Janz, David and Mazur, Przemyslaw and Reda, Daniele and Allen, John-Mark and Lam, Vinh-Dieu and Bewley, Alex and Shah, Amar},
+  title     = {Learning to Drive in a Day},
+  journal   = {IEEE International Conference on Robotics and Automation},
+  year      = {2019}
+}
+
+@article{mnih2015human,
+  author    = {Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and others},
+  title     = {Human-Level Control Through Deep Reinforcement Learning},
+  journal   = {Nature},
+  volume    = {518},
+  number    = {7540},
+  pages     = {529--533},
+  year      = {2015}
+}
+
+@article{bellemare2013arcade,
+  author    = {Bellemare, Marc G. and Naddaf, Yavar and Veness, Joel and Bowling, Michael},
+  title     = {The Arcade Learning Environment: An Evaluation Platform for General Agents},
+  journal   = {Journal of Artificial Intelligence Research},
+  volume    = {47},
+  pages     = {253--279},
+  year      = {2013}
+}
+
+@inproceedings{ng2000algorithms,
+  author    = {Ng, Andrew Y. and Russell, Stuart J.},
+  title     = {Algorithms for Inverse Reinforcement Learning},
+  booktitle = {Proceedings of the 17th International Conference on Machine Learning},
+  pages     = {663--670},
+  year      = {2000}
+}
+
+@inproceedings{ziebart2008maximum,
+  author    = {Ziebart, Brian D. and Maas, Andrew L. and Bagnell, J. Andrew and Dey, Anind K.},
+  title     = {Maximum Entropy Inverse Reinforcement Learning},
+  booktitle = {AAAI Conference on Artificial Intelligence},
+  pages     = {1433--1438},
+  year      = {2008}
+}
+
+% -------- Coupled oscillators / synchronisation ------------------------
+
+@book{kuramoto1984chemical,
+  author    = {Kuramoto, Yoshiki},
+  title     = {Chemical Oscillations, Waves, and Turbulence},
+  publisher = {Springer-Verlag},
+  year      = {1984}
+}
+
+@article{strogatz2000kuramoto,
+  author    = {Strogatz, Steven H.},
+  title     = {From {K}uramoto to {C}rawford: Exploring the Onset of Synchronization in Populations of Coupled Oscillators},
+  journal   = {Physica D},
+  volume    = {143},
+  pages     = {1--20},
+  year      = {2000}
+}
+
+@book{pikovsky2001synchronization,
+  author    = {Pikovsky, Arkady and Rosenblum, Michael and Kurths, J{\"u}rgen},
+  title     = {Synchronization: A Universal Concept in Nonlinear Sciences},
+  publisher = {Cambridge University Press},
+  year      = {2001}
+}
+
+@article{acebron2005kuramoto,
+  author    = {Acebr{\'o}n, Juan A. and Bonilla, L. L. and P{\'e}rez Vicente, Conrado J. and Ritort, F{\'e}lix and Spigler, Renato},
+  title     = {The {K}uramoto Model: A Simple Paradigm for Synchronization Phenomena},
+  journal   = {Reviews of Modern Physics},
+  volume    = {77},
+  pages     = {137--185},
+  year      = {2005}
+}
+
+% -------- Sprint biomechanics -----------------------------------------
+
+@article{hill1925muscular,
+  author    = {Hill, Archibald V.},
+  title     = {The Physiological Basis of Athletic Records},
+  journal   = {Nature},
+  volume    = {116},
+  pages     = {544--548},
+  year      = {1925}
+}
+
+@article{keller1973theory,
+  author    = {Keller, Joseph B.},
+  title     = {A Theory of Competitive Running},
+  journal   = {Physics Today},
+  volume    = {26},
+  number    = {9},
+  pages     = {43--47},
+  year      = {1973}
+}
+
+@article{mureika2001phenomenological,
+  author    = {Mureika, Jonas R.},
+  title     = {A Simple Model for Predicting Sprint-Race Times Accounting for Energy Loss on the Curve},
+  journal   = {Canadian Journal of Physics},
+  volume    = {79},
+  pages     = {697--713},
+  year      = {2001}
+}
+
+% -------- FIA and data sources ----------------------------------------
+
+@techreport{fia2023technical,
+  author    = {{F{\'e}d{\'e}ration Internationale de l'Automobile}},
+  title     = {2023 {FIA} Formula One Technical Regulations},
+  institution = {FIA},
+  year      = {2023}
+}
+
+@techreport{fia2023sporting,
+  author    = {{F{\'e}d{\'e}ration Internationale de l'Automobile}},
+  title     = {2023 {FIA} Formula One Sporting Regulations},
+  institution = {FIA},
+  year      = {2023}
+}
+
+@techreport{pirelli2023specs,
+  author    = {{Pirelli Tyre S.p.A.}},
+  title     = {2023 {F}ormula 1 Tyre Specifications},
+  institution = {Pirelli},
+  year      = {2023}
+}
+
+@misc{fastf12023docs,
+  author    = {{FastF1 Contributors}},
+  title     = {{FastF1}: A {Python} Package for Accessing and Analysing {F}ormula 1 Results, Schedules, Timing Data, and Telemetry},
+  howpublished = {\url{https://docs.fastf1.dev/}},
+  year      = {2023}
+}
+
+@misc{ergast2023docs,
+  author    = {{Ergast Developer API}},
+  title     = {Ergast {F1} {API} Documentation},
+  howpublished = {\url{http://ergast.com/mrd/}},
+  year      = {2023}
+}
+
+% -------- Numerical methods -------------------------------------------
+
+@book{press2007numerical,
+  author    = {Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
+  title     = {Numerical Recipes: The Art of Scientific Computing},
+  edition   = {3},
+  publisher = {Cambridge University Press},
+  year      = {2007}
+}
+
+@book{hairer1993solving,
+  author    = {Hairer, Ernst and N{\o}rsett, Syvert P. and Wanner, Gerhard},
+  title     = {Solving Ordinary Differential Equations I: Nonstiff Problems},
+  edition   = {2},
+  publisher = {Springer},
+  year      = {1993}
+}
+
+@book{butcher2016numerical,
+  author    = {Butcher, John C.},
+  title     = {Numerical Methods for Ordinary Differential Equations},
+  edition   = {3},
+  publisher = {Wiley},
+  year      = {2016}
+}
+
+@book{betts2010practical,
+  author    = {Betts, John T.},
+  title     = {Practical Methods for Optimal Control and Estimation Using Nonlinear Programming},
+  edition   = {2},
+  publisher = {SIAM},
+  year      = {2010}
+}
+
+@book{biegler2010nonlinear,
+  author    = {Biegler, Lorenz T.},
+  title     = {Nonlinear Programming: Concepts, Algorithms, and Applications to Chemical Processes},
+  publisher = {SIAM},
+  year      = {2010}
+}
+
+% -------- Statistics --------------------------------------------------
+
+@book{kay1993fundamentals,
+  author    = {Kay, Steven M.},
+  title     = {Fundamentals of Statistical Signal Processing: Estimation Theory},
+  publisher = {Prentice Hall},
+  year      = {1993}
+}
+
+@book{cramer1946mathematical,
+  author    = {Cram{\'e}r, Harald},
+  title     = {Mathematical Methods of Statistics},
+  publisher = {Princeton University Press},
+  year      = {1946}
+}
+
+@book{wasserman2013all,
+  author    = {Wasserman, Larry},
+  title     = {All of Statistics: A Concise Course in Statistical Inference},
+  publisher = {Springer},
+  year      = {2013}
+}
+
+@book{efron1993bootstrap,
+  author    = {Efron, Bradley and Tibshirani, Robert J.},
+  title     = {An Introduction to the Bootstrap},
+  publisher = {Chapman \& Hall/CRC},
+  year      = {1993}
+}
+
+@article{tibshirani2007bootstrap,
+  author    = {Tibshirani, Robert J. and Efron, Bradley},
+  title     = {Bootstrap Methods for Standard Errors, Confidence Intervals, and Other Measures of Statistical Accuracy},
+  journal   = {Statistical Science},
+  volume    = {1},
+  number    = {1},
+  pages     = {54--77},
+  year      = {2007}
+}
+
+@article{sobol1993sensitivity,
+  author    = {Sobol, Ilya M.},
+  title     = {Sensitivity Estimates for Nonlinear Mathematical Models},
+  journal   = {Mathematical Modelling and Computational Experiments},
+  volume    = {1},
+  pages     = {407--414},
+  year      = {1993}
+}
+
+@book{saltelli2008global,
+  author    = {Saltelli, Andrea and Ratto, Marco and Andres, Terry and Campolongo, Francesca and Cariboni, Jessica and Gatelli, Debora and Saisana, Michaela and Tarantola, Stefano},
+  title     = {Global Sensitivity Analysis: The Primer},
+  publisher = {Wiley},
+  year      = {2008}
+}
+
+@article{bartlett2002rademacher,
+  author    = {Bartlett, Peter L. and Mendelson, Shahar},
+  title     = {Rademacher and Gaussian Complexities: Risk Bounds and Structural Results},
+  journal   = {Journal of Machine Learning Research},
+  volume    = {3},
+  pages     = {463--482},
+  year      = {2002}
+}
+
+% -------- Behaviour trees and planning --------------------------------
+
+@book{colledanchise2018behavior,
+  author    = {Colledanchise, Michele and {\"O}gren, Petter},
+  title     = {Behavior Trees in Robotics and AI: An Introduction},
+  publisher = {CRC Press},
+  year      = {2018}
+}
+
+@book{russell2020artificial,
+  author    = {Russell, Stuart and Norvig, Peter},
+  title     = {Artificial Intelligence: A Modern Approach},
+  edition   = {4},
+  publisher = {Pearson},
+  year      = {2020}
+}
+
+% -------- Kolmogorov complexity ---------------------------------------
+
+@book{liming2013kolmogorov,
+  author    = {Li, Ming and Vit{\'a}nyi, Paul M. B.},
+  title     = {An Introduction to {K}olmogorov Complexity and Its Applications},
+  edition   = {3},
+  publisher = {Springer},
+  year      = {2013}
+}
+
+% -------- Historical: additional grounding ----------------------------
+
+@article{bellman1957dynamic,
+  author    = {Bellman, Richard},
+  title     = {Dynamic Programming},
+  journal   = {Princeton University Press},
+  year      = {1957}
+}
+
+@article{kalman1960new,
+  author    = {Kalman, Rudolph E.},
+  title     = {A New Approach to Linear Filtering and Prediction Problems},
+  journal   = {Journal of Basic Engineering},
+  volume    = {82},
+  number    = {1},
+  pages     = {35--45},
+  year      = {1960}
+}
+
+@book{lewis2012optimal,
+  author    = {Lewis, Frank L. and Vrabie, Draguna and Syrmos, Vassilis L.},
+  title     = {Optimal Control},
+  edition   = {3},
+  publisher = {Wiley},
+  year      = {2012}
+}
