@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: theoretical-minimum-bahrain.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--there's a number but no volume in gadola2014
+You've used 72 entries,
+            2118 wiz_defined-function locations,
+            852 strings with 11663 characters,
+and the built_in function-call counts, 18711 in all, are:
+= -- 1792
+> -- 772
+< -- 1
++ -- 325
+- -- 240
+* -- 1068
+:= -- 3271
+add.period$ -- 217
+call.type$ -- 72
+change.case$ -- 314
+chr.to.int$ -- 0
+cite$ -- 73
+duplicate$ -- 805
+empty$ -- 1622
+format.name$ -- 240
+if$ -- 3874
+int.to.chr$ -- 0
+int.to.str$ -- 72
+missing$ -- 106
+newline$ -- 364
+num.names$ -- 144
+pop$ -- 443
+preamble$ -- 1
+purify$ -- 264
+quote$ -- 0
+skip$ -- 477
+stack$ -- 0
+substring$ -- 848
+swap$ -- 70
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 208
+warning$ -- 1
+while$ -- 183
+width$ -- 74
+write$ -- 769
+(There was 1 warning)

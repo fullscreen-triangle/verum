@@ -1,0 +1,70 @@
+\contentsline {part}{I\hspace {1em}Foundations}{3}{part.1}%
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {paragraph}{Organisation.}{4}{section*.3}%
+\contentsline {section}{\numberline {2}The Bahrain International Circuit}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Overall layout and history}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Turn-by-turn geometry}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Straights and DRS zones}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Track and atmospheric conditions for reference}{4}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Vehicle Dynamics Foundation}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Formula One car as a constrained dynamical system}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Hill--Keller-style energetics}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Exponential approach to terminal velocity}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Time to fractional velocity}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Distance to fractional velocity}{8}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Corner Penalty Framework}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Maximum cornering speed from the friction budget}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Steady-state cornering speed}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Mureika-style radius-dependent penalty}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Time penalty of a corner}{9}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Multi-Scale Oscillatory Coupling in Formula One}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Why coupling matters for lap time}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The 15-scale hierarchy}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Inter-scale coupling}{9}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Critical coupling thresholds for lap performance}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Implications for lap time}{10}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Energy Systems Analysis}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Energy supply per lap}{10}{subsection.6.1}%
+\contentsline {paragraph}{ICE fuel energy.}{10}{section*.8}%
+\contentsline {paragraph}{MGU-K deployment.}{11}{section*.9}%
+\contentsline {paragraph}{MGU-H harvested.}{11}{section*.10}%
+\contentsline {paragraph}{Total usable lap energy.}{11}{section*.11}%
+\contentsline {subsection}{\numberline {6.2}Energy demand per lap}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Optimal ERS deployment}{11}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Fuel-load effect on qualifying}{11}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Tire Grip Constraints}{12}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Friction-coefficient modelling}{12}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Downforce-dependent effective grip}{12}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Tire degradation over a stint}{12}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Slip and thermal coupling}{12}{subsection.7.4}%
+\contentsline {section}{\numberline {8}The Five Fundamental Constraints}{12}{section.8}%
+\contentsline {section}{\numberline {9}Constraint Intersection and the Theoretical Minimum}{14}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Minimum-time optimal control problem}{14}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Euler--Lagrange analysis}{14}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Bahrain lap decomposition}{14}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Numerical integration}{15}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Main result}{15}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Computational validation of the main result}{16}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Validation against the 2023 qualifying record}{16}{subsection.9.7}%
+\contentsline {part}{II\hspace {1em}Validation}{16}{part.2}%
+\contentsline {section}{\numberline {10}Historical Lap-Time Progression}{16}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Bahrain pole-position record 2004--2023}{16}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Interpretation}{16}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Extreme-Value Analysis}{18}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Gumbel distribution of lap-time minima}{18}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}MLE fit to 2004--2023 pole times}{19}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Regulation-specific sub-samples}{19}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Expected waiting time for a sub-1:29.0 record}{19}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Parameter Sensitivity}{19}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Setup}{19}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Monte Carlo results}{21}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Sensitivities}{21}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Variance decomposition}{21}{subsection.12.4}%
+\contentsline {part}{III\hspace {1em}Discussion}{21}{part.3}%
+\contentsline {section}{\numberline {13}Why 2023 Is Near the Limit}{21}{section.13}%
+\contentsline {section}{\numberline {14}Engineering Implications}{23}{section.14}%
+\contentsline {section}{\numberline {15}Generalisation to Other Circuits}{23}{section.15}%
+\contentsline {section}{\numberline {16}Conclusion}{23}{section.16}%
+\contentsline {section}{\numberline {A}Numerical parameter reference}{24}{appendix.A}%
+\contentsline {section}{\numberline {B}Closed-form results}{24}{appendix.B}%
+\contentsline {section}{\numberline {C}Monte Carlo algorithm}{24}{appendix.C}%

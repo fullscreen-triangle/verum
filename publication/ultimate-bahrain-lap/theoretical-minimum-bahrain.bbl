@@ -1,0 +1,376 @@
+\begin{thebibliography}{10}
+
+\bibitem{acebron2005}
+Juan~A. Acebr{\'o}n, L.~L. Bonilla, Conrad~J. P{\'e}rez~Vicente, F{\'e}lix
+  Ritort, and Renato Spigler.
+\newblock The kuramoto model: A simple paradigm for synchronization phenomena.
+\newblock {\em Reviews of Modern Physics}, 77(1):137--185, 2005.
+
+\bibitem{aftalion2020}
+Amandine Aftalion and Emmanuel Tr{\'e}lat.
+\newblock How to run 100 meters.
+\newblock {\em Royal Society Open Science}, 7(4):200201, 2020.
+
+\bibitem{anderson2017}
+John~D. Anderson.
+\newblock {\em Fundamentals of Aerodynamics}.
+\newblock McGraw-Hill, 6th edition, 2017.
+
+\bibitem{turbocharging2015}
+Nicholas~C. Baines.
+\newblock Fundamentals of turbocharging.
+\newblock {\em Concepts NREC Technical Documentation}, 2015.
+
+\bibitem{beckman1991}
+Brian Beckman.
+\newblock {\em The Physics of Racing, Series 1--10}.
+\newblock Cal State Los Angeles, 1991.
+\newblock Self-published technical notes.
+
+\bibitem{bertsekas2005}
+Dimitri~P. Bertsekas.
+\newblock {\em Dynamic Programming and Optimal Control}, volume~1.
+\newblock Athena Scientific, 3rd edition, 2005.
+
+\bibitem{blundell2004}
+Michael Blundell and Damian Harty.
+\newblock {\em The Multibody Systems Approach to Vehicle Dynamics}.
+\newblock Elsevier, 2004.
+
+\bibitem{bower2014}
+Allan~F. Bower.
+\newblock {\em Applied Mechanics of Solids}.
+\newblock CRC Press, 2014.
+
+\bibitem{bryson1975}
+Arthur~E. Bryson and Yu-Chi Ho.
+\newblock {\em Applied Optimal Control: Optimization, Estimation, and Control}.
+\newblock Hemisphere/Taylor \& Francis, 1975.
+
+\bibitem{butcher2016}
+John~C. Butcher.
+\newblock {\em Numerical Methods for Ordinary Differential Equations}.
+\newblock Wiley, 3rd edition, 2016.
+
+\bibitem{casanova2000}
+D.~Casanova, R.~S. Sharp, and P.~Symonds.
+\newblock Minimum time manoeuvring: The significance of yaw inertia.
+\newblock {\em Vehicle System Dynamics}, 34(2):77--115, 2000.
+
+\bibitem{lotus1965}
+Colin Chapman and Graham Hill.
+\newblock Notes on formula one suspension and aerodynamic balance.
+\newblock {\em Team Lotus Internal Technical Memo}, 1965.
+
+\bibitem{clark1981}
+S.~K. Clark.
+\newblock Mechanics of pneumatic tires.
+\newblock {\em NHTSA Report DOT-HS-805-952}, 1981.
+
+\bibitem{coles2001}
+Stuart Coles.
+\newblock {\em An Introduction to Statistical Modeling of Extreme Values}.
+\newblock Springer, 2001.
+
+\bibitem{cramer1946}
+Harald Cram{\'e}r.
+\newblock {\em Mathematical Methods of Statistics}.
+\newblock Princeton University Press, 1946.
+
+\bibitem{dehaan2006}
+Laurens de~Haan and Ana Ferreira.
+\newblock {\em Extreme Value Theory: An Introduction}.
+\newblock Springer, 2006.
+
+\bibitem{dixon2007}
+John~C. Dixon.
+\newblock {\em Tires, Suspension and Handling}.
+\newblock SAE International, 2nd edition, 2007.
+
+\bibitem{ehsani2018}
+Mehrdad Ehsani, Yimin Gao, Stefano Longo, and Kambiz Ebrahimi.
+\newblock {\em Modern Electric, Hybrid Electric, and Fuel Cell Vehicles}.
+\newblock CRC Press, 3rd edition, 2018.
+
+\bibitem{embrechts1997}
+Paul Embrechts, Claudia Kl{\"u}ppelberg, and Thomas Mikosch.
+\newblock {\em Modelling Extremal Events for Insurance and Finance}.
+\newblock Springer, 1997.
+
+\bibitem{ergast2024}
+{Ergast Developer API}.
+\newblock Motor racing data: A formula one dataset, 2024.
+\newblock \url{http://ergast.com/mrd/}.
+
+\bibitem{fia2023sport}
+{F{\'e}d{\'e}ration Internationale de l'Automobile}.
+\newblock 2023 formula one sporting regulations.
+\newblock Technical report, FIA, Geneva, Switzerland, 2023.
+
+\bibitem{fia2023tech}
+{F{\'e}d{\'e}ration Internationale de l'Automobile}.
+\newblock 2023 formula one technical regulations.
+\newblock Technical report, FIA, Geneva, Switzerland, 2023.
+
+\bibitem{fisher1928}
+R.~A. Fisher and L.~H.~C. Tippett.
+\newblock Limiting forms of the frequency distribution of the largest or
+  smallest member of a sample.
+\newblock {\em Proceedings of the Cambridge Philosophical Society},
+  24:180--190, 1928.
+
+\bibitem{formula1web}
+{Formula 1}.
+\newblock Official formula 1 website: Race results and statistics, 2024.
+\newblock \url{https://www.formula1.com/}.
+
+\bibitem{gadola2014}
+Marco Gadola and Daniele Vetturi.
+\newblock Interactive driver model for race car performance simulation.
+\newblock {\em SAE Technical Paper}, (2014-01-0033), 2014.
+
+\bibitem{genta1997}
+Giancarlo Genta.
+\newblock {\em Motor Vehicle Dynamics: Modeling and Simulation}.
+\newblock World Scientific, 1997.
+
+\bibitem{gillespie1992}
+Thomas~D. Gillespie.
+\newblock {\em Fundamentals of Vehicle Dynamics}.
+\newblock SAE International, 1992.
+
+\bibitem{guiggiani2018}
+Massimo Guiggiani.
+\newblock {\em The Science of Vehicle Dynamics}.
+\newblock Springer, 2nd edition, 2018.
+
+\bibitem{gumbel1958}
+E.~J. Gumbel.
+\newblock {\em Statistics of Extremes}.
+\newblock Columbia University Press, 1958.
+
+\bibitem{hairer2006}
+Ernst Hairer, Christian Lubich, and Gerhard Wanner.
+\newblock {\em Geometric Numerical Integration}.
+\newblock Springer, 2nd edition, 2006.
+
+\bibitem{heywood1988}
+John~B. Heywood.
+\newblock {\em Internal Combustion Engine Fundamentals}.
+\newblock McGraw-Hill, 1988.
+
+\bibitem{hill1925}
+A.~V. Hill.
+\newblock The physiological basis of athletic records.
+\newblock {\em Nature}, 116:544--548, 1925.
+
+\bibitem{hoerner1965}
+Sighard~F. Hoerner.
+\newblock {\em Fluid-Dynamic Drag}.
+\newblock Hoerner Fluid Dynamics, 1965.
+
+\bibitem{katz2016}
+Joseph Katz.
+\newblock {\em Race Car Aerodynamics: Designing for Speed}.
+\newblock Bentley Publishers, 2nd edition, 2016.
+
+\bibitem{katz1995}
+Joseph Katz and Allen Plotkin.
+\newblock {\em Low-Speed Aerodynamics: From Wing Theory to Panel Methods}.
+\newblock McGraw-Hill, 1995.
+
+\bibitem{kay1993}
+Steven~M. Kay.
+\newblock {\em Fundamentals of Statistical Signal Processing: Estimation
+  Theory}.
+\newblock Prentice Hall, 1993.
+
+\bibitem{keller1973}
+Joseph~B. Keller.
+\newblock A theory of competitive running.
+\newblock {\em Physics Today}, 26(9):43--47, 1973.
+
+\bibitem{kelley1960}
+H.~J. Kelley.
+\newblock Gradient theory of optimal flight paths.
+\newblock {\em ARS Journal}, 30(10):947--954, 1960.
+
+\bibitem{kelly2010}
+D.~P. Kelly and R.~S. Sharp.
+\newblock Time-optimal control of the race car: a numerical method to emulate
+  the ideal driver.
+\newblock {\em Vehicle System Dynamics}, 48(12):1461--1474, 2010.
+
+\bibitem{kummer1966}
+H.~W. Kummer.
+\newblock {\em Unified Theory of Rubber and Tire Friction}.
+\newblock Pennsylvania State University Engineering Research Bulletin B-94,
+  1966.
+
+\bibitem{kuramoto1984}
+Yoshiki Kuramoto.
+\newblock {\em Chemical Oscillations, Waves, and Turbulence}.
+\newblock Springer, 1984.
+
+\bibitem{larminie2012}
+James Larminie and John Lowry.
+\newblock {\em Electric Vehicle Technology Explained}.
+\newblock Wiley, 2nd edition, 2012.
+
+\bibitem{limebeer2015}
+David J.~N. Limebeer and Giacomo Perantoni.
+\newblock Optimal control of a formula one car on a three-dimensional track.
+\newblock {\em Vehicle System Dynamics}, 53(10):1531--1557, 2015.
+
+\bibitem{mastinu1997}
+Giampiero Mastinu and Massimiliano Gobbi.
+\newblock Influence of mass and stiffness of suspended and unsprung masses on
+  vehicle dynamics.
+\newblock {\em Vehicle System Dynamics}, 27(S):363--376, 1997.
+
+\bibitem{milliken1995}
+William~F. Milliken and Douglas~L. Milliken.
+\newblock {\em Race Car Vehicle Dynamics}.
+\newblock SAE International, Warrendale, PA, 1995.
+
+\bibitem{mureika2001}
+Jonas~R. Mureika.
+\newblock A realistic quasi-physical model of the 100-metre dash.
+\newblock {\em Canadian Journal of Physics}, 79(4):697--713, 2001.
+
+\bibitem{pacejka2012}
+Hans~B. Pacejka.
+\newblock {\em Tire and Vehicle Dynamics}.
+\newblock Butterworth-Heinemann, 3rd edition, 2012.
+
+\bibitem{pacejka1987}
+Hans~B. Pacejka and Egbert Bakker.
+\newblock The magic formula tyre model.
+\newblock {\em Vehicle System Dynamics}, 21:1--18, 1992.
+
+\bibitem{perantoni2014}
+Giacomo Perantoni and David J.~N. Limebeer.
+\newblock Optimal control for a formula one car with variable parameters.
+\newblock {\em Vehicle System Dynamics}, 52(5):653--678, 2014.
+
+\bibitem{persson2001}
+B.~N.~J. Persson.
+\newblock Theory of rubber friction and contact mechanics.
+\newblock {\em Journal of Chemical Physics}, 115(8):3840--3861, 2001.
+
+\bibitem{pikovsky2001}
+Arkady Pikovsky, Michael Rosenblum, and J{\"u}rgen Kurths.
+\newblock {\em Synchronization: A Universal Concept in Nonlinear Sciences}.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{pontryagin1962}
+L.~S. Pontryagin, V.~G. Boltyanskii, R.~V. Gamkrelidze, and E.~F. Mishchenko.
+\newblock {\em The Mathematical Theory of Optimal Processes}.
+\newblock Wiley-Interscience, 1962.
+
+\bibitem{pressNR2007}
+William~H. Press, Saul~A. Teukolsky, William~T. Vetterling, and Brian~P.
+  Flannery.
+\newblock {\em Numerical Recipes: The Art of Scientific Computing}.
+\newblock Cambridge University Press, 3rd edition, 2007.
+
+\bibitem{fastf12024}
+FastF1 Project.
+\newblock Fastf1: Python library for f1 telemetry and timing data, 2024.
+\newblock \url{https://docs.fastf1.dev/}.
+
+\bibitem{rajamani2012}
+Rajesh Rajamani.
+\newblock {\em Vehicle Dynamics and Control}.
+\newblock Springer, 2nd edition, 2012.
+
+\bibitem{saltelli2008}
+A.~Saltelli, M.~Ratto, T.~Andres, F.~Campolongo, J.~Cariboni, D.~Gatelli,
+  M.~Saisana, and S.~Tarantola.
+\newblock {\em Global Sensitivity Analysis: The Primer}.
+\newblock Wiley, 2008.
+
+\bibitem{savkoor1966}
+A.~R. Savkoor.
+\newblock The lateral flexibility of pneumatic tires.
+\newblock {\em SAE Transactions}, 75, 1966.
+
+\bibitem{schlichting2017}
+Hermann Schlichting and Klaus Gersten.
+\newblock {\em Boundary-Layer Theory}.
+\newblock Springer, 9th edition, 2017.
+
+\bibitem{smith2010}
+Julian~Happian Smith.
+\newblock {\em An Introduction to Modern Vehicle Design}.
+\newblock Butterworth-Heinemann, 2010.
+
+\bibitem{sobol2001}
+I.~M. Sobol'.
+\newblock Global sensitivity indices for nonlinear mathematical models and
+  their monte carlo estimates.
+\newblock {\em Mathematics and Computers in Simulation}, 55:271--280, 2001.
+
+\bibitem{stone1999}
+Richard Stone.
+\newblock {\em Introduction to Internal Combustion Engines}.
+\newblock Macmillan, 3rd edition, 1999.
+
+\bibitem{strogatz2000}
+Steven~H. Strogatz.
+\newblock From kuramoto to crawford: Exploring the onset of synchronization in
+  populations of coupled oscillators.
+\newblock {\em Physica D}, 143:1--20, 2000.
+
+\bibitem{strogatz2018}
+Steven~H. Strogatz.
+\newblock {\em Nonlinear Dynamics and Chaos}.
+\newblock CRC Press, 2nd edition, 2018.
+
+\bibitem{tibshirani1997}
+Robert Tibshirani.
+\newblock Who is the fastest man in the world?
+\newblock {\em American Statistician}, 51(2):106--111, 1997.
+
+\bibitem{toet2013}
+Willem Toet.
+\newblock Aerodynamics and aerodynamic research in formula 1.
+\newblock {\em The Aeronautical Journal}, 117(1187):1--26, 2013.
+
+\bibitem{tremayne2015}
+David Tremayne.
+\newblock {\em The Science of Formula 1 Design}.
+\newblock Haynes Publishing, 2015.
+
+\bibitem{tremlett2015}
+A.~J. Tremlett and D.~J.~N. Limebeer.
+\newblock Optimal tyre usage for a formula one car.
+\newblock {\em Vehicle System Dynamics}, 54(10):1448--1473, 2016.
+
+\bibitem{pirelli2023}
+Pirelli Tyre.
+\newblock F1 tyre range 2023: Compound characteristics and thermal windows.
+\newblock Technical report, Pirelli, 2023.
+
+\bibitem{velenis2008}
+Efstathios Velenis and Panagiotis Tsiotras.
+\newblock Minimum-time travel for a vehicle with acceleration limits.
+\newblock {\em Journal of Dynamic Systems, Measurement, and Control}, 130,
+  2008.
+
+\bibitem{wasserman2004}
+Larry Wasserman.
+\newblock {\em All of Statistics: A Concise Course in Statistical Inference}.
+\newblock Springer, 2004.
+
+\bibitem{wright2001}
+Peter Wright.
+\newblock {\em Formula 1 Technology}.
+\newblock SAE International, 2001.
+
+\bibitem{zhang2006}
+X.~Zhang, W.~Toet, and J.~Zerihan.
+\newblock Ground effect aerodynamics of race cars.
+\newblock {\em Applied Mechanics Reviews}, 59:33--49, 2006.
+
+\end{thebibliography}

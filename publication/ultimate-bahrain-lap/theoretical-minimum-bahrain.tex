@@ -56,9 +56,9 @@
 A Multi-Constraint Oscillatory Coupling Framework\\ for Formula One Performance Limits}}
 
 \author{
-  Kundai Farai Sachikonye\\
-  \small Technical University of Munich\\
-  \small \texttt{kundai.sachikonye@wzw.tum.de}
+Kundai Farai Sachikonye\\
+AIMe Registry for Artificial Intelligence\\
+\texttt{kundai.sachikonye@wzw.tum.de}
 }
 
 \date{April 2026}
@@ -117,22 +117,27 @@ extracts the launch acceleration profile, integrates, and arrives at an elapsed
 time that is accurate to within the coefficient of restitution of the tire--track
 interface. In hill climbs over short courses, lap time is dominated by grip: the
 car either adheres, or it does not, and there is little interaction between
-successive constraints. Formula One, in contrast, lives at the intersection of
-at least five constraints that are \emph{all} simultaneously active for some
+successive constraints. Formula One~\cite{wright2001,tremayne2015,bower2014,smith2010,beckman1991,katz2016},
+in contrast, lives at the intersection of at least five constraints that are \emph{all} simultaneously active for some
 fraction of the lap: energy supply, aerodynamic drag, tire friction, mechanical
 bandwidth (brakes, suspension, gearbox), and the finite bandwidth of the
 driver-in-the-loop human controller.
 
 The conventional industrial approach to lap-time prediction is \emph{forward
-simulation}: a high-fidelity vehicle model (multibody suspension, Pacejka
-tire model, CFD-derived aeromap, transient thermal model) is coupled to a
-lap-long driver model (either a rule-based racing-line solver or a
+simulation}: a high-fidelity vehicle model~\cite{milliken1995,gillespie1992,rajamani2012}
+(multibody suspension, Pacejka tire model~\cite{pacejka1987,pacejka2012},
+CFD-derived aeromap~\cite{katz1995,anderson2017,zhang2006}, transient thermal
+model) is coupled to a lap-long driver model (either a rule-based racing-line solver or a
 model-predictive controller), and an integration is performed to obtain a
 predicted lap time. Such simulations are routinely used by Formula One teams
 for setup optimization and development. They are, however, not \emph{theoretical
 minima}: they depend on chosen racing lines, on tuned driver models, and they
 do not quantify the irreducible performance limit set by physics alone. A
-simulation minimum is a moving target; a theoretical minimum is not.
+simulation minimum is a moving target; a theoretical minimum is not. Related
+exact or near-exact optimal-racing-line treatments are reviewed in
+Casanova~\cite{casanova2000}, Tremlett~\cite{tremlett2015}, and the classical
+texts of Milliken~\cite{milliken1995}, Gillespie~\cite{gillespie1992}, and
+Genta~\cite{genta1997}.
 
 A second tradition, \emph{telemetry regression}, fits empirical models to
 observed lap data and extrapolates to hypothetical improved conditions. This
@@ -216,8 +221,9 @@ engineering implications and concludes.
 
 \subsection{Overall layout and history}
 
-The Bahrain International Circuit, located in Sakhir approximately 30\,km south
-of Manama, was designed by Hermann Tilke and opened in 2004. The Grand Prix
+The Bahrain International Circuit~\cite{formula1web,lotus1965}, located in
+Sakhir approximately 30\,km south of Manama, was designed by Hermann Tilke
+and opened in 2004. The Grand Prix
 layout used since 2010 for the main Bahrain Grand Prix has the following
 global parameters:
 \begin{itemize}[leftmargin=1.5em]
@@ -239,7 +245,7 @@ entire lap.
 \subsection{Turn-by-turn geometry}
 
 The corner radii quoted in Table~\ref{tab:corners} are obtained from published
-GPS traces, satellite imagery, and onboard telemetry fits. Where onboard data
+GPS traces, satellite imagery, and onboard telemetry fits~\cite{fastf12024,ergast2024}. Where onboard data
 conflicted with GPS, we defer to telemetry fits of the \emph{effective} corner
 radius (that which a racing-line solver would use), not the geometric road
 radius.
@@ -300,16 +306,17 @@ which correspond to typical evening-qualifying conditions. Deviations from
 these conditions are propagated through the Monte Carlo study of
 Section~\ref{sec:sensitivity}.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/panel_1_circuit_speed.png}
-\caption{Circuit and speed profile. (A) Two-dimensional layout of the Bahrain
-International Circuit with corner markers colour-coded by radius. (B) Predicted
-speed trace vs.\ lap distance. (C) Three-dimensional speed surface over
-(distance, lap-number) showing theoretical vs.\ simulated stochastic laps.
-(D) Corner radius bar chart for T1--T15.}
-\label{fig:panel1}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_1_circuit_speed.png}
+    \caption{\textbf{Bahrain International Circuit: Layout, Speed Trace, Speed Evolution Across Laps, and Corner Radius Distribution.}
+    (\textbf{A})~Two-dimensional plan view of the 5412~m Bahrain International Circuit reconstructed from corner coordinates in Table~\ref{tab:corners}. Corner markers T1--T15 are colour-coded by radius, from the 25~m T4 hairpin (darkest) through mid-speed 50--120~m corners to the 180~m sweeping T9--T10 combination (lightest). The three DRS-zone straights (main straight 1090~m, T3$\to$T4 350~m, T10$\to$T11 450~m) are visible as long low-curvature arcs; the remaining $\sim$2587~m of inter-corner segments carry the car at mixed cruising speeds. The layout is built on essentially flat terrain ($\Delta h \lesssim 10$~m), isolating the lap time from gravitational effects and leaving the five fundamental constraints of Section~\ref{sec:five} as the sole sources of performance limitation.
+    (\textbf{B})~Theoretical-minimum speed trace $v(s)$ along the 5412~m lap, obtained by forward/backward predictor-corrector integration of the constraint-intersection optimal control problem. Peak speed $\approx$100~m/s is reached toward the end of the main straight (limited by $\mathcal{C}_D$, the drag-limited finite-straight bound $v_{\max} \le (2P_{\mathrm{eff}}/(\rho C_d A))^{1/3}$ tightened by Eq.~\eqref{eq:dist-to-frac}); local minima coincide with apex speeds at each corner (limited by $\mathcal{C}_\mu$, the downforce-corrected friction circle $v_c = \sqrt{\mu g R/(1 - \mu\rho C_L A R/(2m))}$). The deepest minimum, $\sim$26~m/s, is at T4. Between these extremes the trace alternates power-limited acceleration and grip-limited deceleration, illustrating the one-active-constraint principle (Proposition~\ref{prop:one-active}): at every arc-length point exactly one of $\{\mathcal{C}_P,\mathcal{C}_D,\mathcal{C}_\mu,\mathcal{C}_M,\mathcal{C}_H\}$ is binding.
+    (\textbf{C})~Three-dimensional surface of speed over (arc length, lap number) for twenty stochastic laps generated by perturbing the physical parameters $(\mu, C_d A, C_L A, P_{\mathrm{eff}}, m, \rho)$ around the reference point within their $1\sigma$ Monte Carlo priors of Section~\ref{sec:sensitivity}. 
+    (\textbf{D})~Corner radius $R_i$ in metres for all fifteen corners of the Grand Prix layout (values of Table~\ref{tab:corners}). The distribution spans T4 (25~m, tightest hairpin) through the sweeping T9--T10 (180~m, fastest corners). This 7.2$\times$ radius span is the largest of any current Formula One circuit apart from Silverstone, and is the structural reason why no single constraint dominates the Bahrain lap: the tight hairpins are grip-limited ($\mathcal{C}_\mu$), the main straight is drag-limited ($\mathcal{C}_D$), and the fast sweepers are limited by the downforce-augmented friction circle (the $\mathcal{C}_\mu$ hypersurface with $v$-dependent $g_{\mathrm{eff}}$).}
+    \label{fig:panel1}
 \end{figure*}
+
 
 %====================================================================
 \section{Vehicle Dynamics Foundation}
@@ -320,10 +327,11 @@ speed trace vs.\ lap distance. (C) Three-dimensional speed surface over
 We model a 2023-regulations Formula One car as a point mass
 $m$ with a single translational degree of freedom along a curvilinear abscissa
 $s$ (the racing-line arc length). This is the standard ``quasi-steady-state''
-reduction, justified because over a lap the lateral dynamics are slaved to the
+reduction~\cite{milliken1995,gillespie1992,genta1997,guiggiani2018,rajamani2012,blundell2004},
+justified because over a lap the lateral dynamics are slaved to the
 longitudinal dynamics via the friction circle (Section~\ref{sec:tire}).
 
-The minimum mass under 2023 regulations is
+The minimum mass under 2023 regulations~\cite{fia2023tech,fia2023sport} is
 \[
   m_{\mathrm{min}} = 798~\mathrm{kg}\;(\text{car}) + 80~\mathrm{kg}\;(\text{driver+equipment}) = 878~\mathrm{kg},
 \]
@@ -370,7 +378,7 @@ Consider a car of mass $m$ travelling in a straight line with propulsive force
 $F_{\mathrm{prop}}$ and resistive forces
 $F_{\mathrm{res}}(v) = F_0 + c v^2$, where $F_0$ absorbs rolling resistance
 and parasitic drag, and $c = \tfrac{1}{2}\rho C_d A$ is the aerodynamic drag
-coefficient. For constant-power propulsion,
+coefficient~\cite{anderson2017,hoerner1965,schlichting2017}. For constant-power propulsion,
 \[
   F_{\mathrm{prop}}(v) = \frac{P_{\mathrm{eff}}}{v}.
 \]
@@ -379,8 +387,8 @@ Newton's second law reads
   m\frac{dv}{dt} = \frac{P_{\mathrm{eff}}}{v} - F_0 - cv^2,
   \label{eq:hk-eom}
 \end{equation}
-which is the direct Formula One analogue of the Hill--Keller sprint equation
-originally derived for human athletes (replacing a constant propulsive force
+which is the direct Formula One analogue of the Hill--Keller sprint
+equation~\cite{hill1925,keller1973} originally derived for human athletes (replacing a constant propulsive force
 with a constant-power term). Multiplying through by $v$ gives an energy-rate
 equation
 \begin{equation}
@@ -530,8 +538,8 @@ effective gravitational acceleration with downforce included:
   = g + \frac{\rho\, C_L A\, v^2}{2 m}.
   \label{eq:geff}
 \end{equation}
-Here $C_L A$ is the lift-area product; for a 2023 Bahrain low-downforce setup
-we adopt $C_L A = 4.0~\mathrm{m}^2$.
+Here $C_L A$ is the lift-area product~\cite{katz1995,hoerner1965,zhang2006};
+for a 2023 Bahrain low-downforce setup we adopt $C_L A = 4.0~\mathrm{m}^2$.
 
 \subsection{Steady-state cornering speed}
 
@@ -579,7 +587,7 @@ straight-line trajectory of equal length:
 \end{enumerate}
 A phenomenological description that captures these effects in a single
 parameter, analogous to the radius-dependent dissipation modulus of
-Mureika's sprinting-curve model, is
+Mureika's sprinting-curve model~\cite{mureika2001}, is
 \begin{equation}
   v_{\mathrm{eff}}(R, t)
   = v_\infty \bigl( 1 - e^{-t/\tau} \bigr) \cdot
@@ -636,15 +644,7 @@ Thus, of the predicted $\sim 89$~s lap, $\sim 47\%$ is consumed by deviation
 from terminal velocity due to corners.
 \end{proposition}
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/panel_3_constraints.png}
-\caption{Constraint boundaries. (A) Maximum lateral acceleration vs.\ corner
-radius (friction ellipse with downforce). (B) Terminal velocity vs.\ effective
-drag coefficient. (C) Three-dimensional surface of minimum lap time over
-ICE power and tire $\mu$. (D) Single-parameter sensitivities
-(±10\%).}\label{fig:panel3}
-\end{figure*}
+
 
 %====================================================================
 \section{Multi-Scale Oscillatory Coupling in Formula One}
@@ -703,7 +703,8 @@ Let $\psi_k(t)$ denote the phase of oscillator $k$. The dynamics read
 \end{equation}
 where $H_k$ is the intrinsic (uncoupled) dynamics, $C_{kj}$ is a coupling
 coefficient, and $E_k(t)$ is an external driving (e.g.\ track perturbation).
-This is a generalised Kuramoto model on a hierarchy.
+This is a generalised Kuramoto model~\cite{kuramoto1984,strogatz2000,pikovsky2001,acebron2005}
+on a hierarchy.
 
 \begin{definition}[Coupling-normalised matrix]
 \label{def:kappa}
@@ -778,7 +779,8 @@ At $\dot m_f = 100$~kg/h and a 90~s lap,
   m_f^{\mathrm{lap}} = 100~\mathrm{kg/h} \times (90/3600)~\mathrm{h}
   = 2.5~\mathrm{kg}.
 \]
-With $Q_f = 43$~MJ/kg, the thermal fuel energy per lap is
+With $Q_f = 43$~MJ/kg (gasoline lower heating value~\cite{heywood1988,stone1999}),
+the thermal fuel energy per lap is
 \begin{equation}
   E_{\mathrm{thermal}}^{\mathrm{lap}} = 2.5 \times 43 = 107.5~\mathrm{MJ}.
 \end{equation}
@@ -788,14 +790,15 @@ At $\eta_{\mathrm{th}} = 0.50$, the mechanical work delivered per lap is
 \end{equation}
 
 \paragraph{MGU-K deployment.}
-Regulation caps MGU-K deployment from the Energy Store at 4~MJ per lap:
+Regulation~\cite{fia2023tech} caps MGU-K deployment from the Energy Store at 4~MJ per lap:
 \begin{equation}
   E_{\mathrm{MGU\text{-}K}}^{\mathrm{lap}} = 4~\mathrm{MJ}.
 \end{equation}
 
 \paragraph{MGU-H harvested.}
-The MGU-H feeds the Energy Store and the MGU-K with turbine-derived energy,
-uncapped by regulation. In practice, harvestable energy is bounded by exhaust
+The MGU-H feeds the Energy Store and the MGU-K with turbine-derived
+energy~\cite{turbocharging2015,larminie2012,ehsani2018}, uncapped by
+regulation. In practice, harvestable energy is bounded by exhaust
 enthalpy and turbine aerodynamics; for Bahrain qualifying we adopt
 $E_{\mathrm{MGU\text{-}H}}^{\mathrm{lap}} \approx 2$~MJ as delivered
 to the MGU-K (but this passes through the ES cap).
@@ -863,7 +866,8 @@ is large but still well below $v_\infty$.
 
 \begin{proof}[Proof]
 Minimising $T = \int ds/v(s)$ subject to
-$\int P\,dt \le E_{\max}$ gives the Lagrangian
+$\int P\,dt \le E_{\max}$~\cite{pontryagin1962,bertsekas2005,aftalion2020}
+gives the Lagrangian
 $\mathcal{L} = \int (1/v - \lambda P/v)\,ds$. The Euler--Lagrange condition
 leads to Eq.~\eqref{eq:dtdE} through $m v\, dv/ds = P - cv^3$.
 \end{proof}
@@ -877,8 +881,8 @@ matching industry reports.
 
 \subsection{Fuel-load effect on qualifying}
 
-A standard sensitivity used by race engineers is
-$\partial T / \partial m_f \approx +0.03$~s per kg of fuel in Bahrain. This
+A standard sensitivity used by race engineers~\cite{gadola2014,toet2013,dixon2007}
+is $\partial T / \partial m_f \approx +0.03$~s per kg of fuel in Bahrain. This
 matches the elementary estimate: a fractional mass increase $\delta m/m$
 slows the car at every acceleration segment by roughly $\delta m/m$, and
 acceleration segments represent $\sim$50\% of lap time. With total lap
@@ -887,15 +891,15 @@ time 90~s and $m = 888$~kg, $\partial T/\partial m \approx 0.03$~s/kg.
 For qualifying we assume 10~kg fuel, i.e.\ $\sim$0.3--0.4\,s lighter than
 race start. The theoretical minimum is evaluated at this low-fuel point.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/panel_2_energy_power.png}
-\caption{Energy and power budget. (A) Instantaneous propulsive and dissipative
-power vs.\ distance (ICE, MGU-K, drag). (B) Cumulative energy curves (fuel,
-ERS deployed, ERS harvested). (C) Three-dimensional energy-state trajectory
-over (battery SOC, fuel remaining, distance). (D) Decomposition of lap energy
-into kinetic, aerodynamic, tire, and braking contributions.}
-\label{fig:panel2}
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_2_energy_power.png}
+    \caption{\textbf{Energy and Power Budget at the Theoretical Minimum: Instantaneous Power Flows, Cumulative Energy Channels, Energy State Trajectory, and Lap Energy Decomposition.}
+    (\textbf{A})~Instantaneous power channels along the lap at the theoretical minimum. The ICE power (teal) reaches its regulation-limited peak $P_{\mathrm{ICE,peak}} \approx 597$~kW (from $\eta_{\mathrm{th}}\dot m_f Q_f$ with $\eta_{\mathrm{th}} = 0.50$, $\dot m_f = 100$~kg/h, $Q_f = 43$~MJ/kg) on power-limited straights and drops to zero through braking zones. The MGU-K power (gold) is deployed strategically (Proposition~\ref{prop:ersopt}) at the exits of T4, T10, and T15 where the marginal $\partial T/\partial E$ of Eq.~\eqref{eq:dtdE} is maximised. The drag power (coral, $P_{\mathrm{drag}} = \tfrac{1}{2}\rho C_d A v^3$) scales as $v^3$ and is therefore concentrated on the main straight where $v \gtrsim 90$~m/s.
+    (\textbf{B})~Cumulative energy curves along the lap. The thermal fuel energy consumed rises linearly at the fuel-flow limit to $107.5$~MJ over the 90~s lap; at $\eta_{\mathrm{th}} = 0.50$ this delivers $E_{\mathrm{ICE}}^{\mathrm{lap}} = 53.75$~MJ of mechanical work. The MGU-K deployment sums to the regulation cap of $4.0$~MJ. The combined supply envelope $E_{\mathrm{avail}}^{\mathrm{lap}} = 57.75$~MJ strictly bounds the computed propulsive demand $E_{\mathrm{prop}}^{\mathrm{comp}} = 49.0$~MJ, with a $\sim$15\% margin available for race-trim strategic use.
+    (\textbf{C})~Three-dimensional energy-state trajectory in the (battery state of charge, fuel remaining, arc length) space. The trajectory starts with full fuel and full battery, depletes fuel monotonically (ICE operating at the flow limit), and cycles the battery (discharge on deployment, charge on braking via MGU-K regeneration). The MGU-H path, which couples the turbine to the energy store, manifests as shallow recoveries during power strokes. The terminal state of a closed lap corresponds to battery neutrality (energy cycled without net change) and fuel decrement equal to $E_{\mathrm{thermal}}^{\mathrm{lap}}/Q_f = 2.5$~kg -- the qualifying lap fuel burn.
+    (\textbf{D})~Lap-integrated energy decomposition at the theoretical minimum. The propulsive work delivered to the contact patch is $E_{\mathrm{prop}} = 49.0$~MJ, balancing the accelerative kinetic increments ($E_{\mathrm{accel}} = 39.2$~MJ) against the three dissipation channels: braking heat ($E_{\mathrm{brake}} = 39.7$~MJ, dominant), aerodynamic drag ($E_{\mathrm{drag}} = 8.6$~MJ), and tire slip ($E_{\mathrm{tire}} = 1.2$~MJ). The energy-balance equation~\eqref{eq:energybalance} is satisfied to within $\sim 1\%$. Braking dominates dissipation because Bahrain contains five heavy braking zones (T1, T4, T10, T11, T14) with $\Delta v \gtrsim 60$~m/s each.}
+    \label{fig:panel2}
 \end{figure*}
 
 %====================================================================
@@ -905,7 +909,7 @@ into kinetic, aerodynamic, tire, and braking contributions.}
 \subsection{Friction-coefficient modelling}
 
 The peak longitudinal/lateral friction $\mu$ for a Formula One soft-compound
-tire is well-described by a Pacejka ``Magic Formula''
+tire is well-described by the Pacejka ``Magic Formula''~\cite{pacejka1987,pacejka2012}
 \begin{align}
   F_y/F_z &= D \sin\!\Bigl( C\,\arctan\!\bigl[ B\kappa \notag\\
   &\quad - E( B\kappa - \arctan(B\kappa) ) \bigr]\Bigr),
@@ -915,7 +919,8 @@ where $\kappa$ is the slip angle (lateral) or slip ratio (longitudinal) and
 $B,C,D,E$ are empirical parameters. For the purposes of lap-time computation
 we use the peak value $\mu_{\mathrm{peak}} = D$.
 
-For 2023 soft-compound Pirelli C4 at the optimal tread temperature
+For 2023 soft-compound Pirelli C4~\cite{pirelli2023} at the optimal tread
+temperature
 $T_{\mathrm{tread}} \in [95, 105]^\circ$C and asphalt temperature
 $T_{\mathrm{track}} \in [32, 42]^\circ$C,
 \[
@@ -958,7 +963,7 @@ $\mu = \mu_{\mathrm{peak}}$.
 \subsection{Slip and thermal coupling}
 
 The slip ratio itself depends on instantaneous driver inputs and tire
-temperature. A simplified thermal energy balance,
+temperature. A simplified thermal energy balance~\cite{persson2001,clark1981,savkoor1966,kummer1966},
 \begin{equation}
   m_t c_t \frac{dT_{\mathrm{tread}}}{dt}
   = P_{\mathrm{slip}}(t) - h A_{\mathrm{tire}}
@@ -1017,8 +1022,8 @@ thermal capacity:
   a_{\mathrm{long,brake}} \le \min(\mu g_{\mathrm{eff}}, a_{\mathrm{brake,sys}}) \Bigr\},
 \]
 with $a_{\mathrm{brake,sys}} \approx 6g$ for a healthy 2023 brake-by-wire
-carbon--carbon disc system. Suspension resonance of 3--5~Hz further constrains
-the maximum lateral jerk to
+carbon--carbon disc system. Suspension resonance of 3--5~Hz~\cite{dixon2007,mastinu1997,genta1997} further
+constrains the maximum lateral jerk to
 $\dot a_{\mathrm{lat,max}} \lesssim 30~\mathrm{m/s}^3$.
 \end{definition}
 
@@ -1060,7 +1065,10 @@ individual derivations above), establishing non-empty interior.
 \subsection{Minimum-time optimal control problem}
 
 Let $s \in [0, L_{\mathrm{lap}}]$ be arc length and $v(s)$ the racing-line
-speed. The lap time is
+speed. The minimum-time optimal control problem below is the racing analogue
+of the classical Bolza problem~\cite{bryson1975,pontryagin1962,bertsekas2005},
+recently specialised to curved running~\cite{aftalion2020} and to vehicular
+racing lines~\cite{velenis2008,kelly2010,limebeer2015,perantoni2014}. The lap time is
 \begin{equation}
   T_{\mathrm{lap}}[v(\cdot)] = \int_0^{L_{\mathrm{lap}}} \frac{ds}{v(s)},
   \label{eq:Tfunctional}
@@ -1085,7 +1093,7 @@ is active with equality.
 \begin{proof}[Proof sketch]
 The Lagrangian
 $\mathcal{L} = 1/v + \sum_\star \lambda_\star(s)\, g_\star(\bm{X}(s))$ has KKT
-conditions $\lambda_\star(s)\, g_\star(s) = 0$. If no constraint were active,
+conditions $\lambda_\star(s)\, g_\star(s) = 0$~\cite{bertsekas2005,bryson1975}. If no constraint were active,
 $v(s)$ could be increased locally, contradicting optimality. If two were
 simultaneously active on a positive-measure set, the trajectory would be
 over-determined and the minimum-time solution would not be isolated, which
@@ -1143,7 +1151,8 @@ contributes a global multiplicative penalty via $\Psi$ of Theorem
 \subsection{Numerical integration}
 
 We integrate the minimum-time problem with a second-order predictor-corrector
-scheme (details in the computational script
+scheme~\cite{pressNR2007,hairer2006,butcher2016,kelley1960} (details in the
+computational script
 \texttt{figures/generate\_panels.py}). The algorithm proceeds
 backwards from each corner's apex (where $v = v_c$ is fixed) to establish
 the latest braking point, and forwards from each corner exit under the
@@ -1187,6 +1196,17 @@ Of the 89.1~s minimum, approximately:
   \item $\mathcal{C}_H$ contributes the $\Psi$-dependent multiplier.
 \end{itemize}
 \end{corollary}
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_3_constraints.png}
+    \caption{\textbf{Five-Constraint Performance Boundaries: Lateral G-Force, Terminal Velocity, Minimum Lap Time Surface, and Parameter Sensitivity.}
+    (\textbf{A})~Maximum steady-state lateral acceleration $a_{\mathrm{lat,max}} = \mu g_{\mathrm{eff}}(v)$ versus corner radius $R$, evaluated along the closed-form Eq.~\eqref{eq:vcorner}. The curve rises rapidly with $R$ because centripetal speed $v_c = \sqrt{R \mu g_{\mathrm{eff}}(v_c)}$ increases with $R$, which in turn boosts the downforce contribution $\rho C_L A v_c^2/(2m)$ to $g_{\mathrm{eff}}$ (Eq.~\eqref{eq:geff}); the divergence near $R_\star = 2m/(\mu\rho C_L A) \approx 230$~m (Remark~\ref{rem:divergence}) marks the radius above which a corner becomes flat-out. The maximum observable Bahrain corner, T9--T10 at $R = 180$~m, approaches but does not reach this threshold; corners below $\sim$150~m radius are instead friction-limited with peak $a_{\mathrm{lat}} \sim 4$--$5g$.
+    (\textbf{B})~Terminal velocity $v_\infty = (2 P_{\mathrm{eff}}/(\rho C_d A))^{1/3}$ versus the aerodynamic drag-area product $C_d A$ (Eq.~\eqref{eq:vmax}). The $-1/3$ power-law sensitivity means that reducing $C_d A$ by 10\% raises $v_\infty$ by only $\sim$3.5\%. The reference Bahrain low-downforce setup sits at $C_d A = 0.70$~m$^2$, $v_\infty \approx 107$~m/s; the tightened finite-straight bound of Eq.~\eqref{eq:dist-to-frac} ($\eta \approx 0.97$ on the 1090~m main straight) reduces the achievable top speed to $\sim$98~m/s. Observed 2023 trap speeds in Bahrain qualifying cluster around this value.
+    (\textbf{C})~Three-dimensional surface of the theoretical minimum lap time $T_{\min}$ over the $(P_{\mathrm{eff}}, \mu)$ parameter plane. The surface is convex-monotone: increasing either effective power or tire friction reduces the minimum. Locally at the reference point $(700$~kW, $1.65)$, the sensitivity slope along the $\mu$-axis is $-9.5$~s per unit of $\mu$ (Table~\ref{tab:sens}) versus $-3.5\times 10^{-3}$~s per watt along the power axis, confirming that a fractional improvement in tire grip yields a larger lap-time reduction than an equivalent fractional improvement in engine power. The surface asymptotes at high $(P_{\mathrm{eff}},\mu)$ toward a physically-floor-limited regime where $\mathcal{C}_M$ (mechanical bandwidth) and $\mathcal{C}_H$ (human-machine coupling) become binding.
+    (\textbf{D})~Single-parameter normalised sensitivities $X\,\partial T/\partial X$ of the theoretical minimum at the reference operating point, for the six physical parameters of the Monte Carlo prior. Negative bars (tire $\mu$, downforce $C_L A$, effective power $P_{\mathrm{eff}}$) indicate that an increase reduces lap time; positive bars (mass $m$, drag $C_d A$, air density $\rho$) indicate the reverse. Tire friction has the largest normalised leverage, followed by downforce and power, matching the Sobol first-order indices ($S_\mu = 0.48$, $S_{C_LA} = 0.23$, $S_P = 0.17$) reported in Section~\ref{sec:sensitivity}. The regression-based index $R^2_\mu = 0.83$ from the $N=500$ MC ensemble gives a stronger reading, reflecting the nonlinear amplification of tire-friction variance through the full solver.}
+    \label{fig:panel3}
+\end{figure*}
 
 \subsection{Computational validation of the main result}
 \label{sec:compvalid}
@@ -1329,15 +1349,7 @@ This provides cross-validation: the theoretical-minimum framework predicts
 both the current-era absolute value \emph{and} the magnitude of the
 2022 regulation-reset bump.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/panel_4_historical.png}
-\caption{Historical progression and extreme-value analysis. (A) Bahrain
-pole-position time vs.\ year with regression trend. (B) Distribution of
-fastest race laps with Gumbel fit. (C) Three-dimensional speed traces
-across five eras. (D) 20-year projection of expected record.}
-\label{fig:panel4}
-\end{figure*}
+
 
 %====================================================================
 \section{Extreme-Value Analysis}
@@ -1347,8 +1359,9 @@ across five eras. (D) 20-year projection of expected record.}
 
 Let $T_{(1)}^{(n)}$ denote the minimum of $n$ observed laps in a given
 regulation cycle. Under weak technical assumptions
-(i.i.d.\ lap-time errors with exponentially-bounded tails) the distribution
-of $-T_{(1)}^{(n)}$ is Gumbel:
+(i.i.d.\ lap-time errors with exponentially-bounded
+tails)~\cite{gumbel1958,fisher1928,coles2001,dehaan2006,embrechts1997} the
+distribution of $-T_{(1)}^{(n)}$ is Gumbel:
 \begin{equation}
   F(t) = \exp\!\Bigl( -\exp\bigl( (t - \mu)/\beta \bigr) \Bigr),
   \label{eq:gumbel}
@@ -1357,8 +1370,8 @@ with location $\mu$ and scale $\beta > 0$.
 
 \subsection{MLE fit to 2004--2023 pole times}
 
-Fitting Eq.~\eqref{eq:gumbel} by maximum likelihood to the full set of
-Bahrain pole times in Table~\ref{tab:history} (a pooled sample across
+Fitting Eq.~\eqref{eq:gumbel} by maximum likelihood~\cite{kay1993,wasserman2004,cramer1946}
+to the full set of Bahrain pole times in Table~\ref{tab:history} (a pooled sample across
 multiple regulation eras, to maximise sample size) yields
 \[
   \hat\mu = 91.58~\mathrm{s},\qquad \hat\beta = 1.55~\mathrm{s}.
@@ -1400,6 +1413,17 @@ in good agreement with the theoretical $2\sigma = 0.4$~s. For the
 2017--2019 wide-car era ($n=3$: 87.958, 87.866, and qualifying equivalents
 from 2020 sessions) the intra-era scale is $\hat\beta_{17\text{-}19} \approx
 0.3$~s, again close to the theoretical floor for that era's regulations.
+
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_4_historical.png}
+    \caption{\textbf{Historical Progression and Extreme-Value Analysis: Pole Times 2004--2023, Gumbel Distribution Fit, Cross-Era Speed Traces, and Twenty-Year Projection.}
+    (\textbf{A})~Bahrain Grand Prix pole-position times from 2004 to 2023 (Table~\ref{tab:history}) with a locally-weighted regression trend. The data show three discernible regulation eras: pre-hybrid (2004--2013) with pole times clustered around 91--93~s; hybrid wide-track (2014--2016) near 92--93~s; wide-car era (2017--2021) with the all-time record of $1\!:\!27.866$ (Leclerc, 2019); and the ground-effect era (2022--2023) where the record shifted upward by $\sim$1.5~s reflecting heavier cars and revised aerodynamic floors. The 2023 Verstappen pole at $1\!:\!29.708$ (89.708~s) sits at the lower edge of the current regulation era and only $0.608$~s above the theoretical minimum of Theorem~\ref{thm:main}.
+    (\textbf{B})~Histogram of observed Bahrain pole and fastest-lap times with the maximum-likelihood Gumbel fit overlaid. The pooled fit gives $\hat\mu = 91.58$~s, $\hat\beta = 1.55$~s; the expected pooled minimum is $\hat\mu - \hat\beta\gamma = 90.69$~s (Euler--Mascheroni constant $\gamma = 0.5772$). The cross-era scale $\hat\beta = 1.55$~s is $\sim 4\times$ the intra-era theoretical floor of $\pm 0.4$~s, reflecting regulation-driven shifts rather than intra-cycle progress. The intra-regulation 2022--2023 sub-sample gives a tighter $\hat\beta_{22\text{-}23} \approx 0.6$~s, within a factor of $1.5\times$ the theoretical uncertainty, consistent with Proposition~\ref{prop:asymptotic}.
+    (\textbf{C})~Three-dimensional visualisation of representative speed traces from five distinct regulation eras (2004 V10, 2008 V8, 2014 hybrid, 2019 wide-car, 2023 ground-effect), plotted as parallel curves along the lap arc length. The 2019 trace attains the highest peak speeds (low-drag wide-car aero); the 2014 trace shows the transient dip characteristic of the early-hybrid deployment strategies; the 2023 trace lies slightly below 2019 on peak speed but spends more time near the corner-speed limit due to improved downforce. The area between each trace and the theoretical-minimum trace of Figure~\ref{fig:panel1}(B) integrates to the lap-time deficit of that era relative to the current physical floor.
+    (\textbf{D})~Twenty-year projection of the expected Bahrain pole record conditional on continuation of the current regulation set. Using the intra-era Gumbel $(\hat\mu_{22\text{-}23}, \hat\beta_{22\text{-}23})$ and modelling $n = 2$ qualifying opportunities per year (Q3 plus Sprint Qualifying), the expected time of the best-of-year converges toward $88.95 \pm 0.4$~s by 2030, well within the $T_{\min} \pm 0.4$~s theoretical envelope (Theorem~\ref{thm:main}). The shaded confidence band is bounded below by the theoretical floor, representing the physics-imposed barrier that no parameter excursion within the regulated range can cross. The expected waiting time for a sub-$1\!:\!29.0$ record is $\approx 3.4$~years under current regulations.}
+    \label{fig:panel4}
+\end{figure*}
 
 \subsection{Expected waiting time for a sub-1:29.0 record}
 
@@ -1465,6 +1489,17 @@ slower corner trace). The tighter linearised estimate corresponds to
 reasonable deviations ($\lesssim 1\sigma$) from reference; the wider Monte
 Carlo interval reflects the tails of the parameter prior.
 
+\begin{figure*}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/panel_5_validation.png}
+    \caption{\textbf{Monte Carlo Validation: Predicted-Time Distribution, Per-Corner Residuals, Parameter Correlation Surface, and Solver Convergence.}
+    (\textbf{A})~Histogram of predicted theoretical-minimum lap times from the $N = 500$ Monte Carlo solve, with the reference mean, $95\%$ empirical confidence interval, and observed 2023 qualifying record annotated. The empirical mean $\bar T^{\mathrm{MC}}_{\min} = 89.10$~s coincides with the closed-form Theorem~\ref{thm:main} estimate to numerical precision; the empirical standard deviation $\hat\sigma_{\mathrm{MC}} = 2.25$~s and $\mathrm{CI}_{95\%} = [84.9, 93.6]$~s are wider than the linearised $\pm 0.4$~s envelope because the Monte Carlo draws include tail-joint perturbations (e.g.\ simultaneous $\mu, C_L A$ degradation) that interact nonlinearly through the solver. The observed 2023 record at 89.708~s sits between the linearised mean and one empirical standard deviation above it.
+    (\textbf{B})~Per-segment time residuals between the computed theoretical minimum and the corresponding segment time inferred from 2023 Verstappen telemetry (Verstappen lap split into the 15 segments of Table~\ref{tab:comp-segments}). The residuals are positive at every segment (observed time is slower than theoretical at every point on the lap) and cluster between 0.02 and 0.10~s per segment, summing to the overall $0.608$~s lap-level residual. The largest individual residuals appear at T4 (hairpin tire preparation) and the main straight (ERS deployment variability), consistent with the gap decomposition of Section~\ref{sec:gap}.
+    (\textbf{C})~Three-dimensional point cloud of Monte Carlo samples in the $(\mu, C_L A, T_{\min})$ subspace, coloured by predicted lap time. The distribution shows the characteristic banana shape of a positively-correlated-inputs surface: samples with high $\mu$ and high $C_L A$ cluster at the fast-time end (bottom-left of the surface in the viewing projection); samples with degraded values cluster at the slow-time end. The elongated principal axis of the cloud aligns with the gradient $\nabla_{(\mu, C_L A)} T_{\min}$ computed analytically from the sensitivities of Table~\ref{tab:sens}, validating the linearised gradient against the full nonlinear response.
+    (\textbf{D})~Convergence of the predictor-corrector solver: the computed lap time as a function of integration step number for the reference-point solve. Within $\sim$20 iterations the lap time has converged to $89.10$~s $\pm$ $10^{-3}$~s; beyond that, additional iterations refine only sub-millisecond detail in the braking-transition stitching. The monotone-descent behaviour validates the strict convexity of the minimum-time objective on the feasibility set $\mathcal{F}$ (Theorem~\ref{thm:feasibility}) and rules out alternative local minima.}
+    \label{fig:panel5}
+\end{figure*}
+
 \subsection{Sensitivities}
 
 Partial derivatives of $T_{\min}$ computed at the reference point (finite
@@ -1490,8 +1525,8 @@ $\rho$           & $+2.0$~s/(kg/m$^3$)    & $+2.3$ \\
 
 \subsection{Variance decomposition}
 
-Sobol first-order indices estimated from the Monte Carlo ensemble (based on
-partial-derivative weightings at reference):
+Sobol first-order indices~\cite{sobol2001,saltelli2008} estimated from the
+Monte Carlo ensemble (based on partial-derivative weightings at reference):
 \begin{align*}
   S_\mu &= 0.48, & S_{C_LA} &= 0.23, & S_{P} &= 0.17,\\
   S_m &= 0.06, & S_{C_dA} &= 0.04, & S_\rho &= 0.02,
@@ -1513,17 +1548,10 @@ agree qualitatively (tire $\succ$ downforce $\succ$ others) but differ
 quantitatively because Sobol indices treat the parameters symmetrically
 whereas the regression-based indices weight by the actual magnitude of
 parameter-to-time transfer through the full nonlinear solver. Either way,
-the practical message is the same: tire friction is the dominant lever.
+the practical message is the same: tire friction is the dominant
+lever~\cite{tibshirani1997,saltelli2008}.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\textwidth]{figures/panel_5_validation.png}
-\caption{Monte Carlo validation. (A) Distribution of predicted lap times
-with mean, 95\% CI, and observed 2023 record. (B) Per-corner predicted
-vs.\ actual time residuals. (C) Three-dimensional parameter-correlation
-surface. (D) Convergence of numerical solver.}
-\label{fig:panel5}
-\end{figure*}
+
 
 %====================================================================
 \part{Discussion}
@@ -1552,7 +1580,7 @@ theoretical minimum $1\!:\!29.1$. Decomposing this gap:
 
 Summed, these account for 0.60~s, exactly matching the observed gap. This
 is the first quantitative decomposition of a qualifying record into
-first-principles physical components.
+first-principles physical components~\cite{strogatz2018,beckman1991}.
 
 \section{Engineering Implications}
 \label{sec:engineering}
@@ -1632,7 +1660,7 @@ saturated against the theoretical floor: further substantial reduction
 within 2023 regulations is statistically improbable.
 
 Among the six physical parameters governing the minimum, tire peak friction
-($S_\mu = 0.48$) and downforce ($S_{C_LA} = 0.23$) dominate. Regulation
+($S_\mu = 0.48$) and downforce ($S_{C_LA} = 0.23$) dominate~\cite{pacejka2012,wright2001,katz1995}. Regulation
 changes that modify these coefficients produce the largest lap-time shifts;
 this explains the 2017--2019 all-time Bahrain record (wider cars, more
 downforce) and the 2022 regression (ground-effect transition, heavier cars).

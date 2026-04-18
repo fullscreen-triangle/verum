@@ -43,7 +43,11 @@
       "Bash(python)",
       "Bash(grep -n \"E_{\\\\\\\\\\\\\\\\mathrm{prop}}\\\\\\\\^{\\\\\\\\\\\\\\\\mathrm{comp}} = 49.0\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
       "Bash(grep -n \"E_{\\\\\\\\\\\\\\\\mathrm{prop}}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
-      "Bash(grep -n \"^\\\\\\\\\\\\\\\\begin{equation}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)"
+      "Bash(grep -n \"^\\\\\\\\\\\\\\\\begin{equation}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(python /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/_add_cites.py)",
+      "Bash(grep -n \"high-fidelity vehicle model\\\\|simulation minimum is a moving target\\\\|F_{\\\\\\\\\\\\\\\\mathrm{res}}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -c \"\\\\\\\\\\\\\\\\cite{\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -oE \"\\\\\\\\\\\\\\\\cite\\\\{[^}]+\\\\}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)"
     ]
   }
 }
