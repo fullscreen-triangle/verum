@@ -30,7 +30,20 @@
       "Bash(npm run:*)",
       "Bash(python publication/vehicle-shader-computing/figures/generate_panels.py)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(python publication/ultimate-bahrain-lap/figures/generate_panels.py)",
+      "Bash(grep -E \"^\\\\\\\\\\\\\\\\section|^\\\\\\\\\\\\\\\\subsection|begin\\\\{theorem\\\\}|begin\\\\{proposition\\\\}|begin\\\\{corollary\\\\}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(tasklist)",
+      "Bash(taskkill //F //PID 16392)",
+      "Bash(python -c ' *)",
+      "Bash(grep -c \"^\\\\\\\\\\\\\\\\section\\\\|^\\\\\\\\\\\\\\\\subsection\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\label{tab:\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\begin{figure}\\\\|\\\\\\\\\\\\\\\\end{figure}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -n \"^\\\\\\\\\\\\\\\\begin{figure}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(python)",
+      "Bash(grep -n \"E_{\\\\\\\\\\\\\\\\mathrm{prop}}\\\\\\\\^{\\\\\\\\\\\\\\\\mathrm{comp}} = 49.0\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -n \"E_{\\\\\\\\\\\\\\\\mathrm{prop}}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -n \"^\\\\\\\\\\\\\\\\begin{equation}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)"
     ]
   }
 }
