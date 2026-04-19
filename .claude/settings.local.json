@@ -47,7 +47,10 @@
       "Bash(python /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/_add_cites.py)",
       "Bash(grep -n \"high-fidelity vehicle model\\\\|simulation minimum is a moving target\\\\|F_{\\\\\\\\\\\\\\\\mathrm{res}}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
       "Bash(grep -c \"\\\\\\\\\\\\\\\\cite{\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
-      "Bash(grep -oE \"\\\\\\\\\\\\\\\\cite\\\\{[^}]+\\\\}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)"
+      "Bash(grep -oE \"\\\\\\\\\\\\\\\\cite\\\\{[^}]+\\\\}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
+      "Bash(grep -c \"^\\\\\\\\\\\\\\\\section\" high-velocity-vehicle-intent-decomposition.tex)",
+      "Bash(grep -c \"^\\\\\\\\\\\\\\\\subsection\" high-velocity-vehicle-intent-decomposition.tex)",
+      "Bash(grep \"^\\\\\\\\\\\\\\\\section\\\\|^\\\\\\\\\\\\\\\\part\" high-velocity-vehicle-intent-decomposition.tex)"
     ]
   }
 }
