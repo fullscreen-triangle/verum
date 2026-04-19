@@ -1,0 +1,148 @@
+\contentsline {part}{Part I: The Architectural Problem}{4}{part*.3}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The Autonomous Driving Gap}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Core Confusion}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}What This Paper Proves}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Structure of the Paper}{5}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Timescales of Driving}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Latency as a Physical Constraint}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Reflex Latency from Braking Geometry}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Cognitive Latency from Human Performance Data}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Reflex Physiology}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Formal Separation}{6}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Consequences for Existing Architectures}{7}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Intent Attribution}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Intent-Identifiability Problem}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Multiple Objectives on Roads}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Single Objective on Circuits}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Measuring Identifiability}{9}{subsection.3.4}%
+\contentsline {part}{Part II: The Physical Foundation}{9}{part*.6}%
+\contentsline {section}{\numberline {4}Vehicle Dynamics at the Limit}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Single-Track Model}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Pacejka Tire Model}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Friction Ellipse Constraint}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Aerodynamic Forces}{11}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Power and the Straight-Line Problem}{11}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Energy Budget}{12}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Load Transfer Dynamics}{12}{subsection.4.7}%
+\contentsline {section}{\numberline {5}The Theoretical Minimum Lap Time}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Optimal Control Formulation}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Numerical Integration}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Worked Example: A Bahrain-like Circuit}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Uncertainty Propagation}{13}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Gumbel Tail of Historical Records}{13}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Empirical Consistency}{13}{subsection.5.6}%
+\contentsline {section}{\numberline {6}The Unmodelled-Variable Theorem}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Model-Reality Residual}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Lower Bound from Information Theory}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Human Access to Unmodelled Variables}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Knightian Uncertainty versus Bayesian Risk}{15}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Spectral Decomposition of the Residual}{15}{subsection.6.5}%
+\contentsline {part}{Part III: The Reflex-Cognitive Decomposition}{17}{part*.9}%
+\contentsline {section}{\numberline {7}The Reflex Layer}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Definition and Role}{17}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Inference-Time Complexity}{17}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Stability of the Feedback Correction}{17}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Biological Analogue}{17}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Comparison with Search-Based Alternatives}{17}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Receding-Horizon versus Lookup}{18}{subsection.7.6}%
+\contentsline {section}{\numberline {8}The Cognitive Layer}{18}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Scope}{18}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Latency Budget}{18}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Architectural Independence}{18}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Suitable Computational Models}{18}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Constraint Cascade}{18}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Formal Framework}{18}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Rule Examples}{19}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Incremental Composition}{19}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Constraint-Manager Implementation}{19}{subsection.9.4}%
+\contentsline {part}{Part IV: Training and Validation}{19}{part*.10}%
+\contentsline {section}{\numberline {10}The Training Curriculum}{19}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Stage Structure}{19}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Data Requirements}{20}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Validation Metric}{20}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Canonical Stage List}{20}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Residual Learning from Top-Human Telemetry}{20}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Residual as a Learning Target}{20}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Residual Correction Network}{21}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Feature Engineering for Negative-Tail Residuals}{21}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Validation of the Residual}{21}{subsection.11.4}%
+\contentsline {section}{\numberline {12}Architecture Specification}{21}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Three-Layer Stack}{21}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Interfaces}{21}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Testability}{22}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Safety}{22}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Hardware Mapping}{22}{subsection.12.5}%
+\contentsline {part}{Part V: Implications}{22}{part*.12}%
+\contentsline {section}{\numberline {13}Falsifiable Predictions}{22}{section.13}%
+\contentsline {section}{\numberline {14}Comparison with Existing Approaches}{24}{section.14}%
+\contentsline {subsection}{\numberline {14.1}End-to-End Learning}{24}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Modular Pipelines}{24}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Behaviour Cloning}{24}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Reinforcement Learning in Driving Simulators}{24}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}MPC and Racing-Line Optimisation}{24}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Summary Table}{24}{subsection.14.6}%
+\contentsline {section}{\numberline {15}Discussion and Open Problems}{24}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Sensor Substrate for Reflex Information Access}{24}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Biological Motor Control as Existence Proof}{24}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Simulation-to-Real Transfer}{24}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}Circuits as Universal Benchmarks}{25}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Computational Substrate Choice}{25}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Open Problems}{25}{subsection.15.6}%
+\contentsline {section}{\numberline {16}Conclusion}{25}{section.16}%
+\contentsline {section}{\numberline {A}Closed-Form Lap-Time Results}{25}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Single-Radius Corner}{26}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Symmetric Straight}{26}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Entry and Exit Geometries}{26}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Braking Distance at Aerodynamic Limit}{26}{subsection.A.4}%
+\contentsline {section}{\numberline {B}Feedback Control Stability Analysis}{26}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Saturation and Anti-Windup}{27}{subsection.B.1}%
+\contentsline {section}{\numberline {C}Statistical Tests for Intent Identifiability}{27}{appendix.C}%
+\contentsline {subsection}{\numberline {C.1}Likelihood Ratio Test}{27}{subsection.C.1}%
+\contentsline {subsection}{\numberline {C.2}Consistency Radius}{27}{subsection.C.2}%
+\contentsline {subsection}{\numberline {C.3}Bootstrap Confidence}{27}{subsection.C.3}%
+\contentsline {subsection}{\numberline {C.4}Fisher-Information Test}{27}{subsection.C.4}%
+\contentsline {section}{\numberline {D}Numerical Algorithms for the Training Curriculum}{27}{appendix.D}%
+\contentsline {section}{\numberline {E}Additional Proofs and Auxiliary Results}{28}{appendix.E}%
+\contentsline {subsection}{\numberline {E.1}Proof of Monotone Approximation}{28}{subsection.E.1}%
+\contentsline {subsection}{\numberline {E.2}Proof of Residual Transfer Bound}{28}{subsection.E.2}%
+\contentsline {subsection}{\numberline {E.3}Proof of Data Complexity Bound}{28}{subsection.E.3}%
+\contentsline {subsection}{\numberline {E.4}Proof of Coupled-Oscillator Interpretation}{28}{subsection.E.4}%
+\contentsline {subsection}{\numberline {E.5}Further Remarks on Uncertainty}{29}{subsection.E.5}%
+\contentsline {section}{\numberline {F}Extended Timescale Analysis}{29}{appendix.F}%
+\contentsline {subsection}{\numberline {F.1}Braking Subdivision}{29}{subsection.F.1}%
+\contentsline {subsection}{\numberline {F.2}Cornering Subdivision}{29}{subsection.F.2}%
+\contentsline {subsection}{\numberline {F.3}Latency Budget Allocation}{29}{subsection.F.3}%
+\contentsline {subsection}{\numberline {F.4}Cognitive Layer Allocation}{29}{subsection.F.4}%
+\contentsline {section}{\numberline {G}Detailed Constraint Cascade Examples}{29}{appendix.G}%
+\contentsline {subsection}{\numberline {G.1}Speed Limit}{29}{subsection.G.1}%
+\contentsline {subsection}{\numberline {G.2}Lane Boundary}{30}{subsection.G.2}%
+\contentsline {subsection}{\numberline {G.3}Intersection Priority}{30}{subsection.G.3}%
+\contentsline {subsection}{\numberline {G.4}Pedestrian Crossing}{30}{subsection.G.4}%
+\contentsline {subsection}{\numberline {G.5}Signalling}{30}{subsection.G.5}%
+\contentsline {section}{\numberline {H}Top-Human Residual Spectral Analysis}{30}{appendix.H}%
+\contentsline {subsection}{\numberline {H.1}Power Spectral Density}{30}{subsection.H.1}%
+\contentsline {subsection}{\numberline {H.2}Residual Covariance}{30}{subsection.H.2}%
+\contentsline {subsection}{\numberline {H.3}Integration into the Reflex Stack}{30}{subsection.H.3}%
+\contentsline {section}{\numberline {I}Practical Implementation Notes}{30}{appendix.I}%
+\contentsline {subsection}{\numberline {I.1}Hardware Considerations}{30}{subsection.I.1}%
+\contentsline {subsection}{\numberline {I.2}Software Architecture}{30}{subsection.I.2}%
+\contentsline {subsection}{\numberline {I.3}Certification and Validation}{31}{subsection.I.3}%
+\contentsline {subsection}{\numberline {I.4}Deployment Curriculum}{31}{subsection.I.4}%
+\contentsline {section}{\numberline {J}Comparisons with Sprint Biomechanics}{31}{appendix.J}%
+\contentsline {section}{\numberline {K}On the Role of Simulation}{31}{appendix.K}%
+\contentsline {subsection}{\numberline {K.1}Simulator Fidelity}{31}{subsection.K.1}%
+\contentsline {subsection}{\numberline {K.2}Sim-to-Real Curriculum}{31}{subsection.K.2}%
+\contentsline {section}{\numberline {L}Connections to Classical Control Literature}{31}{appendix.L}%
+\contentsline {subsection}{\numberline {L.1}Pontryagin's Maximum Principle}{31}{subsection.L.1}%
+\contentsline {subsection}{\numberline {L.2}Bryson--Ho Framework}{31}{subsection.L.2}%
+\contentsline {subsection}{\numberline {L.3}Bellman and Dynamic Programming}{32}{subsection.L.3}%
+\contentsline {subsection}{\numberline {L.4}Aftalion--Trelat Running Optimisation}{32}{subsection.L.4}%
+\contentsline {section}{\numberline {M}On the Uniqueness of Circuits as Training Environments}{32}{appendix.M}%
+\contentsline {subsection}{\numberline {M.1}Desiderata}{32}{subsection.M.1}%
+\contentsline {section}{\numberline {N}Further Theoretical Remarks}{32}{appendix.N}%
+\contentsline {subsection}{\numberline {N.1}Category-Theoretic Interpretation}{32}{subsection.N.1}%
+\contentsline {subsection}{\numberline {N.2}Information-Theoretic Interpretation}{32}{subsection.N.2}%
+\contentsline {subsection}{\numberline {N.3}Geometric Interpretation}{32}{subsection.N.3}%
+\contentsline {subsection}{\numberline {N.4}Computational Complexity}{32}{subsection.N.4}%
+\contentsline {section}{\numberline {O}Final Theorem: Architectural Uniqueness}{32}{appendix.O}%

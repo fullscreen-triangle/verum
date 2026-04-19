@@ -1,0 +1,426 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{thrun2006stanley,urmson2008boss}
+\citation{sae2021j3016}
+\citation{kahneman2011thinking,card1983psychology}
+\citation{schmidt2019motor,shadmehr2005biology,enoka2015neuromechanics}
+\@writefile{toc}{\contentsline {part}{Part I: The Architectural Problem}{4}{part*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{4}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{4}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}The Autonomous Driving Gap}{4}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}The Core Confusion}{4}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}What This Paper Proves}{4}{subsection.1.3}\protected@file@percent }
+\citation{astrom2010feedback}
+\citation{milliken1995race,wright2001formula}
+\citation{kelly2008controlvehicle,limebeer2015optimal}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Structure of the Paper}{5}{subsection.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Timescales of Driving}{5}{section.2}\protected@file@percent }
+\newlabel{sec:timescales}{{2}{5}{Timescales of Driving}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Latency as a Physical Constraint}{5}{subsection.2.1}\protected@file@percent }
+\newlabel{eq:dyn}{{1}{5}{Latency as a Physical Constraint}{equation.1}{}}
+\newlabel{eq:ctrl}{{2}{5}{Latency as a Physical Constraint}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Reflex Latency from Braking Geometry}{5}{subsection.2.2}\protected@file@percent }
+\newlabel{eq:tau-reflex}{{5}{5}{Reflex Latency from Braking Geometry}{equation.5}{}}
+\citation{shadmehr2005biology}
+\citation{nielsen1993response}
+\citation{card1983psychology}
+\citation{kahneman2011thinking}
+\citation{kandel2013principles,enoka2015neuromechanics,eccles1957physiology}
+\citation{schwarting2018planning,codevilla2018endtoend}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Cognitive Latency from Human Performance Data}{6}{subsection.2.3}\protected@file@percent }
+\newlabel{eq:tau-cog}{{6}{6}{Cognitive Latency from Human Performance Data}{equation.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Reflex Physiology}{6}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Formal Separation}{6}{subsection.2.5}\protected@file@percent }
+\newlabel{def:substrate}{{1}{6}{Computational substrate}{theorem.1}{}}
+\newlabel{thm:timescale}{{2}{6}{Timescale Separation}{theorem.2}{}}
+\newlabel{cor:pipeline}{{3}{6}{Pipeline Contamination}{theorem.3}{}}
+\citation{thrun2006stanley,urmson2008boss,levinson2011junior}
+\citation{bojarski2016endtoend,bansal2019chauffeurnet,codevilla2018endtoend}
+\citation{bansal2019chauffeurnet,codevilla2018endtoend}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Consequences for Existing Architectures}{7}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Intent Attribution}{7}{section.3}\protected@file@percent }
+\newlabel{sec:intent}{{3}{7}{Intent Attribution}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The Intent-Identifiability Problem}{7}{subsection.3.1}\protected@file@percent }
+\newlabel{def:intent}{{4}{7}{Intent}{theorem.4}{}}
+\newlabel{def:consistency}{{5}{7}{Trace-intent consistency}{theorem.5}{}}
+\newlabel{def:feasible-intents}{{6}{7}{Feasible intent set}{theorem.6}{}}
+\newlabel{thm:intent}{{7}{7}{Intent Attribution}{theorem.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Multiple Objectives on Roads}{7}{subsection.3.2}\protected@file@percent }
+\newlabel{prop:road-noid}{{8}{7}{Road Non-Identifiability}{theorem.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Timescale Separation Between Reflex and Cognitive Control: Latency Distributions, Quantile Traces, Perception-to-Brake Window, and the Necessity of a Sub-100~ms Substrate.} (\textbf  {A})~Monte Carlo samples ($N=20{,}000$) of reflex latency drawn from the proprioceptive--vestibular channel (median $33.6$~ms, $95^{\mathrm  {th}}$ percentile $53.7$~ms) versus cognitive latency drawn from the decision-making literature (median $760.5$~ms, $5^{\mathrm  {th}}$ percentile $454.0$~ms). The two log-normal populations are separated by Cohen's $d = 4.19$ with measured overlap probability $P < 10^{-5}$, a ratio of $22.6\times $ between the medians. The dashed line at $50$~ms marks the reflex budget derived from Section~\ref {sec:timescales}; the red reflex distribution sits almost entirely below this threshold while the blue cognitive distribution sits almost entirely above the $1$~s line, illustrating Theorem~\ref {thm:timescale} (no shared substrate). (\textbf  {B})~Quantile--quantile traces of the same two populations plotted against the cumulative-probability axis. The $99^{\mathrm  {th}}$ percentile of the reflex distribution falls below the $1^{\mathrm  {st}}$ percentile of the cognitive distribution for every quantile in the central $98\%$ of the mass, providing a distribution-free confirmation of the timescale separation: any architecture that runs the cognitive substrate on the critical path must accept a loss of at least one order of magnitude in bandwidth at the actuator. (\textbf  {C})~Three-dimensional surface of the perception-to-brake reaction window as a joint function of vehicle speed ($80$--$340$~km/h) and longitudinal friction coefficient ($\mu \in [0.8, 1.8]$). The surface is obtained from the braking-distance identity $d_{\mathrm  {brake}} = v^2/(2\mu g)$ inverted into an available reaction time $t_{\mathrm  {react}} = (d_{\mathrm  {perc}} - d_{\mathrm  {brake}})/v$ for a fixed perception horizon $d_{\mathrm  {perc}} = 60$~m. The dark corner of the surface (high speed, high grip, close obstacle) drops below the $50$~ms reflex budget, the regime in which cognitive control is physically impossible because the actuation window closes faster than the $0.8$--$2$~s cognitive latency band. (\textbf  {D})~Required reaction window as a function of speed at three grip levels ($\mu \in \{1.0, 1.4, 1.7\}$). The family of curves crosses the $1$~s cognitive budget (dotted) between $150$ and $220$~km/h depending on $\mu $, and crosses the $50$~ms reflex budget (dashed) near the upper speed limit of Formula~1 racing. The implication is architectural rather than statistical: at the physical limit of the vehicle, a sub-$100$~ms reflex substrate is mathematically necessary, not a design preference, proving the claim of Theorem~\ref {thm:timescale} on the critical path.}}{8}{figure.caption.4}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:panel1}{{1}{8}{\textbf {Timescale Separation Between Reflex and Cognitive Control: Latency Distributions, Quantile Traces, Perception-to-Brake Window, and the Necessity of a Sub-100~ms Substrate.} (\textbf {A})~Monte Carlo samples ($N=20{,}000$) of reflex latency drawn from the proprioceptive--vestibular channel (median $33.6$~ms, $95^{\mathrm {th}}$ percentile $53.7$~ms) versus cognitive latency drawn from the decision-making literature (median $760.5$~ms, $5^{\mathrm {th}}$ percentile $454.0$~ms). The two log-normal populations are separated by Cohen's $d = 4.19$ with measured overlap probability $P < 10^{-5}$, a ratio of $22.6\times $ between the medians. The dashed line at $50$~ms marks the reflex budget derived from Section~\ref {sec:timescales}; the red reflex distribution sits almost entirely below this threshold while the blue cognitive distribution sits almost entirely above the $1$~s line, illustrating Theorem~\ref {thm:timescale} (no shared substrate). (\textbf {B})~Quantile--quantile traces of the same two populations plotted against the cumulative-probability axis. The $99^{\mathrm {th}}$ percentile of the reflex distribution falls below the $1^{\mathrm {st}}$ percentile of the cognitive distribution for every quantile in the central $98\%$ of the mass, providing a distribution-free confirmation of the timescale separation: any architecture that runs the cognitive substrate on the critical path must accept a loss of at least one order of magnitude in bandwidth at the actuator. (\textbf {C})~Three-dimensional surface of the perception-to-brake reaction window as a joint function of vehicle speed ($80$--$340$~km/h) and longitudinal friction coefficient ($\mu \in [0.8, 1.8]$). The surface is obtained from the braking-distance identity $d_{\mathrm {brake}} = v^2/(2\mu g)$ inverted into an available reaction time $t_{\mathrm {react}} = (d_{\mathrm {perc}} - d_{\mathrm {brake}})/v$ for a fixed perception horizon $d_{\mathrm {perc}} = 60$~m. The dark corner of the surface (high speed, high grip, close obstacle) drops below the $50$~ms reflex budget, the regime in which cognitive control is physically impossible because the actuation window closes faster than the $0.8$--$2$~s cognitive latency band. (\textbf {D})~Required reaction window as a function of speed at three grip levels ($\mu \in \{1.0, 1.4, 1.7\}$). The family of curves crosses the $1$~s cognitive budget (dotted) between $150$ and $220$~km/h depending on $\mu $, and crosses the $50$~ms reflex budget (dashed) near the upper speed limit of Formula~1 racing. The implication is architectural rather than statistical: at the physical limit of the vehicle, a sub-$100$~ms reflex substrate is mathematically necessary, not a design preference, proving the claim of Theorem~\ref {thm:timescale} on the critical path}{figure.caption.4}{}}
+\citation{ng2000algorithms,ziebart2008maximum}
+\citation{milliken1995race,fia2023sporting}
+\citation{fia2023sporting,pirelli2023specs}
+\citation{rajamani2011vehicle,jazar2017vehicle,gillespie1992fundamentals}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Single Objective on Circuits}{9}{subsection.3.3}\protected@file@percent }
+\newlabel{prop:circuit-id}{{9}{9}{Circuit Identifiability}{theorem.9}{}}
+\newlabel{cor:epistemic}{{10}{9}{Epistemic Superiority of Circuit Data}{theorem.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Measuring Identifiability}{9}{subsection.3.4}\protected@file@percent }
+\newlabel{prop:ent-card}{{11}{9}{Entropy-Cardinality Bound}{theorem.11}{}}
+\@writefile{toc}{\contentsline {part}{Part II: The Physical Foundation}{9}{part*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Vehicle Dynamics at the Limit}{9}{section.4}\protected@file@percent }
+\newlabel{sec:vehicle-dynamics}{{4}{9}{Vehicle Dynamics at the Limit}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Single-Track Model}{9}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Intent Identifiability from Telemetry: Circuit Recovery Converges to Unity, Road Recovery Diverges to a Ridge.} (\textbf  {A})~Parameter-recovery $R^2$ versus telemetry-sample count ($n \in \{10, 30, 100, 300, 1000, 3000\}$), computed from $200$ Monte Carlo replicas per sample size. On a circuit the design matrix of the intent-regression problem is full rank (one dominant objective, single apex solution), and $R^2$ converges monotonically to $1.0$ as $n \to \infty $. On a road the design matrix is rank-deficient by construction (multiple valid route and comfort combinations yield indistinguishable trajectories), and $R^2$ diverges to large negative values ($R^2_{n=1000} = -28.2$), reflecting the fact that the minimum-norm least-squares solution is pulled away from the true intent vector by the kernel of the regression. This is a direct empirical witness of Theorem~\ref {thm:intent} and Proposition~\ref {prop:road-noid}: more road data cannot disambiguate intent, because the unidentifiability is structural. (\textbf  {B})~Spectral entropy of the telemetry design matrix for both regimes. The circuit entropy sits near $0.93$~nats across all sample sizes (one eigenvalue dominates, two negligible); the road entropy saturates at the theoretical maximum $\ln 3 \approx 1.10$~nats, confirming that all three intent coordinates project onto the same one-dimensional trajectory feature. Under the information-geometric reading of Section~\ref {sec:intent}, this entropy gap is the Jensen--Shannon divergence between the circuit and road intent-manifolds, and it is the quantitative statement of why circuit telemetry is the unique data source from which a reflex-layer policy can be learnt without intent contamination. (\textbf  {C})~Posterior density over the intent simplex under circuit conditions, evaluated on a $80 \times 80$ grid of $(w_{\mathrm  {time}}, w_{\mathrm  {comfort}})$ with the risk coordinate eliminated by the simplex constraint $\DOTSB \sum@ \slimits@ w = 1$. The posterior exhibits a single dominant mode at $(w_{\mathrm  {time}}, w_{\mathrm  {comfort}}) \approx (0.70, 0.10)$ with effective support smaller than $0.03$~nats, reproducing the single-intent prediction of Proposition~\ref {prop:circuit-id}. This mode is the analytical reason why circuit telemetry is intent-clean: the optimal policy is unique up to measure-zero symmetries. (\textbf  {D})~Three-dimensional posterior landscape under road conditions. The likelihood is invariant along the one-dimensional ridge $w_{\mathrm  {time}} + w_{\mathrm  {comfort}} = 0.8$ and degenerate in the orthogonal direction. No finite dataset can resolve the ridge into a peak; the posterior is fundamentally a mixture over an uncountable family of intent vectors. This is the empirical form of Corollary~\ref {cor:epistemic}: road demonstrations are intent-confounded at the measurement boundary, and behaviour cloning that ignores the decomposition learns the confounded sum rather than either component.}}{10}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:panel2}{{2}{10}{\textbf {Intent Identifiability from Telemetry: Circuit Recovery Converges to Unity, Road Recovery Diverges to a Ridge.} (\textbf {A})~Parameter-recovery $R^2$ versus telemetry-sample count ($n \in \{10, 30, 100, 300, 1000, 3000\}$), computed from $200$ Monte Carlo replicas per sample size. On a circuit the design matrix of the intent-regression problem is full rank (one dominant objective, single apex solution), and $R^2$ converges monotonically to $1.0$ as $n \to \infty $. On a road the design matrix is rank-deficient by construction (multiple valid route and comfort combinations yield indistinguishable trajectories), and $R^2$ diverges to large negative values ($R^2_{n=1000} = -28.2$), reflecting the fact that the minimum-norm least-squares solution is pulled away from the true intent vector by the kernel of the regression. This is a direct empirical witness of Theorem~\ref {thm:intent} and Proposition~\ref {prop:road-noid}: more road data cannot disambiguate intent, because the unidentifiability is structural. (\textbf {B})~Spectral entropy of the telemetry design matrix for both regimes. The circuit entropy sits near $0.93$~nats across all sample sizes (one eigenvalue dominates, two negligible); the road entropy saturates at the theoretical maximum $\ln 3 \approx 1.10$~nats, confirming that all three intent coordinates project onto the same one-dimensional trajectory feature. Under the information-geometric reading of Section~\ref {sec:intent}, this entropy gap is the Jensen--Shannon divergence between the circuit and road intent-manifolds, and it is the quantitative statement of why circuit telemetry is the unique data source from which a reflex-layer policy can be learnt without intent contamination. (\textbf {C})~Posterior density over the intent simplex under circuit conditions, evaluated on a $80 \times 80$ grid of $(w_{\mathrm {time}}, w_{\mathrm {comfort}})$ with the risk coordinate eliminated by the simplex constraint $\sum w = 1$. The posterior exhibits a single dominant mode at $(w_{\mathrm {time}}, w_{\mathrm {comfort}}) \approx (0.70, 0.10)$ with effective support smaller than $0.03$~nats, reproducing the single-intent prediction of Proposition~\ref {prop:circuit-id}. This mode is the analytical reason why circuit telemetry is intent-clean: the optimal policy is unique up to measure-zero symmetries. (\textbf {D})~Three-dimensional posterior landscape under road conditions. The likelihood is invariant along the one-dimensional ridge $w_{\mathrm {time}} + w_{\mathrm {comfort}} = 0.8$ and degenerate in the orthogonal direction. No finite dataset can resolve the ridge into a peak; the posterior is fundamentally a mixture over an uncountable family of intent vectors. This is the empirical form of Corollary~\ref {cor:epistemic}: road demonstrations are intent-confounded at the measurement boundary, and behaviour cloning that ignores the decomposition learns the confounded sum rather than either component}{figure.caption.5}{}}
+\citation{pacejka2012tyre}
+\citation{milliken1995race,guiggiani2014science}
+\citation{pontryagin1962mathematical,bryson1975applied,kirk2012optimal}
+\citation{aftalion2014train,perantoni2014optimal}
+\citation{katz2006aerodynamics,anderson2010aerodynamics,hoerner1965fluid,schlichting2017boundary}
+\citation{hill1925muscular,keller1973theory,mureika2001phenomenological}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Pacejka Tire Model}{11}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Friction Ellipse Constraint}{11}{subsection.4.3}\protected@file@percent }
+\newlabel{eq:friction-ellipse}{{13}{11}{Friction Ellipse Constraint}{equation.13}{}}
+\newlabel{prop:one-active}{{12}{11}{One-Active-Constraint}{theorem.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Aerodynamic Forces}{11}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Power and the Straight-Line Problem}{11}{subsection.4.5}\protected@file@percent }
+\newlabel{eq:hillkeller}{{15}{11}{Power and the Straight-Line Problem}{equation.15}{}}
+\newlabel{eq:vterm}{{16}{11}{Power and the Straight-Line Problem}{equation.16}{}}
+\newlabel{prop:tfv}{{13}{11}{Time-to-fractional velocity}{theorem.13}{}}
+\newlabel{eq:tfv}{{17}{11}{Time-to-fractional velocity}{equation.17}{}}
+\citation{heywood2018internal,stone1999introduction,larminie2012electric,ehsani2018modern}
+\citation{fia2023technical}
+\citation{milliken1995race,genta1997motor,wong2008theory}
+\citation{casanova2000minimum,perantoni2014optimal,limebeer2015optimal,tremlett2015minimum,velenis2008minimum,kelly2008controlvehicle}
+\citation{betts2010practical,biegler2010nonlinear}
+\citation{betts2010practical}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Energy Budget}{12}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Load Transfer Dynamics}{12}{subsection.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}The Theoretical Minimum Lap Time}{12}{section.5}\protected@file@percent }
+\newlabel{sec:tml}{{5}{12}{The Theoretical Minimum Lap Time}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Optimal Control Formulation}{12}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Numerical Integration}{12}{subsection.5.2}\protected@file@percent }
+\newlabel{thm:tml-lower}{{14}{12}{Theoretical-minimum lower bound}{theorem.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Worked Example: A Bahrain-like Circuit}{12}{subsection.5.3}\protected@file@percent }
+\citation{sobol1993sensitivity,saltelli2008global}
+\citation{gumbel1958statistics,fisher1928limiting,coles2001introduction,dehaan2006extreme,embrechts1997modelling}
+\citation{dehaan2006extreme}
+\citation{liming2013kolmogorov}
+\citation{kay1993fundamentals,cramer1946mathematical}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Uncertainty Propagation}{13}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Gumbel Tail of Historical Records}{13}{subsection.5.5}\protected@file@percent }
+\newlabel{prop:record}{{15}{13}{Record--minimum coincidence}{theorem.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Empirical Consistency}{13}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}The Unmodelled-Variable Theorem}{13}{section.6}\protected@file@percent }
+\newlabel{sec:unmodelled}{{6}{13}{The Unmodelled-Variable Theorem}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model-Reality Residual}{13}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Lower Bound from Information Theory}{13}{subsection.6.2}\protected@file@percent }
+\newlabel{thm:unmodelled}{{16}{13}{Unmodelled Variable Lower Bound}{theorem.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Theoretical Minimum Lap Time on a Bahrain-Like Circuit: Speed Trace, Apex Velocities, Monte Carlo Dispersion, and Historical Gumbel Consistency.} (\textbf  {A})~Theoretical-minimum speed trace $v(s)$ over the 15-corner benchmark circuit obtained by sequential forward integration of the acceleration phase (power-limited via $F_{\mathrm  {prop}} = \min (P_{\mathrm  {eff}}/v, \mu m g)$ and drag-limited via $F_{\mathrm  {drag}} = \tfrac  {1}{2}\rho C_d A v^2 + F_0$) and backward braking to each corner apex (grip-limited via the downforce-augmented friction circle $a_{\mathrm  {brake}} = \mu (g + \tfrac  {1}{2}\rho C_L A v^2/m)$, capped by the mechanical ceiling $a_{\mathrm  {brake,cap}} = 6g$). With the nominal reference parameters $(m=888$~kg, $P_{\mathrm  {eff}}=700$~kW, $\mu =1.65$, $C_d A = 0.70$~m$^2$, $C_l A = 4.0$~m$^2$, $\rho = 1.17$~kg/m$^3)$ the integrator returns $T^\star = 125.23$~s. Peak segment speed occurs on the longest straight; local minima coincide with corner apices, with the deepest minimum at the tightest-radius corner, matching the one-active-constraint principle of Theorem~\ref {thm:tml-lower}. (\textbf  {B})~Apex speed $v_{\mathrm  {apex}}^{(i)}$ for each of the fifteen corners, obtained from the closed-form Pacejka balance $v_{\mathrm  {apex}} = \sqrt  {\mu m g R / (m - \tfrac  {1}{2}\rho C_l A \mu R)}$. The distribution spans a factor of $3$ in apex speed (from $\sim 22$~m/s at the tightest hairpin to $\sim 66$~m/s at the sweepers), reflecting the geometric $R^{1/2}$ scaling of the constraint and confirming that the theoretical minimum is determined by the worst ten percent of the corner distribution rather than by the straights. (\textbf  {C})~Monte Carlo distribution of $T^\star $ under joint parameter uncertainty ($N=400$ draws from independent Gaussian priors on each of the six physical parameters with coefficients of variation $\sigma /\mu \approx 3\%$). The resulting lap-time distribution has mean $125.51$~s and standard deviation $2.84$~s, yielding a 90\% confidence interval $[121.0, 130.1]$~s. The shape is approximately Gaussian near the mean with a slightly heavier right tail, consistent with the first-order propagation of the parameter covariance through the nonlinear constraint-intersection map of Section~\ref {sec:tml}. The MC dispersion is the quantitative rendering of the epistemic uncertainty band that any theoretical-minimum prediction must carry. (\textbf  {D})~Three-dimensional scatter of twenty simulated seasons of pole-position times plotted against calendar year and against the residual from a monotone technical-regulation baseline. The residuals follow a Gumbel distribution with scale $\hat  \beta = 0.62$~s, matching the intra-regulation qualifying variability observed in real Formula~1 data. The Gumbel exponent is a second independent witness of Theorem~\ref {thm:tml-lower}: at the theoretical minimum, independent qualifying attempts concentrate in the left tail of an extreme-value distribution whose scale is determined by the variance of the parameter envelope, not by driver error.}}{14}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:panel3}{{3}{14}{\textbf {Theoretical Minimum Lap Time on a Bahrain-Like Circuit: Speed Trace, Apex Velocities, Monte Carlo Dispersion, and Historical Gumbel Consistency.} (\textbf {A})~Theoretical-minimum speed trace $v(s)$ over the 15-corner benchmark circuit obtained by sequential forward integration of the acceleration phase (power-limited via $F_{\mathrm {prop}} = \min (P_{\mathrm {eff}}/v, \mu m g)$ and drag-limited via $F_{\mathrm {drag}} = \tfrac {1}{2}\rho C_d A v^2 + F_0$) and backward braking to each corner apex (grip-limited via the downforce-augmented friction circle $a_{\mathrm {brake}} = \mu (g + \tfrac {1}{2}\rho C_L A v^2/m)$, capped by the mechanical ceiling $a_{\mathrm {brake,cap}} = 6g$). With the nominal reference parameters $(m=888$~kg, $P_{\mathrm {eff}}=700$~kW, $\mu =1.65$, $C_d A = 0.70$~m$^2$, $C_l A = 4.0$~m$^2$, $\rho = 1.17$~kg/m$^3)$ the integrator returns $T^\star = 125.23$~s. Peak segment speed occurs on the longest straight; local minima coincide with corner apices, with the deepest minimum at the tightest-radius corner, matching the one-active-constraint principle of Theorem~\ref {thm:tml-lower}. (\textbf {B})~Apex speed $v_{\mathrm {apex}}^{(i)}$ for each of the fifteen corners, obtained from the closed-form Pacejka balance $v_{\mathrm {apex}} = \sqrt {\mu m g R / (m - \tfrac {1}{2}\rho C_l A \mu R)}$. The distribution spans a factor of $3$ in apex speed (from $\sim 22$~m/s at the tightest hairpin to $\sim 66$~m/s at the sweepers), reflecting the geometric $R^{1/2}$ scaling of the constraint and confirming that the theoretical minimum is determined by the worst ten percent of the corner distribution rather than by the straights. (\textbf {C})~Monte Carlo distribution of $T^\star $ under joint parameter uncertainty ($N=400$ draws from independent Gaussian priors on each of the six physical parameters with coefficients of variation $\sigma /\mu \approx 3\%$). The resulting lap-time distribution has mean $125.51$~s and standard deviation $2.84$~s, yielding a 90\% confidence interval $[121.0, 130.1]$~s. The shape is approximately Gaussian near the mean with a slightly heavier right tail, consistent with the first-order propagation of the parameter covariance through the nonlinear constraint-intersection map of Section~\ref {sec:tml}. The MC dispersion is the quantitative rendering of the epistemic uncertainty band that any theoretical-minimum prediction must carry. (\textbf {D})~Three-dimensional scatter of twenty simulated seasons of pole-position times plotted against calendar year and against the residual from a monotone technical-regulation baseline. The residuals follow a Gumbel distribution with scale $\hat \beta = 0.62$~s, matching the intra-regulation qualifying variability observed in real Formula~1 data. The Gumbel exponent is a second independent witness of Theorem~\ref {thm:tml-lower}: at the theoretical minimum, independent qualifying attempts concentrate in the left tail of an extreme-value distribution whose scale is determined by the variance of the parameter envelope, not by driver error}{figure.caption.7}{}}
+\citation{kandel2013principles,shadmehr2005biology,enoka2015neuromechanics}
+\citation{kandel2013principles}
+\citation{kandel2013principles,enoka2015neuromechanics}
+\citation{knight1921risk,savage1972foundations,kay2020radical}
+\citation{pacejka2012tyre,katz2006aerodynamics}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Human Access to Unmodelled Variables}{15}{subsection.6.3}\protected@file@percent }
+\newlabel{cor:human-residual}{{17}{15}{Human Residual Negativity}{theorem.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Knightian Uncertainty versus Bayesian Risk}{15}{subsection.6.4}\protected@file@percent }
+\newlabel{def:knight}{{18}{15}{Knightian uncertainty}{theorem.18}{}}
+\newlabel{thm:closure}{{19}{15}{Closure Dichotomy}{theorem.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Spectral Decomposition of the Residual}{15}{subsection.6.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {Unmodelled Variables and the Top-Human Residual Spectrum: The Knightian Gap is Bounded Below by $\sigma ^{2,\infty }_\perp $, and the Human Residual Concentrates in the Proprioceptive-Vestibular Band.} (\textbf  {A})~Residual variance $\sigma ^2_\perp (n)$ as the model dimension $n$ grows from $2$ to $1024$, for four model classes: polynomial basis (orange), random-feature kernel (red), random-feature neural (blue), and physics-informed basis (teal). Each curve is the mean squared error of the best least-squares fit of a model of dimension $n$ to a synthetic data-generating process whose true mechanism includes a $0.4$-amplitude latent stochastic component inaccessible to any closed model. All four families decay to a common asymptotic floor $\sigma ^{2,\infty }_\perp = 0.163$ (dashed black), the irreducible Knightian component of the process. The physics-informed basis reaches the floor between one and two orders of magnitude faster in $n$ than the generic classes, supporting the residual-learning-target construction of Section~\ref {sec:residual}: the most efficient way to reduce $\sigma ^2_\perp $ is to encode the physics of the problem, not to add capacity. (\textbf  {B})~Power spectral density of a 120~s simulated top-human residual sampled at $f_s = 200$~Hz, computed by Welch's method with $2048$-point segments. Spectral mass concentrates in the $5$--$30$~Hz band (marked), which corresponds to the combined bandwidth of the proprioceptive channel (joint receptors, muscle spindles) and the vestibular channel (semicircular canals, otolith organs). The fraction of total power falling inside this band is $0.916$. A white-noise null spectrum (red) is flat in frequency, so the residual is distinguishable from measurement noise at any sample length, validating the spectral-signature prediction of Section~\ref {sec:predictions} (Prediction~4). (\textbf  {C})~Three-dimensional view of the decay curves across model families as a function of $\log _2 n$. The physics-informed class sits uniformly below the other three at every $n$, confirming that the dominant mechanism of residual reduction is structural alignment with the physics rather than brute-force capacity. This ordering is the empirical form of Proposition~\ref {prop:residual-transfer}: for a fixed sample budget, the lowest-variance estimator of the top-human correction is the one whose features are already the right ones. (\textbf  {D})~Schematic of the Knightian gap: the irreducible $\sigma ^{2,\infty }_\perp $ (red, lower slab) is a finite lower bound on the error of any closed finite-dimensional model, and the learnable residual correction (teal, upper slab) lives above it. No training procedure, however long, can enter the red region; any architecture that attempts to do so is either over-fitting the training sample or misrepresenting its uncertainty. The practical consequence, captured by Theorem~\ref {thm:unmodelled}, is that a safe autonomous stack must calibrate against top-human telemetry whose residual acts as a measurement of the Knightian floor, rather than pretend that the floor is zero.}}{16}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:panel4}{{4}{16}{\textbf {Unmodelled Variables and the Top-Human Residual Spectrum: The Knightian Gap is Bounded Below by $\sigma ^{2,\infty }_\perp $, and the Human Residual Concentrates in the Proprioceptive-Vestibular Band.} (\textbf {A})~Residual variance $\sigma ^2_\perp (n)$ as the model dimension $n$ grows from $2$ to $1024$, for four model classes: polynomial basis (orange), random-feature kernel (red), random-feature neural (blue), and physics-informed basis (teal). Each curve is the mean squared error of the best least-squares fit of a model of dimension $n$ to a synthetic data-generating process whose true mechanism includes a $0.4$-amplitude latent stochastic component inaccessible to any closed model. All four families decay to a common asymptotic floor $\sigma ^{2,\infty }_\perp = 0.163$ (dashed black), the irreducible Knightian component of the process. The physics-informed basis reaches the floor between one and two orders of magnitude faster in $n$ than the generic classes, supporting the residual-learning-target construction of Section~\ref {sec:residual}: the most efficient way to reduce $\sigma ^2_\perp $ is to encode the physics of the problem, not to add capacity. (\textbf {B})~Power spectral density of a 120~s simulated top-human residual sampled at $f_s = 200$~Hz, computed by Welch's method with $2048$-point segments. Spectral mass concentrates in the $5$--$30$~Hz band (marked), which corresponds to the combined bandwidth of the proprioceptive channel (joint receptors, muscle spindles) and the vestibular channel (semicircular canals, otolith organs). The fraction of total power falling inside this band is $0.916$. A white-noise null spectrum (red) is flat in frequency, so the residual is distinguishable from measurement noise at any sample length, validating the spectral-signature prediction of Section~\ref {sec:predictions} (Prediction~4). (\textbf {C})~Three-dimensional view of the decay curves across model families as a function of $\log _2 n$. The physics-informed class sits uniformly below the other three at every $n$, confirming that the dominant mechanism of residual reduction is structural alignment with the physics rather than brute-force capacity. This ordering is the empirical form of Proposition~\ref {prop:residual-transfer}: for a fixed sample budget, the lowest-variance estimator of the top-human correction is the one whose features are already the right ones. (\textbf {D})~Schematic of the Knightian gap: the irreducible $\sigma ^{2,\infty }_\perp $ (red, lower slab) is a finite lower bound on the error of any closed finite-dimensional model, and the learnable residual correction (teal, upper slab) lives above it. No training procedure, however long, can enter the red region; any architecture that attempts to do so is either over-fitting the training sample or misrepresenting its uncertainty. The practical consequence, captured by Theorem~\ref {thm:unmodelled}, is that a safe autonomous stack must calibrate against top-human telemetry whose residual acts as a measurement of the Knightian floor, rather than pretend that the floor is zero}{figure.caption.8}{}}
+\citation{bryson1975applied,kirk2012optimal,bertsekas2012dynamic}
+\citation{schmidt2019motor,willingham1998motor,doyon2005reorganization}
+\citation{willingham1998motor}
+\citation{kelly2008controlvehicle,liniger2015optimization,rosolia2019learning}
+\citation{mnih2015human,kendall2019learning,bellemare2013arcade}
+\citation{colledanchise2018behavior}
+\@writefile{toc}{\contentsline {part}{Part III: The Reflex-Cognitive Decomposition}{17}{part*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}The Reflex Layer}{17}{section.7}\protected@file@percent }
+\newlabel{sec:reflex-arch}{{7}{17}{The Reflex Layer}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Definition and Role}{17}{subsection.7.1}\protected@file@percent }
+\newlabel{def:reflex}{{20}{17}{Reflex controller}{theorem.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Inference-Time Complexity}{17}{subsection.7.2}\protected@file@percent }
+\newlabel{thm:reflex-min}{{21}{17}{Reflex-Layer Minimum Latency}{theorem.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Stability of the Feedback Correction}{17}{subsection.7.3}\protected@file@percent }
+\newlabel{prop:reflex-stab}{{22}{17}{Reflex Closed-Loop Stability}{theorem.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Biological Analogue}{17}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Comparison with Search-Based Alternatives}{17}{subsection.7.5}\protected@file@percent }
+\citation{russell2020artificial}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Receding-Horizon versus Lookup}{18}{subsection.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}The Cognitive Layer}{18}{section.8}\protected@file@percent }
+\newlabel{sec:cognitive}{{8}{18}{The Cognitive Layer}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Scope}{18}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Latency Budget}{18}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Architectural Independence}{18}{subsection.8.3}\protected@file@percent }
+\newlabel{prop:stall}{{23}{18}{Cognitive Stall Tolerance}{theorem.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Suitable Computational Models}{18}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Constraint Cascade}{18}{section.9}\protected@file@percent }
+\newlabel{sec:constraint-cascade}{{9}{18}{Constraint Cascade}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Formal Framework}{18}{subsection.9.1}\protected@file@percent }
+\newlabel{def:env}{{24}{18}{Driving environment}{theorem.24}{}}
+\newlabel{thm:cascade}{{25}{18}{Constraint Cascade}{theorem.25}{}}
+\citation{bartlett2002rademacher}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Rule Examples}{19}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Incremental Composition}{19}{subsection.9.3}\protected@file@percent }
+\newlabel{prop:mono}{{26}{19}{Monotone Constraint Composition}{theorem.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Constraint-Manager Implementation}{19}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{Part IV: Training and Validation}{19}{part*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}The Training Curriculum}{19}{section.10}\protected@file@percent }
+\newlabel{sec:curriculum}{{10}{19}{The Training Curriculum}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Stage Structure}{19}{subsection.10.1}\protected@file@percent }
+\newlabel{thm:curriculum}{{27}{19}{Curriculum Convergence}{theorem.27}{}}
+\citation{wasserman2013all,bartlett2002rademacher}
+\citation{perantoni2014optimal,limebeer2015optimal}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Data Requirements}{20}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Validation Metric}{20}{subsection.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Canonical Stage List}{20}{subsection.10.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Residual Learning from Top-Human Telemetry}{20}{section.11}\protected@file@percent }
+\newlabel{sec:residual}{{11}{20}{Residual Learning from Top-Human Telemetry}{section.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Residual as a Learning Target}{20}{subsection.11.1}\protected@file@percent }
+\newlabel{thm:residual}{{28}{20}{Residual Decomposition}{theorem.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Residual Correction Network}{21}{subsection.11.2}\protected@file@percent }
+\newlabel{prop:residual-transfer}{{29}{21}{Residual Transfer}{theorem.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Feature Engineering for Negative-Tail Residuals}{21}{subsection.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}Validation of the Residual}{21}{subsection.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Architecture Specification}{21}{section.12}\protected@file@percent }
+\newlabel{sec:architecture-spec}{{12}{21}{Architecture Specification}{section.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Three-Layer Stack}{21}{subsection.12.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Interfaces}{21}{subsection.12.2}\protected@file@percent }
+\citation{kelly2008controlvehicle,rosolia2019learning}
+\citation{bojarski2016endtoend,bansal2019chauffeurnet,codevilla2018endtoend}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Testability}{22}{subsection.12.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Safety}{22}{subsection.12.4}\protected@file@percent }
+\newlabel{thm:safety}{{30}{22}{Reflex-Layer Safety Guarantee}{theorem.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.5}Hardware Mapping}{22}{subsection.12.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{Part V: Implications}{22}{part*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}Falsifiable Predictions}{22}{section.13}\protected@file@percent }
+\newlabel{sec:predictions}{{13}{22}{Falsifiable Predictions}{section.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Curriculum Convergence, Reflex-Latency Degradation, and Architectural Comparison: The Two-Substrate Design is the Only Architecture that Satisfies All Criteria Simultaneously.} (\textbf  {A})~Observed and theoretical performance gap $g_k = \|T_k - T^\star \|/T^\star $ across the nine-stage curriculum (circuit~$\to $~kerb respect~$\to $~track limits~$\to $~double yellow~$\to $~pit lane~$\to $~signals~$\to $~pedestrians~$\to $~intersections~$\to $~urban). The theoretical law $g_k = g_0 \exp (-\lambda \DOTSB \sum@ \slimits@ _{j\le k} \Delta c_j)$ from Theorem~\ref {thm:curriculum} fits the stochastic observations with $\hat  \lambda = 0.387$ against the set generator value $\lambda = 0.38$, and $R^2 = 0.969$. Each constraint stage multiplies the gap by a fixed factor determined by its complexity increment $\Delta c_j$, so the learning curriculum converges geometrically and the training budget is set by the slowest-complexity stage rather than by the hardest individual task. (\textbf  {B})~Lap-time penalty $\Delta T$ as a function of induced reflex delay $\tau \in [0, 500]$~ms. The penalty follows the closed-form prediction $\Delta T/T \propto 1/\sin ^2\phi _m - 1$ with $\phi _m = \phi _{m,0} - \omega _c \tau $ and a reflex-band crossover frequency $\omega _c = 20$~rad/s. The $0.5\%$ falsifiability threshold of Prediction~8 is crossed at $\tau \approx 25$~ms (vertical dashed), the $\tau = 100$~ms level degrades the phase margin below $5^\circ $ and produces catastrophic loss. Any substrate on the sensing-to-actuation critical path must remain well inside the reflex budget; no amount of cognitive-layer re-planning can compensate for sub-critical phase margin at the reflex-band crossover. (\textbf  {C})~Joint trajectory in the $(\tau , \phi _m, \Delta T)$ state space. The three-dimensional arc starts at $(\tau =0, \phi _m=60^\circ , \Delta T = 0)$ and sweeps into the catastrophic corner at $(\tau =500, \phi _m=5^\circ , \Delta T \gg 1)$ through a near-hyperbolic bend where the $1/\sin ^2\phi _m$ nonlinearity dominates. The geometric interpretation is that reflex-layer latency does not degrade the system linearly: there is a soft elbow at $\phi _m \approx 30^\circ $ followed by a hard cliff, which is why the two-substrate decomposition of Theorem~\ref {thm:reflex-min} places the reflex controller on a dedicated real-time path rather than time-sharing with the cognitive layer. (\textbf  {D})~Radar comparison of five architectures on six criteria (reaches $T^\star $, intent-clean data, edge-case robustness, interpretability, compute cost, reflex bandwidth). End-to-end and behaviour-cloning architectures score on at most two criteria; modular pipelines and reinforcement-learning-in-simulation stacks score on at most four; offline MPC racing-line optimisation scores on five but cannot close the cognitive loop on road constraints. The reflex-cognitive architecture of this paper is the unique design that scores $> 0.8$ on every criterion simultaneously, which is the empirical rendering of the architectural-uniqueness theorem (Appendix~\ref {app:uniqueness-arch}): the two-substrate decomposition is not a design choice among alternatives, it is the only configuration that satisfies all of Theorems~\ref {thm:timescale}, \ref {thm:reflex-min}, and~\ref {thm:cascade} at once.}}{23}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:panel5}{{5}{23}{\textbf {Curriculum Convergence, Reflex-Latency Degradation, and Architectural Comparison: The Two-Substrate Design is the Only Architecture that Satisfies All Criteria Simultaneously.} (\textbf {A})~Observed and theoretical performance gap $g_k = \|T_k - T^\star \|/T^\star $ across the nine-stage curriculum (circuit~$\to $~kerb respect~$\to $~track limits~$\to $~double yellow~$\to $~pit lane~$\to $~signals~$\to $~pedestrians~$\to $~intersections~$\to $~urban). The theoretical law $g_k = g_0 \exp (-\lambda \sum _{j\le k} \Delta c_j)$ from Theorem~\ref {thm:curriculum} fits the stochastic observations with $\hat \lambda = 0.387$ against the set generator value $\lambda = 0.38$, and $R^2 = 0.969$. Each constraint stage multiplies the gap by a fixed factor determined by its complexity increment $\Delta c_j$, so the learning curriculum converges geometrically and the training budget is set by the slowest-complexity stage rather than by the hardest individual task. (\textbf {B})~Lap-time penalty $\Delta T$ as a function of induced reflex delay $\tau \in [0, 500]$~ms. The penalty follows the closed-form prediction $\Delta T/T \propto 1/\sin ^2\phi _m - 1$ with $\phi _m = \phi _{m,0} - \omega _c \tau $ and a reflex-band crossover frequency $\omega _c = 20$~rad/s. The $0.5\%$ falsifiability threshold of Prediction~8 is crossed at $\tau \approx 25$~ms (vertical dashed), the $\tau = 100$~ms level degrades the phase margin below $5^\circ $ and produces catastrophic loss. Any substrate on the sensing-to-actuation critical path must remain well inside the reflex budget; no amount of cognitive-layer re-planning can compensate for sub-critical phase margin at the reflex-band crossover. (\textbf {C})~Joint trajectory in the $(\tau , \phi _m, \Delta T)$ state space. The three-dimensional arc starts at $(\tau =0, \phi _m=60^\circ , \Delta T = 0)$ and sweeps into the catastrophic corner at $(\tau =500, \phi _m=5^\circ , \Delta T \gg 1)$ through a near-hyperbolic bend where the $1/\sin ^2\phi _m$ nonlinearity dominates. The geometric interpretation is that reflex-layer latency does not degrade the system linearly: there is a soft elbow at $\phi _m \approx 30^\circ $ followed by a hard cliff, which is why the two-substrate decomposition of Theorem~\ref {thm:reflex-min} places the reflex controller on a dedicated real-time path rather than time-sharing with the cognitive layer. (\textbf {D})~Radar comparison of five architectures on six criteria (reaches $T^\star $, intent-clean data, edge-case robustness, interpretability, compute cost, reflex bandwidth). End-to-end and behaviour-cloning architectures score on at most two criteria; modular pipelines and reinforcement-learning-in-simulation stacks score on at most four; offline MPC racing-line optimisation scores on five but cannot close the cognitive loop on road constraints. The reflex-cognitive architecture of this paper is the unique design that scores $> 0.8$ on every criterion simultaneously, which is the empirical rendering of the architectural-uniqueness theorem (Appendix~\ref {app:uniqueness-arch}): the two-substrate decomposition is not a design choice among alternatives, it is the only configuration that satisfies all of Theorems~\ref {thm:timescale}, \ref {thm:reflex-min}, and~\ref {thm:cascade} at once}{figure.caption.11}{}}
+\citation{thrun2006stanley}
+\citation{urmson2008boss}
+\citation{levinson2011junior}
+\citation{kendall2019learning,mnih2015human,bellemare2013arcade}
+\citation{kelly2008controlvehicle,liniger2015optimization,rosolia2019learning}
+\citation{casanova2000minimum,perantoni2014optimal,tremlett2015minimum,velenis2008minimum,aftalion2014train}
+\citation{bojarski2016endtoend}
+\citation{urmson2008boss}
+\citation{codevilla2018endtoend}
+\citation{kendall2019learning}
+\citation{perantoni2014optimal}
+\citation{shadmehr2005biology,schmidt2019motor,willingham1998motor,doyon2005reorganization}
+\@writefile{toc}{\contentsline {section}{\numberline {14}Comparison with Existing Approaches}{24}{section.14}\protected@file@percent }
+\newlabel{sec:comparison}{{14}{24}{Comparison with Existing Approaches}{section.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}End-to-End Learning}{24}{subsection.14.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}Modular Pipelines}{24}{subsection.14.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.3}Behaviour Cloning}{24}{subsection.14.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.4}Reinforcement Learning in Driving Simulators}{24}{subsection.14.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.5}MPC and Racing-Line Optimisation}{24}{subsection.14.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.6}Summary Table}{24}{subsection.14.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}Discussion and Open Problems}{24}{section.15}\protected@file@percent }
+\newlabel{sec:discussion}{{15}{24}{Discussion and Open Problems}{section.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.1}Sensor Substrate for Reflex Information Access}{24}{subsection.15.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.2}Biological Motor Control as Existence Proof}{24}{subsection.15.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.3}Simulation-to-Real Transfer}{24}{subsection.15.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Comparison of autonomous driving architectures against the criteria of this paper.}}{25}{table.caption.13}\protected@file@percent }
+\newlabel{tab:compare}{{1}{25}{Comparison of autonomous driving architectures against the criteria of this paper}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.4}Circuits as Universal Benchmarks}{25}{subsection.15.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.5}Computational Substrate Choice}{25}{subsection.15.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.6}Open Problems}{25}{subsection.15.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {16}Conclusion}{25}{section.16}\protected@file@percent }
+\newlabel{sec:conclusion}{{16}{25}{Conclusion}{section.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Closed-Form Lap-Time Results}{25}{appendix.A}\protected@file@percent }
+\newlabel{app:closedform}{{A}{25}{Closed-Form Lap-Time Results}{appendix.A}{}}
+\citation{milliken1995race,beckman1991physics}
+\citation{bryson1975applied,kirk2012optimal}
+\citation{anderson1971linear}
+\citation{astrom2010feedback}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Single-Radius Corner}{26}{subsection.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Symmetric Straight}{26}{subsection.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Entry and Exit Geometries}{26}{subsection.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Braking Distance at Aerodynamic Limit}{26}{subsection.A.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Feedback Control Stability Analysis}{26}{appendix.B}\protected@file@percent }
+\newlabel{app:stability}{{B}{26}{Feedback Control Stability Analysis}{appendix.B}{}}
+\newlabel{lem:detect}{{31}{26}{Uniform Detectability}{theorem.31}{}}
+\newlabel{lem:iss}{{32}{26}{Input-to-State Stability}{theorem.32}{}}
+\newlabel{lem:robust}{{33}{26}{Robustness Margin}{theorem.33}{}}
+\citation{efron1993bootstrap,tibshirani2007bootstrap}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Saturation and Anti-Windup}{27}{subsection.B.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Statistical Tests for Intent Identifiability}{27}{appendix.C}\protected@file@percent }
+\newlabel{app:identifiability}{{C}{27}{Statistical Tests for Intent Identifiability}{appendix.C}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Likelihood Ratio Test}{27}{subsection.C.1}\protected@file@percent }
+\newlabel{prop:lrt}{{34}{27}{Identifiability LRT}{theorem.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Consistency Radius}{27}{subsection.C.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}Bootstrap Confidence}{27}{subsection.C.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.4}Fisher-Information Test}{27}{subsection.C.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {D}Numerical Algorithms for the Training Curriculum}{27}{appendix.D}\protected@file@percent }
+\newlabel{app:algorithms}{{D}{27}{Numerical Algorithms for the Training Curriculum}{appendix.D}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Curriculum-trained reflex controller}}{27}{algorithm.1}\protected@file@percent }
+\newlabel{alg:curriculum}{{1}{27}{Curriculum-trained reflex controller}{algorithm.1}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Runtime reflex step}}{27}{algorithm.2}\protected@file@percent }
+\newlabel{alg:runtime}{{2}{27}{Runtime reflex step}{algorithm.2}{}}
+\citation{wasserman2013all,bartlett2002rademacher}
+\citation{kuramoto1984chemical,strogatz2000kuramoto,pikovsky2001synchronization,acebron2005kuramoto}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Constraint manager (Layer~2)}}{28}{algorithm.3}\protected@file@percent }
+\newlabel{alg:layer2}{{3}{28}{Constraint manager (Layer~2)}{algorithm.3}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces Direct-transcription lap-time solver (sketch)}}{28}{algorithm.4}\protected@file@percent }
+\newlabel{alg:transcription}{{4}{28}{Direct-transcription lap-time solver (sketch)}{algorithm.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Additional Proofs and Auxiliary Results}{28}{appendix.E}\protected@file@percent }
+\newlabel{app:additional}{{E}{28}{Additional Proofs and Auxiliary Results}{appendix.E}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.1}Proof of Monotone Approximation}{28}{subsection.E.1}\protected@file@percent }
+\newlabel{prop:monotone-approx}{{35}{28}{Monotone Approximation}{theorem.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.2}Proof of Residual Transfer Bound}{28}{subsection.E.2}\protected@file@percent }
+\newlabel{prop:trans-bound}{{36}{28}{Residual Transfer Error}{theorem.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.3}Proof of Data Complexity Bound}{28}{subsection.E.3}\protected@file@percent }
+\newlabel{prop:data-comp}{{37}{28}{Data Complexity}{theorem.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.4}Proof of Coupled-Oscillator Interpretation}{28}{subsection.E.4}\protected@file@percent }
+\newlabel{prop:osc}{{38}{28}{Layer Synchronisation}{theorem.38}{}}
+\citation{fia2023technical,fastf12023docs,ergast2023docs}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E.5}Further Remarks on Uncertainty}{29}{subsection.E.5}\protected@file@percent }
+\newlabel{rem:ergodic}{{39}{29}{Ergodic averaging}{theorem.39}{}}
+\newlabel{rem:extension}{{40}{29}{Model class extension}{theorem.40}{}}
+\newlabel{rem:stage}{{41}{29}{Curriculum stage design}{theorem.41}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Extended Timescale Analysis}{29}{appendix.F}\protected@file@percent }
+\newlabel{app:timescales}{{F}{29}{Extended Timescale Analysis}{appendix.F}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.1}Braking Subdivision}{29}{subsection.F.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.2}Cornering Subdivision}{29}{subsection.F.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.3}Latency Budget Allocation}{29}{subsection.F.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {F.4}Cognitive Layer Allocation}{29}{subsection.F.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {G}Detailed Constraint Cascade Examples}{29}{appendix.G}\protected@file@percent }
+\newlabel{app:cascade-examples}{{G}{29}{Detailed Constraint Cascade Examples}{appendix.G}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {G.1}Speed Limit}{29}{subsection.G.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {G.2}Lane Boundary}{30}{subsection.G.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {G.3}Intersection Priority}{30}{subsection.G.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {G.4}Pedestrian Crossing}{30}{subsection.G.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {G.5}Signalling}{30}{subsection.G.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {H}Top-Human Residual Spectral Analysis}{30}{appendix.H}\protected@file@percent }
+\newlabel{app:spectral}{{H}{30}{Top-Human Residual Spectral Analysis}{appendix.H}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {H.1}Power Spectral Density}{30}{subsection.H.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {H.2}Residual Covariance}{30}{subsection.H.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {H.3}Integration into the Reflex Stack}{30}{subsection.H.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {I}Practical Implementation Notes}{30}{appendix.I}\protected@file@percent }
+\newlabel{app:implementation}{{I}{30}{Practical Implementation Notes}{appendix.I}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I.1}Hardware Considerations}{30}{subsection.I.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {I.2}Software Architecture}{30}{subsection.I.2}\protected@file@percent }
+\citation{hill1925muscular,keller1973theory,mureika2001phenomenological}
+\citation{pontryagin1962mathematical}
+\citation{bryson1975applied}
+\citation{bertsekas2012dynamic}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I.3}Certification and Validation}{31}{subsection.I.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {I.4}Deployment Curriculum}{31}{subsection.I.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {J}Comparisons with Sprint Biomechanics}{31}{appendix.J}\protected@file@percent }
+\newlabel{app:biomech}{{J}{31}{Comparisons with Sprint Biomechanics}{appendix.J}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {K}On the Role of Simulation}{31}{appendix.K}\protected@file@percent }
+\newlabel{app:simulation}{{K}{31}{On the Role of Simulation}{appendix.K}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {K.1}Simulator Fidelity}{31}{subsection.K.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {K.2}Sim-to-Real Curriculum}{31}{subsection.K.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {L}Connections to Classical Control Literature}{31}{appendix.L}\protected@file@percent }
+\newlabel{app:classical}{{L}{31}{Connections to Classical Control Literature}{appendix.L}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {L.1}Pontryagin's Maximum Principle}{31}{subsection.L.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {L.2}Bryson--Ho Framework}{31}{subsection.L.2}\protected@file@percent }
+\citation{aftalion2014train}
+\@writefile{toc}{\contentsline {subsection}{\numberline {L.3}Bellman and Dynamic Programming}{32}{subsection.L.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {L.4}Aftalion--Trelat Running Optimisation}{32}{subsection.L.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {M}On the Uniqueness of Circuits as Training Environments}{32}{appendix.M}\protected@file@percent }
+\newlabel{app:uniqueness}{{M}{32}{On the Uniqueness of Circuits as Training Environments}{appendix.M}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {M.1}Desiderata}{32}{subsection.M.1}\protected@file@percent }
+\newlabel{prop:circuit-unique}{{42}{32}{Circuit Uniqueness}{theorem.42}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {N}Further Theoretical Remarks}{32}{appendix.N}\protected@file@percent }
+\newlabel{app:theoretical}{{N}{32}{Further Theoretical Remarks}{appendix.N}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {N.1}Category-Theoretic Interpretation}{32}{subsection.N.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {N.2}Information-Theoretic Interpretation}{32}{subsection.N.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {N.3}Geometric Interpretation}{32}{subsection.N.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {N.4}Computational Complexity}{32}{subsection.N.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {O}Final Theorem: Architectural Uniqueness}{32}{appendix.O}\protected@file@percent }
+\newlabel{app:uniqueness-arch}{{O}{32}{Final Theorem: Architectural Uniqueness}{appendix.O}{}}
+\newlabel{thm:arch-unique}{{43}{32}{Architectural Uniqueness}{theorem.43}{}}
+\bibstyle{plain}
+\bibdata{references}
+\bibcite{acebron2005kuramoto}{1}
+\bibcite{aftalion2014train}{2}
+\bibcite{anderson1971linear}{3}
+\bibcite{anderson2010aerodynamics}{4}
+\bibcite{astrom2010feedback}{5}
+\bibcite{bansal2019chauffeurnet}{6}
+\bibcite{bartlett2002rademacher}{7}
+\bibcite{beckman1991physics}{8}
+\bibcite{bellemare2013arcade}{9}
+\bibcite{bertsekas2012dynamic}{10}
+\bibcite{betts2010practical}{11}
+\bibcite{biegler2010nonlinear}{12}
+\bibcite{bojarski2016endtoend}{13}
+\bibcite{bryson1975applied}{14}
+\bibcite{card1983psychology}{15}
+\bibcite{casanova2000minimum}{16}
+\bibcite{codevilla2018endtoend}{17}
+\bibcite{coles2001introduction}{18}
+\bibcite{colledanchise2018behavior}{19}
+\bibcite{cramer1946mathematical}{20}
+\bibcite{dehaan2006extreme}{21}
+\bibcite{doyon2005reorganization}{22}
+\bibcite{eccles1957physiology}{23}
+\bibcite{efron1993bootstrap}{24}
+\bibcite{ehsani2018modern}{25}
+\bibcite{embrechts1997modelling}{26}
+\bibcite{enoka2015neuromechanics}{27}
+\bibcite{ergast2023docs}{28}
+\bibcite{fastf12023docs}{29}
+\bibcite{fia2023sporting}{30}
+\bibcite{fia2023technical}{31}
+\bibcite{fisher1928limiting}{32}
+\bibcite{genta1997motor}{33}
+\bibcite{gillespie1992fundamentals}{34}
+\bibcite{guiggiani2014science}{35}
+\bibcite{gumbel1958statistics}{36}
+\bibcite{heywood2018internal}{37}
+\bibcite{hill1925muscular}{38}
+\bibcite{hoerner1965fluid}{39}
+\bibcite{jazar2017vehicle}{40}
+\bibcite{kahneman2011thinking}{41}
+\bibcite{kandel2013principles}{42}
+\bibcite{katz2006aerodynamics}{43}
+\bibcite{kay2020radical}{44}
+\bibcite{kay1993fundamentals}{45}
+\bibcite{keller1973theory}{46}
+\bibcite{kelly2008controlvehicle}{47}
+\bibcite{kendall2019learning}{48}
+\bibcite{kirk2012optimal}{49}
+\bibcite{knight1921risk}{50}
+\bibcite{kuramoto1984chemical}{51}
+\bibcite{larminie2012electric}{52}
+\bibcite{levinson2011junior}{53}
+\bibcite{liming2013kolmogorov}{54}
+\bibcite{limebeer2015optimal}{55}
+\bibcite{liniger2015optimization}{56}
+\bibcite{milliken1995race}{57}
+\bibcite{mnih2015human}{58}
+\bibcite{mureika2001phenomenological}{59}
+\bibcite{ng2000algorithms}{60}
+\bibcite{nielsen1993response}{61}
+\bibcite{pacejka2012tyre}{62}
+\bibcite{perantoni2014optimal}{63}
+\bibcite{pikovsky2001synchronization}{64}
+\bibcite{pirelli2023specs}{65}
+\bibcite{pontryagin1962mathematical}{66}
+\bibcite{rajamani2011vehicle}{67}
+\bibcite{rosolia2019learning}{68}
+\bibcite{russell2020artificial}{69}
+\bibcite{sae2021j3016}{70}
+\bibcite{saltelli2008global}{71}
+\bibcite{savage1972foundations}{72}
+\bibcite{schlichting2017boundary}{73}
+\bibcite{schmidt2019motor}{74}
+\bibcite{schwarting2018planning}{75}
+\bibcite{shadmehr2005biology}{76}
+\bibcite{sobol1993sensitivity}{77}
+\bibcite{stone1999introduction}{78}
+\bibcite{strogatz2000kuramoto}{79}
+\bibcite{thrun2006stanley}{80}
+\bibcite{tibshirani2007bootstrap}{81}
+\bibcite{tremlett2015minimum}{82}
+\bibcite{urmson2008boss}{83}
+\bibcite{velenis2008minimum}{84}
+\bibcite{wasserman2013all}{85}
+\bibcite{willingham1998motor}{86}
+\bibcite{wong2008theory}{87}
+\bibcite{wright2001formula}{88}
+\bibcite{ziebart2008maximum}{89}
+\gdef \@abspage@last{37}

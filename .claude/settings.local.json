@@ -50,7 +50,13 @@
       "Bash(grep -oE \"\\\\\\\\\\\\\\\\cite\\\\{[^}]+\\\\}\" /c/Users/kunda/Documents/distributed/verum/publication/ultimate-bahrain-lap/theoretical-minimum-bahrain.tex)",
       "Bash(grep -c \"^\\\\\\\\\\\\\\\\section\" high-velocity-vehicle-intent-decomposition.tex)",
       "Bash(grep -c \"^\\\\\\\\\\\\\\\\subsection\" high-velocity-vehicle-intent-decomposition.tex)",
-      "Bash(grep \"^\\\\\\\\\\\\\\\\section\\\\|^\\\\\\\\\\\\\\\\part\" high-velocity-vehicle-intent-decomposition.tex)"
+      "Bash(grep \"^\\\\\\\\\\\\\\\\section\\\\|^\\\\\\\\\\\\\\\\part\" high-velocity-vehicle-intent-decomposition.tex)",
+      "Bash(python generate_panels.py)",
+      "Bash(grep -c '@.*{__TRACKED_VAR__,' references.bib)",
+      "Bash(pdflatex -interaction=nonstopmode high-velocity-vehicle-intent-decomposition.tex)",
+      "Bash(bibtex high-velocity-vehicle-intent-decomposition *)",
+      "Bash(grep -n \"newcommand{\\\\\\\\\\\\\\\\c[A-Z]}\" high-velocity-vehicle-intent-decomposition.tex)",
+      "Bash(grep -n \"\\\\\\\\\\\\\\\\cP\\\\|\\\\\\\\\\\\\\\\cI\\\\|\\\\\\\\\\\\\\\\cH\\\\|\\\\\\\\\\\\\\\\cM\\\\|\\\\\\\\\\\\\\\\cT\\\\|\\\\\\\\\\\\\\\\cS\\\\|\\\\\\\\\\\\\\\\cR\" high-velocity-vehicle-intent-decomposition.tex)"
     ]
   }
 }

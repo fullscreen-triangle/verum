@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: high-velocity-vehicle-intent-decomposition.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+You've used 89 entries,
+            2118 wiz_defined-function locations,
+            923 strings with 16519 characters,
+and the built_in function-call counts, 25939 in all, are:
+= -- 2435
+> -- 1324
+< -- 4
++ -- 544
+- -- 440
+* -- 1619
+:= -- 4516
+add.period$ -- 267
+call.type$ -- 89
+change.case$ -- 453
+chr.to.int$ -- 0
+cite$ -- 89
+duplicate$ -- 1040
+empty$ -- 2060
+format.name$ -- 440
+if$ -- 5324
+int.to.chr$ -- 0
+int.to.str$ -- 89
+missing$ -- 134
+newline$ -- 448
+num.names$ -- 178
+pop$ -- 631
+preamble$ -- 1
+purify$ -- 393
+quote$ -- 0
+skip$ -- 633
+stack$ -- 0
+substring$ -- 1148
+swap$ -- 117
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 254
+warning$ -- 0
+while$ -- 233
+width$ -- 91
+write$ -- 941

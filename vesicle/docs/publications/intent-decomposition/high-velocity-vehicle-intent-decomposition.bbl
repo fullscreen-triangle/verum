@@ -1,0 +1,491 @@
+\begin{thebibliography}{10}
+
+\bibitem{acebron2005kuramoto}
+Juan~A. Acebr{\'o}n, L.~L. Bonilla, Conrado~J. P{\'e}rez~Vicente, F{\'e}lix
+  Ritort, and Renato Spigler.
+\newblock The {K}uramoto model: A simple paradigm for synchronization
+  phenomena.
+\newblock {\em Reviews of Modern Physics}, 77:137--185, 2005.
+
+\bibitem{aftalion2014train}
+Amandine Aftalion and Emmanuel Tr{\'e}lat.
+\newblock How to run 100 meters.
+\newblock {\em SIAM Journal on Applied Mathematics}, 74(5):1285--1306, 2014.
+
+\bibitem{anderson1971linear}
+Brian D.~O. Anderson and John~B. Moore.
+\newblock Linear optimal control.
+\newblock {\em Prentice-Hall}, 1971.
+
+\bibitem{anderson2010aerodynamics}
+John~D. Anderson.
+\newblock {\em Fundamentals of Aerodynamics}.
+\newblock McGraw-Hill, 5 edition, 2010.
+
+\bibitem{astrom2010feedback}
+Karl~J. {\AA}str{\"o}m and Richard~M. Murray.
+\newblock {\em Feedback Systems: An Introduction for Scientists and Engineers}.
+\newblock Princeton University Press, 2010.
+
+\bibitem{bansal2019chauffeurnet}
+Mayank Bansal, Alex Krizhevsky, and Abhijit Ogale.
+\newblock {ChauffeurNet}: Learning to drive by imitating the best and
+  synthesizing the worst.
+\newblock {\em Robotics: Science and Systems}, 2019.
+
+\bibitem{bartlett2002rademacher}
+Peter~L. Bartlett and Shahar Mendelson.
+\newblock Rademacher and gaussian complexities: Risk bounds and structural
+  results.
+\newblock {\em Journal of Machine Learning Research}, 3:463--482, 2002.
+
+\bibitem{beckman1991physics}
+Brian Beckman.
+\newblock {\em The Physics of Racing}.
+\newblock Self-published, 1991.
+
+\bibitem{bellemare2013arcade}
+Marc~G. Bellemare, Yavar Naddaf, Joel Veness, and Michael Bowling.
+\newblock The arcade learning environment: An evaluation platform for general
+  agents.
+\newblock {\em Journal of Artificial Intelligence Research}, 47:253--279, 2013.
+
+\bibitem{bertsekas2012dynamic}
+Dimitri~P. Bertsekas.
+\newblock {\em Dynamic Programming and Optimal Control}.
+\newblock Athena Scientific, 4 edition, 2012.
+
+\bibitem{betts2010practical}
+John~T. Betts.
+\newblock {\em Practical Methods for Optimal Control and Estimation Using
+  Nonlinear Programming}.
+\newblock SIAM, 2 edition, 2010.
+
+\bibitem{biegler2010nonlinear}
+Lorenz~T. Biegler.
+\newblock {\em Nonlinear Programming: Concepts, Algorithms, and Applications to
+  Chemical Processes}.
+\newblock SIAM, 2010.
+
+\bibitem{bojarski2016endtoend}
+Mariusz Bojarski, Davide Del~Testa, Daniel Dworakowski, Bernhard Firner, Beat
+  Flepp, Prasoon Goyal, Lawrence~D. Jackel, Mathew Monfort, Urs Muller, Jiakai
+  Zhang, et~al.
+\newblock End to end learning for self-driving cars.
+\newblock {\em arXiv preprint arXiv:1604.07316}, 2016.
+
+\bibitem{bryson1975applied}
+Arthur~E. Bryson and Yu-Chi Ho.
+\newblock {\em Applied Optimal Control: Optimization, Estimation, and Control}.
+\newblock Hemisphere Publishing, 1975.
+
+\bibitem{card1983psychology}
+Stuart~K. Card, Thomas~P. Moran, and Allen Newell.
+\newblock {\em The Psychology of Human-Computer Interaction}.
+\newblock Lawrence Erlbaum Associates, 1983.
+
+\bibitem{casanova2000minimum}
+D.~Casanova.
+\newblock On minimum time vehicle manoeuvring: The theoretical optimal lap.
+\newblock {\em PhD Thesis, Cranfield University}, 2000.
+
+\bibitem{codevilla2018endtoend}
+Felipe Codevilla, Matthias M{\"u}ller, Antonio L{\'o}pez, Vladlen Koltun, and
+  Alexey Dosovitskiy.
+\newblock End-to-end driving via conditional imitation learning.
+\newblock {\em IEEE International Conference on Robotics and Automation}, 2018.
+
+\bibitem{coles2001introduction}
+Stuart Coles.
+\newblock {\em An Introduction to Statistical Modeling of Extreme Values}.
+\newblock Springer, 2001.
+
+\bibitem{colledanchise2018behavior}
+Michele Colledanchise and Petter {\"O}gren.
+\newblock {\em Behavior Trees in Robotics and AI: An Introduction}.
+\newblock CRC Press, 2018.
+
+\bibitem{cramer1946mathematical}
+Harald Cram{\'e}r.
+\newblock {\em Mathematical Methods of Statistics}.
+\newblock Princeton University Press, 1946.
+
+\bibitem{dehaan2006extreme}
+Laurens de~Haan and Ana Ferreira.
+\newblock {\em Extreme Value Theory: An Introduction}.
+\newblock Springer, 2006.
+
+\bibitem{doyon2005reorganization}
+Julien Doyon and Habib Benali.
+\newblock Reorganization and plasticity in the adult brain during learning of
+  motor skills.
+\newblock {\em Current Opinion in Neurobiology}, 15:161--167, 2005.
+
+\bibitem{eccles1957physiology}
+John~C. Eccles.
+\newblock {\em The Physiology of Nerve Cells}.
+\newblock Johns Hopkins Press, 1957.
+
+\bibitem{efron1993bootstrap}
+Bradley Efron and Robert~J. Tibshirani.
+\newblock {\em An Introduction to the Bootstrap}.
+\newblock Chapman \& Hall/CRC, 1993.
+
+\bibitem{ehsani2018modern}
+Mehrdad Ehsani, Yimin Gao, Stefano Longo, and Kambiz Ebrahimi.
+\newblock {\em Modern Electric, Hybrid Electric, and Fuel Cell Vehicles}.
+\newblock CRC Press, 3 edition, 2018.
+
+\bibitem{embrechts1997modelling}
+Paul Embrechts, Claudia Kl{\"u}ppelberg, and Thomas Mikosch.
+\newblock {\em Modelling Extremal Events for Insurance and Finance}.
+\newblock Springer, 1997.
+
+\bibitem{enoka2015neuromechanics}
+Roger~M. Enoka.
+\newblock {\em Neuromechanics of Human Movement}.
+\newblock Human Kinetics, 5 edition, 2015.
+
+\bibitem{ergast2023docs}
+{Ergast Developer API}.
+\newblock Ergast {F1} {API} documentation.
+\newblock \url{http://ergast.com/mrd/}, 2023.
+
+\bibitem{fastf12023docs}
+{FastF1 Contributors}.
+\newblock {FastF1}: A {Python} package for accessing and analysing {F}ormula 1
+  results, schedules, timing data, and telemetry.
+\newblock \url{https://docs.fastf1.dev/}, 2023.
+
+\bibitem{fia2023sporting}
+{F{\'e}d{\'e}ration Internationale de l'Automobile}.
+\newblock 2023 {FIA} formula one sporting regulations.
+\newblock Technical report, FIA, 2023.
+
+\bibitem{fia2023technical}
+{F{\'e}d{\'e}ration Internationale de l'Automobile}.
+\newblock 2023 {FIA} formula one technical regulations.
+\newblock Technical report, FIA, 2023.
+
+\bibitem{fisher1928limiting}
+Ronald~A. Fisher and Leonard H.~C. Tippett.
+\newblock Limiting forms of the frequency distribution of the largest or
+  smallest member of a sample.
+\newblock {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, 24(2):180--190, 1928.
+
+\bibitem{genta1997motor}
+Giancarlo Genta.
+\newblock {\em Motor Vehicle Dynamics: Modeling and Simulation}.
+\newblock World Scientific, 1997.
+
+\bibitem{gillespie1992fundamentals}
+Thomas~D. Gillespie.
+\newblock {\em Fundamentals of Vehicle Dynamics}.
+\newblock SAE International, 1992.
+
+\bibitem{guiggiani2014science}
+Massimo Guiggiani.
+\newblock {\em The Science of Vehicle Dynamics: Handling, Braking, and Ride of
+  Road and Race Cars}.
+\newblock Springer, 2014.
+
+\bibitem{gumbel1958statistics}
+Emil~J. Gumbel.
+\newblock {\em Statistics of Extremes}.
+\newblock Columbia University Press, 1958.
+
+\bibitem{heywood2018internal}
+John~B. Heywood.
+\newblock {\em Internal Combustion Engine Fundamentals}.
+\newblock McGraw-Hill, 2 edition, 2018.
+
+\bibitem{hill1925muscular}
+Archibald~V. Hill.
+\newblock The physiological basis of athletic records.
+\newblock {\em Nature}, 116:544--548, 1925.
+
+\bibitem{hoerner1965fluid}
+Sighard~F. Hoerner.
+\newblock {\em Fluid-Dynamic Drag: Practical Information on Aerodynamic Drag
+  and Hydrodynamic Resistance}.
+\newblock Hoerner Fluid Dynamics, 1965.
+
+\bibitem{jazar2017vehicle}
+Reza~N. Jazar.
+\newblock {\em Vehicle Dynamics: Theory and Application}.
+\newblock Springer, 3 edition, 2017.
+
+\bibitem{kahneman2011thinking}
+Daniel Kahneman.
+\newblock {\em Thinking, Fast and Slow}.
+\newblock Farrar, Straus and Giroux, 2011.
+
+\bibitem{kandel2013principles}
+Eric~R. Kandel, James~H. Schwartz, Thomas~M. Jessell, Steven~A. Siegelbaum, and
+  A.~J. Hudspeth.
+\newblock {\em Principles of Neural Science}.
+\newblock McGraw-Hill, 5 edition, 2013.
+
+\bibitem{katz2006aerodynamics}
+Joseph Katz.
+\newblock {\em Race Car Aerodynamics: Designing for Speed}.
+\newblock Bentley Publishers, 2 edition, 2006.
+
+\bibitem{kay2020radical}
+John Kay and Mervyn King.
+\newblock {\em Radical Uncertainty: Decision-Making Beyond the Numbers}.
+\newblock W. W. Norton, 2020.
+
+\bibitem{kay1993fundamentals}
+Steven~M. Kay.
+\newblock {\em Fundamentals of Statistical Signal Processing: Estimation
+  Theory}.
+\newblock Prentice Hall, 1993.
+
+\bibitem{keller1973theory}
+Joseph~B. Keller.
+\newblock A theory of competitive running.
+\newblock {\em Physics Today}, 26(9):43--47, 1973.
+
+\bibitem{kelly2008controlvehicle}
+Daniel~P. Kelly and Robin~S. Sharp.
+\newblock Time-optimal control of the race car: A numerical method to emulate
+  the ideal driver.
+\newblock {\em Vehicle System Dynamics}, 48(12):1461--1474, 2008.
+
+\bibitem{kendall2019learning}
+Alex Kendall, Jeffrey Hawke, David Janz, Przemyslaw Mazur, Daniele Reda,
+  John-Mark Allen, Vinh-Dieu Lam, Alex Bewley, and Amar Shah.
+\newblock Learning to drive in a day.
+\newblock {\em IEEE International Conference on Robotics and Automation}, 2019.
+
+\bibitem{kirk2012optimal}
+Donald~E. Kirk.
+\newblock {\em Optimal Control Theory: An Introduction}.
+\newblock Dover Publications, 2012.
+
+\bibitem{knight1921risk}
+Frank~H. Knight.
+\newblock {\em Risk, Uncertainty, and Profit}.
+\newblock Houghton Mifflin, 1921.
+
+\bibitem{kuramoto1984chemical}
+Yoshiki Kuramoto.
+\newblock {\em Chemical Oscillations, Waves, and Turbulence}.
+\newblock Springer-Verlag, 1984.
+
+\bibitem{larminie2012electric}
+James Larminie and John Lowry.
+\newblock {\em Electric Vehicle Technology Explained}.
+\newblock Wiley, 2 edition, 2012.
+
+\bibitem{levinson2011junior}
+Jesse Levinson, Jake Askeland, Jan Becker, Jennifer Dolson, David Held, Soeren
+  Kammel, J.~Zico Kolter, Dirk Langer, Oliver Pink, Vaughan Pratt, et~al.
+\newblock Towards fully autonomous driving: Systems and algorithms.
+\newblock {\em IEEE Intelligent Vehicles Symposium}, pages 163--168, 2011.
+
+\bibitem{liming2013kolmogorov}
+Ming Li and Paul M.~B. Vit{\'a}nyi.
+\newblock {\em An Introduction to {K}olmogorov Complexity and Its
+  Applications}.
+\newblock Springer, 3 edition, 2013.
+
+\bibitem{limebeer2015optimal}
+David J.~N. Limebeer, G.~Perantoni, and Anil~V. Rao.
+\newblock Optimal control of formula one car energy recovery systems.
+\newblock {\em International Journal of Control}, 87(10):2065--2080, 2015.
+
+\bibitem{liniger2015optimization}
+Alexander Liniger, Alexander Domahidi, and Manfred Morari.
+\newblock Optimization-based autonomous racing of 1:43 scale {RC} cars.
+\newblock {\em Optimal Control Applications and Methods}, 36(5):628--647, 2015.
+
+\bibitem{milliken1995race}
+William~F. Milliken and Douglas~L. Milliken.
+\newblock {\em Race Car Vehicle Dynamics}.
+\newblock SAE International, 1995.
+
+\bibitem{mnih2015human}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, et~al.
+\newblock Human-level control through deep reinforcement learning.
+\newblock {\em Nature}, 518(7540):529--533, 2015.
+
+\bibitem{mureika2001phenomenological}
+Jonas~R. Mureika.
+\newblock A simple model for predicting sprint-race times accounting for energy
+  loss on the curve.
+\newblock {\em Canadian Journal of Physics}, 79:697--713, 2001.
+
+\bibitem{ng2000algorithms}
+Andrew~Y. Ng and Stuart~J. Russell.
+\newblock Algorithms for inverse reinforcement learning.
+\newblock In {\em Proceedings of the 17th International Conference on Machine
+  Learning}, pages 663--670, 2000.
+
+\bibitem{nielsen1993response}
+Jakob Nielsen.
+\newblock {\em Usability Engineering}.
+\newblock Morgan Kaufmann, 1993.
+
+\bibitem{pacejka2012tyre}
+Hans~B. Pacejka.
+\newblock {\em Tyre and Vehicle Dynamics}.
+\newblock Butterworth-Heinemann, 3 edition, 2012.
+
+\bibitem{perantoni2014optimal}
+Giacomo Perantoni and David J.~N. Limebeer.
+\newblock Optimal control for a {F}ormula {O}ne car with variable parameters.
+\newblock {\em Vehicle System Dynamics}, 52(5):653--678, 2014.
+
+\bibitem{pikovsky2001synchronization}
+Arkady Pikovsky, Michael Rosenblum, and J{\"u}rgen Kurths.
+\newblock {\em Synchronization: A Universal Concept in Nonlinear Sciences}.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{pirelli2023specs}
+{Pirelli Tyre S.p.A.}
+\newblock 2023 {F}ormula 1 tyre specifications.
+\newblock Technical report, Pirelli, 2023.
+
+\bibitem{pontryagin1962mathematical}
+Lev~S. Pontryagin, V.~G. Boltyanskii, R.~V. Gamkrelidze, and E.~F. Mishchenko.
+\newblock {\em The Mathematical Theory of Optimal Processes}.
+\newblock Interscience, 1962.
+
+\bibitem{rajamani2011vehicle}
+Rajesh Rajamani.
+\newblock {\em Vehicle Dynamics and Control}.
+\newblock Springer, 2 edition, 2011.
+
+\bibitem{rosolia2019learning}
+Ugo Rosolia and Francesco Borrelli.
+\newblock Learning model predictive control for iterative tasks. {A}
+  data-driven control framework.
+\newblock {\em IEEE Transactions on Automatic Control}, 63(7):1883--1896, 2019.
+
+\bibitem{russell2020artificial}
+Stuart Russell and Peter Norvig.
+\newblock {\em Artificial Intelligence: A Modern Approach}.
+\newblock Pearson, 4 edition, 2020.
+
+\bibitem{sae2021j3016}
+{SAE International}.
+\newblock Taxonomy and definitions for terms related to driving automation
+  systems for on-road motor vehicles.
+\newblock Technical Report J3016, {SAE}, 2021.
+
+\bibitem{saltelli2008global}
+Andrea Saltelli, Marco Ratto, Terry Andres, Francesca Campolongo, Jessica
+  Cariboni, Debora Gatelli, Michaela Saisana, and Stefano Tarantola.
+\newblock {\em Global Sensitivity Analysis: The Primer}.
+\newblock Wiley, 2008.
+
+\bibitem{savage1972foundations}
+Leonard~J. Savage.
+\newblock {\em The Foundations of Statistics}.
+\newblock Dover, 2 edition, 1972.
+
+\bibitem{schlichting2017boundary}
+Hermann Schlichting and Klaus Gersten.
+\newblock {\em Boundary-Layer Theory}.
+\newblock Springer, 9 edition, 2017.
+
+\bibitem{schmidt2019motor}
+Richard~A. Schmidt, Timothy~D. Lee, Carolee~J. Winstein, Gabriele Wulf, and
+  Howard~N. Zelaznik.
+\newblock {\em Motor Control and Learning: A Behavioral Emphasis}.
+\newblock Human Kinetics, 6 edition, 2019.
+
+\bibitem{schwarting2018planning}
+Wilko Schwarting, Javier Alonso-Mora, and Daniela Rus.
+\newblock Planning and decision-making for autonomous vehicles.
+\newblock {\em Annual Review of Control, Robotics, and Autonomous Systems},
+  1:187--210, 2018.
+
+\bibitem{shadmehr2005biology}
+Reza Shadmehr and Sandro Mussa-Ivaldi.
+\newblock {\em Biological Learning and Control: How the Brain Builds
+  Representations, Predicts Events, and Makes Decisions}.
+\newblock MIT Press, 2012.
+
+\bibitem{sobol1993sensitivity}
+Ilya~M. Sobol.
+\newblock Sensitivity estimates for nonlinear mathematical models.
+\newblock {\em Mathematical Modelling and Computational Experiments},
+  1:407--414, 1993.
+
+\bibitem{stone1999introduction}
+Richard Stone.
+\newblock {\em Introduction to Internal Combustion Engines}.
+\newblock Palgrave Macmillan, 3 edition, 1999.
+
+\bibitem{strogatz2000kuramoto}
+Steven~H. Strogatz.
+\newblock From {K}uramoto to {C}rawford: Exploring the onset of synchronization
+  in populations of coupled oscillators.
+\newblock {\em Physica D}, 143:1--20, 2000.
+
+\bibitem{thrun2006stanley}
+Sebastian Thrun, Michael Montemerlo, Hendrik Dahlkamp, David Stavens, Andrei
+  Aron, James Diebel, Philip Fong, John Gale, Morgan Halpenny, Gabriel
+  Hoffmann, et~al.
+\newblock Stanley: The robot that won the {DARPA} grand challenge.
+\newblock {\em Journal of Field Robotics}, 23(9):661--692, 2006.
+
+\bibitem{tibshirani2007bootstrap}
+Robert~J. Tibshirani and Bradley Efron.
+\newblock Bootstrap methods for standard errors, confidence intervals, and
+  other measures of statistical accuracy.
+\newblock {\em Statistical Science}, 1(1):54--77, 2007.
+
+\bibitem{tremlett2015minimum}
+Alexander Tremlett and David J.~N. Limebeer.
+\newblock Minimum lap-time solutions for a single-seater race car with active
+  suspension.
+\newblock {\em Vehicle System Dynamics}, 54(12):1680--1706, 2015.
+
+\bibitem{urmson2008boss}
+Chris Urmson, Joshua Anhalt, Drew Bagnell, Christopher Baker, Robert Bittner,
+  M.~N. Clark, John Dolan, Dave Duggins, Tugrul Galatali, Chris Geyer, et~al.
+\newblock Autonomous driving in urban environments: Boss and the urban
+  challenge.
+\newblock {\em Journal of Field Robotics}, 25(8):425--466, 2008.
+
+\bibitem{velenis2008minimum}
+Efstathios Velenis and Panagiotis Tsiotras.
+\newblock Minimum-time travel for a vehicle with acceleration limits:
+  Theoretical analysis and receding-horizon implementation.
+\newblock {\em Journal of Optimization Theory and Applications}, 138:275--296,
+  2008.
+
+\bibitem{wasserman2013all}
+Larry Wasserman.
+\newblock {\em All of Statistics: A Concise Course in Statistical Inference}.
+\newblock Springer, 2013.
+
+\bibitem{willingham1998motor}
+Daniel~B. Willingham.
+\newblock {\em A Neuropsychological Theory of Motor Skill Learning}.
+\newblock Psychological Review, 1998.
+
+\bibitem{wong2008theory}
+J.~Y. Wong.
+\newblock {\em Theory of Ground Vehicles}.
+\newblock Wiley, 4 edition, 2008.
+
+\bibitem{wright2001formula}
+Peter Wright.
+\newblock {\em Formula 1 Technology}.
+\newblock SAE International, 2001.
+
+\bibitem{ziebart2008maximum}
+Brian~D. Ziebart, Andrew~L. Maas, J.~Andrew Bagnell, and Anind~K. Dey.
+\newblock Maximum entropy inverse reinforcement learning.
+\newblock In {\em AAAI Conference on Artificial Intelligence}, pages
+  1433--1438, 2008.
+
+\end{thebibliography}
