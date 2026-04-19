@@ -24,6 +24,7 @@ const NAV_GROUPS = [
     items: [
       { href: "/philharmonic", title: "Philharmonic" },
       { href: "/f1", title: "F1 Bahrain" },
+      { href: "/intent", title: "Intent Decomp." },
       { href: "/dashboard", title: "Dashboard" },
     ],
   },
@@ -124,6 +125,7 @@ const ALL_MOBILE_LINKS = [
   { href: "/systems", title: "Systems" },
   { href: "/philharmonic", title: "Philharmonic" },
   { href: "/f1", title: "F1 Bahrain" },
+  { href: "/intent", title: "Intent Decomp." },
   { href: "/dashboard", title: "Dashboard" },
   { href: "/navigation", title: "Navigation" },
   { href: "/network", title: "Network" },
